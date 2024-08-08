@@ -120,7 +120,7 @@ const UpcomingEvents = () => {
   };
 
   const viewCart = () => {
-    navigate('/cart'); // Replace '/cart' with the path to your cart page
+    navigate('/shops'); // Replace '/cart' with the path to your cart page
   };
 
   const getImageSource = (imageBase64) => {
