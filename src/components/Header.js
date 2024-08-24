@@ -35,12 +35,6 @@ const Header = () => {
                     <span></span>
                 </button>
                 <div className={`header-right ${isMenuOpen ? 'active' : ''}`}>
-                    <nav className="home-nav-links">
-                        <button onClick={() => handleNavigation("/shops", 'shops')}>SHOP</button>
-                        <button onClick={() => handleNavigation("/parents", 'parents')}>PARENTS</button>
-                        <button onClick={() => handleNavigation("/providers", 'providers')}>PROVIDERS</button>
-                        <button onClick={() => handleNavigation("/about", 'about')}>ABOUT</button>
-                    </nav>
                     <button onClick={() => handleNavigation("/profile", 'profile')}>
                         <div className="profile-icon">
                             <img className='profile-icon' src={profile} alt="Profile" />

@@ -96,14 +96,6 @@
     padding: 0;
 }
 
-.menu-toggle span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: #000000;
-    margin: 5px 0;
-}
-
 /* Dropdown styles */
 .dropdown-one {
     position: relative;

@@ -94,23 +94,6 @@ const BusinessSignUp = ({ handleNavigation }) => {
         <h2>Business Sign-up</h2>
         <div className='side-by-side'>
         <input type="text" name="username" value={formData.username} onChange={handleChange} placeholder="Academy Name" required />
-        <div className="form-group">
-          <select
-            id="academyType"
-            name="academyType"
-            value={formData.academyType}
-            onChange={handleChange}
-            required
-            className='academy-type-selector'
-          >
-            <option value="">Select Academy Type</option>
-            {academyTypes.map((type) => (
-              <option key={type._id} value={type.name}>
-                {type.name}
-              </option>
-            ))}
-          </select>
-        </div>
         </div>
         <div className='side-by-side'>
         <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="E-mail ID" required />
@@ -121,19 +104,13 @@ const BusinessSignUp = ({ handleNavigation }) => {
           <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} placeholder="Last name" required />
         </div>
         
-        <div className='side-by-side'>
         <label className='sign-in-label' htmlFor="crFile">CR Doc</label>
         <input type="file" name="crFile" onChange={handleChange} accept=".pdf" />
         <label className='sign-in-label' htmlFor="idCard">ID Card</label>
         <input type="file" name="idCard" onChange={handleChange} accept=".pdf" />
-        </div>
         
-        <div className='side-by-side'>
         <label className='sign-in-label' htmlFor="logo">Business Logo</label>
         <input type="file" name="logo" onChange={handleChange} accept=".png, .jpg, .jpeg" />
-        <label className='sign-in-label' htmlFor="academyImg">Academy Image</label>
-        <input type="file" name="academyImg" onChange={handleChange} accept=".png, .jpg, .jpeg" />
-        </div>
         <textarea name="description" value={formData.description} onChange={handleChange} placeholder="Enter description here..." rows="4" cols="50"/>
         <div className='side-by-side'>
         <input type="url" name="location" value={formData.location} onChange={handleChange} placeholder="Enter location URL" />
