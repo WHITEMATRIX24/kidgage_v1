@@ -5,6 +5,11 @@
 .badge-image img{
   width: 85%;
 }
+.badge-image-res img{
+  width: 85%;
+  display: none;
+}
+
 .list-your-academy-btn{
   position: absolute;
   margin-left: -300px;

@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./TopProviders.css";
 import badge from './assets/images/badge.png';
+import badgem from './assets/images/badgem.png';
+
 
 const TopProviders = () => {
   const [position, setPosition] = useState(0);
@@ -100,6 +102,10 @@ const TopProviders = () => {
       </div>
       <div className="badge-image">
         <img alt="badge" src={badge}></img>
+        <button className="list-your-academy-btn">List Your Academy</button>
+      </div>
+      <div className="badge-image-mobile">
+        <img alt="badge" src={badgem}></img>
         <button className="list-your-academy-btn">List Your Academy</button>
       </div>
     </div>
