@@ -240,3 +240,9 @@
     margin: 0 10px;
   }
 }
+@media (max-width:400px) {
+  .search-option {
+    font-size: 11px;
+    margin: 0 8px;
+  }
+}

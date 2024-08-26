@@ -106,7 +106,7 @@ const TopProviders = () => {
       </div>
       <div className="badge-image-mobile">
         <img alt="badge" src={badgem}></img>
-        <button className="list-your-academy-btn">List Your Academy</button>
+        <button className="list-your-academy-btn1">List Your Academy</button>
       </div>
     </div>
   );

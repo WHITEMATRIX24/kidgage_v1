@@ -278,10 +278,6 @@
     width: 60%;
     margin: 10px;
   }
-  .floating-btn{
-    bottom: 100px;
-
-  }
 }
 
 @media (min-width: 600px) {

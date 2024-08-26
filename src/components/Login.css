@@ -15,6 +15,13 @@
     position:fixed;
 
   }
+  @media (max-width:360px) {
+    .login-container{
+      right: -160px;
+      top: 280px;
+    }
+    
+  }
   
   .close-btn-minus {
     border: none;

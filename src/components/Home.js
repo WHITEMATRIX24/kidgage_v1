@@ -9,7 +9,6 @@ import TopProviders from './TopProviders';
 import UpcomingEvents from './UpcomingEvents';
 import PosterUploader from './PosterUploader';
 import Footer from './Footer';
-import Footer2 from './Footer2';
 
 import './Home.css';
 
@@ -24,7 +23,6 @@ const Home = () => {
       <TopProviders />
       <UpcomingEvents />
       <Footer />
-      <Footer2/>
     </div>
   );
 };
