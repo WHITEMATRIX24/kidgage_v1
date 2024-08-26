@@ -1,19 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import './ActivityInfo.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTheaterMasks, faMusic, faLocationArrow, faBookmark ,faHome, faChevronRight} from '@fortawesome/free-solid-svg-icons';
+import { faTheaterMasks, faMusic, faLocationArrow, faBookmark } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import Footer from './Footer';
 import Footer2 from './Footer2';
 import Calendar from './Calendar';
-import ActivityImg from './assets/images/football.jpg';
+import ActivityImg1 from './assets/images/football.jpg';
+import ActivityImg2 from './assets/images/gymnastics.jpg';
+import ActivityImg3 from './assets/images/swimming.jpg';
 import LocationImg from './assets/images/mapimg.png';
+import providerImg from './assets/images/abc.png'
 import Header2 from './Header2';
-
 const ActivityInfo = () => {
     const [course, setCourse] = useState(null);
     const [provider, setProvider] = useState(null);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [fade, setFade] = useState(true);
     const courseId = '66ab808e13912199840ad54b';
+
+    const activityImages = [ActivityImg1, ActivityImg2, ActivityImg3]; // Array of images
 
     useEffect(() => {
         const fetchCourseData = async () => {
@@ -34,6 +40,18 @@ const ActivityInfo = () => {
 
         fetchCourseData();
     }, []);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setFade(false); // Start fade-out transition
+            setTimeout(() => {
+                setCurrentImageIndex((prevIndex) => (prevIndex + 1) % activityImages.length);
+                setFade(true); // Start fade-in transition
+            }, 1000); // Duration of fade-out transition
+        }, 3000); // Total time for image change (2s display + 0.5s transition)
+
+        return () => clearInterval(interval); // Cleanup interval on component unmount
+    }, [activityImages.length]);
 
     const handleShare = () => {
         const shareData = {
@@ -59,16 +77,9 @@ const ActivityInfo = () => {
         <div className="activity-info-container">
             <Header2/>
             <div className="activity-info-gap"></div>
-            <div className="activity-info-gap"></div>
             <div className="activity-info-header-content">
                 <div className="activity-info-row">
                     <div className="activity-info-home">
-                        <div className="activity-info-home-icon">
-                            <FontAwesomeIcon icon={faHome} /> 
-                        </div>
-                        <div className="activity-info-home-icon-arr">
-                            <FontAwesomeIcon icon={faChevronRight} /> 
-                        </div>
                         <div className="activity-info-home-icon">
                             <FontAwesomeIcon icon={faTheaterMasks} /> Activity
                         </div>
@@ -78,11 +89,15 @@ const ActivityInfo = () => {
                             <FontAwesomeIcon icon={faLocationArrow} className='activity-info-share' /> Share
                         </button>
                         <button className="activity-info-action-btn">
-                            <FontAwesomeIcon icon={faBookmark} className='activity-info-share' /> Save
+                            <FontAwesomeIcon icon={faBookmark} className='activity-info-save' /> Save
                         </button>
                     </div>
                 </div>
                 <div className="activity-info-item">
+                    <div className="activity-info-icon">
+                        <FontAwesomeIcon icon={faTheaterMasks} />
+                    </div>
+                    <span className='activity-info-icon-text'>Sports & Games</span>
                     <div className="activity-info-icon">
                         <FontAwesomeIcon icon={faMusic} />
                     </div>
@@ -95,7 +110,7 @@ const ActivityInfo = () => {
                 <div className="activity-info-left-section">
                     <h2 className="activity-info-heading">{course.name}</h2>
                     <div className='activity-info-gap'></div>
-                    <img src={ActivityImg} alt="activity image" className='activity-info-image' />
+                    <img src={activityImages[currentImageIndex]} alt="activity image" className='activity-info-image' />
                     <h3 className="activity-info-heading">Description</h3>
                     <div className="activity-info-gap"></div>
                     <p className="activity-info-description">
@@ -107,21 +122,20 @@ const ActivityInfo = () => {
                 <div className="activity-info-right-section">
                     <div className="activity-info-gap"></div>
                     <div className="activity-info-gap"></div>
-                    <div className="activity-info-main-image">
-                        <Calendar providerName={`${provider.firstName} ${provider.lastName}`} courseName={course.name} />
-                    </div>
+                    <div className="activity-info-main-image"><Calendar /></div>
                     <h3 className="activity-info-provider-heading">Activity Provided By</h3>
                     <p className="activity-info-provider-details">
                         {provider.firstName} {provider.lastName} <br />
                         Registration number: {provider.licenseNo}
                     </p>
-                    <img src={`data:image/jpeg;base64,${provider.logo}`} alt="Provider" className="activity-info-provider-image" />
+                    {/* <img src={`data:image/jpeg;base64,${provider.logo}`} alt="Provider" className="activity-info-provider-image" /> */}
+                    <img src={providerImg} alt='providerimage' className='activity-info-provider-image' />
                     <h3 className="activity-info-trainers-heading">Trainers</h3>
                     <div className="activity-info-trainers">
-                        <img src={ActivityImg} alt="trainer-image" className="activity-info-trainer-image" />
-                        <img src={ActivityImg} alt="trainer-image" className="activity-info-trainer-image" />
-                        <img src={ActivityImg} alt="trainer-image" className="activity-info-trainer-image" />
-                        <img src={ActivityImg} alt="trainer-image" className="activity-info-trainer-image" />
+                        <img src={ActivityImg1} alt="trainer-image" className="activity-info-trainer-image" />
+                        <img src={ActivityImg1} alt="trainer-image" className="activity-info-trainer-image" />
+                        <img src={ActivityImg1} alt="trainer-image" className="activity-info-trainer-image" />
+                        <img src={ActivityImg1} alt="trainer-image" className="activity-info-trainer-image" />
                     </div>
                 </div>
             </div>

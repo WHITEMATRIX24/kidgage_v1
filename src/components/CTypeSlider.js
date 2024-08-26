@@ -111,7 +111,7 @@ const CtypeSlider = () => {
   };
 
   const handleSlideClick = (categoryName) => {
-    navigate('/activity-info', { state: { category: categoryName } });
+    navigate('/activityinfo', { state: { category: categoryName } });
   };
   
   return (
