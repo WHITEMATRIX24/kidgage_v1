@@ -20,7 +20,7 @@ const UpcomingEvents = () => {
     const fetchEvents = async () => {
       try {
         setLoading(true);
-        const response = await fetch('https://kidgage-backend.onrender.com/api/posters');
+        const response = await fetch('http://localhost:5000/api/posters');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

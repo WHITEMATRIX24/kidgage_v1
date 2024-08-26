@@ -26,7 +26,7 @@ const CheckOutGuest = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://kidgage-backend.onrender.com/api/personal/checkout', {
+      const response = await fetch('http://localhost:5000/api/personal/checkout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

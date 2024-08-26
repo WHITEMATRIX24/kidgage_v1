@@ -1,18 +1,13 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faFacebook, faTwitter, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import ChatbotPage from "./ChatbotPage";  // Import the ChatbotPage component
 import "./Footer.css";
 import chatbot from './assets/images/chatbot1.png';
 import logoimage from './assets/images/logobw.png';
 
 const Footer = () => {
-
-  const navigate = useNavigate();
-
-  const handleChatbotClick = () => {
-    navigate('/chatbotpage');
-  };
+  const [showChat, setShowChat] = useState(false); // State to control chatbot visibility
 
   return (
     <footer className="footer">
@@ -26,74 +21,48 @@ const Footer = () => {
         </div>
         <div className="footer-center">
           <div className="footer-social-icons">
-          <a
-            href="https://instagram.com"
-            className="footer-social-link"
-            aria-label="Instagram"
-          >
-            <FontAwesomeIcon icon={faInstagram} />
-          </a>
-          <a
-            href="https://facebook.com"
-            className="footer-social-link"
-            aria-label="Facebook"
-          >
-            <FontAwesomeIcon icon={faFacebook} />
-          </a>
-          <a
-            href="https://twitter.com"
-            className="footer-social-link"
-            aria-label="Twitter"
-          >
-            <FontAwesomeIcon icon={faTwitter} />
-          </a>
-          <a
-            href="https://linkedin.com"
-            className="footer-social-link"
-            aria-label="LinkedIn"
-          >
-            <FontAwesomeIcon icon={faLinkedin} />
-          </a>
-          <a
-            href="https://youtube.com"
-            className="footer-social-link"
-            aria-label="YouTube"
-          >
-            <FontAwesomeIcon icon={faYoutube} />
-          </a>
+            <a href="https://instagram.com" className="footer-social-link" aria-label="Instagram">
+              <FontAwesomeIcon icon={faInstagram} />
+            </a>
+            <a href="https://facebook.com" className="footer-social-link" aria-label="Facebook">
+              <FontAwesomeIcon icon={faFacebook} />
+            </a>
+            <a href="https://twitter.com" className="footer-social-link" aria-label="Twitter">
+              <FontAwesomeIcon icon={faTwitter} />
+            </a>
+            <a href="https://linkedin.com" className="footer-social-link" aria-label="LinkedIn">
+              <FontAwesomeIcon icon={faLinkedin} />
+            </a>
+            <a href="https://youtube.com" className="footer-social-link" aria-label="YouTube">
+              <FontAwesomeIcon icon={faYoutube} />
+            </a>
           </div>
           <div className="footer-links">
-            <a href="/terms" className="footer-link">
-              Terms & Conditions
-            </a>
+            <a href="/terms" className="footer-link">Terms & Conditions</a>
             <span className="footer-link-separator">|</span>
-            <a href="/privacy" className="footer-link">
-              Privacy Policy
-            </a>
+            <a href="/privacy" className="footer-link">Privacy Policy</a>
             <span className="footer-link-separator">|</span>
-            <a href="/contact" className="footer-link">
-              Contact Us
-            </a>
+            <a href="/contact" className="footer-link">Contact Us</a>
             <span className="footer-link-separator">|</span>
-            <a href="/blog" className="footer-link">
-              Blog
-            </a>
+            <a href="/blog" className="footer-link">Blog</a>
             <span className="footer-link-separator">|</span>
-            <a href="/careers" className="footer-link">
-              Careers
-            </a>
+            <a href="/careers" className="footer-link">Careers</a>
           </div>
           <div className="footer-copyright">Copyright ©2024 Kidgage</div>
         </div>
-    <div className="poster-uploader-logo">
-              <img
-                src={chatbot}
-                alt="Logo"
-                className="poster-uploader-logo-image"
-                onClick={handleChatbotClick}
-              />
-            </div>
-    </div>
+        <div className="poster-uploader-logo" onClick={() => setShowChat(!showChat)}>
+          <img
+            src={chatbot}
+            alt="Chatbot"
+            className="poster-uploader-logo-image"
+          />
+        </div>
+      </div>
+      {showChat &&
+        (<div className="chatbot-container">
+          <ChatbotPage />
+        </div>
+        )}
     </footer>
   );
 };

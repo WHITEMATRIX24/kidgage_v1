@@ -23,7 +23,8 @@ import AttendeeInfo from './components/AttendeeInfoPage';
 import WishlistPage from './components/WishListPage'; 
 import Shops from "./components/Shops";
 import Details from "./components/Details"; // Import the new Details component
-
+import ActivityInfo from "./components/ActivityInfo";
+import Activities from "./components/Activities";
 // Add any other paths from your secondary navbar here
 const secondaryNavPaths = ['/shops', '/parents', '/providers', '/about'];
 
@@ -70,6 +71,8 @@ function AppContent() {
         <Route path="/attendee-info" element={<AttendeeInfo />} />
         <Route path="/wishlist" element={<WishlistPage />} />
         <Route path="/shops" element={<Shops />} />
+        <Route path="/activity-info" element={<ActivityInfo />} />
+        <Route path="/activityinfo" element={<Activities />} />
         <Route path="/details" element={<Details />} />{" "}
 
       </Routes>

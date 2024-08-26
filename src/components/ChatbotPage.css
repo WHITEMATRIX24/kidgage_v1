@@ -1,14 +1,64 @@
+.container {
+  position: relative;
+  display: flex;
+  justify-content: flex-end; 
+  align-items: flex-start; 
+  padding: 20px; 
+}
+.chat-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+.rsc-ts-bubble {
+  background-color: #ff1493; 
+  color: #ffffff;
+}
 
-.chats-container {
-    position: relative;
-    display: flex;
-    justify-content: flex-end; 
-    align-items: flex-start; 
-    padding: 20px; 
-  }
-  .chat-icon {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-  }
+.rsc-os-bubble {
+  background-color: #ff1493; 
+  color: #000000; 
+}
+/* App.css */
+.rsc-os-option-element {
+  background-color: #ff1493;
+  color: #ffffff; 
+  border: none; 
+}
+
+.rsc-os-option-element:hover {
+  background-color: #ff1493; 
+}
+
+.rsc-header {
+  background-color: #ff1493 !important; 
+  color: white; 
+}
+.chatbot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.chatbot-wrapper {
+  position: relative;
+}
+
+.minimize-button {
+  position: absolute;
+  top: 13px;
+  left: 320px;
+  background-color: #ff1493; 
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 1001; 
+}
+
+.minimize-button:hover {
+  background-color: #e01381; 
+}

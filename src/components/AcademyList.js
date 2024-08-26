@@ -34,11 +34,11 @@ const AcademyList = () => {
 
   useEffect(() => {
     if (category) {
-      axios.get(`https://kidgage-backend.onrender.com/api/users/all/${category}`)
+      axios.get(`http://localhost:5000/api/users/all/${category}`)
         .then(response => {
           setProviders(response.data);
           const providerIds = response.data.map(provider => provider._id);
-          return axios.get('https://kidgage-backend.onrender.com/api/courses/by-providers', {
+          return axios.get('http://localhost:5000/api/courses/by-providers', {
             params: { providerIds }
           });
         })
@@ -61,8 +61,24 @@ const AcademyList = () => {
     setSelectedProviderIndex(selectedProviderIndex === index ? null : index);
   };
 
-  const handleBookButtonClick = (classId) => {
-    navigate('/slot-selection', { state: { classId } });
+  const handleClassCardClick = (classInfo) => {
+    // Navigate to SlotSelection component with the necessary state or params
+    navigate('/slot-selection', { state: { classInfo } });
+  };
+
+  const handleBookButtonClick = (event, classInfo, providerName) => {
+    event.stopPropagation(); // Prevent the card click event from being triggered
+
+    const whatsappNumber = '9447526695'; // Replace with your WhatsApp business number
+    
+    // Construct the message
+    const message = `Hello, I am interested in booking the class "${classInfo.name}" offered by "${providerName}". Could you please provide more details?`;
+    
+    // Encode the message for the WhatsApp URL
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+  
+    // Open WhatsApp with the pre-written message
+    window.open(whatsappURL, '_blank');
   };
 
   // Calculate the total number of classes
@@ -128,16 +144,20 @@ const AcademyList = () => {
               <div className='down-by-down-buttons'>
                 <a className='view-location-button' href={provider.location}><i className="fa fa-map-marker">view Location</i> </a>
                 <button className="see-classes-button" onClick={() => handleSeeClassesClick(index)}>
-  {selectedProviderIndex === index ? 'Hide classes' : 'See classes'}
-  <i className={`fa ${selectedProviderIndex === index ? 'fa-chevron-up' : 'fa-chevron-down'}`} style={{ marginLeft: '8px' }}></i>
-</button>
+                  {selectedProviderIndex === index ? 'Hide classes' : 'See classes'}
+                  <i className={`fa ${selectedProviderIndex === index ? 'fa-chevron-up' : 'fa-chevron-down'}`} style={{ marginLeft: '8px' }}></i>
+                </button>
 
               </div>
               {selectedProviderIndex === index && (
                 <div className="provider-classes">
                   {providerCourses.length > 0 ? (
                     providerCourses.map((classInfo, idx) => (
-                      <div className="provider-classes-card" key={idx}>
+                      <div 
+                        className="provider-classes-card" 
+                        key={idx}
+                        onClick={() => handleClassCardClick(classInfo)} // Navigate to SlotSelection on card click
+                      >
                         <div className="class-info">
                           <h3>{classInfo.name}</h3>
                           <div className="class-location">
@@ -150,7 +170,9 @@ const AcademyList = () => {
                               return daysOfWeek.indexOf(a) - daysOfWeek.indexOf(b);
                             }).join(', ')}</span>
                           </div>
-                          <button className="book-button" onClick={() => handleBookButtonClick(classInfo._id)}>
+                          <button 
+                            className="book-button" 
+                            onClick={(e) => handleBookButtonClick(e, classInfo, provider.username)}>
                             <i className="fa fa-bolt"></i> Book
                           </button>
                         </div>
