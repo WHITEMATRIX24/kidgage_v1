@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './UpcomingEvents.css';
+import ChatbotPage from "./ChatbotPage";  // Import the ChatbotPage component
 import { useNavigate } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import chatbotImage from './assets/images/chatbot.png'; // Import the chatbot image
+
 
 const months = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'];
 
@@ -15,7 +18,7 @@ const UpcomingEvents = () => {
   const [error, setError] = useState(null);
   const [showPopup, setShowPopup] = useState(false); // State for popup visibility
   const navigate = useNavigate();
-
+  const [showChat, setShowChat] = useState(false);
   useEffect(() => {
     const fetchEvents = async () => {
       try {
@@ -190,10 +193,16 @@ const UpcomingEvents = () => {
       <button className="floating-btn wishlist-btn" onClick={viewWishlist}>
         <i className="fa-solid fa-heart"></i>
       </button>
-      <button className="floating-btn cart-btn" onClick={viewCart}>
-        <i className="fa-solid fa-cart-shopping"></i>
+      <button className="floating-btn cart-btn" onClick={() => setShowChat(!showChat)}>
+        <img src={chatbotImage} alt="Chatbot" style={{ width: '40px', height: '40px' }} /> {/* Use the chatbot image */}
       </button>
+      {showChat &&
+        (<div className="chatbot-container">
+          <ChatbotPage />
+        </div>
+        )}
     </div>
+
   );
 }
 

@@ -4,9 +4,10 @@ import Button from './Button';
 import { Link } from 'react-router-dom';
 import './Login.css';
 
-const Login = () => {
+const Login = ({ closeMenu }) => {
   return (
     <div className="login-container">
+            <button className='close-btn-minus' onClick={closeMenu}>x</button>
       <Tabs>
         <div label={<><i className="fas fa-user tab-icon"></i> Parent</>}>
           <p>For parents and guardians</p>

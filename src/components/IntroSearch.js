@@ -64,10 +64,9 @@ const IntroSearch = () => {
   return (
     <div className="intro-search">
       <div className="intro-content">
-        <h1 className="intro-title">A world of adventure awaits!</h1>
+        <h1 className="intro-title">Find an activity your child will love</h1>
         <p className="intro-subtitle">
-          Instantly book from 1000s of activities for your children from trusted
-          providers
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas massa lacus,
         </p>
       </div>
       <div className="search-container" ref={searchBarRef}>

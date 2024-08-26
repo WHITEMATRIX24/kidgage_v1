@@ -165,7 +165,7 @@ const CustomDatePickerWrapper = styled.div`
   }
 `;
 
-const CustomCalendar = () => {
+const Calendar = ({ providerName, courseName }) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState("");
 
@@ -175,6 +175,20 @@ const CustomCalendar = () => {
   };
 
   const allowedDays = [1, 6]; // Mondays and Saturdays
+  const handleBookNowClick = () => {
+    if (!selectedDate || !selectedTime) {
+      alert("Please select a date and time.");
+      return;
+    }
+
+    const formattedDate = selectedDate.toLocaleDateString('en-GB'); // Format as dd-mm-yyyy
+    const whatsappNumber = '9447526695'; // Replace with your WhatsApp number
+
+    const message = `Hello, I would like to book the course "${courseName}" provided by "${providerName}" onDate: ${formattedDate}\nTime: ${selectedTime}. Can you help me with that?`;
+    
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappURL, '_blank');
+  };
 
   return (
     <CustomDatePickerWrapper>
@@ -213,7 +227,7 @@ const CustomCalendar = () => {
             <option value="10:15 - 11:00">10:15 - 11:00</option>
             <option value="11:15 - 12:00">11:15 - 12:00</option>
           </select>
-          <button>
+          <button onClick={handleBookNowClick}>
             Book Now <FaWhatsapp />
           </button>
         </div>
@@ -222,4 +236,4 @@ const CustomCalendar = () => {
   );
 };
 
-export default CustomCalendar;
+export default Calendar;

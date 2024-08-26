@@ -15,7 +15,7 @@
 }
 
 .activity-info-gap {
-    height: 1cm;
+    height: .8cm;
 }
 
 .activity-info-header-content {
@@ -47,6 +47,16 @@
     align-items: center;
     margin-right: 1cm;
 }
+.activity-info-home-icon-arr {
+    font-size: 16px;
+    color: #0d216f;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    margin-right: .5cm;
+    margin-left: -.5cm;
+}
+
 
 .activity-info-home-icon-icon {
     margin-right: 5px;

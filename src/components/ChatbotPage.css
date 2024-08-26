@@ -35,12 +35,7 @@
   background-color: #ff1493 !important; 
   color: white; 
 }
-.chatbot-container {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1000;
-}
+
 
 .chatbot-wrapper {
   position: relative;
@@ -56,7 +51,7 @@
   padding: 5px 10px;
   font-size: 16px;
   cursor: pointer;
-  z-index: 1001; 
+  z-index: 10001; 
 }
 
 .minimize-button:hover {

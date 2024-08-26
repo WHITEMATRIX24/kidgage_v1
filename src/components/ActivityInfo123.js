@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './ActivityInfo.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTheaterMasks, faMusic, faLocationArrow, faBookmark ,faHome, faChevronRight} from '@fortawesome/free-solid-svg-icons';
+import { faTheaterMasks, faMusic, faLocationArrow, faBookmark } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import Footer from './Footer';
 import Footer2 from './Footer2';
-import Calendar from './Calendar';
+import Calendar from './Calender';
 import ActivityImg from './assets/images/football.jpg';
 import LocationImg from './assets/images/mapimg.png';
-import Header2 from './Header2';
 
 const ActivityInfo = () => {
     const [course, setCourse] = useState(null);
@@ -57,18 +56,12 @@ const ActivityInfo = () => {
 
     return (
         <div className="activity-info-container">
-            <Header2/>
+            <header className="activity-info-header">KIDGAGE HEADER</header>
             <div className="activity-info-gap"></div>
             <div className="activity-info-gap"></div>
             <div className="activity-info-header-content">
                 <div className="activity-info-row">
                     <div className="activity-info-home">
-                        <div className="activity-info-home-icon">
-                            <FontAwesomeIcon icon={faHome} /> 
-                        </div>
-                        <div className="activity-info-home-icon-arr">
-                            <FontAwesomeIcon icon={faChevronRight} /> 
-                        </div>
                         <div className="activity-info-home-icon">
                             <FontAwesomeIcon icon={faTheaterMasks} /> Activity
                         </div>
@@ -78,11 +71,15 @@ const ActivityInfo = () => {
                             <FontAwesomeIcon icon={faLocationArrow} className='activity-info-share' /> Share
                         </button>
                         <button className="activity-info-action-btn">
-                            <FontAwesomeIcon icon={faBookmark} className='activity-info-share' /> Save
+                            <FontAwesomeIcon icon={faBookmark} className='activity-info-save' /> Save
                         </button>
                     </div>
                 </div>
                 <div className="activity-info-item">
+                    <div className="activity-info-icon">
+                        <FontAwesomeIcon icon={faTheaterMasks} />
+                    </div>
+                    <span className='activity-info-icon-text'>Sports & Games</span>
                     <div className="activity-info-icon">
                         <FontAwesomeIcon icon={faMusic} />
                     </div>
@@ -107,9 +104,7 @@ const ActivityInfo = () => {
                 <div className="activity-info-right-section">
                     <div className="activity-info-gap"></div>
                     <div className="activity-info-gap"></div>
-                    <div className="activity-info-main-image">
-                        <Calendar providerName={`${provider.firstName} ${provider.lastName}`} courseName={course.name} />
-                    </div>
+                    <div className="activity-info-main-image"><Calendar /></div>
                     <h3 className="activity-info-provider-heading">Activity Provided By</h3>
                     <p className="activity-info-provider-details">
                         {provider.firstName} {provider.lastName} <br />

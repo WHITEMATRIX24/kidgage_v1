@@ -5,7 +5,61 @@
 .badge-image img{
   width: 85%;
 }
+.list-your-academy-btn{
+  position: absolute;
+  margin-left: -300px;
+  margin-top: 3%;
+  background-color: white;
+  padding: 10px;
+  font-size: 22px;
+  color: #0097b2;
+  font-weight: bold;
+  border: none;
+  border-radius:40px ;
+}
+@media (max-width:1700px) {
+  .list-your-academy-btn{
+    margin-top: 2.5%;
 
+  }
+}
+@media (max-width:1200px) {
+  .list-your-academy-btn{
+    margin-top: 2.5%;
+    font-size: 18px;
+    margin-left: -250px;
+  }
+}
+@media (max-width:1000px) {
+  .list-your-academy-btn{
+    margin-top: 2%;
+    font-size: 18px;
+    margin-left: -200px;
+  }
+}
+@media (max-width:800px) {
+  .list-your-academy-btn{
+    margin-top: 1.5%;
+    font-size: 16px;
+    margin-left: -180px;
+  }
+}
+@media (max-width:600px) {
+  .list-your-academy-btn{
+    margin-top: 1.3%;
+    font-size: 12px;
+    padding: 8px;
+    margin-left: -130px;
+  }
+}
+@media (max-width:500px) {
+  .list-your-academy-btn{
+    margin-top: 1.2%;
+    font-size: 12px;
+    padding: 6px;
+    margin-left: -130px;
+  }
+}
 .top-providers {
   padding: 20px;
   text-align: center;
