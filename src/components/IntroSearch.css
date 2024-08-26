@@ -4,7 +4,7 @@
   color: white;
   display: flex;
   flex-direction: row;
-  justify-content:center;
+  justify-content: center;
   gap: 200px;
   align-items: center;
   text-align: center;
@@ -26,7 +26,7 @@
 .intro-subtitle {
   font-family: 'Poppins', sans-serif;
   font-size: 10px;
-  margin-top:  -12px ;
+  margin-top: -12px;
   opacity: 0.8;
 }
 
@@ -84,7 +84,8 @@
   color: #333;
 }
 
-.dropdown, .age-input-container {
+.dropdown,
+.age-input-container {
   position: absolute;
   top: 100%;
   left: 0;
@@ -96,7 +97,8 @@
   margin-top: 10px;
   padding: 10px 20px;
 }
- .calendar-dropdown {
+
+.calendar-dropdown {
   position: absolute;
   top: 100%;
   left: 50px;
@@ -147,71 +149,83 @@
   border-radius: 8px;
   overflow: hidden;
 }
+
 @media (max-width: 1500px) {
-  .intro-search{
+  .intro-search {
     gap: 50px;
   }
 }
+
 @media (max-width: 1250px) {
-  .intro-search{
-    gap:20px;
+  .intro-search {
+    gap: 20px;
     flex-direction: column;
   }
-  .search-container{
+
+  .search-container {
     margin-left: 300px;
   }
 }
+
 @media (max-width: 1080px) {
 
-  .search-container{
+  .search-container {
     margin-left: 280px;
   }
 }
+
 @media (max-width: 1050px) {
 
-  .search-container{
+  .search-container {
     margin-left: 260px;
   }
 }
+
 @media (max-width: 1020px) {
 
-  .search-container{
+  .search-container {
     margin-left: 240px;
   }
 }
+
 @media (max-width: 980px) {
 
-  .search-container{
+  .search-container {
     margin-left: 120px;
   }
 }
+
 @media (max-width: 870px) {
 
-  .search-container{
+  .search-container {
     margin-left: 50px;
   }
 }
+
 @media (max-width: 768px) {
-  .intro-search{
+  .intro-search {
     flex-direction: column;
     margin: 30px;
     padding: 20px;
   }
-  .search-container{
+
+  .search-container {
     margin-left: 0px;
   }
-  .intro-search-bar{
-    width: 95%;
+
+  .intro-search-bar {
+    width: 100%;
     display: flex;
     flex-direction: row;
     padding: 10px;
     height: 60px;
   }
+
   .search-option {
     font-size: 16px;
-    margin: 0 10px;
+    margin: 0 8px;
   }
-  
+
   .intro-title {
     font-size: 24px;
   }
@@ -221,7 +235,7 @@
   }
 
   .intro-search-bar {
-    flex-direction: column;
+    flex-direction: row;
     height: auto;
   }
 
@@ -231,18 +245,14 @@
   }
 
   .intro-search-button {
-    margin-top: 10px;
+    margin-top: 0px;
+    margin-right: 10px;
   }
 }
+
 @media (max-width:480px) {
   .search-option {
-    font-size: 12px;
-    margin: 0 10px;
-  }
-}
-@media (max-width:400px) {
-  .search-option {
     font-size: 11px;
-    margin: 0 8px;
+    margin: 0 5px;
   }
 }
