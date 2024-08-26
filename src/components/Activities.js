@@ -14,6 +14,13 @@ import Header2 from './Header2';
 import ico from './assets/images/ico.png';
 
 const Activities = () => {
+    const sendMessage = (activityName) => {
+        const message = `Hello! I am interested in booking the ${activityName} provided by Sparta Academy. Can you please provide more details?`;
+        const whatsappUrl = `https://wa.me/9447526695?text=${encodeURIComponent(message)}`;
+        console.log("WhatsApp URL:", whatsappUrl); // Log the URL for debugging
+        window.open(whatsappUrl, '_blank');
+    };
+    
     return (
         <>
             {/* Fixed Navbar */}
@@ -71,7 +78,10 @@ const Activities = () => {
                     </div>
                     {/* Activity Actions Section */}
                     <div className="activity-actions">
-                        <button className="book-now" style={{ backgroundColor: '#16D298' }}>
+                    <button 
+                            className="book-now" 
+                            style={{ backgroundColor: '#16D298' }}
+                            onClick={() => sendMessage('Summer Football Camp', 'Location Name')}>
                             <i className="fa-brands fa-whatsapp"></i>
                             <span style={{ marginLeft: '5px' }}>Book Now</span>
                         </button>
@@ -137,7 +147,10 @@ const Activities = () => {
                     </div>
                     {/* Activity Actions Section */}
                     <div className="activity-actions">
-                        <button className="book-now" style={{ backgroundColor: '#16D298' }}>
+                    <button 
+                            className="book-now" 
+                            style={{ backgroundColor: '#16D298' }}
+                            onClick={() => sendMessage('Summer Football Camp', 'Location Name')}>
                             <i className="fa-brands fa-whatsapp"></i>
                             <span style={{ marginLeft: '5px' }}>Book Now</span>
                         </button>
@@ -206,10 +219,13 @@ const Activities = () => {
                         </div>
                         {/* Activity Actions Section */}
                         <div className="activity-actions">
-                            <button className="book-now" style={{ backgroundColor: '#16D298' }}>
-                                <i className="fa-brands fa-whatsapp"></i>
-                                <span style={{ marginLeft: '5px' }}>Book Now</span>
-                            </button>
+                        <button 
+                            className="book-now" 
+                            style={{ backgroundColor: '#16D298' }}
+                            onClick={() => sendMessage('Summer Football Camp', 'Location Name')}>
+                            <i className="fa-brands fa-whatsapp"></i>
+                            <span style={{ marginLeft: '5px' }}>Book Now</span>
+                        </button>
                             <button className="share" style={{ backgroundColor: '#7889BC' }}>
                                 <i class="fa-solid fa-share"></i>
                                 <span style={{ marginLeft: '5px' }}> Share</span>
@@ -274,10 +290,13 @@ const Activities = () => {
                         </div>
                         {/* Activity Actions Section */}
                         <div className="activity-actions">
-                            <button className="book-now" style={{ backgroundColor: '#16D298' }}>
-                                <i className="fa-brands fa-whatsapp"></i>
-                                <span style={{ marginLeft: '5px' }}>Book Now</span>
-                            </button>
+                        <button 
+                            className="book-now" 
+                            style={{ backgroundColor: '#16D298' }}
+                            onClick={() => sendMessage('Summer Football Camp', 'Location Name')}>
+                            <i className="fa-brands fa-whatsapp"></i>
+                            <span style={{ marginLeft: '5px' }}>Book Now</span>
+                        </button>
                             <button className="share" style={{ backgroundColor: '#7889BC' }}>
                                 <i class="fa-solid fa-share"></i>
                                 <span style={{ marginLeft: '5px' }}> Share</span>
@@ -341,10 +360,13 @@ const Activities = () => {
                         </div>
                         {/* Activity Actions Section */}
                         <div className="activity-actions">
-                            <button className="book-now" style={{ backgroundColor: '#16D298' }}>
-                                <i className="fa-brands fa-whatsapp"></i>
-                                <span style={{ marginLeft: '5px' }}>Book Now</span>
-                            </button>
+                        <button 
+                            className="book-now" 
+                            style={{ backgroundColor: '#16D298' }}
+                            onClick={() => sendMessage('Summer Football Camp', 'Location Name')}>
+                            <i className="fa-brands fa-whatsapp"></i>
+                            <span style={{ marginLeft: '5px' }}>Book Now</span>
+                        </button>
                             <button className="share" style={{ backgroundColor: '#7889BC' }}>
                                 <i class="fa-solid fa-share"></i>
                                 <span style={{ marginLeft: '5px' }}> Share</span>

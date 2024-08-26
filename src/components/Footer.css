@@ -1,14 +1,14 @@
 .footer {
-  background-color: #000000;
+  background-color: #363849;
   color: #ffffff;
-  padding: 100px 80px 80px 80px;
+  padding: 100px 70px 70px 70px;
   font-family: 'Neue Machina', sans-serif;
 }
 
 .footer-content {
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: center;
 }
 
 .footer-logo-image {
@@ -16,118 +16,57 @@
   width: auto;
 }
 
-.footer-center {
-  text-align: center;
+.footer-nav {
+  display: flex;
 }
 
-.footer-links {
-  margin-bottom: 3px;
-}
-
-.footer-link {
+.footer-nav a {
   color: #ffffff;
   text-decoration: none;
   font-size: 11px;
-  font-family: 'Neue Machina', sans-serif;
 }
 
-.footer-link-separator {
-  margin: 0 3px;
+.separator {
+  color: #ffffff;
   font-size: 11px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-social a {
+  color: #ffffff;
+  font-size: 36px;
+}
+
+.footer-social a:hover {
+  color: #83d0fa;
 }
 
 .footer-copyright {
+  text-align: center;
   font-size: 9px;
-  font-family: 'Neue Machina', sans-serif;
-}
-
-.footer-social-icons {
-  font-size: 3.5em;
-  display: flex;
-  gap: 10px;
-  padding-bottom: 40px;
-  justify-content: center;
-}
-
-.footer-social-link {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.footer-social-link box-icon {
-  width: 18px;
-  height: 18px;
-  fill: white;
-}
-
-.poster-uploader-logo {
-  margin-right: 20px;
-  cursor: pointer;
-}
-
-.poster-uploader-logo-image {
-  width: auto;
-  height: 100px;
-  background-color: transparent;
+  margin-top: 10px;
 }
 
 @media (max-width: 768px) {
+  .footer {
+    padding: 50px 40px 40px 40px;
+  }
+
   .footer-content {
     flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+    gap: 20px;
   }
 
-  .footer-logo,
-  .footer-center,
-  .footer-social-icons {
-    margin-bottom: 10px;
-  }
-
-  .footer-links {
-    display: flex;
+  .footer-nav {
     flex-wrap: wrap;
     justify-content: center;
   }
 
-  .footer-link,
-  .footer-link-separator {
-    margin: 2px;
-  }
-}
-
-
-.chatbot-container {
-  position: fixed;
-  bottom: 30px;
-  right:100px;
-  width: 280px;
-  height: 100%;
-  max-height: 600px;
-  z-index: 10000;
-  background-color: transparent; 
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  transition: transform 0.3s ease-in-out;
-}
-
-.chatbot-container.show {
-  transform: translateX(0);
-}
-
-.chatbot-container.hide {
-  transform: translateX(100%);
-}
-
-@media (max-width: 768px) {
-  .chatbot-container {
-    width: calc(100% - 20px);
-    height: auto;
-    bottom: 0;
-    right: 10px;
-    left: 10px;
-    top: unset;
+  .footer-social {
+    justify-content: center;
   }
 }
