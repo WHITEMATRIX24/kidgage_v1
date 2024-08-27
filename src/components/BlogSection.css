@@ -8,6 +8,7 @@
 }
 
 .blog-section {
+  
   display: flex;
   align-items: center;
   position: relative; /* To position the button absolutely within the section */
@@ -16,7 +17,7 @@
   max-width: 950px; /* Adjust the max width as needed */
   height: 350px;
   width: 100%;
-  margin-top: -60px;
+  margin-top: -80px;
   flex-direction: row;
   padding-right: 10px;
 }
@@ -40,12 +41,14 @@
 }
 
 .blog-text-container h2 {
-  margin-bottom: 10px;
-  font-size: 24px;
+  font-family: 'Playfair Display',serif;
+  margin-bottom: 25 px;
+  font-size: 22px;
   color: #333; /* Adjust the text color as needed */
 }
 
 .blog-text-container p {
+  font-family: 'Poppins',serif;
   margin-bottom: 10px;
   color: #666; /* Adjust the text color as needed */
 }
@@ -54,10 +57,10 @@
   flex-direction: row;
 }
 .blog-explore-link {
+  font-family: 'Poppins',serif;
   margin-top: 10px;
   margin-bottom: 10px;
-  color: #007bff; /* Adjust the link color as needed */
-  text-decoration: underline;
+  color: #666; /* Adjust the link color as needed */
 }
 
 .blog-explore-link:hover {

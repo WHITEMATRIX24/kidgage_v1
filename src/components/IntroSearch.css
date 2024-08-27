@@ -1,5 +1,5 @@
 .intro-search {
-  background: linear-gradient(to right, #67d1e8, #1b60c2);
+  background: linear-gradient(90deg, #5de0e6, #004aad);
   padding: 40px;
   color: white;
   display: flex;
@@ -19,7 +19,8 @@
 }
 
 .intro-title {
-  font-size: 34px;
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
   font-weight: 500;
 }
 
@@ -55,7 +56,7 @@
 }
 
 .search-option {
-  color: #333333d1;
+  color: #333333b8;
   font-family: 'Poppins', sans-serif;
   font-size: 19px;
   cursor: pointer;
@@ -67,8 +68,8 @@
   color: #000;
 }
 
-.separator {
-  color: rgba(0, 0, 0, 0.3);
+.separator-log {
+  color: rgba(0, 0, 0, 0.702);
 }
 
 .intro-search-button {
@@ -79,12 +80,39 @@
 }
 
 .intro-search-icon {
-  width: 24px;
-  height: 24px;
-  color: #333;
+  width: 40px;
+  height: 40px;
+  color: #333333ec;
+  font-weight: bolder;
 }
-
-.dropdown,
+.dropdown {
+  position: absolute;
+  top: 70%;
+  left: 7%;
+  width: 25%;
+  background-color: #ffffff8a;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */  
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  margin-top: 10px;
+  padding: 10px 20px;
+}
+.dropdown2 {
+  position: absolute;
+  top: 70%;
+  left: 55%;
+  width: 25%;
+  background-color: #ffffff8a;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */  
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  margin-top: 10px;
+  padding: 10px 20px;
+}
 .age-input-container {
   position: absolute;
   top: 100%;
@@ -100,15 +128,24 @@
 
 .calendar-dropdown {
   position: absolute;
-  top: 100%;
+  top: 70%;
   left: 50px;
-  width: 100%;
+  width: 55%;
   border-radius: 10px;
   z-index: 1001;
   margin-top: 10px;
   padding: 10px 20px;
 }
-
+.calendar-dropdown2 {
+  position: absolute;
+  top: 70%;
+  left: 25%;
+  width: 55%;
+  border-radius: 10px;
+  z-index: 1001;
+  margin-top: 10px;
+  padding: 10px 20px;
+}
 .dropdown-item {
   padding: 10px 0;
   cursor: pointer;
@@ -135,6 +172,7 @@
   cursor: pointer;
 }
 
+
 .age-input {
   width: 60px;
   padding: 5px;
@@ -143,11 +181,15 @@
   font-size: 16px;
 }
 
-.react-calendar {
-  border: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  border-radius: 8px;
-  overflow: hidden;
+.custom-cal {
+  background: rgba(255, 255, 255, 0.534) !important; /* Semi-transparent background */
+  backdrop-filter: blur(10px) !important; /* Blur effect for the glass look */
+  -webkit-backdrop-filter: blur(5px) !important; /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.3) !important; /* Border to define edges */
+  border-radius: 10px !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important; /* Subtle shadow for depth */
+  padding: 10px !important;
+  color: #ffffff !important;
 }
 
 @media (max-width: 1500px) {

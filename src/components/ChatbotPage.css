@@ -1,9 +1,17 @@
-.container {
-  position: relative;
+.chatbot-container {
+  bottom: 80px;
+  right: 0px;
+  position: fixed;
   display: flex;
   justify-content: flex-end; 
   align-items: flex-start; 
-  padding: 20px; 
+  padding: 20px;
+  background-color: transparent;
+  z-index: 10000; 
+}
+.chatbot-containers{
+  text-align: left;
+  background-color: transparent;
 }
 .chat-icon {
   position: fixed;
@@ -34,8 +42,17 @@
 .rsc-header {
   background-color: #ff1493 !important; 
   color: white; 
+  margin-bottom: -3px;
 }
+.fBGGBn{
+background-color: #ffffffad;
+backdrop-filter: blur(8px);
+-webkit-backdrop-filter: blur(8px); /* For Safari support */
 
+}
+.dPdbIW{
+  background-color: transparent;
+}
 
 .chatbot-wrapper {
   position: relative;

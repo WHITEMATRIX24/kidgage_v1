@@ -2,13 +2,14 @@
   text-align: center;
   width: 100%;
   height: 100%;
+  margin-bottom: 80px;
 }
 
 .upcoming-events-heading {
   background-color: #fff;
   color: #292929;
   text-align: center;
-  padding: 20px;
+  margin-top: 80px;
 }
 .upcoming-events.wishlist-events-heading {
 
@@ -20,8 +21,9 @@
   gap: 20px;
 }
 .wishlist-events-heading img{
-  width: 50px;
+  width: 45px;
   height: auto;
+  max-height: 60px;
   margin-top: 50px;
 }
 .wishlist-events-heading h2 {
@@ -29,9 +31,9 @@
   color: rgb(19, 30, 58);
 }
 .upcoming-events-heading h2 {
-  font-family: 'Neue Machina', sans-serif;
-  font-size: 24px;               
-  color: black;
+  font-family: 'Poppins',serif;
+  font-size: 26px;               
+  color: #4e5857;
 }
 
 .select-container {
@@ -41,17 +43,20 @@
 
 .select-month {
   background-color: transparent;    
+  font-family: 'Poppins',serif;
   color: #0029be;  /* Change this to your desired blue color */
   border: none;
   appearance: none;
   padding: 2px 30px 2px 15px;
-  font-size: 20px;
+  font-size: 24px;
+  font-weight: 600;
   border-radius: 10px;
   margin-left: 10px;
   text-decoration: underline;
 }
 
 .event-drop-down {
+  
   position: absolute;
   right: 10px;
   top: 50%;
@@ -72,11 +77,11 @@
   position: relative;
   border-radius: 2%;
   margin: 20px;
-  width: 210px;
+  width: 180px;
   text-align: center;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.308);
   transition: transform 0.2s;
-  height: 374px; 
+  height: 350px; 
   overflow: hidden; 
   display: flex;
   flex-direction: column;
@@ -91,26 +96,47 @@
 }
 .event-card h3 {
   text-align: left;
+  font-family: 'Poppins',serif;
   margin-left: 10px;
-  font-size: 1.2em;
-  font-weight: bold;
+  font-size: .9em;
+  font-weight: 600;
   margin-bottom: 0px;
-  margin-top: -8px;
+  color: #333;
+  margin-top: 0px;
 }
 .event-card h4 {
   text-align: left;
   margin: 10px;
-  font-size: 0.8em;
-  margin-bottom: 0px;
   margin-top: 0px;
+  color: #333;
+  font-weight: 300;
+  font-size: .8em;
+  margin-bottom: 0px;
+  font-family: 'Poppins',serif;
+
   
 }
+.event-card span {
+  text-align: left;
+  margin: 10px;
+  font-size: .8em;
+  font-weight: 300;
+  margin-bottom: 0px;
+  margin-top: 5px;
+  font-family: 'Poppins',serif;
+
+  
+}
+
 .event-card a {
   text-align: left;
   margin-left: 10px;
-  font-size: 0.8em;
+  font-size: 0.9em;
   margin-bottom: 10px;
   margin-top: 0px;
+  font-family: 'Poppins',serif;
+
+  font-weight: bold;
 }
 .event-card p {
   text-align: left;
@@ -119,6 +145,8 @@
   font-size: 0.7em;
   margin-bottom: 10px;
   margin-top: 0px;
+  font-family: 'Poppins',serif;
+
 }
 
 .event-card button#wishlist {
@@ -128,7 +156,7 @@
   cursor: pointer;
   border: none;
   background-color: red;
-  right: 0px;
+  right: 10px;
   color: white;
   padding-left: 9px;
   border-radius: 11%;
@@ -140,23 +168,37 @@
 }
 
 .event-card button#book-now {
+  font-family: 'Poppins',serif;
+
   position: absolute;
   bottom: 7px;
-  left: 72%;
-  background-color: #313131ea;
+  left:60%;
+  background-color: #313131d1;
   color: #fff;
   border: none;
-  border-radius: 20px 20px 20px 20px / 20px;
+  border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.2s;
-  width: 64px;
+  width: auto; /* Change to auto to fit text content */
+  min-width: 74px; /* Ensure a minimum width */
   height: 20px;
-  font-size: 0.48em;
+  font-size: 0.7em;
+  padding: 0 10px; /* Add some padding for better spacing */
+  white-space: nowrap; /* Prevent text from wrapping */
+  text-align: center; /* Center the text */
+  display: flex; /* Use flexbox to center content */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
   margin-top: 20px;
+}
+@media (max-width:860px) {
+  .event-card button#book-now{
+    left: 50%;
+  }
 }
 .event-description {
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* Show only 3 lines */
+  -webkit-line-clamp: 2; /* Show only 3 lines */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -203,7 +245,7 @@
   border: none;
   text-decoration: underline;
   background-color: transparent;
-  margin: 40px;
+  margin-top: 40px;
 }
 .event-view-all:hover{
   text-shadow: 0 0 10px #007bff;
@@ -232,7 +274,7 @@
 
 .floating-btn {
   position: fixed;
-  bottom: 20px;
+  bottom: 30px;
 /* Adjust color as needed */
   color: white;
   border: none;
@@ -254,7 +296,7 @@
 }
 
 .wishlist-btn {
-  right: 80px; /* Position next to cart button */
+  right: 90px; /* Position next to cart button */
   background-color: #ff4081; 
 
 }
@@ -264,12 +306,12 @@
 }
 
 .cart-btn {
-  right: 20px; /* Position on the right */
-  background-color: #4093ff; 
+  right: 30px; /* Position on the right */
+  background-color: #9fa4ab; 
 
 }
 .cart-btn:hover{
-  background-color: #2f6cbc; 
+  background-color: #707377; 
 
 }
 

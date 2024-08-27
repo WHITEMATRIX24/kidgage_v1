@@ -36,7 +36,7 @@ const HeroBanner = () => {
   const getSlideStyle = (index) => {
     let offset = ((index - currentSlide + slides.length) % slides.length) - 1;
     return {
-      transform: `translateX(calc(${offset * 100}% + ${offset * 20}px))`,
+      transform: `translateX(calc(${offset * 100}% + ${offset * 10}px))`,
       opacity: Math.abs(offset) <= 1 ? 1 : 0.5,
     };
   };

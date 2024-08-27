@@ -267,7 +267,7 @@ const CustomDatePickerWrapper = styled.div`
   }
 `;
 
-const CustomCalendar = () => {
+const Calendar2 = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState("");
   const [courseDetails, setCourseDetails] = useState(null);
@@ -356,4 +356,4 @@ const CustomCalendar = () => {
   );
 };
 
-export default CustomCalendar;
+export default Calendar2;

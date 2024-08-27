@@ -1,5 +1,5 @@
 .badge-image{
-  margin-top: 40px;
+  margin-top: 50px;
   text-align: center;
 }
 .badge-image img{
@@ -34,8 +34,8 @@
   margin-left: -300px;
   margin-top: 3%;
   background-color: white;
-  padding: 10px;
-  font-size: 22px;
+  padding: 14px;
+  font-size: 26px;
   color: #0097b2;
   font-weight: bold;
   border: none;
@@ -43,13 +43,13 @@
 }
 @media (max-width:1700px) {
   .list-your-academy-btn{
-    margin-top: 2.5%;
+    margin-top: 2%;
 
   }
 }
 @media (max-width:1200px) {
   .list-your-academy-btn{
-    margin-top: 2.5%;
+    margin-top: 2%;
     font-size: 18px;
     margin-left: -250px;
   }
@@ -58,20 +58,27 @@
   .list-your-academy-btn{
     margin-top: 2%;
     font-size: 18px;
-    margin-left: -200px;
+    margin-left: -250px;
+  }
+}
+@media (max-width:900px) {
+  .list-your-academy-btn{
+    margin-top: 1.4%;
+    font-size: 18px;
+    margin-left: -250px;
   }
 }
 @media (max-width:768px) {
   .list-your-academy-btn{
     margin-top: 15%;
-    font-size: 16px;
-    margin-left: -100px;
+    font-size: 20px;
+    margin-left: -120px;
   }
 }
 @media (max-width:600px) {
   .list-your-academy-btn{
     margin-top: 15%;
-    font-size: 16px;
+    font-size: 18px;
     padding: 8px;
     margin-left: -90px;
   }
@@ -79,7 +86,7 @@
 @media (max-width:500px) {
   .list-your-academy-btn{
     margin-top: 15%;
-    font-size: 15px;
+    font-size: 17px;
     padding: 8px;
     margin-left: -80px;
   }
@@ -90,12 +97,12 @@
   background-color: white;
   max-width: 800px;
   margin: 0 auto;
-  margin-top: -30px;
+  margin-top: -60px;
 }
 
 .top-providers h2 {
   margin-bottom: 5px;
-  font-family: 'Neue Machina2', sans-serif;
+  font-family: 'Poppins',serif;
   font-size: 2.2em;
   color: #545455;
 }

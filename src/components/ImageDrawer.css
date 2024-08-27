@@ -108,7 +108,7 @@
   width: 100%;
 }
 .slide-overlay-text h2{
-  font-family: 'Neue Machina', sans-serif;
+  font-family: 'Poppins',serif;
   font-size: 1.5em;
   margin-bottom: 1em;
   color: #fff;
@@ -117,13 +117,13 @@
 
 
 .slide-overlay-text .product-price {
-  font-family: 'Neue Machina', sans-serif;
+  font-family: 'Poppins',serif;
   font-size: 1em;
   margin: 5px 0 0;
 }
 
 .slide-overlay-text .start-price{
-  font-family: 'Neue Machina', sans-serif;
+  font-family: 'Poppins',serif;
   font-size: 1.5em;
   color: rgb(255, 255, 255);
 }

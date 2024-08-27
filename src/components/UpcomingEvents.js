@@ -169,12 +169,12 @@ const UpcomingEvents = () => {
                       <p className={status === 'Upcoming' ? 'upcoming' : ''}>{status}</p>
                       <h3>{event.name}</h3>
                       <h4 className='event-description'>{event.description}</h4>
-                      <h4>{formatDate(event.startDate)} - {formatDate(event.endDate)}</h4>
-                      <a href={event.location}>View Location</a>
+                      <span className='date-h4'>{formatDate(event.startDate)} - {formatDate(event.endDate)}</span>
+                      <a href={event.location}>VENUE</a>  
 
                       <button id="book-now" onClick={() => bookNow(event)}><i className="fas fa-arrow-right"></i>BOOK NOW</button>
-                      <button id="calendar"><i className="fa-regular fa-calendar-plus"></i></button>
-                      <button id="call"><i className="fa-solid fa-phone"></i></button>
+                      {/* <button id="calendar"><i className="fa-regular fa-calendar-plus"></i></button>
+                      <button id="call"><i className="fa-solid fa-phone"></i></button> */}
                     </div>
                   );
                 })}
@@ -194,7 +194,7 @@ const UpcomingEvents = () => {
         <i className="fa-solid fa-heart"></i>
       </button>
       <button className="floating-btn cart-btn" onClick={() => setShowChat(!showChat)}>
-        <img src={chatbotImage} alt="Chatbot" style={{ width: '40px', height: '40px' }} /> {/* Use the chatbot image */}
+        <img src={chatbotImage} alt="Chatbot" style={{ marginTop:'3px', width: '38px', height: '35px' }} /> {/* Use the chatbot image */}
       </button>
       {showChat &&
         (<div className="chatbot-container">

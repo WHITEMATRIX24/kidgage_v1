@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./IntroSearch.css";
-import Calendar from "react-calendar";
+import Calendar2 from 'react-calendar';
 import "react-calendar/dist/Calendar.css";
 
 const IntroSearch = () => {
@@ -78,21 +78,21 @@ const IntroSearch = () => {
             >
               Location
             </span>
-            <span className="separator">|</span>
+            <span className="separator-log">|</span>
             <span
               className={`search-option ${activeOption === "age" ? "active" : ""}`}
               onClick={() => handleOptionClick("age")}
             >
               Age
             </span>
-            <span className="separator">|</span>
+            <span className="separator-log">|</span>
             <span
               className={`search-option ${activeOption === "date" ? "active" : ""}`}
               onClick={handleDateClick}
             >
               Date
             </span>
-            <span className="separator">|</span>
+            <span className="separator-log">|</span>
             <span
               className={`search-option ${activeOption === "activity" ? "active" : ""}`}
               onClick={() => handleOptionClick("activity")}
@@ -126,29 +126,27 @@ const IntroSearch = () => {
           </div>
         )}
         {activeOption === "age" && (
-          <div className="age-input-container">
-            <button onClick={decrementAge}>-</button>
-            <input
-              type="text"
-              className="age-input"
-              value={age}
-              onChange={handleAgeChange}
-              placeholder="Age"
-            />
-            <button onClick={incrementAge}>+</button>
-          </div>
+          <div className="calendar-dropdown">
+          <Calendar2
+            onChange={handleDateChange}
+            value={selectedDate}
+            minDetail="decade"
+            className="custom-cal"
+          />
+        </div>
         )}
         {showCalendar && (
-          <div className="calendar-dropdown">
-            <Calendar
+          <div className="calendar-dropdown2">
+            <Calendar2
               onChange={handleDateChange}
               value={selectedDate}
               minDetail="decade"
+              className="custom-cal"
             />
           </div>
         )}
         {activeOption === "activity" && (
-          <div className="dropdown">
+          <div className="dropdown2">
             {activities.map((activity, index) => (
               <div key={index} className="dropdown-item">
                 {activity}

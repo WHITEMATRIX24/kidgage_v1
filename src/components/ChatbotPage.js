@@ -112,7 +112,7 @@ function ChatbotPage() {
   ];
 
   return (
-    <div className="chatbot-container">
+    <div className="chatbot-containers">
       {showChat && (
         <div className="chatbot-wrapper">
           <button className="minimize-button" onClick={() => setShowChat(false)}>−</button>

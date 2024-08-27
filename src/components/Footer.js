@@ -17,20 +17,23 @@ const Footer = () => {
         </div>
         <div className="footer-links">
           <nav className="footer-nav">
+            <>
             <a href="/about">About</a>
             <span className="separator">|</span>
             <a href="/terms">Terms & Conditions</a>
             <span className="separator">|</span>
             <a href="/privacy">Privacy Policy</a>
             <span className="separator">|</span>
+            </>
+            <>
             <a href="/contact">Contact Us</a>
             <span className="separator">|</span>
             <a href="/blog">Blog</a>
             <span className="separator">|</span>
-            <a href="/careers">Careers</a>
+            <a href="/careers">Careers</a></>
           </nav>
           <div className="footer-copyright">
-            Copyright ©2024 Kidgage
+            Copyright © 2024 Kidgage
           </div>
         </div>
         <div className="footer-social">
