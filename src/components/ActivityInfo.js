@@ -84,8 +84,8 @@ const ActivityInfo = () => {
                     <div className="activity-info-home">
                         <div className="activity-info-home-icon">
                             <FontAwesomeIcon icon={faHome} /> <span style={{ margin: '0 8px' }}>
-                            <FontAwesomeIcon icon={faChevronRight} fontSize={'12px'}/>
-                                </span> {/* ">" Symbol */}
+                                <FontAwesomeIcon icon={faChevronRight} fontSize={'12px'} />
+                            </span> {/* ">" Symbol */}
                             <span>Activity</span> {/* Text */}
                         </div>
                     </div>
@@ -113,18 +113,18 @@ const ActivityInfo = () => {
                     <div className='activity-info-gap'></div>
                     <div className="activity-info-gap"></div>
                     <img src={activityImages[currentImageIndex]} alt="activity image" className='activity-info-image' />
-                    <h3 className="activity-info-heading">{course.name}</h3>
+                    <h3 className="activity-info-heading-title">{course.name}</h3>
                     <div className="activity-info-gap"></div>
                     <p className="activity-info-description">
                         {course.description}
                     </p>
                     <div className='location-details'>
-                    <h3 className="activity-info-heading-location">Location</h3>
-                    <li>
-                    <a  href='https://maps.app.goo.gl/7U6x1A3orcWMy9rc7' className='activity-info-location'> <FontAwesomeIcon icon={faLocationDot} className='activity-info-location-icon' /> Muaither area</a>
-                    <a href='https://maps.app.goo.gl/rm6wK6wZXdcUKdPC6' className='activity-info-location'> <FontAwesomeIcon icon={faLocationDot} className='activity-info-location-icon' /> Doha</a>
-                    <a href='https://maps.app.goo.gl/mXMKd9P3Pb53MEeJA' className='activity-info-location'> <FontAwesomeIcon icon={faLocationDot} className='activity-info-location-icon' /> Dukhan</a>
-                    </li> </div>                   
+                        <h3 className="activity-info-heading-location">Location</h3>
+                        <li>
+                            <a href='https://maps.app.goo.gl/7U6x1A3orcWMy9rc7' className='activity-info-location'> <FontAwesomeIcon icon={faLocationDot} className='activity-info-location-icon' /> Muaither area</a>
+                            <a href='https://maps.app.goo.gl/rm6wK6wZXdcUKdPC6' className='activity-info-location'> <FontAwesomeIcon icon={faLocationDot} className='activity-info-location-icon' /> Doha</a>
+                            <a href='https://maps.app.goo.gl/mXMKd9P3Pb53MEeJA' className='activity-info-location'> <FontAwesomeIcon icon={faLocationDot} className='activity-info-location-icon' /> Dukhan</a>
+                        </li> </div>
                 </div>
                 <div className="activity-info-right-section">
                     <div className="activity-info-gap"></div>

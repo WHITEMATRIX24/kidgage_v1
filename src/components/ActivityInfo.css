@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0 3cm;
+    padding: 0 2.5cm;
     gap: 20px;
 }
 
@@ -40,12 +40,15 @@
     display: flex;
     align-items: center;
     margin-right: 1cm;
+    margin-left: 10px;
 }
-.location-details li{
+
+.location-details li {
     list-style: none;
     display: flex;
     gap: 25px;
 }
+
 .activity-info-home-icon-icon {
     margin-right: 5px;
 }
@@ -55,18 +58,19 @@
 }
 
 .activity-info-item {
+    margin-top: 10px;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
 .activity-info-icon {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     background-color: #0d216f;
     display: flex;
     align-items: center;
-    font-size: 20px;
+    font-size: 25px;
     font-family: 'Poppins', sans-serif;
     justify-content: center;
     border-radius: 5px;
@@ -87,7 +91,7 @@
 }
 
 .activity-info-share {
-    margin-right: 5px;
+    margin-right: 10px;
     background-color: #677EAB;
     color: white;
 }
@@ -97,12 +101,12 @@
     color: white;
     border: none;
     width: 3cm;
-    padding: 8px 20px;
+    padding: 10px 18px;
     border-radius: 16px;
     cursor: pointer;
     display: flex;
     align-items: center;
-    font-weight: bold;
+    font-weight: 200px;
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
     justify-content: center;
@@ -111,11 +115,11 @@
 .activity-info-content {
     display: flex;
     justify-content: space-between;
-    padding: 0 3cm;
+    padding: 0 2.5cm;
 }
 
 .activity-info-left-section {
-    width: 70%;
+    width: 68%;
 }
 
 .activity-info-left-section h2,
@@ -125,16 +129,22 @@
 }
 
 .activity-info-heading {
-    font-size: 2rem;
+    font-size: 2.6rem;
     font-family: 'Poppins', sans-serif;
     margin-bottom: 2cm;
 }
 
 .activity-info-image {
-    width: 20cm;
-    height: 15cm;
+    width: 22cm;
+    height: 14cm;
     border-radius: 5px;
     object-fit: cover;
+    margin-bottom: 1.5cm;
+}
+
+.activity-info-heading-title {
+    font-size: 2rem;
+    font-family: 'Poppins', sans-serif;
     margin-bottom: 1cm;
 }
 
@@ -163,15 +173,15 @@
 }
 
 .activity-info-right-section {
-    width: 30%;
+    width: 32%;
     display: flex;
     flex-direction: column;
     align-items: left;
 }
 
 .activity-info-main-image {
-    width: 10cm;
-    height: 18cm;
+    width: 9cm;
+    height: 22cm;
     border-radius: 5px;
     margin-bottom: 1cm;
 }
@@ -180,6 +190,7 @@
     font-size: 1.5rem;
     font-family: 'Poppins', sans-serif;
     color: #1F4EA3;
+    margin-right: 10px;
 }
 
 .activity-info-provider-details {
@@ -191,8 +202,8 @@
 }
 
 .activity-info-provider-image {
-    width: 8cm;
-    height: 8cm;
+    width: 10cm;
+    height: 10cm;
     border-radius: 5px;
     object-fit: cover;
 }
@@ -205,16 +216,17 @@
 
 .activity-info-trainers {
     display: flex;
-    justify-content: space-around;
+
     width: 100%;
 }
 
 .activity-info-trainer-image {
     width: 2cm;
     height: 2cm;
+    margin-left: 10px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 2cm;
+    margin-bottom: 4cm;
 }
 
 @media (max-width: 1200px) {
@@ -312,17 +324,20 @@
         height: 1.2cm;
         font-size: 1rem;
     }
-    .location-details li{
+
+    .location-details li {
         list-style: none;
         display: flex;
         gap: 10px;
     }
-    .location-details li a{
+
+    .location-details li a {
         list-style: none;
         display: flex;
         font-size: 13px;
         gap: 10px;
     }
+
     .activity-info-header-content,
     .activity-info-content {
         padding: 0 1cm;

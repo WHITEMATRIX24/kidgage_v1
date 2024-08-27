@@ -56,7 +56,7 @@ const CustomDatePickerWrapper = styled.div`
   .calendar-content {
     padding: 15px;
     padding-top: 1cm;
-    height: 15cm;
+    height: 17cm;
     border-radius: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     margin-top: 10px;
@@ -112,12 +112,12 @@ const CustomDatePickerWrapper = styled.div`
 
   .react-datepicker__day {
     margin: 5px;
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 50px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-family: 'Poppins', sans-serif;
     color: #001689;
     background-color: #ecfdda;
@@ -144,6 +144,7 @@ const CustomDatePickerWrapper = styled.div`
 
   .calender-book-button {
     display: flex;
+    margin-top:20px;
     justify-content: space-between;
     align-items: center;
 
@@ -155,9 +156,9 @@ const CustomDatePickerWrapper = styled.div`
       border: none;
       display: flex;
       align-items: center;
-      font-size: 1rem;
+      font-size: 1.2rem;
       font-family: 'Poppins', sans-serif;
-      font-weight: bold;
+      font-weight: 300px;
 
       svg {
         margin-left: 8px;
@@ -356,7 +357,7 @@ const Calendar2 = () => {
             ))}
           </select>
           <button>
-            Book Now <FaWhatsapp />
+            <FaWhatsapp style={{ marginRight: '10px' }} /> Book Now
           </button>
         </div>
       </div>
