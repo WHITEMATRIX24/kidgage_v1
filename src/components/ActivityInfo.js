@@ -118,8 +118,13 @@ const ActivityInfo = () => {
                     <p className="activity-info-description">
                         {course.description}
                     </p>
+                    <div className='location-details'>
                     <h3 className="activity-info-heading-location">Location</h3>
-                    <p className='activity-info-location'> <FontAwesomeIcon icon={faLocationDot} className='activity-info-location-icon' /> Muaither area, Doha Location 2 Location 3</p>
+                    <li>
+                    <a  href='https://maps.app.goo.gl/7U6x1A3orcWMy9rc7' className='activity-info-location'> <FontAwesomeIcon icon={faLocationDot} className='activity-info-location-icon' /> Muaither area</a>
+                    <a href='https://maps.app.goo.gl/rm6wK6wZXdcUKdPC6' className='activity-info-location'> <FontAwesomeIcon icon={faLocationDot} className='activity-info-location-icon' /> Doha</a>
+                    <a href='https://maps.app.goo.gl/mXMKd9P3Pb53MEeJA' className='activity-info-location'> <FontAwesomeIcon icon={faLocationDot} className='activity-info-location-icon' /> Dukhan</a>
+                    </li> </div>                   
                 </div>
                 <div className="activity-info-right-section">
                     <div className="activity-info-gap"></div>

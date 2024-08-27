@@ -41,7 +41,11 @@
     align-items: center;
     margin-right: 1cm;
 }
-
+.location-details li{
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
 .activity-info-home-icon-icon {
     margin-right: 5px;
 }
@@ -135,7 +139,8 @@
 }
 
 .activity-info-description {
-    width: 17cm;
+    max-width: 17cm;
+    width: 90%;
     font-size: 1.5rem;
     font-family: 'Poppins', sans-serif;
     margin-bottom: 2.5cm;
