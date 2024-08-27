@@ -115,8 +115,8 @@ const WishlistPage = () => {
                     <a href={event.location}>View Location</a>
                     
                     <button id="book-now" onClick={() => bookNow(event)}><i className="fas fa-arrow-right"></i>BOOK NOW</button>
-                    <button id="calendar"><i className="fa-regular fa-calendar-plus"></i></button>
-                    <button id="call"><i className="fa-solid fa-phone"></i></button>
+                    {/* <button id="calendar"><i className="fa-regular fa-calendar-plus"></i></button>
+                    <button id="call"><i className="fa-solid fa-phone"></i></button> */}
                     <button id="wishlist" onClick={() => removeFromWishlist(event._id)}>
                       <i className="fa-solid fa-heart-crack"></i>
                     </button>
