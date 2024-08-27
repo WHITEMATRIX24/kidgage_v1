@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './ActivityInfo.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTheaterMasks, faMusic, faLocationArrow, faBookmark, faHome, faMapLocation, faLocation, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faTheaterMasks, faMusic, faLocationArrow, faBookmark, faHome, faMapLocation, faLocation, faLocationDot, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import Footer from './Footer';
 import Footer2 from './Footer2';
@@ -12,6 +12,7 @@ import ActivityImg3 from './assets/images/football2.jpeg';
 import LocationImg from './assets/images/mapimg.png';
 import providerImg from './assets/images/abc.png'
 import Header2 from './Header2';
+import { FaChevronRight } from 'react-icons/fa';
 const ActivityInfo = () => {
     const [course, setCourse] = useState(null);
     const [provider, setProvider] = useState(null);
@@ -82,7 +83,9 @@ const ActivityInfo = () => {
                 <div className="activity-info-row">
                     <div className="activity-info-home">
                         <div className="activity-info-home-icon">
-                            <FontAwesomeIcon icon={faHome} /> <span style={{ margin: '0 8px' }}>{'>'}</span> {/* ">" Symbol */}
+                            <FontAwesomeIcon icon={faHome} /> <span style={{ margin: '0 8px' }}>
+                            <FontAwesomeIcon icon={faChevronRight} fontSize={'12px'}/>
+                                </span> {/* ">" Symbol */}
                             <span>Activity</span> {/* Text */}
                         </div>
                     </div>
