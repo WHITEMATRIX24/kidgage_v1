@@ -25,11 +25,11 @@ const ActivityInfo = () => {
     useEffect(() => {
         const fetchCourseData = async () => {
             try {
-                const courseResponse = await axios.get(`http://localhost:5000/api/courses/course/${courseId}`);
+                const courseResponse = await axios.get(`https://kidgage-backend.onrender.com/api/courses/course/${courseId}`);
                 setCourse(courseResponse.data);
 
                 if (courseResponse.data && courseResponse.data.providerId) {
-                    const providerResponse = await axios.get(`http://localhost:5000/api/users/provider/${courseResponse.data.providerId}`);
+                    const providerResponse = await axios.get(`https://kidgage-backend.onrender.com/api/users/provider/${courseResponse.data.providerId}`);
                     setProvider(providerResponse.data);
                 } else {
                     console.error('Provider ID is missing');
