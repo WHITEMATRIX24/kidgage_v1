@@ -79,13 +79,7 @@
     margin-left: 10px;
 }
 
-.menu-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-    color: #333;
-}
+
 
 .search-item.active input {
     font-weight: medium;

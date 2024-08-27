@@ -1,10 +1,10 @@
-.tab-list {
+.tab-listss {
     display: flex;
     justify-content: space-around;
     border-bottom: 1px solid #e0e0e0;
   }
   
-  .tab {
+  .tabss {
     background: none;
     border: none;
     padding: 10px;
@@ -13,12 +13,12 @@
     font-weight: normal;
   }
   
-  .tab.active {
+  .tabss.activess {
     font-weight: bold;
     border-bottom: 2px solid #000;
   }
   
-  .tab-content {
+  .tab-contentss {
     padding: 20px;
   }
   

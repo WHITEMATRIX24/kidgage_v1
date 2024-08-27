@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import ChatbotPage from "./ChatbotPage";  // Import the ChatbotPage component
+import chatbotImage from './assets/images/chatbot.png'; // Import the chatbot image
+import { useNavigate } from 'react-router-dom';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faFacebook, faLinkedin, faYoutube,faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import "./Footer.css";
 import logoimage from './assets/images/logobw.png';
 
 const Footer = () => {
+  const [showChat, setShowChat] = useState(false);
+  const navigate = useNavigate();
+
+  const viewWishlist = () => {
+    navigate('/wishlist'); // Replace '/wishlist' with the path to your wishlist page
+  };
+
+  const viewCart = () => {
+    navigate('/shops'); // Replace '/cart' with the path to your cart page
+  };
   return (
     <footer className="footer">
       <div className="footer-content">
@@ -54,7 +68,17 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      
+      <button className="floating-btn wishlist-btn" onClick={viewWishlist}>
+        <i className="fa-solid fa-heart"></i>
+      </button>
+      <button className="floating-btn cart-btn" onClick={() => setShowChat(!showChat)}>
+        <img src={chatbotImage} alt="Chatbot" style={{ marginTop:'3px', width: '38px', height: '35px' }} /> {/* Use the chatbot image */}
+      </button>
+      {showChat &&
+        (<div className="chatbot-container">
+          <ChatbotPage />
+        </div>
+        )}
     </footer>
   );
 };

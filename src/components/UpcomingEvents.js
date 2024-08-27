@@ -190,17 +190,7 @@ const UpcomingEvents = () => {
           )}
         </>
       )}
-      <button className="floating-btn wishlist-btn" onClick={viewWishlist}>
-        <i className="fa-solid fa-heart"></i>
-      </button>
-      <button className="floating-btn cart-btn" onClick={() => setShowChat(!showChat)}>
-        <img src={chatbotImage} alt="Chatbot" style={{ marginTop:'3px', width: '38px', height: '35px' }} /> {/* Use the chatbot image */}
-      </button>
-      {showChat &&
-        (<div className="chatbot-container">
-          <ChatbotPage />
-        </div>
-        )}
+      
     </div>
 
   );
