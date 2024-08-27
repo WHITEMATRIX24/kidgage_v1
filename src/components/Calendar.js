@@ -21,6 +21,7 @@ const CustomDatePickerWrapper = styled.div`
 
   .date-line {
     font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
     font-weight: 500;
     color: #001689;
     margin-left: 10px;
@@ -37,6 +38,7 @@ const CustomDatePickerWrapper = styled.div`
 
   .day {
     font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
     font-weight: bold;
     color: #4a5d8d;
     padding: 5px 10px;
@@ -65,12 +67,14 @@ const CustomDatePickerWrapper = styled.div`
     align-items: center;
     margin-bottom: 20px;
     font-size: 1.6rem;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
     color: #001689;
   }
   
   .custom-date-header-time {
     font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
     color: #001689;
     margin-bottom: 20px;
@@ -91,6 +95,7 @@ const CustomDatePickerWrapper = styled.div`
   .react-datepicker__current-month {
     color: #001689;
     font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
     margin-bottom: 20px;
   }
 
@@ -101,6 +106,7 @@ const CustomDatePickerWrapper = styled.div`
     justify-content: space-around;
     color: #fff;
     font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
     margin-bottom: 20px;
   }
 
@@ -112,6 +118,7 @@ const CustomDatePickerWrapper = styled.div`
     align-items: center;
     justify-content: center;
     font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
     color: #001689;
     background-color: #ecfdda;
   }
@@ -149,6 +156,7 @@ const CustomDatePickerWrapper = styled.div`
       display: flex;
       align-items: center;
       font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
       font-weight: bold;
 
       svg {
