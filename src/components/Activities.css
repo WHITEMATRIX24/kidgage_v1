@@ -4,7 +4,7 @@
   font-style: normal;
 }
 
-.card-container {
+.card-container{
   float: left;
   display: flex;
   flex-wrap: wrap;
@@ -14,57 +14,53 @@
 
 @media (max-width: 768px) {
   .card-container {
-    flex-direction: column;
-    width: 100%;
+      flex-direction: column;
+      width: 100%;
   }
-
+  
   .activity-card {
-    margin-bottom: 20px;
-    flex-direction: column;
+      margin-bottom: 20px;
+      flex-direction: column;
   }
 
-  .activity-image {
+  .activity-image{
     width: 100%;
   }
 }
-
-.activity-icons-container img {
-  width: 100%;
-  margin-bottom: 50px;
+.activity-icons-container img{
+width: 100%;
+margin-bottom: 50px;
 }
 
 .activity-card {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  border: 1px solid #ccc;
-  margin-left: 8.5%;
-  /* margin-top: 17px; */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  border-radius: 5px;
-  max-width: 99%;
-  cursor: pointer;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+border: 1px solid #ccc;
+margin-left: 8.5%;
+/* margin-top: 17px; */
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+background-color: #fff;
+max-width: 97%;
+cursor: pointer;
 }
 
-.activity-card-in {
+.activity-card-in{
   padding: 20px 0 0 40px;
-}
+  }
 
 .activity-image {
-  position: relative;
-  width: 33%;
+position: relative;
+  width: 33%; 
   height: auto;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  overflow: hidden;
+  overflow:hidden;
 }
 
 .activity-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  overflow: hidden;
+  overflow:hidden;
   align-items: center;
 }
 
@@ -76,42 +72,38 @@
   margin-right: 12px;
   /* border: #000000 2px solid; */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  overflow:hidden;
 }
 
 
 .info-image img {
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow:hidden;
   align-items: center;
   object-fit: cover;
-}
-
+  }
 /* oooooooooooo */
 
 .activity-details {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+flex: 1;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
 }
 
 @media (max-width: 768px) {
-  .activity-card {
-    flex-direction: column;
-    margin-left: 10px;
-  }
-
-  .activity-image {
-    width: 100%;
-    height: 200px;
-    /* Adjust the image height for mobile devices */
-  }
-
-  .activity-details {
-    padding: 10px;
-  }
+.activity-card {
+  flex-direction: column;
+  margin-left: 10px;
+}
+.activity-image {
+  width: 100%;
+  height: 200px; /* Adjust the image height for mobile devices */
+}
+.activity-details {
+  padding: 10px;
+}
 }
 
 .activity-details p {
@@ -165,46 +157,188 @@
 }
 
 .day-selector span {
-  background-color: #f0f0f0;
-  /* Light gray background */
+  background-color: #f0f0f0; /* Light gray background */
   border-radius: 50%;
   padding: 8px;
   margin-right: 5px;
   font-weight: bold;
   color: #b9b4b4;
 }
-
 .day-selector .day.active {
-  background-color: #e7eaf1;
+background-color: #e7eaf1;
   border-color: #000000;
-  color: #434141;
+  color:#434141;
   border: 2px solid rgb(153, 151, 151);
 }
 
 .activity-actions {
   display: flex;
-  gap: 5px;
-  /* Add this line */
+  gap: 5px; /* Add this line */
   background-color: #e0d8d8;
   padding: 20px;
   margin-top: auto;
 }
 
+.info-with-img {
+  display: flex;
+}
+
+.info-image {
+  flex-shrink: 0;
+  width: 145px;
+  height: 145px;
+  margin-right: 12px;
+  /* border: #000000 2px solid; */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow:hidden;
+}
+
+
+.info-image img {
+  width: 100%;
+  height: 100%;
+  overflow:hidden;
+  align-items: center;
+  object-fit: cover;
+  }
+
+
+.descp {
+  flex-grow: 1;
+  text-align: justify;
+  padding-right: 15px;
+  font-family: "Poppins", sans-serif;
+}
+
+.descp h3{
+  font-family: "Poppins", sans-serif;
+  font-weight: 650;
+  font-style: normal;
+  font-size:large;
+}
+
+.descp p{
+  font-size: 12px;
+}
+
+
+/* promoted */
+
+
+.promoted-card {
+width: 43%;
+text-align: left;
+margin-bottom: 2%;
+cursor: pointer;
+border: 1px solid #ccc;
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);}
+
+
+.promoted-image {
+position: relative;
+width: 100%;
+height: 420px;
+overflow: hidden;
+}
+
+.promoted-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.promoted-details {
+  padding: 15px 0;
+}
+
+.promoted-details h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.card1{
+  float: left;
+  margin-left: 6%;
+
+}
+
+.card2{
+  float: right;
+  margin-right: 6%;
+}
+
+.plocation{
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+/* banner */
+.banner-container {
+  /* float: right; */
+  width: 25%;
+  padding: 0 20px  ;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  /* background-color: red; */
+}
+
+.card {
+  margin-bottom: 20px;
+  width: 335px;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-position: cover;
+}
+
+.card:nth-child(1) {
+  height: 670px;
+}
+
+.card:nth-child(2) {
+  height: 322px;
+  margin-bottom: 0%;
+}
+.more-btn{
+  margin-left: 95px;
+}
+
+.more {
+  /* margin-left: auto;  */
+  background-color: #ffffff; 
+  border: none;
+  color: #7889BC !important;
+  text-align: center;
+  padding: 10px 10px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: normal;
+  letter-spacing: 0.5px; 
+  line-height: 1em; 
+  margin-top: 3% !important;
+}
+
 @media (max-width: 768px) {
-  .activity-actions {
+.activity-actions {
     flex-direction: column;
     align-items: center;
-  }
+}
 
-  .activity-actions button {
+.activity-actions button {
     width: 100%;
     margin: 5px 0;
-  }
+}
 
-  .more {
-    font-size: 6px;
-    padding: 10px 100px;
-  }
+.more {
+  font-size: 6px;
+  padding: 10px 100px;
+}
 }
 
 .activity-actions button {
@@ -217,9 +351,7 @@
   justify-content: space-evenly;
 }
 
-.book-now,
-.save,
-.share {
+.book-now ,.save, .share{
   padding: 11px 15px;
 
 }
@@ -228,26 +360,6 @@
   opacity: 0.8;
 }
 
-.more-btn {
-  margin-left: 95px;
-}
-
-.more {
-  /* margin-left: auto;  */
-  background-color: #ffffff;
-  border: none;
-  color: #7889BC !important;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 8px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: normal;
-  letter-spacing: 0.5px;
-  line-height: 1em;
-  margin-top: 10% !important;
-}
 
 
 .activity-reviews {
@@ -257,7 +369,7 @@
   margin-right: 57px;
 }
 
-.review-text {
+.review-text{
   font-size: 12px;
   margin-right: 10px;
 }
@@ -286,11 +398,10 @@
   display: flex;
   font-weight: bold;
 }
-
 .day-selector span {
-  font-size: small;
-  border-radius: 50%;
-  padding: 2px;
+ font-size:small;
+ border-radius: 50%;
+ padding: 2px;
 }
 
 .active {
@@ -302,200 +413,100 @@
 .pagination-container {
   display: grid;
   margin-left: 26%;
-  width: 50%;
+  width: 40%;
 }
 
 @media only screen and (max-width: 768px) {
   .pagination-container {
-    width: 100%;
-    margin-left: 2%;
+    width: 90%;
+    margin-left: 5%;
     padding: 10px;
   }
-}
 
-.info-with-img {
-  display: flex;
-}
-
-.info-image {
-  flex-shrink: 0;
-  width: 145px;
-  height: 145px;
-  margin-right: 12px;
-  /* border: #000000 2px solid; */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-}
-
-
-.info-image img {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  align-items: center;
-  object-fit: cover;
-}
-
-
-.descp {
-  flex-grow: 1;
-  text-align: justify;
-  padding-right: 15px;
-  font-family: "Poppins", sans-serif;
-}
-
-.descp h3 {
-  font-family: "Poppins", sans-serif;
-  font-weight: 650;
-  font-style: normal;
-  font-size: large;
-}
-
-.descp p {
-  font-size: 12px;
-}
-
-
-/* promoted */
-
-
-.promoted-card {
-  max-width: 100%;
-  width: 43%;
-  text-align: left;
-  margin-bottom: 2%;
-  border-radius: 5px;
-  cursor: pointer;
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-
-.promoted-image {
-  position: relative;
-  width: 100%;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  height: 420px;
-  overflow: hidden;
-}
-
-.promoted-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.promoted-details {
-  padding: 15px 0;
-}
-
-.promoted-details h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-.card1 {
-  float: left;
-  margin-left: 6%;
+  .activity-reviews {
+    margin-top: -50%;
+    margin-right: 57px;
+  }
+  .more-btn{
+    margin-left: 0px;
+  }
+  
 
 }
 
-.card2 {
-  float: right;
-  margin-right: 6%;
-}
-
-.plocation {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
 
 /* Add this media query to target mobile devices */
 @media only screen and (max-width: 768px) {
+/* Make the promoted cards full-width and stack vertically */
+.promoted-card {
+  width: 97%;
+  margin-bottom: 20px;
+  float: none;
+  margin-left: 15px !important;
+  margin-right: 20px;
+}
 
-  /* Make the promoted cards full-width and stack vertically */
-  .promoted-card {
-    width: 100%;
-    margin-bottom: 20px;
-    float: none;
-    margin-left: 10px !important;
-    margin-right: 20px;
-  }
-
-  /* Remove the float and margin from card1 and card2 */
-  .card1,
-  .card2 {
-    float: none;
-    margin-left: 0;
-    margin-right: 0;
-  }
+/* Remove the float and margin from card1 and card2 */
+.card1, .card2 {
+  float: none;
+  margin-left: 0;
+  margin-right: 0;
+}
 }
 
 @media only screen and (max-width: 768px) {
-  .info-row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .age-group {
-    margin-top: 10px;
-    margin-bottom: 20px;
-  }
-
-}
-
-
-/* banner */
-.banner-container {
-  /* float: right; */
-  width: 25%;
-  padding: 0 20px;
-  display: flex;
-
+.info-row {
   flex-direction: column;
-  align-items: flex-end;
-  /* background-color: red; */
+  align-items: flex-start;
 }
 
-.card {
+.age-group {
+  margin-top: 10px;
   margin-bottom: 20px;
-  width: 335px;
-  border-radius: 5px;
 }
 
-.card img {
-  width: 100%;
-  border-radius: 5px;
-  height: 100%;
-  object-position: cover;
+.location {
+ margin-top: -50%;
 }
 
-.card:nth-child(1) {
-  height: 670px;
 }
 
-.card:nth-child(2) {
-  height: 322px;
-  margin-bottom: 0%;
-}
+
 
 @media only screen and (max-width: 768px) {
   .promoted-container {
     margin-bottom: 20px;
+    margin-right: 10px;
   }
-
+  
   .banner-container {
     width: 100%;
-    padding: 20px;
+    padding:  20px;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-
+  
   .card {
     margin-bottom: 10px;
     width: 100%;
   }
+}
+
+
+@media only screen and (max-width: 500px) {
+  .pagination-container {
+    width: 80%;
+    margin-left: 0;
+  }
+  .more {
+    font-size: 10px;
+    padding: 10px 10px;
+    width: 100%;
+  }
+  .activity-card{
+    width: 95%;
+    max-width: 480px;
+  }
+  
 }
