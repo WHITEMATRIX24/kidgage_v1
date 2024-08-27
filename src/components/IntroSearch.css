@@ -284,7 +284,17 @@
     font-size: 16px;
     margin: 10px 10px 0 10px;
   }
-
+.dropdown{
+  left: 20%;
+}
+.calendar-dropdown{
+  width: 50%;
+  left: 16%;
+}
+.calendar-dropdown2{
+  width: 50%;
+  left: 28%;
+}
   .intro-title {
     font-size: 24px;
   }
@@ -311,6 +321,45 @@
     height: 30px;
     width: 30px;
     margin-right: 10px;
+  }
+}
+@media (max-width:640px) {
+  .dropdown{
+    left: 10%;
+    width: 30%;
+  }
+  .dropdown2{
+    left: 60%;
+    width: 30%;
+  }
+  .calendar-dropdown{
+    width: 80%;
+    left: 0%;
+  }
+  .calendar-dropdown2{
+    width: 80%;
+    left: 17%;
+  }
+}
+@media (max-width:430px) {
+  .dropdown{
+    left: 5%;
+    width: 35%;
+  }
+  .dropdown-item{
+    font-size: 10px;
+  }
+  .dropdown2{
+    left: 55%;
+    width: 35%;
+  }
+  .calendar-dropdown{
+    width: 120%;
+    left: -20%;
+  }
+  .calendar-dropdown2{
+    width: 120%;
+    left: 0%;
   }
 }
 
