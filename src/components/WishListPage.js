@@ -15,7 +15,7 @@ const WishlistPage = () => {
     const fetchWishlistEvents = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://localhost:5000/api/posters?wishlist=true');
+        const response = await fetch('https://kidgage-backend.onrender.com/api/posters?wishlist=true');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -65,7 +65,7 @@ const WishlistPage = () => {
 
   const removeFromWishlist = async (eventId) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/posters/${eventId}/wishlist`, {
+      const response = await fetch(`https://kidgage-backend.onrender.com/api/posters/${eventId}/wishlist`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -115,8 +115,8 @@ const WishlistPage = () => {
                     <a href={event.location}>View Location</a>
                     
                     <button id="book-now" onClick={() => bookNow(event)}><i className="fas fa-arrow-right"></i>BOOK NOW</button>
-                    <button id="calendar"><i className="fa-regular fa-calendar-plus"></i></button>
-                    <button id="call"><i className="fa-solid fa-phone"></i></button>
+                    {/* <button id="calendar"><i className="fa-regular fa-calendar-plus"></i></button>
+                    <button id="call"><i className="fa-solid fa-phone"></i></button> */}
                     <button id="wishlist" onClick={() => removeFromWishlist(event._id)}>
                       <i className="fa-solid fa-heart-crack"></i>
                     </button>

@@ -18,7 +18,7 @@ const EventEnrollment = () => {
 
     const fetchPosters = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/posters');
+            const response = await axios.get('https://kidgage-backend.onrender.com/api/posters');
             setPosters(response.data);
         } catch (error) {
             console.error('Error fetching posters:', error);

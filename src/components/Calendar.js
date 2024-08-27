@@ -295,7 +295,7 @@ const Calendar = ({ course, provider }) => {
   useEffect(() => {
     const fetchCourseDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/courses/course/${courseId}`);
+        const response = await axios.get(`https://kidgage-backend.onrender.com/api/courses/course/${courseId}`);
         const courseData = response.data;
 
         setCourseDetails(courseData);
