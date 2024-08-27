@@ -12,6 +12,7 @@ import './AcademyList.css';
 import Footer from './Footer';
 import Header2 from './Header2';
 import ico from './assets/images/ico.png';
+import { useNavigate } from 'react-router-dom';
 
 const Activities = () => {
     const sendMessage = (activityName) => {
@@ -20,7 +21,26 @@ const Activities = () => {
         console.log("WhatsApp URL:", whatsappUrl); // Log the URL for debugging
         window.open(whatsappUrl, '_blank');
     };
-    
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate('/activity-info');
+    };
+    const handleShare = () => {
+        const shareData = {
+            title: 'Check this out!',
+            text: 'Check out this activity on Kidgage!',
+            url: window.location.href,
+        };
+
+        if (navigator.share) {
+            navigator.share(shareData)
+                .then(() => console.log('Successfully shared'))
+                .catch((error) => console.log('Error sharing', error));
+        } else {
+            alert('Web Share API is not supported in your browser.');
+        }
+    };
+
     return (
         <>
             {/* Fixed Navbar */}
@@ -31,23 +51,23 @@ const Activities = () => {
             <div className='promoted-container '>
                 {/*promoted  card 1 */}
                 <div className="promoted-card card1">
-                    <div className="promoted-image">
+                    <div className="promoted-image" onClick={handleClick}>
                         <img src={football1} alt="Activity Image" />
                     </div>
                     <div className="activity-detailss">
 
-                    <div className='info-with-img'>
-                               
-                               <div className='descp'>
-                                   <h3>Summer Footbal Camp</h3>
-                                   <p>
-                                   Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...</p>
-                               </div>
+                        <div className='info-with-img'>
 
-                               <div className="info-image" style={{ flexShrink: '0', maxWidth: '180px', overflow: 'hidden' }}>
-                                   <img src={logoside} alt="Info Image" style={{ maxWidth: '100%', height: 'auto' }} />
-                               </div>
-                           </div>
+                            <div className='descp'>
+                                <h3>Summer Footbal Camp</h3>
+                                <p>
+                                    Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...</p>
+                            </div>
+
+                            <div className="info-image" style={{ flexShrink: '0', maxWidth: '180px', overflow: 'hidden' }}>
+                                <img src={logoside} alt="Info Image" style={{ maxWidth: '100%', height: 'auto' }} />
+                            </div>
+                        </div>
 
 
 
@@ -78,14 +98,14 @@ const Activities = () => {
                     </div>
                     {/* Activity Actions Section */}
                     <div className="activity-actions">
-                    <button 
-                            className="book-now" 
+                        <button
+                            className="book-now"
                             style={{ backgroundColor: '#16D298' }}
                             onClick={() => sendMessage('Summer Football Camp', 'Location Name')}>
                             <i className="fa-brands fa-whatsapp"></i>
                             <span style={{ marginLeft: '5px' }}>Book Now</span>
                         </button>
-                        <button className="share" style={{ backgroundColor: '#7889BC' }}>
+                        <button className="share" style={{ backgroundColor: '#7889BC' }} onClick={handleShare}>
                             <i class="fa-solid fa-share"></i>
                             <span style={{ marginLeft: '5px' }}> Share</span>
 
@@ -103,19 +123,19 @@ const Activities = () => {
                     </div>
                     <div className="activity-detailss">
 
-                    <div className='info-with-img'>
-                               
-                               <div className='descp'>
-                                   <h3>Football Camp</h3>
-                                   <p>
-                                   Join us for exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...</p>
-                                 
-                               </div>
+                        <div className='info-with-img'>
 
-                               <div className="info-image" style={{ flexShrink: '0', maxWidth: '180px', overflow: 'hidden' }}>
-                                   <img src={logo} alt="Info Image" style={{ maxWidth: '100%', height: 'auto' }} />
-                               </div>
-                           </div>
+                            <div className='descp'>
+                                <h3>Football Camp</h3>
+                                <p>
+                                    Join us for exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...</p>
+
+                            </div>
+
+                            <div className="info-image" style={{ flexShrink: '0', maxWidth: '180px', overflow: 'hidden' }}>
+                                <img src={logo} alt="Info Image" style={{ maxWidth: '100%', height: 'auto' }} />
+                            </div>
+                        </div>
 
 
 
@@ -147,8 +167,8 @@ const Activities = () => {
                     </div>
                     {/* Activity Actions Section */}
                     <div className="activity-actions">
-                    <button 
-                            className="book-now" 
+                        <button
+                            className="book-now"
                             style={{ backgroundColor: '#16D298' }}
                             onClick={() => sendMessage('Summer Football Camp', 'Location Name')}>
                             <i className="fa-brands fa-whatsapp"></i>
@@ -180,7 +200,7 @@ const Activities = () => {
 
                         <div className='activity-card-in'>
                             <div className='info-with-img'>
-                               
+
                                 <div className='descp'>
                                     <h3>Activity name</h3>
                                     <p>
@@ -219,13 +239,13 @@ const Activities = () => {
                         </div>
                         {/* Activity Actions Section */}
                         <div className="activity-actions">
-                        <button 
-                            className="book-now" 
-                            style={{ backgroundColor: '#16D298' }}
-                            onClick={() => sendMessage('Summer Football Camp', 'Location Name')}>
-                            <i className="fa-brands fa-whatsapp"></i>
-                            <span style={{ marginLeft: '5px' }}>Book Now</span>
-                        </button>
+                            <button
+                                className="book-now"
+                                style={{ backgroundColor: '#16D298' }}
+                                onClick={() => sendMessage('Summer Football Camp', 'Location Name')}>
+                                <i className="fa-brands fa-whatsapp"></i>
+                                <span style={{ marginLeft: '5px' }}>Book Now</span>
+                            </button>
                             <button className="share" style={{ backgroundColor: '#7889BC' }}>
                                 <i class="fa-solid fa-share"></i>
                                 <span style={{ marginLeft: '5px' }}> Share</span>
@@ -249,22 +269,22 @@ const Activities = () => {
                     <div className="activity-details">
 
                         <div className='activity-card-in'>
-                        <div className='info-with-img'>
-                               
-                               <div className='descp'>
-                                   <h3>Activity name</h3>
-                                   <p>
-                                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.Placeat temporibus corrupti eaque. Ipsa, error accusamus aliquid ex impedit libero, voluptate accusantium,  eos non molestiae soluta rerum!
-                                   </p>
-                                   <p className="location"><i class="fa-solid fa-location-dot"></i>
-                                       <span style={{ marginLeft: '5px' }}>Location</span>
-                                   </p>
-                               </div>
+                            <div className='info-with-img'>
 
-                               <div className="info-image" style={{ flexShrink: '0', maxWidth: '180px', overflow: 'hidden' }}>
-                                   <img src={image} alt="Info Image" style={{ maxWidth: '100%', height: 'auto' }} />
-                               </div>
-                           </div>
+                                <div className='descp'>
+                                    <h3>Activity name</h3>
+                                    <p>
+                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.Placeat temporibus corrupti eaque. Ipsa, error accusamus aliquid ex impedit libero, voluptate accusantium,  eos non molestiae soluta rerum!
+                                    </p>
+                                    <p className="location"><i class="fa-solid fa-location-dot"></i>
+                                        <span style={{ marginLeft: '5px' }}>Location</span>
+                                    </p>
+                                </div>
+
+                                <div className="info-image" style={{ flexShrink: '0', maxWidth: '180px', overflow: 'hidden' }}>
+                                    <img src={image} alt="Info Image" style={{ maxWidth: '100%', height: 'auto' }} />
+                                </div>
+                            </div>
 
                             <div style={{ height: '20px' }}></div>
 
@@ -290,13 +310,13 @@ const Activities = () => {
                         </div>
                         {/* Activity Actions Section */}
                         <div className="activity-actions">
-                        <button 
-                            className="book-now" 
-                            style={{ backgroundColor: '#16D298' }}
-                            onClick={() => sendMessage('Summer Football Camp', 'Location Name')}>
-                            <i className="fa-brands fa-whatsapp"></i>
-                            <span style={{ marginLeft: '5px' }}>Book Now</span>
-                        </button>
+                            <button
+                                className="book-now"
+                                style={{ backgroundColor: '#16D298' }}
+                                onClick={() => sendMessage('Summer Football Camp', 'Location Name')}>
+                                <i className="fa-brands fa-whatsapp"></i>
+                                <span style={{ marginLeft: '5px' }}>Book Now</span>
+                            </button>
                             <button className="share" style={{ backgroundColor: '#7889BC' }}>
                                 <i class="fa-solid fa-share"></i>
                                 <span style={{ marginLeft: '5px' }}> Share</span>
@@ -321,22 +341,22 @@ const Activities = () => {
                     <div className="activity-details">
 
                         <div className='activity-card-in'>
-                        <div className='info-with-img'>
-                               
-                               <div className='descp'>
-                                   <h3>Activity name</h3>
-                                   <p>
-                                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.Placeat temporibus corrupti eaque. Ipsa, error accusamus aliquid ex impedit libero, voluptate accusantium,  eos non molestiae soluta rerum!
-                                   </p>
-                                   <p className="location"><i class="fa-solid fa-location-dot"></i>
-                                       <span style={{ marginLeft: '5px' }}>Location</span>
-                                   </p>
-                               </div>
+                            <div className='info-with-img'>
 
-                               <div className="info-image" style={{ flexShrink: '0', maxWidth: '180px', overflow: 'hidden' }}>
-                                   <img src={image} alt="Info Image" style={{ maxWidth: '100%', height: 'auto' }} />
-                               </div>
-                           </div>
+                                <div className='descp'>
+                                    <h3>Activity name</h3>
+                                    <p>
+                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.Placeat temporibus corrupti eaque. Ipsa, error accusamus aliquid ex impedit libero, voluptate accusantium,  eos non molestiae soluta rerum!
+                                    </p>
+                                    <p className="location"><i class="fa-solid fa-location-dot"></i>
+                                        <span style={{ marginLeft: '5px' }}>Location</span>
+                                    </p>
+                                </div>
+
+                                <div className="info-image" style={{ flexShrink: '0', maxWidth: '180px', overflow: 'hidden' }}>
+                                    <img src={image} alt="Info Image" style={{ maxWidth: '100%', height: 'auto' }} />
+                                </div>
+                            </div>
                             <div style={{ height: '20px' }}></div>
 
                             <div className="info-row">
@@ -360,13 +380,13 @@ const Activities = () => {
                         </div>
                         {/* Activity Actions Section */}
                         <div className="activity-actions">
-                        <button 
-                            className="book-now" 
-                            style={{ backgroundColor: '#16D298' }}
-                            onClick={() => sendMessage('Summer Football Camp', 'Location Name')}>
-                            <i className="fa-brands fa-whatsapp"></i>
-                            <span style={{ marginLeft: '5px' }}>Book Now</span>
-                        </button>
+                            <button
+                                className="book-now"
+                                style={{ backgroundColor: '#16D298' }}
+                                onClick={() => sendMessage('Summer Football Camp', 'Location Name')}>
+                                <i className="fa-brands fa-whatsapp"></i>
+                                <span style={{ marginLeft: '5px' }}>Book Now</span>
+                            </button>
                             <button className="share" style={{ backgroundColor: '#7889BC' }}>
                                 <i class="fa-solid fa-share"></i>
                                 <span style={{ marginLeft: '5px' }}> Share</span>

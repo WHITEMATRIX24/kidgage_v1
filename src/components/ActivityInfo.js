@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './ActivityInfo.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTheaterMasks, faMusic, faLocationArrow, faBookmark } from '@fortawesome/free-solid-svg-icons';
+import { faTheaterMasks, faMusic, faLocationArrow, faBookmark, faHome } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import Footer from './Footer';
 import Footer2 from './Footer2';
 import Calendar from './Calendar';
 import ActivityImg1 from './assets/images/football.jpg';
-import ActivityImg2 from './assets/images/gymnastics.jpg';
-import ActivityImg3 from './assets/images/swimming.jpg';
+import ActivityImg2 from './assets/images/footbal1.jpeg';
+import ActivityImg3 from './assets/images/football2.jpeg';
 import LocationImg from './assets/images/mapimg.png';
 import providerImg from './assets/images/abc.png'
 import Header2 from './Header2';
@@ -75,13 +75,14 @@ const ActivityInfo = () => {
 
     return (
         <div className="activity-info-container">
-            <Header2/>
+            <Header2 />
             <div className="activity-info-gap"></div>
             <div className="activity-info-header-content">
                 <div className="activity-info-row">
                     <div className="activity-info-home">
                         <div className="activity-info-home-icon">
-                            <FontAwesomeIcon icon={faTheaterMasks} /> Activity
+                            <FontAwesomeIcon icon={faHome} /> <span style={{ margin: '0 8px' }}>{'>'}</span> {/* ">" Symbol */}
+                            <span>Activity</span> {/* Text */}
                         </div>
                     </div>
                     <div className="activity-info-actions">
@@ -89,15 +90,11 @@ const ActivityInfo = () => {
                             <FontAwesomeIcon icon={faLocationArrow} className='activity-info-share' /> Share
                         </button>
                         <button className="activity-info-action-btn">
-                            <FontAwesomeIcon icon={faBookmark} className='activity-info-save' /> Save
+                            <FontAwesomeIcon icon={faBookmark} className='activity-info-share' /> Save
                         </button>
                     </div>
                 </div>
                 <div className="activity-info-item">
-                    <div className="activity-info-icon">
-                        <FontAwesomeIcon icon={faTheaterMasks} />
-                    </div>
-                    <span className='activity-info-icon-text'>Sports & Games</span>
                     <div className="activity-info-icon">
                         <FontAwesomeIcon icon={faMusic} />
                     </div>
@@ -108,15 +105,15 @@ const ActivityInfo = () => {
             <div className="activity-info-gap"></div>
             <div className="activity-info-content">
                 <div className="activity-info-left-section">
-                    <h2 className="activity-info-heading">{course.name}</h2>
+                    <h2 className="activity-info-heading">Activity Name</h2>
                     <div className='activity-info-gap'></div>
                     <img src={activityImages[currentImageIndex]} alt="activity image" className='activity-info-image' />
-                    <h3 className="activity-info-heading">Description</h3>
+                    <h3 className="activity-info-heading">{course.name}</h3>
                     <div className="activity-info-gap"></div>
-                    <p className="activity-info-description">
+                    <h3 className="activity-info-description">
                         {course.description}
-                    </p>
-                    <h3 className="activity-info-heading">LOCATION</h3>
+                    </h3>
+                    <h3 className="activity-info-heading">Location</h3>
                     <img src={LocationImg} alt="location image" className='activity-info-location-image' />
                 </div>
                 <div className="activity-info-right-section">
@@ -140,7 +137,7 @@ const ActivityInfo = () => {
                 </div>
             </div>
             <Footer />
-            <Footer2 />
+
         </div>
     );
 };

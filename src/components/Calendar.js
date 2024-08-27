@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import styled from 'styled-components';
 import 'react-datepicker/dist/react-datepicker.css';
 import { FaCalendarAlt, FaWhatsapp } from 'react-icons/fa';
+import axios from 'axios';
 
 const CustomDatePickerWrapper = styled.div`
   height: 20cm;
@@ -160,46 +161,164 @@ const CustomDatePickerWrapper = styled.div`
     color: #525975;
     font-size: 1.2rem;
     border: none;
-    font-weight:bold;
+    font-weight: bold;
     margin-right: 15px;
+  }
+
+  @media (max-width: 768px) {
+    width: 70%;
+    padding: 10px;
+
+    .calendar-content {
+      height: auto;
+      padding: 20px;
+      padding-top: 0.5cm;
+      margin-top: 5px;
+    }
+
+    .custom-date-header {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .custom-date-header-time {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .react-datepicker__current-month {
+      font-size: 1.2rem;
+    }
+
+    .react-datepicker__day-names {
+      font-size: 1rem;
+    }
+
+    .react-datepicker__day {
+      width: 30px;
+      height: 30px;
+    }
+
+    .date-line {
+      font-size: 1rem;
+    }
+
+    .day {
+      font-size: 0.9rem;
+      padding: 3px 8px;
+    }
+
+    .highlighted-day {
+      padding: 3px 8px;
+    }
+
+    .calender-book-button {
+      flex-direction: row;
+      align-items: flex-start;
+
+      button {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+       
+      }
+
+      select {
+        font-size: 1rem;
+        margin-right: 0;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+  width: 100%;
+    padding: 10px;
+    .custom-date-header {
+      font-size: 1.2rem;
+    }
+
+    .custom-date-header-time {
+      font-size: 0.9rem;
+    }
+
+    .react-datepicker__day-names {
+      font-size: 0.9rem;
+    }
+
+    .react-datepicker__day {
+      width: 28px;
+      height: 28px;
+    }
+
+    .day, .highlighted-day {
+      font-size: 0.8rem;
+      padding: 2px 6px;
+    }
+
+    .calender-book-button {
+      button {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+      }
+
+      select {
+        font-size: 0.9rem;
+      }
+    }
   }
 `;
 
-const Calendar = ({ providerName, courseName }) => {
+const CustomCalendar = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState("");
+  const [courseDetails, setCourseDetails] = useState(null);
+  const [allowedDays, setAllowedDays] = useState([]);
+  const [timeSlots, setTimeSlots] = useState([]);
+  const courseId = '66ab808e13912199840ad54b';
+  useEffect(() => {
+    const fetchCourseDetails = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/api/courses/course/${courseId}`);
+        const courseData = response.data;
+
+        setCourseDetails(courseData);
+        setAllowedDays(courseData.days.map(day => daysMapping[day]));
+      } catch (error) {
+        console.error('Error fetching course details:', error);
+      }
+    };
+
+    fetchCourseDetails();
+  }, [courseId]);
+
+  const daysMapping = { "Sun": 0, "Mon": 1, "Tue": 2, "Wed": 3, "Thu": 4, "Fri": 5, "Sat": 6 };
 
   const filterDates = (date) => {
     const day = date.getDay();
-    return day === 1 || day === 6; // Example: Mondays (1) and Saturdays (6) allowed
+    const isAllowedDay = allowedDays.includes(day);
+    const isFutureDate = date >= new Date().setHours(0, 0, 0, 0); // Ensure it's today or a future date
+    return isAllowedDay && isFutureDate;
   };
 
-  const allowedDays = [1, 6]; // Mondays and Saturdays
-  const handleBookNowClick = () => {
-    if (!selectedDate || !selectedTime) {
-      alert("Please select a date and time.");
-      return;
-    }
-
-    const formattedDate = selectedDate.toLocaleDateString('en-GB'); // Format as dd-mm-yyyy
-    const whatsappNumber = '9447526695'; // Replace with your WhatsApp number
-
-    const message = `Hello, I would like to book the course "${courseName}" provided by "${providerName}" onDate: ${formattedDate}\nTime: ${selectedTime}. Can you help me with that?`;
-    
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappURL, '_blank');
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const options = { day: 'numeric', month: 'long', year: 'numeric' }; // "October 1, 2024"
+    return date.toLocaleDateString(undefined, options);
   };
 
   return (
     <CustomDatePickerWrapper>
       <div className="calendar-row">
         <FaCalendarAlt size={24} color="#001689" />
-        <div className="date-line">7th Sep - 14th Dec</div>
+        {courseDetails && (
+          <div className="date-line">
+            {formatDate(courseDetails.startDate)} - {formatDate(courseDetails.endDate)}
+          </div>
+        )}
       </div>
 
       <div className="days-row">
-        {["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"].map((day, index) => (
-          <div key={day} className={`day ${allowedDays.includes(index + 1) ? "highlighted-day" : ""}`}>
+        {["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].map((day, index) => (
+          <div key={day} className={`day ${allowedDays.includes(index) ? "highlighted-day" : ""}`}>
             {day}
           </div>
         ))}
@@ -216,18 +335,19 @@ const Calendar = ({ providerName, courseName }) => {
           selected={selectedDate}
           onChange={(date) => setSelectedDate(date)}
           filterDate={filterDates}
-          minDate={new Date()}
+          minDate={new Date(courseDetails?.startDate)}
+          maxDate={new Date(courseDetails?.endDate)}
           inline
         />
 
         <div className="calender-book-button">
           <select value={selectedTime} onChange={(e) => setSelectedTime(e.target.value)}>
             <option value="" disabled>Select Timing</option>
-            <option value="09:15 - 10:00">09:15 - 10:00</option>
-            <option value="10:15 - 11:00">10:15 - 11:00</option>
-            <option value="11:15 - 12:00">11:15 - 12:00</option>
+            {courseDetails?.timeSlots.map((slot, index) => (
+              <option key={index} value={slot._id}>{`${slot.from} - ${slot.to}`}</option>
+            ))}
           </select>
-          <button onClick={handleBookNowClick}>
+          <button>
             Book Now <FaWhatsapp />
           </button>
         </div>
@@ -236,4 +356,4 @@ const Calendar = ({ providerName, courseName }) => {
   );
 };
 
-export default Calendar;
+export default CustomCalendar;
