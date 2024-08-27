@@ -288,7 +288,7 @@ background-color: #e7eaf1;
 .pagination-container {
   display: grid;
   margin-left: 26%;
-  width: 50%;
+  width: 100%;
 }
 
 @media only screen and (max-width: 768px) {
