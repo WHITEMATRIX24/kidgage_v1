@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './ActivityInfo.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTheaterMasks, faMusic, faLocationArrow, faBookmark, faHome } from '@fortawesome/free-solid-svg-icons';
+import { faTheaterMasks, faMusic, faLocationArrow, faBookmark, faHome, faMapLocation, faLocation, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import Footer from './Footer';
 import Footer2 from './Footer2';
@@ -75,7 +75,8 @@ const ActivityInfo = () => {
 
     return (
         <div className="activity-info-container">
-            <Header2 />
+            <Header2 className='activity-info-header' />
+            <div className="activity-info-gap"></div>
             <div className="activity-info-gap"></div>
             <div className="activity-info-header-content">
                 <div className="activity-info-row">
@@ -107,14 +108,15 @@ const ActivityInfo = () => {
                 <div className="activity-info-left-section">
                     <h2 className="activity-info-heading">Activity Name</h2>
                     <div className='activity-info-gap'></div>
+                    <div className="activity-info-gap"></div>
                     <img src={activityImages[currentImageIndex]} alt="activity image" className='activity-info-image' />
                     <h3 className="activity-info-heading">{course.name}</h3>
                     <div className="activity-info-gap"></div>
-                    <h3 className="activity-info-description">
+                    <p className="activity-info-description">
                         {course.description}
-                    </h3>
-                    <h3 className="activity-info-heading">Location</h3>
-                    <img src={LocationImg} alt="location image" className='activity-info-location-image' />
+                    </p>
+                    <h3 className="activity-info-heading-location">Location</h3>
+                    <p className='activity-info-location'> <FontAwesomeIcon icon={faLocationDot} className='activity-info-location-icon' /> Muaither area, Doha Location 2 Location 3</p>
                 </div>
                 <div className="activity-info-right-section">
                     <div className="activity-info-gap"></div>
@@ -125,8 +127,8 @@ const ActivityInfo = () => {
                         {provider.firstName} {provider.lastName} <br />
                         Registration number: {provider.licenseNo}
                     </p>
-                    {/* <img src={`data:image/jpeg;base64,${provider.logo}`} alt="Provider" className="activity-info-provider-image" /> */}
-                    <img src={providerImg} alt='providerimage' className='activity-info-provider-image' />
+                    <img src={`data:image/jpeg;base64,${provider.logo}`} alt="Provider" className="activity-info-provider-image" />
+
                     <h3 className="activity-info-trainers-heading">Trainers</h3>
                     <div className="activity-info-trainers">
                         <img src={ActivityImg1} alt="trainer-image" className="activity-info-trainer-image" />
