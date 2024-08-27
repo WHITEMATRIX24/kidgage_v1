@@ -44,7 +44,7 @@
 .location-details li{
     list-style: none;
     display: flex;
-    gap: 15px;
+    gap: 25px;
 }
 .activity-info-home-icon-icon {
     margin-right: 5px;
@@ -312,7 +312,17 @@
         height: 1.2cm;
         font-size: 1rem;
     }
-
+    .location-details li{
+        list-style: none;
+        display: flex;
+        gap: 10px;
+    }
+    .location-details li a{
+        list-style: none;
+        display: flex;
+        font-size: 13px;
+        gap: 10px;
+    }
     .activity-info-header-content,
     .activity-info-content {
         padding: 0 1cm;
