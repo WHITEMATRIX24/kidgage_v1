@@ -23,7 +23,6 @@
   background-color: #ff1493; 
   color: #ffffff;
 }
-
 .rsc-os-bubble {
   background-color: #ff1493; 
   color: #000000; 
@@ -44,6 +43,9 @@
   color: white; 
   margin-bottom: -3px;
 }
+.jpJyWr{
+  margin-top: -1px;
+height: 60px;}
 .fBGGBn{
 background-color: #ffffffad;
 backdrop-filter: blur(8px);
