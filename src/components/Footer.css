@@ -75,6 +75,63 @@
   }
   
 }
+
+.msg-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  z-index: 1000;
+}
+/* Add this to UpcomingEvents.css */
+
+.floating-btn {
+  position: fixed;
+  bottom: 30px;
+/* Adjust color as needed */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000; /* Ensure it's on top of other elements */
+}
+
+
+.floating-btn i {
+  margin: 0;
+}
+
+.wishlist-btn {
+  right: 90px; /* Position next to cart button */
+  background-color: #ff4081; 
+
+}
+
+.wishlist-btn:hover{
+  background-color: #e91e63; /* Darker shade on hover */
+}
+
+.cart-btn {
+  right: 30px; /* Position on the right */
+  background-color: #9fa4ab; 
+
+}
+.cart-btn:hover{
+  background-color: #707377; 
+
+}
+
 @media (max-width: 820px) {
   .footer {
     padding: 50px 40px 40px 40px;
