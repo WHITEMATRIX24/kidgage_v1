@@ -109,7 +109,7 @@ const ActivityInfo = () => {
             <div className="activity-info-gap"></div>
             <div className="activity-info-content">
                 <div className="activity-info-left-section">
-                    <h2 className="activity-info-heading">{course.name}</h2>
+                    <h2 className="activity-info-heading">Activity Name</h2>
                     <div className='activity-info-gap'></div>
                     <div className="activity-info-gap"></div>
                     <img src={activityImages[currentImageIndex]} alt="activity image" className='activity-info-image' />
@@ -129,7 +129,7 @@ const ActivityInfo = () => {
                 <div className="activity-info-right-section">
                     <div className="activity-info-gap"></div>
                     <div className="activity-info-gap"></div>
-                    <div className="activity-info-main-image"><Calendar course={course.name}  provider={`${provider.firstName} ${provider.lastName}`}  /></div>
+                    <div className="activity-info-main-image"><Calendar /></div>
                     <h3 className="activity-info-provider-heading">Activity Provided By</h3>
                     <p className="activity-info-provider-details">
                         {provider.firstName} {provider.lastName} <br />
@@ -137,7 +137,7 @@ const ActivityInfo = () => {
                     </p>
                     <img src={`data:image/jpeg;base64,${provider.logo}`} alt="Provider" className="activity-info-provider-image" />
 
-                    <h3 className="activity-info-trainers-heading">Trainers</h3>
+                    <h3 className="activity-info-trainers-heading">Trained by</h3>
                     <div className="activity-info-trainers">
                         <img src={ActivityImg1} alt="trainer-image" className="activity-info-trainer-image" />
                         <img src={ActivityImg1} alt="trainer-image" className="activity-info-trainer-image" />
