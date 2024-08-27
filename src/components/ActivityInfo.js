@@ -129,7 +129,7 @@ const ActivityInfo = () => {
                 <div className="activity-info-right-section">
                     <div className="activity-info-gap"></div>
                     <div className="activity-info-gap"></div>
-                    <div className="activity-info-main-image"><Calendar /></div>
+                    <div className="activity-info-main-image"><Calendar course={course.name}  provider={`${provider.firstName} ${provider.lastName}`}  /></div>
                     <h3 className="activity-info-provider-heading">Activity Provided By</h3>
                     <p className="activity-info-provider-details">
                         {provider.firstName} {provider.lastName} <br />

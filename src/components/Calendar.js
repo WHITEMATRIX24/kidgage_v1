@@ -276,7 +276,7 @@ const CustomDatePickerWrapper = styled.div`
   }
 `;
 
-const Calendar2 = () => {
+const Calendar =({ course, provider }) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState("");
   const [courseDetails, setCourseDetails] = useState(null);
@@ -313,7 +313,19 @@ const Calendar2 = () => {
     const options = { day: 'numeric', month: 'long', year: 'numeric' }; // "October 1, 2024"
     return date.toLocaleDateString(undefined, options);
   };
-
+  const handleBookNow = () => {
+    if (selectedDate && selectedTime) {
+      const formattedDate = formatDate(selectedDate);
+      const timeSlot = courseDetails.timeSlots.find(slot => slot._id === selectedTime);
+      const message = `I'd like to book the course "${course}" provided by ${provider} on ${formattedDate} during the time slot ${timeSlot.from} - ${timeSlot.to}.`;
+      const phoneNumber = '9447526695'; // Your phone number
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+      window.open(whatsappURL, '_blank');
+    } else {
+      alert("Please select both a date and a time slot.");
+    }
+  };
   return (
     <CustomDatePickerWrapper>
       <div className="calendar-row">
@@ -356,7 +368,7 @@ const Calendar2 = () => {
               <option key={index} value={slot._id}>{`${slot.from} - ${slot.to}`}</option>
             ))}
           </select>
-          <button>
+          <button onClick={handleBookNow}>
             <FaWhatsapp style={{ marginRight: '10px' }} /> Book Now
           </button>
         </div>
@@ -365,4 +377,4 @@ const Calendar2 = () => {
   );
 };
 
-export default Calendar2;
+export default Calendar;
