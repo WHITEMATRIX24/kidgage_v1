@@ -40,53 +40,54 @@ const Header2 = () => {
                         <FontAwesomeIcon icon={faChevronDown} />
                     </div>
                     <div className="search-items">
-                        <div className={`search-item ${activeInput === 0 ? 'active' : ''}`}>
-                            <label>Location</label>
-                            <input 
-                                type="text" 
-                                placeholder="Search activities near you" 
-                                onFocus={() => handleInputFocus(0)}
-                                onBlur={handleInputBlur}
-                                disabled={activeInput !== null && activeInput !== 0}
-                            />
-                        </div>
-                        <div className="divider"></div>
-                        <div className={`search-item ${activeInput === 1 ? 'active' : ''}`}>
-                            <label>Ages</label>
-                            <input 
-                                type="text" 
-                                placeholder="All ages" 
-                                onFocus={() => handleInputFocus(1)}
-                                onBlur={handleInputBlur}
-                                disabled={activeInput !== null && activeInput !== 1}
-                            />
-                        </div>
-                        <div className="divider"></div>
-                        <div className={`search-item ${activeInput === 2 ? 'active' : ''}`}>
-                            <label>When</label>
-                            <input 
-                                type="text" 
-                                placeholder="All Dates & All Days" 
-                                onFocus={() => handleInputFocus(2)}
-                                onBlur={handleInputBlur}
-                                disabled={activeInput !== null && activeInput !== 2}
-                            />
-                        </div>
-                        <div className="divider"></div>
-                        <div className={`search-item ${activeInput === 3 ? 'active' : ''}`}>
-                            <label>Activity</label>
-                            <input 
-                                type="text" 
-                                placeholder="All activities" 
-                                onFocus={() => handleInputFocus(3)}
-                                onBlur={handleInputBlur}
-                                disabled={activeInput !== null && activeInput !== 3}
-                            />
-                        </div>
-                        <button className="search-button">
-                            <FontAwesomeIcon icon={faSearch} />
-                        </button>
-                    </div>
+    <div className={`search-item ${activeInput === 0 ? 'active' : ''}`}>
+        <label>Location</label>
+        <input 
+            type="text" 
+            placeholder="Search activities near you" 
+            onFocus={() => handleInputFocus(0)}
+            onBlur={handleInputBlur}
+            disabled={activeInput !== null && activeInput !== 0}
+        />
+    </div>
+    <div className="divider"></div>
+    <div className={`search-item ${activeInput === 1 ? 'active' : ''}`}>
+        <label>Ages</label>
+        <input 
+            type="text" 
+            placeholder="All ages" 
+            onFocus={() => handleInputFocus(1)}
+            onBlur={handleInputBlur}
+            disabled={activeInput !== null && activeInput !== 1}
+        />
+    </div>
+    <div className="divider"></div>
+    <div className={`search-item ${activeInput === 2 ? 'active' : ''}`}>
+        <label>When</label>
+        <input 
+            type="text" 
+            placeholder="All Dates & All Days" 
+            onFocus={() => handleInputFocus(2)}
+            onBlur={handleInputBlur}
+            disabled={activeInput !== null && activeInput !== 2}
+        />
+    </div>
+    <div className="divider"></div>
+    <div className={`search-item ${activeInput === 3 ? 'active' : ''}`}>
+        <label>Activity</label>
+        <input 
+            type="text" 
+            placeholder="All activities" 
+            onFocus={() => handleInputFocus(3)}
+            onBlur={handleInputBlur}
+            disabled={activeInput !== null && activeInput !== 3}
+        />
+    </div>
+    <button className="search-button">
+        <FontAwesomeIcon icon={faSearch} />
+    </button>
+</div>
+
                 </div>
                 <button 
                     className="menu-toggle" 

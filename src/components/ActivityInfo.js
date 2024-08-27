@@ -109,7 +109,7 @@ const ActivityInfo = () => {
             <div className="activity-info-gap"></div>
             <div className="activity-info-content">
                 <div className="activity-info-left-section">
-                    <h2 className="activity-info-heading">Activity Name</h2>
+                    <h2 className="activity-info-heading">{course.name}</h2>
                     <div className='activity-info-gap'></div>
                     <div className="activity-info-gap"></div>
                     <img src={activityImages[currentImageIndex]} alt="activity image" className='activity-info-image' />
