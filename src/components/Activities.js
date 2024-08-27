@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Pagination } from '@mui/material';
 import image from '../components/assets/images/image.png';
 import banner1 from '../components/assets/images/poster1.png'
@@ -21,6 +22,10 @@ const Activities = () => {
         console.log("WhatsApp URL:", whatsappUrl); // Log the URL for debugging
         window.open(whatsappUrl, '_blank');
     };
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate('/activity-info');
+    };
 
     return (
         <>
@@ -34,10 +39,10 @@ const Activities = () => {
             <div className='promoted-container '>
                 {/*promoted  card 1 */}
                 <div className="promoted-card card1">
-                    <div className="promoted-image">
+                    <div className="promoted-image" onClick={handleClick}>
                         <img src={football1} alt="Activity Image" />
                     </div>
-                    <div className="activity-detailss">
+                    <div className="activity-detailss" onClick={handleClick}>
 
                         <div className='info-with-img'>
 
@@ -47,9 +52,9 @@ const Activities = () => {
                                     Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...</p>
                             </div>
 
-                            
 
-                            <div className="info-image" style={{marginRight:'25px'}}>
+
+                            <div className="info-image" style={{ marginRight: '25px' }}>
                                 <img src={logoside} alt="Info Image" style={{ width: '100%', height: 'auto' }} />
                             </div>
                         </div>
@@ -70,7 +75,7 @@ const Activities = () => {
                                 <div className="activity-reviews" style={{ marginLeft: 'auto' }}>
                                     <span>⭐⭐⭐⭐⭐</span>
                                     <br /> <span className='review-text'>
-                                    100+ reviews</span>
+                                        100+ reviews</span>
                                 </div>
                             </div>
                         </div>
@@ -120,7 +125,7 @@ const Activities = () => {
 
                             </div>
 
-                            <div className="info-image" style={{marginRight:'25px'}}>
+                            <div className="info-image" style={{ marginRight: '25px' }}>
                                 <img src={logo} alt="Info Image" />
                             </div>
                         </div>
@@ -141,7 +146,7 @@ const Activities = () => {
                                 <div className="activity-reviews" style={{ marginLeft: 'auto' }}>
                                     <span>⭐⭐⭐⭐⭐</span>
                                     <br /> <span className='review-text'>
-                                    100+ reviews</span>
+                                        100+ reviews</span>
                                 </div>
                             </div>
                         </div>
@@ -197,13 +202,13 @@ const Activities = () => {
                                     <p>
                                         Lorem, ipsum dolor sit amet consectetur adipisicing elit.Placeat temporibus corrupti eaque. Ipsa, error accusamus aliquid ex impedit libero, voluptate accusantium,  eos non molestiae soluta rerum!
                                     </p>
-                                    <p className="location"  style={{ marginTop: '25px' }}><i class="fa-solid fa-location-dot"></i>
+                                    <p className="location" style={{ marginTop: '25px' }}><i class="fa-solid fa-location-dot"></i>
                                         <span style={{ marginLeft: '5px' }}>Location</span>
                                     </p>
                                 </div>
 
-                                <div className="info-image" style={{marginRight:'30px'}} >
-                                    <img src={logoside} alt="Info Image"  />
+                                <div className="info-image" style={{ marginRight: '30px' }} >
+                                    <img src={logoside} alt="Info Image" />
                                 </div>
                             </div>
 
@@ -223,14 +228,14 @@ const Activities = () => {
                                     <div className="activity-reviews" style={{ marginLeft: 'auto' }}>
                                         <span>⭐⭐⭐⭐⭐</span>
                                         <br /> <span className='review-text'>
-                                        100+ reviews</span>
+                                            100+ reviews</span>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
                         {/* Activity Actions Section */}
-                        <div className="activity-actions" style={{'margin-top': '15px'}}>
+                        <div className="activity-actions" style={{ 'margin-top': '15px' }}>
                             <button
                                 className="book-now"
                                 style={{ backgroundColor: '#16D298' }}
@@ -247,8 +252,8 @@ const Activities = () => {
                                 <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Save</span>
                             </button>
                             <div className='more-btn'>
-                            <button className="more">See more from this provider</button>
-                        </div>                        </div>
+                                <button className="more">See more from this provider</button>
+                            </div>                        </div>
                     </div>
                 </div>
                 <div style={{ height: '20px' }}></div>
@@ -269,12 +274,12 @@ const Activities = () => {
                                     <p>
                                         Lorem, ipsum dolor sit amet consectetur adipisicing elit.Placeat temporibus corrupti eaque. Ipsa, error accusamus aliquid ex impedit libero, voluptate accusantium,  eos non molestiae soluta rerum!
                                     </p>
-                                    <p className="location"  style={{ marginTop: '25px' }}><i class="fa-solid fa-location-dot"></i>
+                                    <p className="location" style={{ marginTop: '25px' }}><i class="fa-solid fa-location-dot"></i>
                                         <span style={{ marginLeft: '5px' }}>Location</span>
                                     </p>
                                 </div>
 
-                                <div className="info-image"  style={{marginRight:'30px'}}>
+                                <div className="info-image" style={{ marginRight: '30px' }}>
                                     <img src={logo} alt="Info Image" />
                                 </div>
                             </div>
@@ -296,14 +301,14 @@ const Activities = () => {
                                     <div className="activity-reviews" style={{ marginLeft: 'auto' }}>
                                         <span>⭐⭐⭐⭐⭐</span>
                                         <br /> <span className='review-text'>
-                                        100+ reviews</span>
+                                            100+ reviews</span>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
                         {/* Activity Actions Section */}
-                        <div className="activity-actions" style={{'margin-top': '15px'}}>
+                        <div className="activity-actions" style={{ 'margin-top': '15px' }}>
                             <button
                                 className="book-now"
                                 style={{ backgroundColor: '#16D298' }}
@@ -320,8 +325,8 @@ const Activities = () => {
                                 <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Save</span>
                             </button>
                             <div className='more-btn'>
-                            <button className="more">See more from this provider</button>
-                        </div>                        </div>
+                                <button className="more">See more from this provider</button>
+                            </div>                        </div>
                     </div>
                 </div>
                 <div style={{ height: '20px' }}></div>
@@ -348,7 +353,7 @@ const Activities = () => {
                                     </p>
                                 </div>
 
-                                <div className="info-image"  style={{marginRight:'30px'}}>
+                                <div className="info-image" style={{ marginRight: '30px' }}>
                                     <img src={logo} alt="Info Image" />
                                 </div>
                             </div>
@@ -368,14 +373,14 @@ const Activities = () => {
                                     <div className="activity-reviews" style={{ marginLeft: 'auto' }}>
                                         <span>⭐⭐⭐⭐⭐</span>
                                         <br /><span className='review-text'>
-                                        100+ reviews</span>
+                                            100+ reviews</span>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
                         {/* Activity Actions Section */}
-                        <div className="activity-actions" style={{'margin-top': '15px'}}>
+                        <div className="activity-actions" style={{ 'margin-top': '15px' }}>
                             <button
                                 className="book-now"
                                 style={{ backgroundColor: '#16D298' }}
@@ -392,8 +397,8 @@ const Activities = () => {
                                 <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Save</span>
                             </button>
                             <div className='more-btn'>
-                            <button className="more">See more from this provider</button>
-                        </div>                        </div>
+                                <button className="more">See more from this provider</button>
+                            </div>                        </div>
                     </div>
                 </div>
                 <div style={{ height: '40px' }}></div>
@@ -415,31 +420,35 @@ const Activities = () => {
             {/* banner section ends */}
 
             <div className="pagination-container">
-  <Pagination
-    count={10}
-    size="large"
-    sx={{
-      "& .MuiPaginationItem-root": {
-        "&:hover": {
-          backgroundColor: "#7889BC",
-        },
-        "&.Mui-selected": {
-          backgroundColor: "#7889BC",
-        },
-      },
-      "@media (max-width: 600px)": {
-        "& .MuiPaginationItem-root": {
-          "&:hover": {
-            backgroundColor: "#7889BC",
-          },
-          "&.Mui-selected": {
-            backgroundColor: "#7889BC",
-          },
-        },
-      },
-    }}
-  />
-</div>
+                <Pagination
+                    count={10}
+                    size="large"
+                    sx={{
+                        "& .MuiPaginationItem-root": {
+                            "&:hover": {
+                                backgroundColor: "#7889BC",
+                                borderRadius: "5px",
+                            },
+                            "&.Mui-selected": {
+                                backgroundColor: "#7889BC",
+                                borderRadius: "5px",
+                            },
+                        },
+                        "@media (max-width: 600px)": {
+                            "& .MuiPaginationItem-root": {
+                                "&:hover": {
+                                    backgroundColor: "#7889BC",
+                                    borderRadius: "5px",
+                                },
+                                "&.Mui-selected": {
+                                    backgroundColor: "#7889BC",
+                                    borderRadius: "5px",
+                                },
+                            },
+                        },
+                    }}
+                />
+            </div>
 
             <div style={{ height: '80px' }}></div>
 
