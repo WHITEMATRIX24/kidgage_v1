@@ -10,13 +10,14 @@ const Tabs = ({ children }) => {
 
   return (
     <div>
-      <div className="tab-list">
-        {children.map(child => {
+      <div className="tab-listss">
+        {children.map((child, index) => {
           const { label } = child.props;
+          const key = `tab-${index}`; // Use a unique key for each tab
           return (
             <button
-              key={label}
-              className={`tab ${activeTab === label ? 'active' : ''}`}
+              key={key}
+              className={`tabss ${activeTab === label ? 'activess' : ''}`}
               onClick={() => onClickTab(label)}
             >
               {label}
@@ -24,10 +25,10 @@ const Tabs = ({ children }) => {
           );
         })}
       </div>
-      <div className="tab-content">
-        {children.map(child => {
-          if (child.props.label !== activeTab) return undefined;
-          return child.props.children;
+      <div className="tab-contentss">
+        {children.map((child, index) => {
+          if (child.props.label !== activeTab) return null;
+          return <div key={`content-${index}`}>{child.props.children}</div>;
         })}
       </div>
     </div>

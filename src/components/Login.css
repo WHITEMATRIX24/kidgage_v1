@@ -15,6 +15,7 @@
     right: -200px;
     transform: translate(-50%, -50%);
     position:fixed;
+    z-index: 1000000;
 
   }
   @media (max-width:360px) {

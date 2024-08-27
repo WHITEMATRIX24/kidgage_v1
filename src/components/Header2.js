@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faBars, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import hamburger from './assets/images/hamburger.png';
 import './Header2.css';
 import logo from './assets/images/logo.png';
+import Login from './Login'; // Ensure this path is correct
+
 
 const Header2 = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -85,10 +88,20 @@ const Header2 = () => {
                         </button>
                     </div>
                 </div>
-                <button className="menu-toggle" onClick={toggleMenu}>
-                    <FontAwesomeIcon icon={faBars} />
+                <button 
+                    className="menu-toggle" 
+                    onClick={toggleMenu}
+                >
+                    <img 
+                        src={hamburger} 
+                        alt="Menu" 
+                        className="menu-icon" 
+                    />
                 </button>
             </div>
+            {isMenuOpen && (
+            <Login closeMenu={toggleMenu}/>
+            )}
         </header>
     );
 };
