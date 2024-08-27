@@ -44,15 +44,47 @@
 .hero-dot.active {
   background-color: white;
 }
+@media (max-width: 1400px) {
+  .hero-banner {
+    height: 250px;
+  }
+  .hero-slider-container {
+    display: flex;
+    width: 100%; /* Adjusted to account for the gap */
+    height: 100%;
+    transform: translateX(10px);
+    position: relative;
+  }
+}
+
+@media (max-width: 1080px) {
+  .hero-banner {
+    height: 200px;
+  }
+  .hero-slider-container {
+    display: flex;
+    width: 100%; /* Adjusted to account for the gap */
+    height: 100%;
+    transform: translateX(10px);
+    position: relative;
+  }
+}
 
 @media (max-width: 768px) {
   .hero-banner {
-    height: 300px;
+    height: 160px;
+  }
+  .hero-slider-container {
+    display: flex;
+    width: 100%; /* Adjusted to account for the gap */
+    height: 100%;
+    transform: translateX(10px);
+    position: relative;
   }
 }
 
 @media (max-width: 480px) {
   .hero-banner {
-    height: 200px;
+    height: 100px;
   }
 }
