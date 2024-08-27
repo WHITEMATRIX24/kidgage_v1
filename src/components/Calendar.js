@@ -6,7 +6,7 @@ import { FaCalendarAlt, FaWhatsapp } from 'react-icons/fa';
 import axios from 'axios';
 
 const CustomDatePickerWrapper = styled.div`
-  height: 20cm;
+   height: 20cm;
   width: 11cm;
   font-family: Arial, sans-serif;
   background-color: #fff;
@@ -55,6 +55,7 @@ const CustomDatePickerWrapper = styled.div`
 
   .calendar-content {
     padding: 15px;
+    
     padding-top: 1cm;
     height: 17cm;
     border-radius: 20px;
@@ -82,6 +83,7 @@ const CustomDatePickerWrapper = styled.div`
 
   .react-datepicker {
     border: none;
+    
     width: 100%;
     margin-bottom: .5cm;
   }
@@ -155,6 +157,7 @@ const CustomDatePickerWrapper = styled.div`
       padding: 10px 20px;
       border: none;
       display: flex;
+      cursor: pointer;
       align-items: center;
       font-size: 1.2rem;
       font-family: 'Poppins', sans-serif;
@@ -174,77 +177,82 @@ const CustomDatePickerWrapper = styled.div`
     margin-right: 15px;
   }
 
-  @media (max-width: 768px) {
-    width: 70%;
-    padding: 10px;
+  // @media (max-width: 768px) {
+  //   width: 100%;
+  //   padding: 10px;
 
-    .calendar-content {
-      height: auto;
-      padding: 20px;
-      padding-top: 0.5cm;
-      margin-top: 5px;
-    }
+  //   .calendar-content {
+  //     height: auto;
+  //     width: 100%;
+  //     padding: 20px;
+  //     padding-top: 0.5cm;
+  //     margin-top: 5px;
+  //   }
 
-    .custom-date-header {
-      font-size: 1.4rem;
-      margin-bottom: 10px;
-    }
+  //   .custom-date-header {
+  //     font-size: 1.4rem;
+  //     margin-bottom: 10px;
+  //   }
 
-    .custom-date-header-time {
-      font-size: 1rem;
-      margin-bottom: 10px;
-    }
+  //   .custom-date-header-time {
+  //     font-size: 1rem;
+  //     margin-bottom: 10px;
+  //   }
 
-    .react-datepicker__current-month {
-      font-size: 1.2rem;
-    }
+  //   .react-datepicker__current-month {
+  //     font-size: 1.2rem;
+  //   }
 
-    .react-datepicker__day-names {
-      font-size: 1rem;
-    }
+  //   .react-datepicker__day-names {
+  //     font-size: 1rem;
+  //   }
 
-    .react-datepicker__day {
-      width: 30px;
-      height: 30px;
-    }
+  //   .react-datepicker__day {
+  //     width: 30px;
+  //     height: 30px;
+  //   }
 
-    .date-line {
-      font-size: 1rem;
-    }
+  //   .date-line {
+  //     font-size: 1rem;
+  //   }
 
-    .day {
-      font-size: 0.9rem;
-      padding: 3px 8px;
-    }
+  //   .day {
+  //     font-size: 0.9rem;
+  //     padding: 3px 8px;
+  //   }
 
-    .highlighted-day {
-      padding: 3px 8px;
-    }
+  //   .highlighted-day {
+  //     padding: 3px 8px;
+  //   }
 
-    .calender-book-button {
-      flex-direction: row;
-      align-items: flex-start;
+  //   .calender-book-button {
+  //     flex-direction: row;
+  //     align-items: flex-start;
 
-      button {
-        font-size: 0.9rem;
-        padding: 8px 15px;
+  //     button {
+  //       font-size: 0.9rem;
+  //       padding: 8px 15px;
        
-      }
+  //     }
 
-      select {
-        font-size: 1rem;
-        margin-right: 0;
-      }
-    }
-  }
+  //     select {
+  //       font-size: 1rem;
+  //       margin-right: 0;
+  //     }
+  //   }
+  // }
 
-  @media (max-width: 480px) {
+  @media (max-width: 500px) {
+
   width: 100%;
+  height: 10cm;
     padding: 10px;
+    
     .custom-date-header {
       font-size: 1.2rem;
     }
-
+    .calendar-content {
+    height: 14cm;}
     .custom-date-header-time {
       font-size: 0.9rem;
     }
@@ -256,6 +264,7 @@ const CustomDatePickerWrapper = styled.div`
     .react-datepicker__day {
       width: 28px;
       height: 28px;
+      font-size: 1.2rem;
     }
 
     .day, .highlighted-day {
@@ -276,7 +285,7 @@ const CustomDatePickerWrapper = styled.div`
   }
 `;
 
-const Calendar =({ course, provider }) => {
+const Calendar = ({ course, provider }) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState("");
   const [courseDetails, setCourseDetails] = useState(null);
