@@ -219,12 +219,44 @@
   .search-container {
     margin-left: 300px;
   }
+  .dropdown{
+    left: 3%;
+    width: 20%;
+  }
+  .dropdown2{
+    left: 35%;
+    width: 20%;
+  }
+  .calendar-dropdown{
+    width: 70%;
+    left: 0%;
+  }
+  .calendar-dropdown2{
+    width: 70%;
+    left: 8%;
+  }
 }
 
 @media (max-width: 1080px) {
 
   .search-container {
     margin-left: 280px;
+  }
+  .dropdown{
+    left: 3%;
+    width: 20%;
+  }
+  .dropdown2{
+    left: 40%;
+    width: 20%;
+  }
+  .calendar-dropdown{
+    width: 70%;
+    left: 0%;
+  }
+  .calendar-dropdown2{
+    width: 70%;
+    left: 8%;
   }
 }
 
@@ -247,12 +279,66 @@
   .search-container {
     margin-left: 120px;
   }
+  .dropdown{
+    left: 5%;
+    width: 20%;
+  }
+  .dropdown2{
+    left: 43%;
+    width: 20%;
+  }
+  .calendar-dropdown{
+    width: 70%;
+    left: 0%;
+  }
+  .calendar-dropdown2{
+    width: 70%;
+    left: 8%;
+  }
+}
+@media (max-width: 900px) {
+
+  .search-container {
+    margin-left: 120px;
+  }
+  .dropdown{
+    left: 8%;
+    width: 20%;
+  }
+  .dropdown2{
+    left: 48%;
+    width: 20%;
+  }
+  .calendar-dropdown{
+    width: 70%;
+    left: 0%;
+  }
+  .calendar-dropdown2{
+    width: 70%;
+    left: 12%;
+  }
 }
 
 @media (max-width: 870px) {
 
   .search-container {
     margin-left: 50px;
+  }
+  .dropdown{
+    left: 8%;
+    width: 20%;
+  }
+  .dropdown2{
+    left: 53%;
+    width: 20%;
+  }
+  .calendar-dropdown{
+    width: 70%;
+    left: 0%;
+  }
+  .calendar-dropdown2{
+    width: 70%;
+    left: 12%;
   }
 }
 
@@ -286,6 +372,9 @@
   }
 .dropdown{
   left: 20%;
+}
+.dropdown2{
+  left: 58%;
 }
 .calendar-dropdown{
   width: 50%;
@@ -358,7 +447,7 @@
     left: -20%;
   }
   .calendar-dropdown2{
-    width: 120%;
+    width: 110%;
     left: 0%;
   }
 }
