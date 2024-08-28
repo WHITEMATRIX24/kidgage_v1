@@ -410,11 +410,11 @@ const Activities = () => {
             {/* banner section starts*/}
 
             <div class="banner-container">
-                <div class="card bcard1">
+                <div class="card">
                     <img src={banner1} alt="Image 1" />
                 </div>
                 {/* <div style={{ height: '10px' }}></div> */}
-                <div class="card bcard2">
+                <div class="card">
                     <img src={banner2} alt="Image 2" />
                 </div>
             </div>
@@ -423,6 +423,7 @@ const Activities = () => {
             <div className="pagination-container">
                 <Pagination
                     count={10}
+                    size="large"
                     shape="rounded"
                     sx={{
                         "& .MuiPaginationItem-root": {

@@ -13,7 +13,7 @@
 
 .footer-logo-image {
   height: 80px;
-  width: 100%;
+  width: aut;
 }
 
 .footer-nav {
@@ -62,7 +62,7 @@
   }
   .footer-logo-image {
     height: 50px;
-    width: 100%;
+    width: auto;
   }
   .footer-social {
     display: flex;

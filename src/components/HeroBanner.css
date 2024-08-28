@@ -44,6 +44,30 @@
 .hero-dot.active {
   background-color: white;
 }
+@media (min-width: 1800px) {
+  .hero-banner {
+    height: 350px;
+  }
+  .hero-slider-container {
+    display: flex;
+    width: 100%; /* Adjusted to account for the gap */
+    height: 100%;
+    transform: translateX(10px);
+    position: relative;
+  }
+}
+@media (max-width: 1400px) {
+  .hero-banner {
+    height: 250px;
+  }
+  .hero-slider-container {
+    display: flex;
+    width: 100%; /* Adjusted to account for the gap */
+    height: 100%;
+    transform: translateX(10px);
+    position: relative;
+  }
+}
 @media (max-width: 1400px) {
   .hero-banner {
     height: 250px;
