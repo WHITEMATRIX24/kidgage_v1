@@ -6,10 +6,12 @@
   
   .tabss {
     background: none;
+    font-family: 'Poppins',serif;
+
     border: none;
     padding: 10px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: normal;
   }
   

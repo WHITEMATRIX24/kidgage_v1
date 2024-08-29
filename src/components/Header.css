@@ -121,7 +121,26 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.3); 
     z-index: 1000;*/
-
+    @media (min-width: 1800px) {
+        .home-logo img {
+            height: 110px;
+            margin-left: 15px;
+        }
+        .menu-icon {
+            width: 35px;
+            height: 35px;
+        }
+        .header-content{
+            height: 90px;
+        }
+        .notification-bar {
+            padding: 5px 0;
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
     @media (max-width: 600px) {
         .home-logo img {
             height: 70px;

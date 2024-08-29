@@ -127,3 +127,48 @@
   font-size: 1.5em;
   color: rgb(255, 255, 255);
 }
+
+@media (min-width:1800px) {
+  .drawer-item{
+    width: 350px;
+    height: 400px;
+  }
+  .drawer-image {
+    width: 450px;
+    height: 420px;
+  object-fit: cover;
+  border-radius: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; /* Keep the image behind the text */
+}
+  .slide-overlay-text {
+    width: 100%;
+    margin: 240px 15px;
+
+  }
+  .slide-overlay-text h2{
+    font-family: 'Poppins',serif;
+    font-size: 2em;
+    margin-bottom: 1em;
+    color: #fff;
+  }
+  .slide-overlay-text .product-price{
+    font-family: 'Poppins',serif;
+      font-size: 1.3em;
+   }
+    
+ .slide-overlay-text span{
+  font-family: 'Poppins',serif;
+    font-size: 1.6em;
+ }
+  
+  .slide-overlay-text .start-price{
+    font-family: 'Poppins',serif;
+    font-size: 2=1.6em;
+    color: rgb(255, 255, 255);
+    
+  }
+  
+}

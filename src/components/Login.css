@@ -1,4 +1,5 @@
 .login-container {
+  font-family: 'Poppins',serif;
     max-width: 600px;
     width: 90%;
     max-width: 400px;
@@ -18,22 +19,31 @@
     z-index: 1000000;
 
   }
-  @media (max-width:360px) {
-    .login-container{
-      right: -160px;
-      top: 280px;
-    }
-    
+
+@media (max-width: 360px) {
+  .login-container {
+    right: -160px;
+    top: 280px;
   }
-  
-  .close-btn-minus {
-    border: none;
-    font-size: 16px;
-    float: right;
-    font-weight: 500;
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    padding: none;
-  }
-  
+}
+
+.close-btn-minus {
+  font-size: 16px;
+  float: right;
+  cursor: pointer;
+  background: transparent;
+  padding: 0;
+}
+
+.tab-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.tab-icon {
+  font-size: 24px;
+  margin-bottom: 5px; /* Space between icon and text */
+}

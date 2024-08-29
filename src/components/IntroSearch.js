@@ -1,16 +1,35 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom"; // Import for navigation
 import "./IntroSearch.css";
-import Calendar2 from 'react-calendar';
+import Calendar2 from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 
 const IntroSearch = () => {
   const [activeOption, setActiveOption] = useState(null);
   const [showCalendar, setShowCalendar] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const [age, setAge] = useState("");
+  const [showDobCalendar, setShowDobCalendar] = useState(false); // Separate calendar for date of birth
+  const [selectedDate, setSelectedDate] = useState(null); // Initially null for "Date" label
+  const [selectedDob, setSelectedDob] = useState("Age"); // State for selected date of birth
+  const [selectedLocation, setSelectedLocation] = useState("Doha");
+  const [selectedActivity, setSelectedActivity] = useState("Activity");
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const [isActivityDropdownVisible, setIsActivityDropdownVisible] = useState(false);
+  const [missingSelection, setMissingSelection] = useState(false); // State to track missing selections
   const searchBarRef = useRef(null);
+  const navigate = useNavigate(); // Initialize navigation
 
-  const locations = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix"];
+  const locations = [
+    "Doha",
+    "Al Wakrah",
+    "Al Khor",
+    "Al Rayyan",
+    "Al Shamal",
+    "Al Shahaniya",
+    "Umm Salal",
+    "Dukhan",
+    "Mesaieed",
+  ];
+
   const activities = ["Swimming", "Skating", "Cricket", "MMA", "Basketball"];
 
   useEffect(() => {
@@ -18,6 +37,9 @@ const IntroSearch = () => {
       if (searchBarRef.current && !searchBarRef.current.contains(event.target)) {
         setActiveOption(null);
         setShowCalendar(false);
+        setShowDobCalendar(false);
+        setIsDropdownVisible(false);
+        setIsActivityDropdownVisible(false);
       }
     };
 
@@ -28,13 +50,25 @@ const IntroSearch = () => {
   }, []);
 
   const handleOptionClick = (option) => {
-    setActiveOption(option === activeOption ? null : option);
-    if (option !== "date") setShowCalendar(false);
-  };
-
-  const handleDateClick = () => {
-    setShowCalendar(!showCalendar);
-    setActiveOption("date");
+    if (option === "location") {
+      setIsDropdownVisible(!isDropdownVisible);
+      setIsActivityDropdownVisible(false);
+    } else if (option === "activity") {
+      setIsActivityDropdownVisible(!isActivityDropdownVisible);
+      setIsDropdownVisible(false);
+    } else if (option === "age") {
+      setShowDobCalendar(!showDobCalendar); // Toggle DOB calendar
+      setShowCalendar(false);
+    } else if (option === "date") {
+      setShowCalendar(!showCalendar); // Toggle Date calendar
+      setShowDobCalendar(false);
+    } else {
+      setActiveOption(option === activeOption ? null : option);
+      setIsDropdownVisible(false);
+      setIsActivityDropdownVisible(false);
+      setShowCalendar(false);
+      setShowDobCalendar(false);
+    }
   };
 
   const handleDateChange = (date) => {
@@ -42,23 +76,35 @@ const IntroSearch = () => {
     setShowCalendar(false);
   };
 
-  const handleAgeChange = (e) => {
-    const value = e.target.value;
-    if (value === "" || (parseInt(value) >= 0 && parseInt(value) <= 99)) {
-      setAge(value);
+  const handleDobChange = (date) => {
+    setSelectedDob(date.toLocaleDateString("en-GB")); // Update DOB label
+    setShowDobCalendar(false);
+  };
+
+  const handleLocationSelect = (location) => {
+    setSelectedLocation(location);
+    setIsDropdownVisible(false);
+  };
+
+  const handleActivitySelect = (activity) => {
+    setSelectedActivity(activity);
+    setIsActivityDropdownVisible(false);
+  };
+
+  const handleSearchClick = () => {
+    // Validate that all options are selected
+    if (
+      selectedLocation &&
+      selectedDob !== "Age" &&
+      selectedDate &&
+      selectedActivity !== "Activity"
+    ) {
+      // Navigate to the activities page if all options are selected
+      navigate("/activityinfo");
+    } else {
+      // Show missing selection alert by setting missingSelection to true
+      setMissingSelection(true);
     }
-  };
-
-  const incrementAge = () => {
-    setAge((prev) =>
-      parseInt(prev) < 99 ? (parseInt(prev) + 1).toString() : prev
-    );
-  };
-
-  const decrementAge = () => {
-    setAge((prev) =>
-      parseInt(prev) > 0 ? (parseInt(prev) - 1).toString() : prev
-    );
   };
 
   return (
@@ -73,34 +119,85 @@ const IntroSearch = () => {
         <div className="intro-search-bar">
           <div className="search-options">
             <span
-              className={`search-option ${activeOption === "location" ? "active" : ""}`}
+              className={`search1-option ${
+                activeOption === "location" ? "active" : ""
+              }`}
               onClick={() => handleOptionClick("location")}
             >
-              Location
+              <div className="sss">
+                <h4>Location</h4>
+                <p style={{ color: missingSelection && !selectedLocation ? "red" : "inherit" }}>
+                  {selectedLocation}
+                  <i className="fas fa-chevron-down"></i>
+                </p>
+              </div>
+              {isDropdownVisible && (
+                <div className="dropdown">
+                  <ul>
+                    {locations.map((loc, index) => (
+                      <li
+                        key={index}
+                        onClick={() => handleLocationSelect(loc)}
+                        className="dropdown-item"
+                      >
+                        {loc}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </span>
             <span className="separator-log">|</span>
             <span
-              className={`search-option ${activeOption === "age" ? "active" : ""}`}
+              className={`search1-options ${
+                activeOption === "age" ? "active" : ""
+              }`}
               onClick={() => handleOptionClick("age")}
+              style={{ color: missingSelection && selectedDob === "Age" ? "red" : "inherit" }}
             >
-              Age
+              {selectedDob}
             </span>
             <span className="separator-log">|</span>
             <span
-              className={`search-option ${activeOption === "date" ? "active" : ""}`}
-              onClick={handleDateClick}
+              className={`search1-options ${
+                activeOption === "date" ? "active" : ""
+              }`}
+              onClick={() => handleOptionClick("date")}
+              style={{ color: missingSelection && !selectedDate ? "red" : "inherit" }}
             >
-              Date
+              {selectedDate ? selectedDate.toLocaleDateString("en-GB") : "Date"} {/* Show "Date" if none selected */}
             </span>
             <span className="separator-log">|</span>
             <span
-              className={`search-option ${activeOption === "activity" ? "active" : ""}`}
+              className={`search4-option ${
+                activeOption === "activity" ? "active" : ""
+              }`}
               onClick={() => handleOptionClick("activity")}
+              style={{ color: missingSelection && selectedActivity === "Activity" ? "red" : "inherit" }}
             >
-              Activity
+              <div className="sss">
+                <p>
+                  {selectedActivity}
+                </p>
+              </div>
+              {isActivityDropdownVisible && (
+                <div className="dropdown2">
+                  <ul>
+                    {activities.map((activity, index) => (
+                      <li
+                        key={index}
+                        onClick={() => handleActivitySelect(activity)}
+                        className="dropdown-item"
+                      >
+                        {activity}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </span>
           </div>
-          <button className="intro-search-button">
+          <button className="intro-search-button" onClick={handleSearchClick}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -116,42 +213,24 @@ const IntroSearch = () => {
             </svg>
           </button>
         </div>
-        {activeOption === "location" && (
-          <div className="dropdown">
-            {locations.map((loc, index) => (
-              <div key={index} className="dropdown-item">
-                {loc}
-              </div>
-            ))}
-          </div>
-        )}
-        {activeOption === "age" && (
+        {showDobCalendar && (
           <div className="calendar-dropdown">
-          <Calendar2
-            onChange={handleDateChange}
-            value={selectedDate}
-            minDetail="decade"
-            className="custom-cal"
-          />
-        </div>
+            <Calendar2
+              onChange={handleDobChange}
+              value={new Date()} // Set to current date by default
+              maxDate={new Date()} // Restrict to dates in the past
+              className="custom-cal"
+            />
+          </div>
         )}
         {showCalendar && (
           <div className="calendar-dropdown2">
             <Calendar2
               onChange={handleDateChange}
-              value={selectedDate}
-              minDetail="decade"
+              value={selectedDate || new Date()} // Default to current date if none selected
+              minDetail="month" // Show months
               className="custom-cal"
             />
-          </div>
-        )}
-        {activeOption === "activity" && (
-          <div className="dropdown2">
-            {activities.map((activity, index) => (
-              <div key={index} className="dropdown-item">
-                {activity}
-              </div>
-            ))}
           </div>
         )}
       </div>

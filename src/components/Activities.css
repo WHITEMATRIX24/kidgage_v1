@@ -374,11 +374,6 @@
   padding: 2px;
 }
 
-.active {
-  color: #0D216F !important;
-  background-color: #ECFDDA !important;
-  border-color: #ABE96A !important;
-}
 
 .pagination-container {
   display: grid;

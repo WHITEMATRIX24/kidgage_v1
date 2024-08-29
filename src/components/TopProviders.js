@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom'; // Import Link
 import "./TopProviders.css";
-import badge from './assets/images/badge.png';
+import badge from './assets/images/badge.jpg';
 import badgem from './assets/images/badgem.png';
 
 
@@ -102,17 +102,13 @@ const TopProviders = () => {
         )}
       </div>
       <div className="badge-image">
-        <img alt="badge" src={badge}></img>
+      <h2>Looking to advertise an activity? We can help.</h2>
         <Link to="/business-signup">
-          <button className="list-your-academy-btn">List Your Academy</button>
+        
+          <button className="list-your-academy-btn">List your academy</button>
         </Link>
       </div>
-      <div className="badge-image-mobile">
-        <img alt="badge" src={badgem}></img>
-        <Link to="/business-signup">
-          <button className="list-your-academy-btn1">List Your Academy</button>
-        </Link>
-      </div>
+      
     </div>
   );
 };

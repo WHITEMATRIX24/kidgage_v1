@@ -2,7 +2,7 @@
 .hero-banner {
   margin-bottom: 20px;
   position: relative;
-  height: 230px;
+  height: 220px;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -46,11 +46,15 @@
 }
 @media (min-width: 1800px) {
   .hero-banner {
-    height: 350px;
+    height: 250px;
+  }}
+@media (min-width: 2000px) {
+  .hero-banner {
+    height: 300px;
   }
   .hero-slider-container {
     display: flex;
-    width: 100%; /* Adjusted to account for the gap */
+    width: calc(60% ); /* Adjusted to account for the gap */
     height: 100%;
     transform: translateX(10px);
     position: relative;

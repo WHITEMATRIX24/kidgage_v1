@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70vh; /* Adjust the height as needed */
   background-color: #ffffff; /* Adjust the background color as needed */
   padding: 20px; /* Add padding for smaller screens */
 }
@@ -17,7 +16,6 @@
   max-width: 950px; /* Adjust the max width as needed */
   height: 350px;
   width: 90%;
-  margin-top: -80px;
   flex-direction: row;
   padding-right: 10px;
 }
@@ -63,6 +61,7 @@
   color: #666; /* Adjust the link color as needed */
 }
 
+
 .blog-explore-link:hover {
   text-decoration: underline;
 }
@@ -92,7 +91,45 @@
   background-color: #ff0000;
   color: #fff;
 }
+@media (min-width:1800px) {
+  .blog-section {
+  
+    display: flex;
+    align-items: center;
+    position: relative; /* To position the button absolutely within the section */
+    background-color: #F5F5F5; /* White background for the card */
+    border-radius: 8px;
+    max-width: 1500px; /* Adjust the max width as needed */
+    height: 500px;
+    width: 90%;
+    flex-direction: row;
+    padding-right: 10px;
+  }
+  .blog-image-container {
+    flex: 1;
+    padding-right: 0px;
+    max-width: 700px;
+  }
+  .blog-image {
+    margin-top: 5px;
+    width: auto;
+    max-width: 800px;
+    height: 500px;
+    border-radius: 8px; /* Optional: add some border radius */
+  }
+  .blog-text-container h2 {
+    font-family: 'Playfair Display',serif;
+    margin-bottom: 25 px;
+    font-size: 33px;
+    color: #333; /* Adjust the text color as needed */
+  }
+  .blog-text-container p {
+    font-size: 20px;  
+    padding-right: 30px;
+  }
+  
 
+}
 @media (max-width: 768px) {
   .blog-section {
     margin-top: 5%;

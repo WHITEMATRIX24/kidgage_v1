@@ -1,26 +1,26 @@
 .intro-search {
   background: linear-gradient(90deg, #5de0e6, #004aad);
   padding: 40px;
-  color: white;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 200px;
+  gap: 100px;
   align-items: center;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 20px;
   margin: 60px 100px 40px 100px;
 }
 
 .intro-content {
   margin-bottom: 10px;
   width: 100%;
-  max-width: 600px;
+  max-width: 800px;
 }
 
 .intro-title {
   font-family: 'Playfair Display', serif;
   font-size: 32px;
+  color: white;
   font-weight: 500;
 }
 
@@ -28,6 +28,8 @@
   font-family: 'Poppins', sans-serif;
   font-size: 10px;
   margin-top: -12px;
+  color: white;
+
   opacity: 0.8;
 }
 
@@ -44,26 +46,61 @@
   background-color: white;
   border-radius: 50px;
   padding: 20px 50px;
-  width: 500px;
-  height: 80px;
+  width: 100%;
+  margin-left: -30px;
+  max-width: 700px;
+  min-width: 500px;
+  height: 90px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .search-options {
   display: flex;
   align-items: center;
-  flex: 1;
+  justify-content: space-between;
 }
 
-.search-option {
-  color: #333333b8;
-  font-family: 'Poppins', sans-serif;
-  font-size: 19px;
+
+
+.search1-option {
+  flex: 1; /* or use a fixed width, e.g., width: 120px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   cursor: pointer;
-  margin: 0 10px;
+  margin-left: -20px;
+  position: relative; /* For positioning dropdowns */
+  padding: 10px;
+  min-width: 180px; /* Set a fixed width to keep the layout consistent */
 }
 
-.search-option.active {
+.search4-option {
+  flex: 1; /* or use a fixed width, e.g., width: 120px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  margin-left: -20px;
+  position: relative; /* For positioning dropdowns */
+  padding: 10px;
+  min-width: 160px; /* Set a fixed width to keep the layout consistent */
+}
+.search1-options {
+  flex: 1; /* or use a fixed width, e.g., width: 120px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  position: relative; /* For positioning dropdowns */
+  padding: 10px;
+  min-width: 120px; /* Set a fixed width to keep the layout consistent */
+}
+
+
+.search1-option.active,.search4-option.active {
   font-weight: 600;
   color: #000;
 }
@@ -77,20 +114,76 @@
   border: none;
   cursor: pointer;
   padding: 0;
+  margin-left: -20px;
+
 }
 
+.dropdown ul   ,.dropdown2 ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+.sss {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .intro-search-icon {
   width: 40px;
   height: 40px;
   color: #333333ec;
   font-weight: bolder;
 }
-
+.search1-option{
+  margin-top: 0px;
+}
+.search4-option{
+  margin-top: 18px;
+}
+.search1-options {
+  font-size: 18px;
+  margin-top: 10px;
+}
+.sss{
+  margin-bottom: 10px;
+}
+.search4-option p{
+  font-size: 18px;
+}
+.search1-option p,.search1-options p{
+  font-size: 18px;
+  margin: 0px 0px 0px 0px;
+}
+.search1-option h4,.search1-options h4 ,.search4-option h4{
+  font-size: 12px;
+  margin: 0px 30px 0px 0px;
+}
+.search1-option .fa-chevron-down, .search1-options .fa-chevron-down {
+  margin-left: 10px;
+  font-weight: bolder;
+  margin-right: -5px;
+}
+.separator-log {
+  font-size: 26px;
+  margin: 10px 0px 0px 0px;
+}
 .dropdown {
   position: absolute;
   top: 70%;
-  left: 7%;
-  width: 25%;
+  left: 3%;
+    width: 100%;
+    font-size: 16px;
   background-color: #ffffff8a;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(10px);
@@ -105,8 +198,9 @@
 .dropdown2 {
   position: absolute;
   top: 70%;
-  left: 55%;
-  width: 25%;
+  left: 10%;
+  width: 100%;
+  font-size: 16px;
   background-color: #ffffff8a;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(10px);
@@ -118,24 +212,12 @@
   padding: 10px 20px;
 }
 
-.age-input-container {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  z-index: 1001;
-  margin-top: 10px;
-  padding: 10px 20px;
-}
 
 .calendar-dropdown {
   position: absolute;
   top: 70%;
   left: 50px;
-  width: 55%;
+  width: 60%;
   border-radius: 10px;
   z-index: 1001;
   margin-top: 10px;
@@ -145,7 +227,7 @@
 .calendar-dropdown2 {
   position: absolute;
   top: 70%;
-  left: 25%;
+  left: 30%;
   width: 55%;
   border-radius: 10px;
   z-index: 1001;
@@ -203,10 +285,233 @@
   padding: 10px !important;
   color: #ffffff !important;
 }
+@media(min-width:1800px){
+  .intro-search-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 50px;
+    padding: 20px 50px;
+    width: 100%;
+    margin-left: -5px;
+    max-width: 1000px;
+    min-width: 820px;
+    height: 100px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  .calendar-dropdown2{
+    margin-left: 70px;
+  }
+}
+@media (min-width: 1800px) {
+  .search-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .search1-option {
+    flex: 1; /* or use a fixed width, e.g., width: 120px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    margin-left: -20px;
+    position: relative; /* For positioning dropdowns */
+    padding: 10px;
+    min-width: 220px; /* Set a fixed width to keep the layout consistent */
+  }
+  
+  .search4-option {
+    flex: 1; /* or use a fixed width, e.g., width: 120px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: -20px;
+    position: relative; /* For positioning dropdowns */
+    padding: 10px;
+    min-width: 200px; /* Set a fixed width to keep the layout consistent */
+  }
+  
+  .search1-options {
+    flex: 1; /* or use a fixed width, e.g., width: 120px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    position: relative; /* For positioning dropdowns */
+    padding: 10px;
+    min-width: 150px; /* Set a fixed width to keep the layout consistent */
+  }
+  
 
+.intro-search-button{
+  margin-left: -20px;
+}
+  
+  .dropdown ul   ,.dropdown2 ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .dropdown-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .sss {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .intro-search-button {
+    padding: 10px;
+  }
+  
+  .intro-search {
+    padding: 50px;
+    gap: 8%;
+    border-radius: 10px;
+    margin: 60px 140px 40px 140px;
+  }
+  .search1-option{
+    margin-top: 0px;
+  }
+  .search4-option {
+    margin-top: 15px;
+  }
+ .search1-options {
+    font-size: 23px;
+    margin-top: 10px;
+  }
+  .sss{
+    margin-bottom: 10px;
+  }
+  .search1-option p,.search1-options p,.search4-option p{
+    font-size: 23px;
+    margin: 0px 0px 0px 0px;
+  }
+  .search1-option h4,.search1-options h4 ,.search4-option h4{
+    font-size: 16px;
+    margin: 0px 30px 0px 0px;
+  }
+  .search1-option .fa-chevron-down, .search1-options .fa-chevron-down {
+    margin-left: 10px;
+    font-weight: bolder;
+  }
+  .separator-log {
+    font-size: 26px;
+    margin: 10px 0px 0px 0px;
+  }
+  .intro-search-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 50px;
+    padding: 20px 50px;
+    width: 105%;
+    max-width: 1000px;
+    min-width: 820px;
+    height: 100px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .intro-title {
+    font-size: 38px;
+    font-weight: 500;
+  }
+  
+  .intro-subtitle {
+    font-size: 14px;
+    margin-top: -12px;
+  }
+
+  .dropdown{
+    left: 3%;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .dropdown2{
+    left: 10%;
+    width: 100%;
+    font-size: 16px;
+
+  }
+  .calendar-dropdown{
+    width: 70%;
+    left: 16%;
+  }
+  .calendar-dropdown2{
+    width: 70%;
+    left: 30%;
+  }
+}
 @media (max-width: 1500px) {
   .intro-search {
     gap: 50px;
+  }
+  .intro-search-bar{
+    max-width: 550px;
+    min-width: 550px;
+  }
+  .search1-option p,.search1-options p,.search4-option p{
+    font-size: 16px;
+    margin: 0px 0px 0px 0px;
+  }
+  .search1-option h4,.search1-options h4 ,.search4-option h4{
+    font-size: 10px;
+    margin: 0px 30px 0px 0px;
+  }
+  .search1-option .fa-chevron-down, .search1-options .fa-chevron-down {
+    margin-left:8px;
+    font-weight: bolder;
+  }
+  .separator-log {
+    font-size: 20px;
+    margin: 0px 0px 0px 0px;
+  }
+  .search1-option{
+    min-width: 150px;
+  }
+  .search1-options{
+    margin-top: 0px;
+    font-size: 16px;
+    min-width: 70px;
+  }
+  .search4-option{
+    margin-top: 10px;
+    min-width: 130px;
+  }
+  .intro-search-icon {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    color: #333333ec;
+    font-weight: bolder;
+  }
+  .calendar-dropdown{
+    margin-left: -60px;
+    width: 80%;
+  }
+  .calendar-dropdown2{
+    margin-left: -40px;
+    width: 80%;
+
   }
 }
 
@@ -219,22 +524,13 @@
   .search-container {
     margin-left: 300px;
   }
-  .dropdown{
-    left: 3%;
-    width: 20%;
-  }
-  .dropdown2{
-    left: 35%;
-    width: 20%;
-  }
   .calendar-dropdown{
-    width: 70%;
-    left: 0%;
+    margin-left: -40px;
   }
   .calendar-dropdown2{
-    width: 70%;
-    left: 8%;
+    margin-left: -100px;
   }
+
 }
 
 @media (max-width: 1080px) {
@@ -242,22 +538,13 @@
   .search-container {
     margin-left: 280px;
   }
-  .dropdown{
-    left: 3%;
-    width: 20%;
-  }
-  .dropdown2{
-    left: 40%;
-    width: 20%;
-  }
   .calendar-dropdown{
-    width: 70%;
-    left: 0%;
+    margin-left: -40px;
   }
   .calendar-dropdown2{
-    width: 70%;
-    left: 8%;
+    margin-left: -100px;
   }
+
 }
 
 @media (max-width: 1050px) {
@@ -274,108 +561,19 @@
   }
 }
 
+
 @media (max-width: 980px) {
 
-  .search-container {
-    margin-left: 120px;
-  }
-  .dropdown{
-    left: 5%;
-    width: 20%;
-  }
-  .dropdown2{
-    left: 43%;
-    width: 20%;
-  }
-  .calendar-dropdown{
-    width: 70%;
-    left: 0%;
-  }
-  .calendar-dropdown2{
-    width: 70%;
-    left: 8%;
-  }
-}
-@media (max-width: 900px) {
+.search-container{
+  margin: 0 30px 0 30px ;
 
-  .search-container {
-    margin-left: 120px;
-  }
-  .dropdown{
-    left: 8%;
-    width: 20%;
-  }
-  .dropdown2{
-    left: 48%;
-    width: 20%;
-  }
-  .calendar-dropdown{
-    width: 70%;
-    left: 0%;
-  }
-  .calendar-dropdown2{
-    width: 70%;
-    left: 12%;
-  }
 }
 
-@media (max-width: 870px) {
-
-  .search-container {
-    margin-left: 50px;
-  }
-  .dropdown{
-    left: 8%;
-    width: 20%;
-  }
-  .dropdown2{
-    left: 53%;
-    width: 20%;
-  }
-  .calendar-dropdown{
-    width: 70%;
-    left: 0%;
-  }
-  .calendar-dropdown2{
-    width: 70%;
-    left: 12%;
-  }
-}
-
-@media (max-width: 800px) {
-  .intro-search {
-    flex-direction: column;
-    margin: 30px;
-    padding: 20px;
-  }
-
-  .search-container {
-    margin-left: 0px;
-  }
-
-  .intro-search-bar {
-    align-items: center;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    padding: 10px;
-    height: 60px;
-  }
-
-  .search-option {
-    font-size: 16px;
-    margin: 10px 0px 0 10px;
-  }
   .separator-log {
     font-size: 16px;
     margin: 10px 10px 0 10px;
   }
-.dropdown{
-  left: 20%;
-}
-.dropdown2{
-  left: 58%;
-}
+
 .calendar-dropdown{
   width: 50%;
   left: 16%;
@@ -392,26 +590,176 @@
     font-size: 12px;
   }
 
-  .intro-search-bar {
-    flex-direction: row;
-    height: auto;
+  .intro-search {
+    gap: 50px;
   }
-
-  .search-options {
-    justify-content: center;
-    margin-bottom: 10px;
+  .intro-search-bar{
+    max-width: 500px;
+    min-width: 400px;
   }
-
-  .intro-search-button {
+  .search1-option p,.search1-options p,.search4-option p{
+    font-size: 14px;
+    margin: 0px 0px 0px 0px;
+  }
+  .search1-option h4,.search1-options h4 ,.search4-option h4{
+    font-size: 10px;
+    margin: 0px 30px 0px 0px;
+  }
+  .search1-option .fa-chevron-down, .search1-options .fa-chevron-down {
+    margin-left:3px;
+    font-weight: bolder;
+  }
+  .separator-log {
+    font-size: 20px;
+    margin: 0px 0px 0px 0px;
+  }
+  .search1-option{
+    margin-left: -10px;
+    min-width: 130px;
+  }
+  .search1-options{
     margin-top: 0px;
-    margin-right: 10px;
+    font-size: 14px;
+    min-width: 20px;
+  }
+  .search4-option{
+    margin-top: 10px;
+    min-width: 120px;
   }
   .intro-search-icon {
-    height: 30px;
     width: 30px;
-    margin-right: 10px;
+    height: 30px;
+    margin-left: 10px;
+    color: #333333ec;
+    font-weight: bolder;
   }
+
 }
+
+@media (max-width: 800px) {
+
+
+  .calendar-dropdown{
+    width: 50%;
+    left: 16%;
+  }
+  .calendar-dropdown2{
+    width: 50%;
+    left: 28%;
+  }
+    .intro-title {
+      font-size: 24px;
+    }
+  
+    .intro-subtitle {
+      font-size: 12px;
+    }
+  
+    .intro-search {
+      gap: 50px;
+    }
+    .intro-search-bar{
+      max-width: 600px;
+    }
+    .search1-option p,.search1-options p,.search4-option p{
+      font-size: 14px;
+      margin: 0px 0px 0px 0px;
+    }
+    .search1-option h4,.search1-options h4 ,.search4-option h4{
+      font-size: 10px;
+      margin: 0px 30px 0px 0px;
+    }
+    .search1-option .fa-chevron-down, .search1-options .fa-chevron-down {
+      margin-left:3px;
+      font-weight: bolder;
+    }
+    .separator-log {
+      font-size: 16px;
+      margin: 0px 0px 0px 0px;
+    }
+    .search1-option{
+      margin-left: -30px;
+      min-width: 130px;
+    }
+    .search1-options{
+      margin-top: 0px;
+      font-size: 14px;
+      min-width: 20px;
+    }
+    .search4-option{
+      margin-top: 10px;
+      min-width: 110px;
+    }
+    .intro-search-icon {
+      width: 30px;
+      height: 30px;
+      margin-left: 10px;
+      color: #333333ec;
+      font-weight: bolder;
+    }
+  
+  }
+  
+@media (max-width: 760px) {
+
+
+  .calendar-dropdown{
+    width: 50%;
+    left: 16%;
+  }
+  .calendar-dropdown2{
+    width: 50%;
+    left: 28%;
+  }
+    .intro-title {
+      font-size: 24px;
+    }
+  
+    .intro-subtitle {
+      font-size: 12px;
+    }
+  
+    .intro-search {
+      gap: 50px;
+    }
+    .intro-search-bar{
+      max-width: 400px;
+    }
+    .search1-option p,.search1-options p,.search4-option p{
+      font-size: 14px;
+      margin: 0px 0px 0px 0px;
+    }
+    .search1-option h4,.search1-options h4 ,.search4-option h4{
+      font-size: 10px;
+      margin: 0px 30px 0px 0px;
+    }
+    .search1-option .fa-chevron-down, .search1-options .fa-chevron-down {
+      margin-left:3px;
+      font-weight: bolder;
+    }
+    .separator-log {
+      font-size: 16px;
+      margin: 0px 0px 0px 0px;
+    }
+
+    .search1-options{
+      margin-top: 0px;
+      font-size: 14px;
+      min-width: 20px;
+    }
+    .search4-option{
+      margin-top: 10px;
+      min-width: 110px;
+    }
+    .intro-search-icon {
+      width: 30px;
+      height: 30px;
+      margin-left: 10px;
+      color: #333333ec;
+      font-weight: bolder;
+    }
+  
+  }
 @media (max-width:640px) {
   .dropdown{
     left: 10%;
@@ -453,7 +801,7 @@
 }
 
 @media (max-width:480px) {
-  .search-option {
+  .search1-option1,  .search1-options,.search4-option {
     font-size: 11px;
     margin: 10px 0px 0 0px;
   }
