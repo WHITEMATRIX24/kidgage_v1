@@ -4,8 +4,8 @@ import { Pagination } from '@mui/material';
 import image from '../components/assets/images/image.png';
 import banner1 from '../components/assets/images/poster1.png'
 import banner2 from '../components/assets/images/poster3.png'
-import football1 from '../components/assets/images/footbal1.jpeg'
-import football2 from '../components/assets/images/football2.jpeg'
+import football1 from '../components/assets/images/baking.jpg'
+import football2 from '../components/assets/images/baking.jpg'
 import football from '../components/assets/images/football.jpg'
 import logoside from '../components/assets/images/abc.png'
 import logo from '../components/assets/images/abs.png'
@@ -18,7 +18,7 @@ import Footer from './Footer';
 import Header2 from './Header2';
 import ico from './assets/images/ico.png';
 
-const Activities = () => {
+const ActivityBaking = () => {
     const sendMessage = (activityName) => {
         const message = `Hello! I am interested in booking the ${activityName} provided by Sparta Academy. Can you please provide more details?`;
         const whatsappUrl = `https://wa.me/9447526695?text=${encodeURIComponent(message)}`;
@@ -50,7 +50,7 @@ const Activities = () => {
                         <div className='info-with-img'>
 
                             <div className='descp'>
-                                <h3>Summer Football Camp</h3>
+                                <h3>Summer Baking Workshop</h3>
 
                                 <div className="info-row">
                                     <img src={baby} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
@@ -65,8 +65,7 @@ const Activities = () => {
 
                                 </div>
                                 <p>
-                                    Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...</p>
-                            </div>
+                                    Join our summer baking workshop where young chefs can learn the art of baking delicious treats. Our workshop is filled with fun, learning, and the joy of creating sweet masterpieces...</p>                            </div>
 
                             <div className="info-image" style={{ marginRight: '25px' }}>
                                 <img src={logoside} alt="Info Image" style={{ width: '100%', height: 'auto' }} />
@@ -120,7 +119,7 @@ const Activities = () => {
                         <div className='info-with-img'>
 
                             <div className='descp'>
-                                <h3>Summer Football Camp</h3>
+                                <h3>Cookie Decorating Class</h3>
                                 <div className="info-row">
                                     <img src={baby} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
                                     <div className="age-group">
@@ -134,9 +133,7 @@ const Activities = () => {
 
                                 </div>
                                 <p>
-                                    Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...</p>
-                            </div>
-
+                                    Learn the art of cookie decorating in this fun class, perfect for kids and parents alike. Create beautiful, edible works of art while enjoying a sweet time together...</p></div>
                             <div className="info-image" style={{ marginRight: '25px' }}>
                                 <img src={logoside} alt="Info Image" style={{ width: '100%', height: 'auto' }} />
                             </div>
@@ -455,4 +452,4 @@ const Activities = () => {
     );
 };
 
-export default Activities;
+export default ActivityBaking;

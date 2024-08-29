@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './CTypeSlider.css';
 import axios from 'axios';
@@ -31,7 +31,7 @@ const PrevArrow = (props) => {
 const CtypeSlider = () => {
   const [categories, setCategories] = useState([]);
   const [categoryFees, setCategoryFees] = useState({});
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -111,19 +111,19 @@ const CtypeSlider = () => {
   };
 
   const handleSlideClick = (categoryName) => {
-    navigate('/activityinfo', { state: { category: categoryName } });
+    navigate('/activitygym', { state: { category: categoryName } });
   };
-  
+
   return (
     <div className="slider-container">
       <h2 className="slider-title">Top Activities</h2>
       <p className="slider-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas massa lacus.</p>
       <Slider {...settings}>
         {categories.map((category, index) => (
-          <div key={index} className="slides" onClick={() => handleSlideClick(category.name)}>
-            <img src={`data:image/jpeg;base64,${category.image}`} alt={category.name} className="slides-image"/>
-            <div className="slides-overlays">
-              <div className='slides-overlay-text'>
+          <div key={index} className="slide" onClick={() => handleSlideClick(category.name)}>
+            <img src={`data:image/jpeg;base64,${category.image}`} alt={category.name} className="slide-image" />
+            <div className="slide-overlays">
+              <div className='slide-overlay-text'>
                 <h2 className="product-name">{category.name}</h2>
                 <p className="product-price">Starting from<br /><span className="start-price">QAR {categoryFees[category.name] !== undefined ? categoryFees[category.name] : 'NA'}/-</span></p>
               </div>

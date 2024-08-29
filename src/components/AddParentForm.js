@@ -121,8 +121,8 @@ const AddParentForm = ({ handleNavigation }) => {
               onChange={handleChange}
               placeholder="Confirm password"
               required
-            />  
-          </div>  
+            />
+          </div>
           <button type="submit">Create Parent's Account</button>
           {error && <p className="error-message">{error}</p>}
           {success && <p className="success-message">{success}</p>}

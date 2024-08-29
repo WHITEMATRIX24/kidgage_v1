@@ -20,11 +20,15 @@ import AdminSignIn from './components/AdminSignIn';
 import Dashboard from './components/dashboard';
 import EventDetails from './components/EventDetails';
 import AttendeeInfo from './components/AttendeeInfoPage';
-import WishlistPage from './components/WishListPage'; 
+import WishlistPage from './components/WishListPage';
 import Shops from "./components/Shops";
 import Details from "./components/Details"; // Import the new Details component
 import ActivityInfo from "./components/ActivityInfo";
 import Activities from "./components/Activities";
+import Gymnastics from './components/ActivityGymnastics';
+import ActivityBaking from './components/ActivityBaking';
+import ActivitySwimming from './components/ActivitySwimming';
+import ActivityMartialArts from './components/ActivityMartialArts';
 // Add any other paths from your secondary navbar here
 const secondaryNavPaths = ['/shops', '/parents', '/providers', '/about'];
 
@@ -65,14 +69,18 @@ function AppContent() {
         <Route path="/parents" element={<ParentsPage />} />
         <Route path="/providers" element={<BusinessPage />} />
         <Route path="/attendeecard" element={<AttendeeCard />} />
-        <Route path="/chatbotpage" element={<ChatbotPage />} />      
-        <Route path="/dashboard" element={<Dashboard />} />  
+        <Route path="/chatbotpage" element={<ChatbotPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/event-details" element={<EventDetails />} />
         <Route path="/attendee-info" element={<AttendeeInfo />} />
         <Route path="/wishlist" element={<WishlistPage />} />
         <Route path="/shops" element={<Shops />} />
         <Route path="/activity-info" element={<ActivityInfo />} />
         <Route path="/activityinfo" element={<Activities />} />
+        <Route path="/activitygym" element={<Gymnastics />} />
+        <Route path="/activitybaking" element={<ActivityBaking />} />
+        <Route path="/activityswimming" element={<ActivitySwimming />} />
+        <Route path="/activitymartialarts" element={<ActivityMartialArts />} />
         <Route path="/details" element={<Details />} />{" "}
 
       </Routes>
