@@ -4,8 +4,8 @@ import { Pagination } from '@mui/material';
 import image from '../components/assets/images/image.png';
 import banner1 from '../components/assets/images/poster1.png'
 import banner2 from '../components/assets/images/poster3.png'
-import football1 from '../components/assets/images/footbal1.jpeg'
-import football2 from '../components/assets/images/football2.jpeg'
+import football1 from '../components/assets/images/swimming.jpg'
+import football2 from '../components/assets/images/swimming.jpg'
 import football from '../components/assets/images/football.jpg'
 import logoside from '../components/assets/images/abc.png'
 import logo from '../components/assets/images/abs.png'
@@ -50,7 +50,7 @@ const Activities = () => {
                         <div className='info-with-img'>
 
                             <div className='descp'>
-                                <h3>Summer Football Camp</h3>
+                                <h3>Summer Swimming Camp</h3>
 
                                 <div className="info-row">
                                     <img src={baby} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
@@ -65,7 +65,7 @@ const Activities = () => {
 
                                 </div>
                                 <p>
-                                    Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...</p>
+                                    Dive into our summer swimming camp for a refreshing experience. Perfect for beginners and advanced swimmers looking to improve their skills while having fun in the water...</p>
                             </div>
 
                             <div className="info-image" style={{ marginRight: '25px' }}>
@@ -120,7 +120,7 @@ const Activities = () => {
                         <div className='info-with-img'>
 
                             <div className='descp'>
-                                <h3>Summer Football Camp</h3>
+                                <h3>Swimming Camp</h3>
                                 <div className="info-row">
                                     <img src={baby} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
                                     <div className="age-group">
@@ -134,8 +134,8 @@ const Activities = () => {
 
                                 </div>
                                 <p>
-                                    Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...</p>
-                            </div>
+                                    Dive into our summer swimming camp for a refreshing experience. Perfect for beginners and advanced swimmers looking to improve their skills while having fun in the water...
+                                </p>                            </div>
 
                             <div className="info-image" style={{ marginRight: '25px' }}>
                                 <img src={logoside} alt="Info Image" style={{ width: '100%', height: 'auto' }} />

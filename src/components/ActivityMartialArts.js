@@ -4,8 +4,8 @@ import { Pagination } from '@mui/material';
 import image from '../components/assets/images/image.png';
 import banner1 from '../components/assets/images/poster1.png'
 import banner2 from '../components/assets/images/poster3.png'
-import football1 from '../components/assets/images/footbal1.jpeg'
-import football2 from '../components/assets/images/football2.jpeg'
+import football1 from '../components/assets/images/martial-arts.jpg'
+import football2 from '../components/assets/images/martial-arts.jpg'
 import football from '../components/assets/images/football.jpg'
 import logoside from '../components/assets/images/abc.png'
 import logo from '../components/assets/images/abs.png'
@@ -18,7 +18,7 @@ import Footer from './Footer';
 import Header2 from './Header2';
 import ico from './assets/images/ico.png';
 
-const Activities = () => {
+const ActivityMartialArts = () => {
     const sendMessage = (activityName) => {
         const message = `Hello! I am interested in booking the ${activityName} provided by Sparta Academy. Can you please provide more details?`;
         const whatsappUrl = `https://wa.me/9447526695?text=${encodeURIComponent(message)}`;
@@ -50,7 +50,7 @@ const Activities = () => {
                         <div className='info-with-img'>
 
                             <div className='descp'>
-                                <h3>Summer Football Camp</h3>
+                                <h3>Kids Martial Arts Training</h3>
 
                                 <div className="info-row">
                                     <img src={baby} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
@@ -65,7 +65,8 @@ const Activities = () => {
 
                                 </div>
                                 <p>
-                                    Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...</p>
+                                    Equip your child with self-defense skills while boosting their confidence and discipline. Our martial arts program is designed for all skill levels, focusing on safety and fun...
+                                </p>
                             </div>
 
                             <div className="info-image" style={{ marginRight: '25px' }}>
@@ -120,7 +121,7 @@ const Activities = () => {
                         <div className='info-with-img'>
 
                             <div className='descp'>
-                                <h3>Summer Football Camp</h3>
+                                <h3>Kids Karate Camp</h3>
                                 <div className="info-row">
                                     <img src={baby} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
                                     <div className="age-group">
@@ -134,8 +135,9 @@ const Activities = () => {
 
                                 </div>
                                 <p>
-                                    Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...</p>
-                            </div>
+                                    Equip your child with self-defense skills while boosting their confidence and discipline. Our martial arts program is designed for all skill levels, focusing on safety and fun...
+
+                                </p>                            </div>
 
                             <div className="info-image" style={{ marginRight: '25px' }}>
                                 <img src={logoside} alt="Info Image" style={{ width: '100%', height: 'auto' }} />
@@ -455,4 +457,4 @@ const Activities = () => {
     );
 };
 
-export default Activities;
+export default ActivityMartialArts;

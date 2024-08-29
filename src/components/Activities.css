@@ -95,7 +95,7 @@
   flex: 1;
   margin-top: 10px;
   display: flex;
-  padding: 20px;
+  padding: 20px 30px;
   flex-direction: column;
   justify-content: space-between;
 }
@@ -129,28 +129,12 @@
   font-size: small;
 }
 
-.day-selector span {
-  background-color: #f0f0f0;
-  /* Light gray background */
-  border-radius: 50%;
-  padding: 8px;
-  margin-right: 5px;
-  font-weight: bold;
-  color: #b9b4b4;
-}
-
-.day-selector .day.active {
-  background-color: #e7eaf1;
-  border-color: #000000;
-  color: #434141;
-  border: 2px solid rgb(153, 151, 151);
-}
 
 .activity-actions {
   display: flex;
   gap: 5px;
   /* Add this line */
-  background-color: #e0d8d8;
+  background-color: #E5E5E5;
   padding: 20px;
   margin-top: auto;
 }
@@ -182,12 +166,8 @@
 .descp {
   flex-grow: 1;
   text-align: justify;
-  padding-right: 15px;
+  padding-right: 20px;
   font-family: "Poppins", sans-serif;
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 .descp h3 {
@@ -199,6 +179,10 @@
 
 .descp p {
   font-size: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 
@@ -252,11 +236,11 @@
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
+  margin-top: -3%;
 }
 
 /* banner */
 .banner-container {
-  /* float: right; */
   width: 25%;
   padding: 0 20px;
   display: flex;
@@ -277,11 +261,11 @@
 }
 
 .card:nth-child(1) {
-  height: 670px;
+  height: 606px;
 }
 
 .card:nth-child(2) {
-  height: 322px;
+  height: 291px;
   margin-bottom: 0%;
 }
 
@@ -293,7 +277,7 @@
   /* margin-left: auto;  */
   background-color: #ffffff;
   border: none;
-  color: #7889BC !important;
+  color: #f25c2a !important;
   text-align: center;
   padding: 10px 10px;
   text-decoration: none;
@@ -335,12 +319,11 @@
   color: #383838;
   text-align: right;
   margin-top: auto;
-  margin-right: 50px;
+  margin-right: 20px;
 }
 
 .review-text {
-  font-size: 12px;
-  margin-right: 10px;
+  font-size: 10px;
 }
 
 .info-row {
@@ -348,36 +331,40 @@
   align-items: center;
 }
 
+
+
 .age-group {
   height: auto;
-  background-color: #F0F4FF;
+  background-color: #F2F1EB;
   margin-right: 20px;
-  border: #DDE6FF 1px solid;
   padding: none;
+  border-radius: 0%;
 }
 
 .age-text {
-  font-size: 13px;
-  font-weight: bold;
-  color: #0D216F;
+  font-size: 11px;
+  font-weight: 580;
+  color: rgb(38, 38, 38);
   text-align: center;
 }
 
 .day-selector {
+  margin-top: -1.5%;
   display: flex;
-  font-weight: bold;
+  border-radius: 0%;
 }
 
 .day-selector span {
-  font-size: small;
-  border-radius: 50%;
-  padding: 2px;
+  font-size: smaller;
+  border-radius: 0%;
+  margin: 0%;
+  padding: 4% 9.5%;
 }
 
 .active {
-  color: #0D216F !important;
-  background-color: #ECFDDA !important;
-  border-color: #ABE96A !important;
+  color: #f25c2a !important;
+  background-color: #F2F1EB !important;
+  font-weight: bold;
 }
 
 .pagination-container {
@@ -456,7 +443,9 @@
     width: 80%;
   }
 
-  
+  .activity-reviews {
+    margin-top: -10%;
+  }
 
   .activity-actions {
     flex-direction: column;
@@ -501,43 +490,28 @@
     width: 100%;
   }
 
-  .activity-reviews {
-    margin-top: -40%;
-    margin-right: 55px;
-  }
-
-
-
   .info-row {
     flex-direction: column;
     align-items: flex-start;
   }
 
+  .info-row img {
+    margin-top: 1px !important;
+    width: 3% !important;
+    height: 2% !important;
+  }
+
   .age-group {
-    margin-top: -10px;
     margin-bottom: 20px;
   }
 
-  .day-selector  {
-    margin-top: -2%;
+  .day-selector {
+    margin-top: 2%;
 
   }
 
   .location {
     margin-top: -1% !important;
-  }
-}
-
-@media (max-width: 520px) {
-  .descp p {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .pagination-container .Pagination {
-    width: 95%;
   }
 }
 
@@ -562,14 +536,14 @@
   .activity-card-in {
     padding: 20px 0 0 10px;
   }
-  
+
   .activity-image {
     position: relative;
     width: 33%;
     height: auto;
     overflow: hidden;
   }
-  
+
   .activity-image img {
     width: 100%;
     height: 100%;
@@ -588,54 +562,54 @@
   }
 
 
-.promoted-card {
-  width: 43%;
-  text-align: left;
-  margin-bottom: 2%;
-  cursor: pointer;
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
+  .promoted-card {
+    width: 43%;
+    text-align: left;
+    margin-bottom: 2%;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
 
 
-.promoted-image {
-  position: relative;
-  width: 100%;
-  height: 420px;
-  overflow: hidden;
-}
+  .promoted-image {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+  }
 
-.promoted-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+  .promoted-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-.promoted-details {
-  padding: 15px 0;
-}
+  .promoted-details {
+    padding: 15px 0;
+  }
 
-.promoted-details h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
+  .promoted-details h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
 
-.card1 {
-  float: left;
-  margin-left: 6%;
+  .card1 {
+    float: left;
+    margin-left: 6%;
 
-}
+  }
 
-.card2 {
-  float: right;
-  margin-right: 6%;
-}
+  .card2 {
+    float: right;
+    margin-right: 6%;
+  }
 
-.plocation {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
+  .plocation {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
 
 
   .banner-container {
@@ -657,22 +631,22 @@
     align-items: flex-end;
     /* background-color: red; */
   }
-  
+
   .card {
     margin-bottom: 20px;
     width: 340px;
   }
-  
+
   .card img {
     width: 100%;
     height: 100%;
     object-position: cover;
   }
-  
+
   .card:nth-child(1) {
     height: 1050px;
   }
-  
+
   .card:nth-child(2) {
     height: 500px;
     margin-bottom: 0%;
@@ -721,8 +695,7 @@
   }
 
   .activity-reviews {
-    margin-top: -50%;
-    margin-right: 55px;
+    margin-top: -19%;
   }
 
 
@@ -784,7 +757,7 @@
     width: 97.8%;
     margin-bottom: 20px;
     float: none;
-    margin-left: 15px !important;
+    margin-left: 5px !important;
     margin-right: 20px;
   }
 
@@ -853,28 +826,56 @@
   }
 
   .activity-reviews {
-    margin-top: -40%;
-    margin-right: 55px;
+    margin-top: -30%;
   }
-
-
 
   .info-row {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .age-group {
-    margin-top: -10px;
-    margin-bottom: 20px;
+  .info-row img {
+    width: 10% !important;
+    height: auto !important;
   }
 
-  .day-selector  {
-    margin-top: -2%;
-
+  .age-group {
+    margin-bottom: 20px;
   }
 
   .location {
     margin-top: -1% !important;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 1100px) {
+  .info-row img {
+    width: 15% !important;
+    height: auto !important;
+  }
+
+  .descp p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .pagination-container .Pagination {
+    width: 95%;
+  }
+
+  .day-selector span {
+    font-size: xx-small;
+    border-radius: 0%;
+
+  }
+
+  .info-image {
+    margin-right: 5px !important;
+  }
+
+  .activity-reviews {
+    margin-right: 5px;
   }
 }
