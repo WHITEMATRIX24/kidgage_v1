@@ -120,10 +120,10 @@ const CtypeSlider = () => {
       <p className="slider-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas massa lacus.</p>
       <Slider {...settings}>
         {categories.map((category, index) => (
-          <div key={index} className="slide" onClick={() => handleSlideClick(category.name)}>
-            <img src={`data:image/jpeg;base64,${category.image}`} alt={category.name} className="slide-image" />
-            <div className="slide-overlays">
-              <div className='slide-overlay-text'>
+          <div key={index} className="slides" onClick={() => handleSlideClick(category.name)}>
+            <img src={`data:image/jpeg;base64,${category.image}`} alt={category.name} className="slides-image" />
+            <div className="slides-overlays">
+              <div className='slides-overlay-text'>
                 <h2 className="product-name">{category.name}</h2>
                 <p className="product-price">Starting from<br /><span className="start-price">QAR {categoryFees[category.name] !== undefined ? categoryFees[category.name] : 'NA'}/-</span></p>
               </div>
