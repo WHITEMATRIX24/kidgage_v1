@@ -48,6 +48,8 @@
 .blog-text-container p {
   font-family: 'Poppins',serif;
   margin-bottom: 10px;
+  padding-right: 20px;
+
   color: #666; /* Adjust the text color as needed */
 }
 .explore-btn{
@@ -99,7 +101,7 @@
     position: relative; /* To position the button absolutely within the section */
     background-color: #F5F5F5; /* White background for the card */
     border-radius: 8px;
-    max-width: 1500px; /* Adjust the max width as needed */
+    max-width: 1300px; /* Adjust the max width as needed */
     height: 500px;
     width: 90%;
     flex-direction: row;
@@ -120,40 +122,112 @@
   .blog-text-container h2 {
     font-family: 'Playfair Display',serif;
     margin-bottom: 25 px;
+    padding-left: 20px;
     font-size: 33px;
     color: #333; /* Adjust the text color as needed */
   }
   .blog-text-container p {
     font-size: 20px;  
-    padding-right: 30px;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  .explore-btn{
+    padding-left: 20px;
+
   }
   
 
 }
-@media (max-width: 768px) {
+@media (max-width: 925px) {
+  .blog-section{
+    height: 300px;
+  }
+  .blog-text-container h2 {
+    margin-bottom: 20 px;
+    padding-left: 10px;
+    font-size: 23px;
+    color: #333; /* Adjust the text color as needed */
+  }
+  .blog-image {
+    margin-top: 5px;
+    width: auto;
+    max-width: 400px;
+    height: 300px;
+    border-radius: 8px; /* Optional: add some border radius */
+  }
+  .blog-text-container p {
+    font-size: 12px;  
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .explore-btn{
+    padding-left: 10px;
+
+  }
+}
+@media (max-width: 840px) {
+  .blog-section{
+    height: 280px;
+  }
+  .blog-text-container h2 {
+    margin-bottom: 10px;
+    padding-left: 10px;
+    font-size: 21px;
+    color: #333; /* Adjust the text color as needed */
+  }
+  .blog-image {
+    margin-top: 5px;
+    width: auto;
+    max-width: 400px;
+    height: 280px;
+    border-radius: 8px; /* Optional: add some border radius */
+  }
+  .blog-text-container p {
+    font-size: 12px;  
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+  .explore-btn{
+    padding-left: 10px;
+
+  }
+}
+@media (max-width: 800px) {
   .blog-section {
-    margin-top: 5%;
+    margin-top: 0%;
     flex-direction: column;
     height: auto;
-    max-width: 60%;
-    margin-bottom: 0px;
+    width: 100%;
+    max-width: 400px;
+    padding-bottom: 20px;
+    padding-right: 0px;
+    padding-top: 0px;
+
   }
 
   .blog-image-container {
     padding-right: 0;
+    padding-top: 0px;
     padding-bottom: 20px;
   }
 
   .blog-image {
-    max-width: 100%;
+    max-width: 450px;
+    width: 100%;
     height: auto;
+  }
+  .blog-text-container p {
+    font-size: 12px;
+    text-align: left;  
+    padding-right: 15px;
+    padding-left: 15px;
   }
 
   .blog-text-container {
     text-align: center; /* Center text for smaller screens */
   }
   .blog-explore-link{
-    margin-left: 20px;
+    margin-left: 8px;
   }
 
   .blog-arrow-button {

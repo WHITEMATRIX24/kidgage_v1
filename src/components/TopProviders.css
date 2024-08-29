@@ -194,8 +194,7 @@
 .top-providers p {
   margin-bottom: 20px;
   color: #666;
-  font-family: 'Neue Machina0', sans-serif;
-  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
 }
 
 .logo-container {
@@ -250,12 +249,11 @@
     margin-top: 2%;
   }
   .top-providers h2 {
-
-    font-size: 3.2em;
+    font-size: 2.4em;
   }
   
   .top-providers p {
-    font-size: 16px;
+    font-size: 1.1em;
   }
   
 .logo-slide {

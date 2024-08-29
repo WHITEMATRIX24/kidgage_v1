@@ -37,7 +37,7 @@ const ImageDrawer = () => {
               <div className="drawer-text">
                 <div className='slide-overlay-text'>
                   <h2 className="product-name">{category.name}</h2>
-                  <p className="product-price">Starting from <br /><span>QAR 99/-</span></p>
+                  <p className="product-price"><p>Starting from </p><br /><span>QAR 99/-</span></p>
                 </div>
               </div>
             </div>

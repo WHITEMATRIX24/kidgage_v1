@@ -4,35 +4,34 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './CTypeSlider.css';
+import './ImageDrawer.css';
 import axios from 'axios';
 
-const NextArrow = (props) => {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={`${className} custom-arrow custom-arrow-next`}
-      style={{ ...style, display: 'block' }}
-      onClick={onClick}
-    />
-  );
-};
-
-const PrevArrow = (props) => {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={`${className} custom-arrow custom-arrow-prev`}
-      style={{ ...style, display: 'block' }}
-      onClick={onClick}
-    />
-  );
-};
-
-const CtypeSlider = () => {
+const CTypeSlider = ({ viewAll }) => {
   const [categories, setCategories] = useState([]);
   const [categoryFees, setCategoryFees] = useState({});
   const navigate = useNavigate();
+  const NextArrow = (props) => {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={`${className} custom-arrow custom-arrow-next`}
+        style={{ ...style, display: 'block' }}
+        onClick={onClick}
+      />
+    );
+  };
 
+  const PrevArrow = (props) => {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={`${className} custom-arrow custom-arrow-prev`}
+        style={{ ...style, display: 'block' }}
+        onClick={onClick}
+      />
+    );
+  };
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -118,21 +117,43 @@ const CtypeSlider = () => {
     <div className="slider-container">
       <h2 className="slider-title">Top Activities</h2>
       <p className="slider-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas massa lacus.</p>
-      <Slider {...settings}>
-        {categories.map((category, index) => (
-          <div key={index} className="slides" onClick={() => handleSlideClick(category.name)}>
-            <img src={`data:image/jpeg;base64,${category.image}`} alt={category.name} className="slides-image" />
-            <div className="slides-overlays">
-              <div className='slides-overlay-text'>
-                <h2 className="product-name">{category.name}</h2>
-                <p className="product-price">Starting from<br /><span className="start-price">QAR {categoryFees[category.name] !== undefined ? categoryFees[category.name] : 'NA'}/-</span></p>
+      {!viewAll ? (
+        <Slider {...settings}>
+          {categories.map((category, index) => (
+            <div key={index} className="slides" onClick={() => handleSlideClick(category.name)}>
+              <img src={`data:image/jpeg;base64,${category.image}`} alt={category.name} className="slides-image" />
+              <div className="slides-overlays">
+                <div className='slides-overlay-text'>
+                  <h2 className="product-name">{category.name}</h2>
+                  <p className="product-price">Starting from<br /><span className="start-price">QAR {categoryFees[category.name] !== undefined ? categoryFees[category.name] : 'NA'}/-</span></p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </Slider>
+          ))}
+        </Slider>
+      ) : (
+        <div className="drawer-slide-down">
+        <div className="drawer-content">
+        {categories.length > 0 ? (
+          categories.map((category, index) => (
+            <div key={index} className="drawer-item" onClick={() => handleSlideClick(category.name)}>
+              <img src={`data:image/jpeg;base64,${category.image}`} alt={category.name} className="drawer-image" />
+              <div className="drawer-text">
+                <div className='slide-overlay-text'>
+                  <h2 className="product-name">{category.name}</h2>
+                  <p className="product-price"><p>Starting from </p><span>QAR 99/-</span></p>
+                </div>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p>No categories available</p>
+        )}
+      </div>
+    </div>
+      )}
     </div>
   );
 };
 
-export default CtypeSlider;
+export default CTypeSlider;
