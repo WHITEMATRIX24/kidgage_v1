@@ -74,7 +74,7 @@ const Activities = () => {
                         </div>
                         <div style={{ height: '3px' }}></div>
                         <div className="additional-info" style={{ display: 'flex', alignItems: 'center', marginLeft: 'auto' }}>
-                            <div className="activity-reviews" style={{ marginLeft: 'auto' }}>
+                            <div className="activity-reviewss" style={{ marginLeft: 'auto' }}>
                                 <span>⭐⭐⭐⭐⭐</span>
                                 <span className='review-text'>
                                     100+ reviews</span>
@@ -143,7 +143,7 @@ const Activities = () => {
                         </div>
                         <div style={{ height: '5px' }}></div>
                         <div className="additional-info" style={{ display: 'flex', alignItems: 'center', marginLeft: 'auto' }}>
-                            <div className="activity-reviews" style={{ marginLeft: 'auto' }}>
+                            <div className="activity-reviewss" style={{ marginLeft: 'auto' }}>
                                 <span>⭐⭐⭐⭐⭐</span>
                                 <span className='review-text'>
                                     100+ reviews</span>
@@ -331,7 +331,7 @@ const Activities = () => {
                 {/* card 3 */}
                 <div className="activity-card cards">
                     <div className="activity-image">
-                        <img src={image} alt="Activity Image" />
+                        <img src={football2} alt="Activity Image" />
 
                     </div>
                     <div className="activity-details">
@@ -396,10 +396,10 @@ const Activities = () => {
                             </button>
                             <div className='more-btn'>
                                 <button className="more">See more from this provider</button>
-                            </div>
-                        </div>
+                            </div>                        </div>
                     </div>
                 </div>
+
                 <div style={{ height: '40px' }}></div>
 
             </div>
@@ -422,29 +422,42 @@ const Activities = () => {
                 <Pagination
                     count={10}
                     shape="rounded"
-                    // size='large'
+                    boundaryCount={10}
+                    siblingCount={10}
                     sx={{
                         "& .MuiPaginationItem-root": {
+                            fontSize: "1rem", // Adjust font size
+                            padding: "6px 12px", // Adjust padding for size
+                            backgroundColor: "rgba(173, 216, 230, 0.3)", // Light background for all items
+                            color: "#333", // Text color for non-selected items
                             "&:hover": {
-                                backgroundColor: "#605CA2",
+                                backgroundColor: "rgba(173, 216, 230, 0.5)", // Slightly darker on hover
                             },
                             "&.Mui-selected": {
-                                backgroundColor: "#605CA2",
+                                backgroundColor: "#605CA2", // Darker background for the selected item
+                                color: "white", // White text for the selected item
+                                boxShadow: "0 0 8px rgba(0, 0, 0, 0.3)", // Add a slight shadow for emphasis
                             },
+                            borderRadius: "12px", // Round the corners more
+                            margin: "0 4px", // Small margin between items
                         },
-                        "@media (max-width: 1300px)": {
-                            "& .MuiPaginationItem-root": {
-                                "&:hover": {
-                                    backgroundColor: "#605CA2",
-                                },
-                                "&.Mui-selected": {
-                                    backgroundColor: "#605CA2",
-                                },
+                        "& .MuiPaginationItem-previousNext": {
+                            border: "2px solid #BDBDBD",
+                            padding: "6px 12px",
+                            marginLeft: "50px",
+                            marginRight: "50px", // Ensure size consistency with the other buttons
+                            backgroundColor: "rgba(173, 216, 230, 0.3)", // Light background for previous/next
+                            color: "#333", // Text color for non-selected items
+                            "&:hover": {
+                                backgroundColor: "rgba(173, 216, 230, 0.5)", // Slightly darker on hover
                             },
+                            borderRadius: "12px", // Round the corners more
                         },
                     }}
                 />
             </div>
+
+
 
             <div style={{ height: '80px' }}></div>
 
