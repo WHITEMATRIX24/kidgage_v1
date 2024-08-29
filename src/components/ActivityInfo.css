@@ -426,3 +426,144 @@
         height: 1cm;
     }
 }
+
+/* Media Query for min-width 1800px */
+@media (min-width: 1800px) {
+
+    .activity-info-header-content,
+    .activity-info-content {
+        padding: 0 4cm;
+    }
+
+    .activity-info-left-section {
+        width: 70%;
+    }
+
+    .activity-info-right-section {
+        width: 30%;
+    }
+
+    .activity-info-heading {
+        font-size: 3rem;
+    }
+
+    .activity-info-image {
+        width: 25cm;
+        height: 16cm;
+    }
+
+    .activity-info-description {
+        font-size: 1.8rem;
+        max-width: 20cm;
+    }
+
+    .activity-info-main-image {
+        width: 11cm;
+        height: 24cm;
+    }
+
+    .activity-info-provider-heading,
+    .activity-info-provider-details,
+    .activity-info-trainers-heading {
+        font-size: 1.8rem;
+    }
+
+    .activity-info-provider-image {
+        width: 12cm;
+        height: 12cm;
+    }
+
+    .activity-info-trainer-image {
+        width: 2.5cm;
+        height: 2.5cm;
+    }
+}
+
+/* Media Query for min-width 2000px */
+@media (min-width: 2000px) {
+
+    .activity-info-header-content,
+    .activity-info-content {
+        padding: 0 5cm;
+    }
+
+    .activity-info-heading {
+        font-size: 3.2rem;
+    }
+
+    .activity-info-image {
+        width: 28cm;
+        height: 18cm;
+    }
+
+    .activity-info-description {
+        font-size: 2rem;
+        max-width: 22cm;
+    }
+
+    .activity-info-main-image {
+        width: 12cm;
+        height: 26cm;
+    }
+
+    .activity-info-provider-heading,
+    .activity-info-provider-details,
+    .activity-info-trainers-heading {
+        font-size: 2rem;
+    }
+
+    .activity-info-provider-image {
+        width: 14cm;
+        height: 14cm;
+    }
+
+    .activity-info-trainer-image {
+        width: 3cm;
+        height: 3cm;
+    }
+}
+
+/* Media Query for min-width 2500px */
+@media (min-width: 2500px) {
+
+    .activity-info-header-content,
+    .activity-info-content {
+        padding: 0 5%;
+    }
+
+    .activity-info-heading {
+        font-size: 3.5rem;
+    }
+
+    .activity-info-image {
+        width: 90%;
+        height: 25cm;
+    }
+
+    .activity-info-description {
+        font-size: 2.2rem;
+        max-width: 25cm;
+    }
+
+    .activity-info-main-image {
+        width: 14cm;
+        height: 28cm;
+        margin-bottom: 10%;
+    }
+
+    .activity-info-provider-heading,
+    .activity-info-provider-details,
+    .activity-info-trainers-heading {
+        font-size: 2.2rem;
+    }
+
+    .activity-info-provider-image {
+        width: 16cm;
+        height: 16cm;
+    }
+
+    .activity-info-trainer-image {
+        width: 3.5cm;
+        height: 3.5cm;
+    }
+}
