@@ -119,18 +119,26 @@ const IntroSearch = () => {
         <div className="intro-search-bar">
           <div className="search-options">
             <span
-              className={`search1-option ${
-                activeOption === "location" ? "active" : ""
-              }`}
+              className={`search1-option ${activeOption === "location" ? "active" : ""}`}
               onClick={() => handleOptionClick("location")}
+              style={{
+                fontSize: window.innerWidth < 768 ? "14px" : "18px",
+
+              }}
             >
               <div className="sss">
-                <h4>Location</h4>
-                <p style={{ color: missingSelection && !selectedLocation ? "red" : "inherit" }}>
+                <h4 style={{ fontSize: window.innerWidth < 768 ? "14px" : "inherit" }}>Location</h4>
+                <p
+                  style={{
+                    color: missingSelection && !selectedLocation ? "red" : "inherit",
+                    fontSize: window.innerWidth < 768 ? "14px" : "18px",
+                  }}
+                >
                   {selectedLocation}
                   <i className="fas fa-chevron-down"></i>
                 </p>
               </div>
+
               {isDropdownVisible && (
                 <div className="dropdown">
                   <ul>
@@ -139,6 +147,9 @@ const IntroSearch = () => {
                         key={index}
                         onClick={() => handleLocationSelect(loc)}
                         className="dropdown-item"
+                        style={{
+                          fontSize: window.innerWidth < 768 ? "14px" : "inherit",
+                        }}
                       >
                         {loc}
                       </li>
@@ -147,39 +158,51 @@ const IntroSearch = () => {
                 </div>
               )}
             </span>
+
             <span className="separator-log">|</span>
+
             <span
-              className={`search1-options ${
-                activeOption === "age" ? "active" : ""
-              }`}
+              className={`search1-options ${activeOption === "age" ? "active" : ""}`}
               onClick={() => handleOptionClick("age")}
-              style={{ color: missingSelection && selectedDob === "Age" ? "red" : "inherit" }}
+              style={{
+                color: missingSelection && selectedDob === "Age" ? "red" : "inherit",
+                fontSize: window.innerWidth < 768 ? "14px" : "18px",
+
+              }}
             >
               {selectedDob}
             </span>
+
             <span className="separator-log">|</span>
+
             <span
-              className={`search1-options ${
-                activeOption === "date" ? "active" : ""
-              }`}
+              className={`search1-options ${activeOption === "date" ? "active" : ""}`}
               onClick={() => handleOptionClick("date")}
-              style={{ color: missingSelection && !selectedDate ? "red" : "inherit" }}
+              style={{
+                color: missingSelection && !selectedDate ? "red" : "inherit",
+                fontSize: window.innerWidth < 768 ? "12px" : "18px",
+
+              }}
             >
-              {selectedDate ? selectedDate.toLocaleDateString("en-GB") : "Date"} {/* Show "Date" if none selected */}
+              {selectedDate ? selectedDate.toLocaleDateString("en-GB") : "Date"}
             </span>
+
             <span className="separator-log">|</span>
+
             <span
-              className={`search4-option ${
-                activeOption === "activity" ? "active" : ""
-              }`}
+              className={`search4-option ${activeOption === "activity" ? "active" : ""}`}
               onClick={() => handleOptionClick("activity")}
-              style={{ color: missingSelection && selectedActivity === "Activity" ? "red" : "inherit" }}
+              style={{
+                color: missingSelection && selectedActivity === "Activity" ? "red" : "inherit",
+                fontSize: window.innerWidth < 768 ? "14px" : "18px",
+              }}
             >
               <div className="sss">
-                <p>
+                <p style={{ fontSize: window.innerWidth < 768 ? "14px" : "inherit" }}>
                   {selectedActivity}
                 </p>
               </div>
+
               {isActivityDropdownVisible && (
                 <div className="dropdown2">
                   <ul>
@@ -188,6 +211,9 @@ const IntroSearch = () => {
                         key={index}
                         onClick={() => handleActivitySelect(activity)}
                         className="dropdown-item"
+                        style={{
+                          fontSize: window.innerWidth < 768 ? "14px" : "inherit",
+                        }}
                       >
                         {activity}
                       </li>
@@ -197,6 +223,7 @@ const IntroSearch = () => {
               )}
             </span>
           </div>
+
           <button className="intro-search-button" onClick={handleSearchClick}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
