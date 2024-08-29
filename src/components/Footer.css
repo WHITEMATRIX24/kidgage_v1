@@ -126,11 +126,12 @@
 
 .cart-btn {
   right: 30px; /* Position on the right */
-  background-color: #9fa4ab; 
+  background-color: #fff; 
+  border:1px solid #363849;
 
 }
 .cart-btn:hover{
-  background-color: #707377; 
+  background-color: #fff; 
 
 }
 @media (min-width:1800px) {

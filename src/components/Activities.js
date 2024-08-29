@@ -15,7 +15,7 @@ import share from '../components/assets/images/share.png'
 import './Activities.css';
 import './AcademyList.css';
 import Footer from './Footer';
-import Header2 from './Header2';
+import Header from './Header';
 import ico from './assets/images/ico.png';
 
 const Activities = () => {
@@ -33,7 +33,7 @@ const Activities = () => {
     return (
         <>
             {/* Fixed Navbar */}
-            <Header2 />
+            <Header/>
             {/* promoted */}
             <div className='activity-icons-container'>
                 <img src={ico}></img>            </div>
