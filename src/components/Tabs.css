@@ -7,11 +7,11 @@
   .tabss {
     background: none;
     font-family: 'Poppins',serif;
-
+    
     border: none;
     padding: 10px;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: normal;
   }
   
@@ -23,4 +23,8 @@
   .tab-contentss {
     padding: 20px;
   }
-  
+  @media (min-width:1800px) {
+    .tabss{
+      font-size: 18px;
+    }
+  }
