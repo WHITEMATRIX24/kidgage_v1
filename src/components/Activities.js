@@ -19,6 +19,7 @@ import Header from './Header';
 import ico from './assets/images/ico.png';
 
 const Activities = () => {
+    
     const sendMessage = (activityName) => {
         const message = `Hello! I am interested in booking the ${activityName} provided by Sparta Academy. Can you please provide more details?`;
         const whatsappUrl = `https://wa.me/9447526695?text=${encodeURIComponent(message)}`;
@@ -62,19 +63,26 @@ const Activities = () => {
                                         <span className="day">Su</span><span className="day active">Mo</span><span className="day">Tu</span><span className="day">We</span><span className="day">Th</span>
                                         <span className="day active">Fr</span><span className="day ">Sa</span>
                                     </div>
-
+                                   
                                 </div>
+                                <div>
                                 <p>
                                     Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...</p>
+                                    <div>
+                                    <p className="plocation"><i class="fa-solid fa-location-dot"></i>
+                                    <span style={{ marginLeft: '5px', fontSize: '12px' }}> Location </span></p>
+                                    </div>
+                                </div>
                             </div>
-
-                            <div className="info-image" style={{ marginRight: '25px' }}>
-                                <img src={logoside} alt="Info Image" style={{ width: '100%', height: 'auto' }} />
-                            </div>
+                            
+                           
                         </div>
                         <div style={{ height: '3px' }}></div>
-                        <div className="additional-info" style={{ display: 'flex', alignItems: 'center', marginLeft: 'auto' }}>
-                            <div className="activity-reviewss" style={{ marginLeft: 'auto' }}>
+                        <div className="additional-info" style={{ display: 'flex',flexDirection:'column', position:'relative',alignItems: 'center', justifyContent:'center' ,marginLeft: 'auto' }}>
+                            <div className="info-image" style={{ marginLeft: '0px' }}>
+                                <img src={logoside} alt="Info Image" style={{ width: '100%', height: 'auto' }} />
+                            </div>
+                            <div className="activity-reviewss" style={{ marginLeft: '0px',display:'flex',flexDirection:'column',alignItems:'center'}}>
                                 <span>⭐⭐⭐⭐⭐</span>
                                 <span className='review-text'>
                                     100+ reviews</span>
@@ -82,8 +90,7 @@ const Activities = () => {
                         </div>
 
 
-                        <p className="plocation"><i class="fa-solid fa-location-dot"></i>
-                            <span style={{ marginLeft: '5px', fontSize: '12px' }}> Location </span></p>
+                        
 
 
                     </div>
@@ -119,8 +126,9 @@ const Activities = () => {
 
                         <div className='info-with-img'>
 
-                            <div className='descp'>
+                        <div className='descp'>
                                 <h3>Summer Football Camp</h3>
+
                                 <div className="info-row">
                                     <img src={baby} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
                                     <div className="age-group">
@@ -131,29 +139,32 @@ const Activities = () => {
                                         <span className="day">Su</span><span className="day active">Mo</span><span className="day">Tu</span><span className="day">We</span><span className="day">Th</span>
                                         <span className="day active">Fr</span><span className="day ">Sa</span>
                                     </div>
-
+                                   
                                 </div>
+                                <div>
                                 <p>
                                     Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...</p>
+                                    <div>
+                                    <p className="plocation"><i class="fa-solid fa-location-dot"></i>
+                                    <span style={{ marginLeft: '5px', fontSize: '12px' }}> Location </span></p>
+                                    </div>
+                                </div>
                             </div>
-
-                            <div className="info-image" style={{ marginRight: '25px' }}>
+                            
+                           
+                        </div>
+                        <div style={{ height: '3px' }}></div>
+                        <div className="additional-info" style={{ display: 'flex',flexDirection:'column', alignItems: 'center', justifyContent:'center' ,marginLeft: 'auto' }}>
+                            <div className="info-image" style={{ marginLeft: '0px' }}>
                                 <img src={logoside} alt="Info Image" style={{ width: '100%', height: 'auto' }} />
                             </div>
-                        </div>
-                        <div style={{ height: '5px' }}></div>
-                        <div className="additional-info" style={{ display: 'flex', alignItems: 'center', marginLeft: 'auto' }}>
-                            <div className="activity-reviewss" style={{ marginLeft: 'auto' }}>
+                            <div className="activity-reviewss" style={{ marginLeft: '0px',display:'flex',flexDirection:'column',alignItems:'center'}}>
                                 <span>⭐⭐⭐⭐⭐</span>
                                 <span className='review-text'>
                                     100+ reviews</span>
                             </div>
                         </div>
-
-                        <p className="plocation"><i class="fa-solid fa-location-dot"></i>
-                            <span style={{ marginLeft: '5px', fontSize: '12px' }}> Location </span></p>
-
-                    </div>
+                        </div>
                     {/* Activity Actions Section */}
                     <div className="activity-actions">
                         <button
