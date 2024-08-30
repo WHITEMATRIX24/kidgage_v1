@@ -167,7 +167,7 @@
 
 .dropdown-menu {
     position: absolute;
-    top: 70%;
+    top: 100%;
     left: 3%;
     width: 100%;
     justify-content: center;
