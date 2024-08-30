@@ -204,7 +204,9 @@
   border: 1px solid #ccc;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-
+.gapss{
+  height: 120px;
+}
 
 .promoted-image {
   position: relative;
@@ -398,12 +400,12 @@
     width: 25%;
   }
   .card:nth-child(1) img{
-    height:580px;
+    height:628px;
   }
 
   .card:nth-child(2) img{
-    height: 290px;
-    margin-top: -25px;
+    margin-top: 28px;
+    height: 315px;
     background-color: #383838;
   }
 }
@@ -418,13 +420,15 @@
   padding: 0 0px;
 }
   .card:nth-child(1){
-    height: 600px;
+    height: 649px;
     width: 100%;
 
   }
-
+  .gapss{
+    height: 190px;
+  }
   .card:nth-child(2) {
-    height: 290px;
+    height: 315px;
     width: 100%;
     margin-bottom: 0%;
   }
@@ -450,8 +454,9 @@
 @media (max-width: 1300px) {
   .card-container {
     flex-direction: column;
-    width: 80%;
-    margin-left: 9%;
+    width: 60%;
+    margin-left: 20%;
+
   }
 
   .activity-card {
@@ -471,6 +476,17 @@
     padding: 10px;
   }
 
+  .card:nth-child(1){
+    height: 1100px;
+    width: 100%;
+
+  }
+
+  .card:nth-child(2) {
+    height: 567px;
+    width: 100%;
+    margin-bottom: 0%;
+  }
 
   .promoted-container {
     margin-bottom: 20px;
@@ -493,7 +509,7 @@
     margin-left: 15px !important;
     margin-right: 20px;
   }
-
+  
   .card1,
   .card2 {
     float: none;
@@ -507,7 +523,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 19%;
+    margin: 0 20%;
   }
 
   .card {
@@ -591,13 +607,15 @@
 
 @media (min-width: 1460px) and (max-width: 1505px) {
   .card:nth-child(1){
-    height: 625px;
+    height: 670px;
     width: 100%;
 
   }
-
+  .gapss{
+    height: 160px;
+  }
   .card:nth-child(2) {
-    height: 300px;
+    height: 330px;
     width: 100%;
     margin-bottom: 0%;
   }
@@ -608,6 +626,9 @@
   .card-container {
     width: 67.5%;
     margin-left: 0%;
+  }
+  .gapss{
+    height: 120px;
   }
 
 .promoted-image img{
@@ -696,13 +717,13 @@
 
 
     .card:nth-child(1){
-      height: 710px;
+      height: 685px;
       width: 100%;
   
     }
   
     .card:nth-child(2) {
-      height: 340px;
+      height: 360px;
       width: 100%;
       margin-bottom: 0%;
     }
@@ -795,11 +816,21 @@
 @media (max-width: 700px) {
   .card-container {
     flex-direction: column;
-    width: 98%;
-    margin-left: 1%;
+    width: 90%;
+    margin: 0 5%;
 
   }
-
+  .card:nth-child(1){
+    height: 800px;
+    width: 100%;
+  
+  }
+  
+  .card:nth-child(2) {
+    height: 400px;
+    width: 100%;
+    margin-bottom: 0%;
+  }
   .activity-card {
     flex-direction: column;
     margin-left: 10px;
@@ -820,8 +851,8 @@
   .promoted-container {
     margin-bottom: 20px;
     margin-right: 10px;
-    width: 98%;
-    margin-left: 1%;
+    width: 90%;
+    margin: 0 5%;
   }
 
   .promoted-image {
@@ -848,12 +879,12 @@
   }
 
   .banner-container {
-    width: 98%;
+    width: 90%;
     padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 2%;
+    margin: 0 5%;
   }
 
   .card {
@@ -867,8 +898,8 @@
   }
 
   .activity-actions button {
-    width: 100%;
-    margin: 5px 0;
+    width: 90%;
+    margin: 3px 5%;
   }
 
   .more {
@@ -878,7 +909,7 @@
   }
 
   .more-btn {
-    max-width: 100%;
+    width: 100%;
     flex-direction: column;
     align-items: center;
     margin-left: 0% !important;
@@ -909,22 +940,30 @@
   }
 
   .info-row {
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
+    margin-bottom: 5px;
   }
+.info-image{
+  margin-right: 5px !important;
+  margin-top: 80px !important;
+  width: 110px !important;
+  height: auto !important;
 
+}
   .day-selector {
-    width: 20%;
+    width: 30px;
     margin-bottom: 8px;
   }
 
   .info-row img {
-    width: 10% !important;
-    height: auto !important;
+    width: 20px !important;
+    height: 20px !important;
+    margin-top: 5px !important;
   }
 
   .age-group {
-    margin-bottom: 20px;
+    font-size: 10px;
   }
 
   .location {
@@ -935,10 +974,20 @@
 @media (min-width: 700px) and (max-width: 1100px) {
   .card-container {
     flex-direction: column;
-    width: 98%;
-    margin-left: 1%;
+    width: 80%;
+    margin:0 11%;
   }
-
+  .card:nth-child(1){
+    height: 1100px;
+    width: 100%;
+  
+  }
+  
+  .card:nth-child(2) {
+    height: 600px;
+    width: 100%;
+    margin-bottom: 0%;
+  }
   .activity-card {
     flex-direction: column;
     margin-left: 10px;
@@ -949,7 +998,7 @@
 
   .activity-image {
     width: 100%;
-    height: 420px;
+    height: 500px;
   }
 
   .activity-details {
@@ -960,14 +1009,14 @@
   .promoted-container {
     margin-bottom: 20px;
     margin-right: 10px;
-    width: 98%;
-    margin-left: 1%;
+    width: 80%;
+    margin:0 11%;
   }
 
   .promoted-image {
     position: relative;
     width: 100%;
-    height: 420px;
+    height: 500px;
     overflow: hidden;
   }
 
@@ -988,14 +1037,16 @@
   }
 
   .banner-container {
-    width: 98%;
+    width: 80%;
     padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 2%;
+    margin: 0 11%;
   }
-
+  .day-selector{
+    width: 35px;
+  }
   .card {
     margin-bottom: 10px;
     width: 80%;
@@ -1007,13 +1058,13 @@
   }
 
   .activity-actions button {
-    padding: 10px 20px;
+    padding: 10px 10px;
     margin: 5px 0;
   }
 
   .more {
-    padding: 10px 100px;
-    font-size: 9px;
+    padding: 10px 80px;
+    font-size: 8px;
     width: 100%;
   }
 
@@ -1021,7 +1072,7 @@
     max-width: 100%;
     flex-direction: column;
     align-items: center;
-    margin-left: 25% !important;
+    margin-left: 15% !important;
   }
 
   .descp p {
@@ -1055,8 +1106,9 @@
   }
 
   .info-row img {
-    width: 5% !important;
-    height: auto !important;
+    margin-top: 1px !important;
+    width: 30px !important;
+    height: 30px !important;
   }
 
 
@@ -1096,12 +1148,12 @@
     width: 25%;
   }
   .card:nth-child(1) img{
-    height:590px;
+    height:645px;
   }
 
   .card:nth-child(2) img{
-    height: 290px;
-    margin-top: -15px;
+    margin-top: 40px;
+    height: 310px;
     background-color: #383838;
   }
 
@@ -1132,11 +1184,11 @@
 
 
   .card:nth-child(1) {
-    height: 570px;
+    height: 635px;
   }
 
   .card:nth-child(2) {
-    height: 280px;
+    height: 310px;
     margin-bottom: 0%;
   }
 
@@ -1146,12 +1198,14 @@
   }
 }
 
-@media (min-width: 2001px) and (max-width: 2334px) {
+@media (min-width: 2001px) {
   .info-row img {
     width: 3% !important;
     height: 2% !important;
   }
-
+  .gapss{
+    height: 180px;
+  }
   .banner-container {
     width: 25%;
     padding: 0 20px !important;
@@ -1166,18 +1220,174 @@
     width: 470px;
   }
 
-
+  .gapss{
+    height: 160px;
+  }
 
   .card:nth-child(1) {
-    height: 570px;
+    height: 630px;
   }
 
   .card:nth-child(2) {
-    height: 283px;
+    height: 315px;
     margin-bottom: 0%;
   }
 
   .more-btn {
     margin-left: 290px;
+  }
+}
+
+
+@media (max-width: 480px) {
+ 
+  .card:nth-child(1){
+    height: 100%;
+    width: 100%;
+  
+  }
+  
+  .card:nth-child(2) {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 0%;
+  }
+  .activity-card {
+    flex-direction: column;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    float: none;
+  }
+
+  .activity-image {
+    width: 100%;
+    height: 420px;
+  }
+
+  .activity-details {
+    padding: 5px;
+  }
+
+
+  .promoted-container {
+    margin-bottom: 20px;
+    margin-right: 10px;
+    width: 90%;
+    margin: 0 5%;
+  }
+
+  .promoted-image {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+  }
+
+  .promoted-card {
+    flex-direction: column;
+    width: 97.8%;
+    margin-bottom: 20px;
+    float: none;
+    margin-left: 5px !important;
+    margin-right: 20px;
+  }
+
+  .card1,
+  .card2 {
+    float: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .banner-container {
+    width: 90%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 5%;
+  }
+
+  .card {
+    margin-bottom: 10px;
+    width: 80%;
+  }
+
+  .activity-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .activity-actions button {
+    width: 90%;
+    margin: 3px 5%;
+  }
+
+  .more {
+    padding: 10px 100px;
+    font-size: 9px;
+    width: 100%;
+  }
+
+  .more-btn {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0% !important;
+  }
+
+  .descp p {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .plocation {
+    margin-top: 4%;
+  }
+
+  .pagination-container {
+    /* background-color: red;  */
+    width: 80%;
+  }
+
+  .pagination-container .Pagination {
+    width: 100%;
+  }
+
+  .activity-reviews {
+    margin-top: -30%;
+  }
+
+  .info-row {
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 5px;
+  }
+.info-image{
+  margin-right: 5px !important;
+  margin-top: 80px !important;
+  width: 110px !important;
+  height: auto !important;
+
+}
+  .day-selector {
+    width: 30px;
+    margin-bottom: 8px;
+  }
+
+  .info-row img {
+    width: 20px !important;
+    height: 20px !important;
+    margin-top: 5px !important;
+  }
+
+  .age-group {
+    font-size: 10px;
+  }
+
+  .location {
+    margin-top: -1% !important;
   }
 }
