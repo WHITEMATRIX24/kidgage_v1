@@ -1,53 +1,71 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Calendar2 from 'react-calendar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faBars, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import './SearchBar.css';
 
-
 const SearchBar = () => {
-  const [activeInput, setActiveInput] = useState(null);
-
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState('');
-
-  const [isSearchExpanded, setIsSearchExpanded] = useState(false);
   const [activeOption, setActiveOption] = useState(null);
   const [showCalendar, setShowCalendar] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const [age, setAge] = useState("");
+  const [showDobCalendar, setShowDobCalendar] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDob, setSelectedDob] = useState("Age");
+  const [selectedLocation, setSelectedLocation] = useState("Location");
+  const [selectedActivity, setSelectedActivity] = useState("Activity");
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [showActivityDropdown, setShowActivityDropdown] = useState(false);
+  const [missingSelection, setMissingSelection] = useState(false);
   const searchBarRef = useRef(null);
 
   const locations = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix"];
   const activities = ["Swimming", "Skating", "Cricket", "MMA", "Basketball"];
 
-  // const handleOptionClick = (option) => {
-  //     setActiveOption(option === activeOption ? null : option);
-  //     if (option !== "date") setShowCalendar(false);
-  //   };
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (searchBarRef.current && !searchBarRef.current.contains(event.target)) {
+        setActiveOption(null);
+        setShowCalendar(false);
+        setShowDobCalendar(false);
+        setShowDropdown(false);
+        setShowActivityDropdown(false);
+        setMissingSelection(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const handleOptionClick = (option) => {
-    setSelectedOption(option);
-    setIsOpen(false);
-  };
-
-  const handleIconClick = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const handleItemClick = (value) => {
-    setSelectedOption(value);
-    setIsOpen(false);
-  };
-
-
-
-
-
-
-  const handleDateClick = () => {
-    setShowCalendar(!showCalendar);
-    setActiveOption("date");
+    if (option === "location") {
+      setShowDropdown(!showDropdown);
+      setShowActivityDropdown(false);
+      setShowCalendar(false);
+      setShowDobCalendar(false);
+    } else if (option === "activity") {
+      setShowActivityDropdown(!showActivityDropdown);
+      setShowDropdown(false);
+      setShowCalendar(false);
+      setShowDobCalendar(false);
+    } else if (option === "age") {
+      setShowDobCalendar(!showDobCalendar);
+      setShowDropdown(false);
+      setShowActivityDropdown(false);
+      setShowCalendar(false);
+    } else if (option === "date") {
+      setShowCalendar(!showCalendar);
+      setShowDropdown(false);
+      setShowActivityDropdown(false);
+      setShowDobCalendar(false);
+    } else {
+      setActiveOption(option === activeOption ? null : option);
+      setShowDropdown(false);
+      setShowActivityDropdown(false);
+      setShowCalendar(false);
+      setShowDobCalendar(false);
+    }
   };
 
   const handleDateChange = (date) => {
@@ -55,125 +73,125 @@ const SearchBar = () => {
     setShowCalendar(false);
   };
 
-  const handleAgeChange = (e) => {
-    const value = e.target.value;
-    if (value === "" || (parseInt(value) >= 0 && parseInt(value) <= 99)) {
-      setAge(value);
+  const handleDobChange = (date) => {
+    setSelectedDob(date.toLocaleDateString("en-GB"));
+    setShowDobCalendar(false);
+  };
+
+  const handleLocationSelect = (location) => {
+    setSelectedLocation(location);
+    setShowDropdown(false);
+  };
+
+  const handleActivitySelect = (activity) => {
+    setSelectedActivity(activity);
+    setShowActivityDropdown(false);
+  };
+
+  const handleSearchClick = () => {
+    if (
+      selectedLocation !== "Location" &&
+      selectedDob !== "Age" &&
+      selectedDate &&
+      selectedActivity !== "Activity"
+    ) {
+      // Perform search or navigation
+      console.log('Searching with:', { selectedLocation, selectedDob, selectedDate, selectedActivity });
+    } else {
+      setMissingSelection(true);
     }
   };
 
-  const incrementAge = () => {
-    setAge((prev) =>
-      parseInt(prev) < 99 ? (parseInt(prev) + 1).toString() : prev
-    );
-  };
-
-  const decrementAge = () => {
-    setAge((prev) =>
-      parseInt(prev) > 0 ? (parseInt(prev) - 1).toString() : prev
-    );
-  };
-
-  const handleInputFocus = (index) => {
-    setActiveInput(index);
-  };
-
-  const handleInputBlur = () => {
-    setActiveInput(null);
-  };
-
-  const toggleSearch = () => {
-    setIsSearchExpanded(!isSearchExpanded);
-  };
-
   return (
-    <header className="header">
+    <header className="header" ref={searchBarRef}>
       <div className='content'>
-        <div className={`sbar ${isSearchExpanded ? 'expanded' : ''}`}>
-          <div className="items">
-
-
-            <div className={`item ${activeInput === 0 ? 'active' : ''}`}>
-
-              <label>Location
-                <i
-                  style={{ color: '#393939', cursor: 'pointer' }}
-                  className="fa-solid fa-chevron-down"
-                  onClick={handleIconClick}
-                />
+        <div className='sbar'>
+          <div className='items'>
+            <div className="item" onClick={() => handleOptionClick("location")}>
+              <label>
+                {selectedLocation}
+                <FontAwesomeIcon icon={faChevronDown} />
               </label>
-              <select
-                value={selectedOption}
-                onChange={(e) => handleOptionClick(e.target.value)}
-                onFocus={() => handleInputFocus(0)}
-                onBlur={handleInputBlur}
-                disabled={activeInput !== null && activeInput !== 0}
-              >
-                <option value="">Search activities near you</option>
-                {locations.map((location) => (
-                  <option key={location} value={location}>
-                    {location}
-                  </option>
-                ))}
-              </select>
-
-
+              <span className="sub-label">Search activities near you</span>
+              {showDropdown && (
+                <div className="dropdown-menu">
+                  {locations.map((location) => (
+                    <div
+                      key={location}
+                      onClick={() => handleLocationSelect(location)}
+                    >
+                      {location}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
             <div className="dividers" />
-            <div className={`item ${activeInput === 1 ? 'active' : ''}`}>
-              <label>Ages <i style={{ color: '#393939' }} class="fa-solid fa-chevron-down"></i></label>
-              <input
-                type="text"
-                placeholder="Enter D.O.B"
-                onFocus={() => handleInputFocus(1)}
-                onBlur={handleInputBlur}
-                disabled={activeInput !== null && activeInput !== 1}
-              />
+            <div className="item" onClick={() => handleOptionClick("age")}>
+              <label>
+                {selectedDob}
+                <FontAwesomeIcon icon={faChevronDown} />
+              </label>
+              <span className="sub-label">Enter DOB</span>
+              {showDobCalendar && (
+                <div className="calendar-dropdowns">
+                  <Calendar2
+                    onChange={handleDobChange}
+                    value={selectedDob === "Age" ? new Date() : new Date(selectedDob)}
+                    maxDate={new Date()}
+                    className="custom-cal"
+                  />
+                </div>
+              )}
             </div>
             <div className="dividers" />
-            <div className={`item ${activeInput === 2 ? 'active' : ''}`}>
-              <label>When <i style={{ color: '#393939' }} class="fa-solid fa-chevron-down"></i></label>
-              <input
-                type="text"
-                placeholder="All dates & days"
-                onFocus={() => handleInputFocus(2)}
-                onBlur={handleInputBlur}
-                disabled={activeInput !== null && activeInput !== 2}
-              />
+            <div className="item" onClick={() => handleOptionClick("date")}>
+              <label>
+                {selectedDate ? selectedDate.toLocaleDateString("en-GB") : "Date"}
+                <FontAwesomeIcon icon={faChevronDown} />
+              </label>
+              <span className="sub-label">All dates and days</span>
+              {showCalendar && (
+                <div className="calendar-dropdowna">
+                  <Calendar2
+                    onChange={handleDateChange}
+                    value={selectedDate || new Date()}
+                    minDetail="month"
+                    className="custom-cal"
+                  />
+                </div>
+              )}
             </div>
             <div className="dividers" />
-            <div className={`item ${activeInput === 3 ? 'active' : ''}`}>
-              <label>Activity </label>
-              <input
-                type="text"
-                placeholder="All activities"
-                onFocus={() => handleInputFocus(3)}
-                onBlur={handleInputBlur}
-                disabled={activeInput !== null && activeInput !== 3}
-              />
+            <div className="item" onClick={() => handleOptionClick("activity")}>
+              <label>
+                {selectedActivity}
+                <FontAwesomeIcon icon={faChevronDown} />
+              </label>
+              <span className="sub-label">All activities</span>
+              {showActivityDropdown && (
+                <div className="dropdown-menu">
+                  {activities.map((activity) => (
+                    <div
+                      key={activity}
+                      onClick={() => handleActivitySelect(activity)}
+                    >
+                      {activity}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
             <div className="dividers" />
-            <button className="sbutton">
+            <button className="sbutton" onClick={handleSearchClick}>
               <FontAwesomeIcon icon={faSearch} />
             </button>
           </div>
-
-          {isOpen && (
-            <div className="dropdown-menu">
-              {locations.map((location) => (
-                <div
-                  key={location}
-                  onClick={() => handleItemClick(location)}
-                >
-                  {location}
-                </div>
-              ))}
-            </div>
+          {missingSelection && (
+            <p className="missing-selection">Please select all options.</p>
           )}
-
         </div>
       </div>
-
     </header>
   );
 };
