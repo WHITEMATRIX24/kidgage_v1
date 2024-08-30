@@ -17,9 +17,10 @@ import './AcademyList.css';
 import Footer from './Footer';
 import Header from './Header';
 import ico from './assets/images/ico.png';
+import SearchBar from './SearchBar';
 
 const Activities = () => {
-    
+
     const sendMessage = (activityName) => {
         const message = `Hello! I am interested in booking the ${activityName} provided by Sparta Academy. Can you please provide more details?`;
         const whatsappUrl = `https://wa.me/9447526695?text=${encodeURIComponent(message)}`;
@@ -34,12 +35,10 @@ const Activities = () => {
     return (
         <>
             {/* Fixed Navbar */}
-            <Header/>
+            <Header />
+            <SearchBar />
             {/* promoted */}
-            <div className='activity-icons-container'>
-                <img src={ico}></img>            </div>
             <div style={{ height: '22px' }}></div>
-
             <div className='promoted-container '>
                 {/*promoted  card 1 */}
                 <div className="promoted-card card1">
@@ -63,26 +62,26 @@ const Activities = () => {
                                         <span className="day">Su</span><span className="day active">Mo</span><span className="day">Tu</span><span className="day">We</span><span className="day">Th</span>
                                         <span className="day active">Fr</span><span className="day ">Sa</span>
                                     </div>
-                                   
+
                                 </div>
                                 <div>
-                                <p>
-                                    Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...</p>
+                                    <p>
+                                        Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...</p>
                                     <div>
-                                    <p className="plocation"><i class="fa-solid fa-location-dot"></i>
-                                    <span style={{ marginLeft: '5px', fontSize: '12px' }}> Location </span></p>
+                                        <p className="plocation"><i class="fa-solid fa-location-dot"></i>
+                                            <span style={{ marginLeft: '5px', fontSize: '12px' }}> Location </span></p>
                                     </div>
                                 </div>
                             </div>
-                            
-                           
+
+
                         </div>
                         <div style={{ height: '3px' }}></div>
-                        <div className="additional-info" style={{ display: 'flex',flexDirection:'column', position:'relative',alignItems: 'center', justifyContent:'center' ,marginLeft: 'auto' }}>
+                        <div className="additional-info" style={{ display: 'flex', flexDirection: 'column', position: 'relative', alignItems: 'center', justifyContent: 'center', marginLeft: 'auto' }}>
                             <div className="info-image" style={{ marginLeft: '0px' }}>
                                 <img src={logoside} alt="Info Image" style={{ width: '100%', height: 'auto' }} />
                             </div>
-                            <div className="activity-reviewss" style={{ marginLeft: '0px',display:'flex',flexDirection:'column',alignItems:'center'}}>
+                            <div className="activity-reviewss" style={{ marginLeft: '0px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                                 <span>⭐⭐⭐⭐⭐</span>
                                 <span className='review-text'>
                                     100+ reviews</span>
@@ -90,7 +89,7 @@ const Activities = () => {
                         </div>
 
 
-                        
+
 
 
                     </div>
@@ -126,7 +125,7 @@ const Activities = () => {
 
                         <div className='info-with-img'>
 
-                        <div className='descp'>
+                            <div className='descp'>
                                 <h3>Summer Football Camp</h3>
 
                                 <div className="info-row">
@@ -139,32 +138,32 @@ const Activities = () => {
                                         <span className="day">Su</span><span className="day active">Mo</span><span className="day">Tu</span><span className="day">We</span><span className="day">Th</span>
                                         <span className="day active">Fr</span><span className="day ">Sa</span>
                                     </div>
-                                   
+
                                 </div>
                                 <div>
-                                <p>
-                                    Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...</p>
+                                    <p>
+                                        Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...</p>
                                     <div>
-                                    <p className="plocation"><i class="fa-solid fa-location-dot"></i>
-                                    <span style={{ marginLeft: '5px', fontSize: '12px' }}> Location </span></p>
+                                        <p className="plocation"><i class="fa-solid fa-location-dot"></i>
+                                            <span style={{ marginLeft: '5px', fontSize: '12px' }}> Location </span></p>
                                     </div>
                                 </div>
                             </div>
-                            
-                           
+
+
                         </div>
                         <div style={{ height: '3px' }}></div>
-                        <div className="additional-info" style={{ display: 'flex',flexDirection:'column', alignItems: 'center', justifyContent:'center' ,marginLeft: 'auto' }}>
+                        <div className="additional-info" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginLeft: 'auto' }}>
                             <div className="info-image" style={{ marginLeft: '0px' }}>
                                 <img src={logoside} alt="Info Image" style={{ width: '100%', height: 'auto' }} />
                             </div>
-                            <div className="activity-reviewss" style={{ marginLeft: '0px',display:'flex',flexDirection:'column',alignItems:'center'}}>
+                            <div className="activity-reviewss" style={{ marginLeft: '0px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                                 <span>⭐⭐⭐⭐⭐</span>
                                 <span className='review-text'>
                                     100+ reviews</span>
                             </div>
                         </div>
-                        </div>
+                    </div>
                     {/* Activity Actions Section */}
                     <div className="activity-actions">
                         <button
@@ -191,149 +190,152 @@ const Activities = () => {
 
             <div style={{ height: '60px' }}></div>
             {/* --------cards starts -----------*/}
+
             {/* card 1 */}
             <div className='card-container'>
-                <div className="activity-card cards">
-                    <div className="activity-image">
-                        <img src={football1} alt="Activity Image" />
-
-                    </div>
-                    <div className="activity-details">
-
-                        <div className='activity-card-in'>
-                            <div className='info-with-img'>
-
-                                <div className='descp'>
-                                    <h3>Activity name</h3>
-                                    <div className="info-row">
-                                        <img src={baby} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
-                                        <div className="age-group">
-                                            <span className="age-text">  0 - 15ys 9ms</span>
-                                        </div>
-                                        <img src={calendar} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
-                                        <div className="day-selector">
-                                            <span className="day">Su</span><span className="day active">Mo</span><span className="day">Tu</span><span className="day">We</span><span className="day">Th</span>
-                                            <span className="day active">Fr</span><span className="day ">Sa</span>
-                                        </div>
-
-                                    </div>
-                                    <p>
-                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.Placeat temporibus corrupti eaque. Ipsa, error accusamus aliquid ex impedit libero, voluptate accusantium,  eos non molestiae soluta rerum!
-                                    </p>
-                                </div>
-
-                                <div className="info-image" style={{ marginRight: '30px' }} >
-                                    <img src={logoside} alt="Info Image" />
-                                </div>
-                            </div>
-                            <div style={{ height: '5px' }}></div>
-                            <div className="additional-info" style={{ display: 'flex', alignItems: 'center', marginLeft: 'auto' }}>
-                                <div className="activity-reviews" style={{ marginLeft: 'auto' }}>
-                                    <span>⭐⭐⭐⭐⭐</span>
-                                    <span className='review-text'>
-                                        100+ reviews</span>
-                                </div>
-                            </div>
-                            <div style={{ height: '5px' }}></div>
-
-
-                            <p className="plocation"><i class="fa-solid fa-location-dot"></i>
-                                <span style={{ marginLeft: '5px', fontSize: '12px' }}> Location </span></p>
+                <div className='card-container-top'>
+                    <div className="activity-card cards">
+                        <div className="activity-image">
+                            <img src={football1} alt="Activity Image" />
 
                         </div>
-                        {/* Activity Actions Section */}
-                        <div className="activity-actions" style={{ 'margin-top': '15px' }}>
-                            <button
-                                className="book-now"
-                                style={{ backgroundColor: '#5EA858' }}
-                                onClick={() => sendMessage('Summer Football Camp', 'Location Name')}>
-                                <i className="fa-brands fa-whatsapp"></i>
-                                <span style={{ marginLeft: '5px', fontWeight: 'bold' }}>Book Now</span>
-                            </button>
-                            <button className="share" style={{ backgroundColor: '#3880C4' }}>
-                                <i class="fa-solid fa-share"></i>
-                                <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Share</span>
+                        <div className="activity-details">
 
-                            </button>
-                            <button className="save" style={{ backgroundColor: '#3880C4' }}> <i class="fa-regular fa-bookmark"></i>
-                                <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Save</span>
-                            </button>
-                            <div className='more-btn'>
-                                <button className="more">See more from this provider</button>
-                            </div>                        </div>
-                    </div>
-                </div>
-                <div style={{ height: '20px' }}></div>
+                            <div className='activity-card-in'>
+                                <div className='info-with-img'>
 
-                {/* card 2 */}
-                <div className="activity-card cards">
-                    <div className="activity-image">
-                        <img src={football2} alt="Activity Image" />
+                                    <div className='descp'>
+                                        <h3>Activity name</h3>
+                                        <div className="info-row">
+                                            <img src={baby} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
+                                            <div className="age-group">
+                                                <span className="age-text">  0 - 15ys 9ms</span>
+                                            </div>
+                                            <img src={calendar} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
+                                            <div className="day-selector">
+                                                <span className="day">Su</span><span className="day active">Mo</span><span className="day">Tu</span><span className="day">We</span><span className="day">Th</span>
+                                                <span className="day active">Fr</span><span className="day ">Sa</span>
+                                            </div>
 
-                    </div>
-                    <div className="activity-details">
-
-                        <div className='activity-card-in'>
-                            <div className='info-with-img'>
-
-                                <div className='descp'>
-                                    <h3>Activity name</h3>
-                                    <div className="info-row">
-                                        <img src={baby} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
-                                        <div className="age-group">
-                                            <span className="age-text">  0 - 15ys 9ms</span>
                                         </div>
-                                        <img src={calendar} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
-                                        <div className="day-selector">
-                                            <span className="day">Su</span><span className="day active">Mo</span><span className="day">Tu</span><span className="day">We</span><span className="day">Th</span>
-                                            <span className="day active">Fr</span><span className="day ">Sa</span>
-                                        </div>
-
+                                        <p>
+                                            Lorem, ipsum dolor sit amet consectetur adipisicing elit.Placeat temporibus corrupti eaque. Ipsa, error accusamus aliquid ex impedit libero, voluptate accusantium,  eos non molestiae soluta rerum!
+                                        </p>
                                     </div>
-                                    <p>
-                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.Placeat temporibus corrupti eaque. Ipsa, error accusamus aliquid ex impedit libero, voluptate accusantium,  eos non molestiae soluta rerum!
-                                    </p>
-                                </div>
 
-                                <div className="info-image" style={{ marginRight: '30px' }}>
-                                    <img src={logo} alt="Info Image" />
+                                    <div className="info-image" style={{ marginRight: '30px' }} >
+                                        <img src={logoside} alt="Info Image" />
+                                    </div>
                                 </div>
+                                <div style={{ height: '5px' }}></div>
+                                <div className="additional-info" style={{ display: 'flex', alignItems: 'center', marginLeft: 'auto' }}>
+                                    <div className="activity-reviews" style={{ marginLeft: 'auto' }}>
+                                        <span>⭐⭐⭐⭐⭐</span>
+                                        <span className='review-text'>
+                                            100+ reviews</span>
+                                    </div>
+                                </div>
+                                <div style={{ height: '5px' }}></div>
+
+
+                                <p className="plocation"><i class="fa-solid fa-location-dot"></i>
+                                    <span style={{ marginLeft: '5px', fontSize: '12px' }}> Location </span></p>
+
                             </div>
-                            <div style={{ height: '5px' }}></div>
-                            <div className="additional-info" style={{ display: 'flex', alignItems: 'center', marginLeft: 'auto' }}>
-                                <div className="activity-reviews" style={{ marginLeft: 'auto' }}>
-                                    <span>⭐⭐⭐⭐⭐</span>
-                                    <span className='review-text'>
-                                        100+ reviews</span>
-                                </div>
-                            </div>
-                            <div style={{ height: '5px' }}></div>
+                            {/* Activity Actions Section */}
+                            <div className="activity-actions" style={{ 'margin-top': '15px' }}>
+                                <button
+                                    className="book-now"
+                                    style={{ backgroundColor: '#5EA858' }}
+                                    onClick={() => sendMessage('Summer Football Camp', 'Location Name')}>
+                                    <i className="fa-brands fa-whatsapp"></i>
+                                    <span style={{ marginLeft: '5px', fontWeight: 'bold' }}>Book Now</span>
+                                </button>
+                                <button className="share" style={{ backgroundColor: '#3880C4' }}>
+                                    <i class="fa-solid fa-share"></i>
+                                    <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Share</span>
 
+                                </button>
+                                <button className="save" style={{ backgroundColor: '#3880C4' }}> <i class="fa-regular fa-bookmark"></i>
+                                    <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Save</span>
+                                </button>
+                                <div className='more-btn'>
+                                    <button className="more">See more from this provider</button>
+                                </div>                        </div>
+                        </div>
+                    </div>
+                    <div style={{ height: '0px' }}></div>
 
-                            <p className="plocation"><i class="fa-solid fa-location-dot"></i>
-                                <span style={{ marginLeft: '5px', fontSize: '12px' }}> Location </span></p>
+                    {/* card 2 */}
+                    <div className="activity-card cards">
+                        <div className="activity-image">
+                            <img src={football2} alt="Activity Image" />
 
                         </div>
-                        {/* Activity Actions Section */}
-                        <div className="activity-actions" style={{ 'margin-top': '15px' }}>
-                            <button
-                                className="book-now"
-                                style={{ backgroundColor: '#5EA858' }}
-                                onClick={() => sendMessage('Summer Football Camp', 'Location Name')}>
-                                <i className="fa-brands fa-whatsapp"></i>
-                                <span style={{ marginLeft: '5px', fontWeight: 'bold' }}>Book Now</span>
-                            </button>
-                            <button className="share" style={{ backgroundColor: '#3880C4' }}>
-                                <i class="fa-solid fa-share"></i>
-                                <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Share</span>
+                        <div className="activity-details">
 
-                            </button>
-                            <button className="save" style={{ backgroundColor: '#3880C4' }}> <i class="fa-regular fa-bookmark"></i>
-                                <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Save</span>
-                            </button>
-                            <div className='more-btn'>
-                                <button className="more">See more from this provider</button>
-                            </div>                        </div>
+                            <div className='activity-card-in'>
+                                <div className='info-with-img'>
+
+                                    <div className='descp'>
+                                        <h3>Activity name</h3>
+                                        <div className="info-row">
+                                            <img src={baby} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
+                                            <div className="age-group">
+                                                <span className="age-text">  0 - 15ys 9ms</span>
+                                            </div>
+                                            <img src={calendar} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
+                                            <div className="day-selector">
+                                                <span className="day">Su</span><span className="day active">Mo</span><span className="day">Tu</span><span className="day">We</span><span className="day">Th</span>
+                                                <span className="day active">Fr</span><span className="day ">Sa</span>
+                                            </div>
+
+                                        </div>
+                                        <p>
+                                            Lorem, ipsum dolor sit amet consectetur adipisicing elit.Placeat temporibus corrupti eaque. Ipsa, error accusamus aliquid ex impedit libero, voluptate accusantium,  eos non molestiae soluta rerum!
+                                        </p>
+                                    </div>
+
+                                    <div className="info-image" style={{ marginRight: '30px' }}>
+                                        <img src={logo} alt="Info Image" />
+                                    </div>
+                                </div>
+                                <div style={{ height: '5px' }}></div>
+                                <div className="additional-info" style={{ display: 'flex', alignItems: 'center', marginLeft: 'auto' }}>
+                                    <div className="activity-reviews" style={{ marginLeft: 'auto' }}>
+                                        <span>⭐⭐⭐⭐⭐</span>
+                                        <span className='review-text'>
+                                            100+ reviews</span>
+                                    </div>
+                                </div>
+                                <div style={{ height: '5px' }}></div>
+
+
+                                <p className="plocation"><i class="fa-solid fa-location-dot"></i>
+                                    <span style={{ marginLeft: '5px', fontSize: '12px' }}> Location </span></p>
+
+                            </div>
+                            {/* Activity Actions Section */}
+                            <div className="activity-actions" style={{ 'margin-top': '15px' }}>
+                                <button
+                                    className="book-now"
+                                    style={{ backgroundColor: '#5EA858' }}
+                                    onClick={() => sendMessage('Summer Football Camp', 'Location Name')}>
+                                    <i className="fa-brands fa-whatsapp"></i>
+                                    <span style={{ marginLeft: '5px', fontWeight: 'bold' }}>Book Now</span>
+                                </button>
+                                <button className="share" style={{ backgroundColor: '#3880C4' }}>
+                                    <i class="fa-solid fa-share"></i>
+                                    <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Share</span>
+
+                                </button>
+                                <button className="save" style={{ backgroundColor: '#3880C4' }}> <i class="fa-regular fa-bookmark"></i>
+                                    <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Save</span>
+                                </button>
+                                <div className='more-btn'>
+                                    <button className="more">See more from this provider</button>
+                                </div>                        </div>
+                        </div>
                     </div>
                 </div>
                 <div style={{ height: '20px' }}></div>
