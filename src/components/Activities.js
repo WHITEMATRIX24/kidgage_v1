@@ -5,9 +5,9 @@ import Box from '@mui/material/Box';
 import image from '../components/assets/images/image.png';
 import banner1 from '../components/assets/images/poster1.png'
 import banner2 from '../components/assets/images/poster3.png'
-import football1 from '../components/assets/images/footbal1.jpeg'
-import football2 from '../components/assets/images/football2.jpeg'
-import football from '../components/assets/images/football.jpg'
+import football1 from '../components/assets/images/foot1.jpg'
+import football2 from '../components/assets/images/foot2.jpg'
+import football from '../components/assets/images/foot.jpg'
 import logoside from '../components/assets/images/abc.png'
 import logo from '../components/assets/images/abs.png'
 import calendar from '../components/assets/images/calendar.png'
@@ -44,7 +44,7 @@ const Activities = () => {
                 {/*promoted  card 1 */}
                 <div className="promoted-card card1">
                     <div className="promoted-image" onClick={handleClick}>
-                        <img src={football1} alt="Activity Image" />
+                        <img src={football} alt="Activity Image" />
                     </div>
                     <div className="activity-detailss" onClick={handleClick}>
 

@@ -6,9 +6,9 @@ import axios from 'axios';
 import Footer from './Footer';
 import Footer2 from './Footer2';
 import Calendar from './Calendar';
-import ActivityImg1 from './assets/images/football.jpg';
-import ActivityImg2 from './assets/images/footbal1.jpeg';
-import ActivityImg3 from './assets/images/football2.jpeg';
+import ActivityImg1 from './assets/images/foot.jpg';
+import ActivityImg2 from './assets/images/foot1.jpg';
+import ActivityImg3 from './assets/images/foot2.jpg';
 import LocationImg from './assets/images/mapimg.png';
 import providerImg from './assets/images/abc.png'
 import Header2 from './Header2';
