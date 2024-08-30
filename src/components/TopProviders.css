@@ -1,30 +1,35 @@
-.badge-image{
+.badge-image {
   margin-top: 50px;
   text-align: center;
   justify-content: space-between;
 
 }
-.badge-image img{
+
+.badge-image img {
   width: 85%;
 }
-.badge-image-mobile img{
+
+.badge-image-mobile img {
   width: 85%;
   display: none;
 }
-.list-your-academy-btn,.list-your-academy-btn1{
+
+.list-your-academy-btn,
+.list-your-academy-btn1 {
   position: relative;
   background-color: white;
   padding: 10px;
   font-size: 24px;
-  font-family: 'Poppins',serif;
+  font-family: 'Poppins', serif;
   color: #0097b2;
   font-weight: 600;
   border: none;
-  border-radius:40px ;
+  border-radius: 40px;
 }
-.badge-image{
 
-  background:url(./assets/images/badge.jpg);
+.badge-image {
+
+  background: url(./assets/images/badge.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -35,42 +40,48 @@
   display: flex;
   flex-direction: row;
 }
-.badge-image h2{
+
+.badge-image h2 {
   font-family: 'Playfair display', serif;
   color: white;
   font-size: 2.5em;
   font-weight: lighter;
 }
+
 @media (max-width:768px) {
-  .badge-image-mobile img{
-  width: 80%;
-  margin: 50px;
-  display: block;
-}
-.badge-image img{
-  display: none;
-}
+  .badge-image-mobile img {
+    width: 80%;
+    margin: 50px;
+    display: block;
+  }
+
+  .badge-image img {
+    display: none;
+  }
 }
 
 @media (min-width:2000px) {
 
-  
-  .list-your-academy-btn,.list-your-academy-btn1{
+
+  .list-your-academy-btn,
+  .list-your-academy-btn1 {
     position: relative;
     background-color: white;
     padding: 14px;
     font-size: 30px;
-    font-family: 'Poppins',serif;
+    font-family: 'Poppins', serif;
     color: #0097b2;
     font-weight: 600;
     border: none;
-    border-radius:40px ;
+    border-radius: 40px;
   }
-  .badge-image h2{
+
+  .badge-image h2 {
     font-size: 4em
   }
-  .badge-image{
-    background:url(./assets/images/badge.jpg);
+
+  .badge-image {
+    background: url(./assets/images/badge.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -85,124 +96,156 @@
   }
 }
 
-@media (min-width:1800px) {
+@media (max-width:1800px) {
 
-  .badge-image{
+  .badge-image {
     gap: 20px;
     justify-content: center;
   }
-  .badge-image h2{
-    font-size: 28px;
-    margin: 0 15px;
+
+  .badge-image h2 {
+    font-size: 35px;
+    margin-right: 23%;
   }
-  .list-your-academy-btn{
-    font-size: 16px;
+
+  .list-your-academy-btn {
+    font-size: 20px;
     margin: 0 15px 0 0;
     padding: 8px;
   }
 }
 
-@media (max-width:1200px) {
-  .list-your-academy-btn{
-    margin-top: 2%;
+@media (max-width:1200px) and (min-width: 1499px) {
+  .badge-image {
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .badge-image h2 {
+    font-size: 26px;
+    margin-right: 23%;
+  }
+
+  .list-your-academy-btn {
     font-size: 18px;
-    margin-left: -250px;
+    margin: 0 15px 0 0;
+    padding: 8px;
   }
 }
+
+
 @media (max-width:1500px) {
-  .badge-image{
-      gap: 20px;
-      justify-content: center;
-    }
-    .badge-image h2{
-      font-size: 28px;
-      margin: 0 15px;
-    }
-    .list-your-academy-btn{
-      font-size: 16px;
-      margin: 0 15px 0 0;
-      padding: 8px;
-    }
+  .badge-image {
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .badge-image h2 {
+    font-size: 28px;
+    margin-right: 10%;
+  }
+
+  .list-your-academy-btn {
+    font-size: 18px;
+    margin: 0 15px 0 0;
+    padding: 8px;
+  }
 }
+
 @media (max-width:1000px) {
-  .badge-image{
+  .badge-image {
     gap: 10px;
     justify-content: center;
   }
-  .badge-image h2{
+
+  .badge-image h2 {
     font-size: 26px;
     margin: 0 15px;
   }
-  .list-your-academy-btn{
+
+  .list-your-academy-btn {
     font-size: 15px;
     margin: 0 15px 0 0;
     padding: 8px;
   }
 }
+
 @media (max-width:900px) {
-  .badge-image{
+  .badge-image {
     gap: 0px;
     justify-content: center;
   }
-  .badge-image h2{
+
+  .badge-image h2 {
     font-size: 25px;
     margin: 0 15px;
   }
-  .list-your-academy-btn{
+
+  .list-your-academy-btn {
     font-size: 15px;
     margin: 0 15px 0 0;
     padding: 8px;
   }
 }
+
 @media (max-width:768px) {
-  .badge-image{
+  .badge-image {
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-  .badge-image h2{
+
+  .badge-image h2 {
     font-size: 28px;
     margin: 0 5%;
   }
-  .list-your-academy-btn{
+
+  .list-your-academy-btn {
     font-size: 14px;
     margin-left: 0px;
     margin-top: 0px;
   }
 }
+
 @media (max-width:600px) {
-  .badge-image{
+  .badge-image {
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-  .badge-image h2{
+
+  .badge-image h2 {
     font-size: 24px;
     margin: 0 5%;
   }
-  .list-your-academy-btn{
+
+  .list-your-academy-btn {
     font-size: 13px;
     margin-left: 0px;
     margin-top: 10px;
   }
 }
+
 @media (max-width:480px) {
-  .badge-image{
+  .badge-image {
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-  .badge-image h2{
+
+  .badge-image h2 {
     font-size: 20px;
     margin: 0 5%;
   }
-  .list-your-academy-btn{
+
+  .list-your-academy-btn {
     font-size: 12px;
     margin-left: 0px;
     margin-top: 10px;
     padding: 8px;
   }
 }
+
 .top-providers {
   padding: 20px;
   text-align: center;
@@ -213,7 +256,7 @@
 
 .top-providers h2 {
   margin-bottom: 5px;
-  font-family: 'Poppins',serif;
+  font-family: 'Poppins', serif;
   font-size: 2.2em;
   color: #545455;
 }
@@ -233,7 +276,8 @@
 
 .logo-slider {
   display: flex;
-  justify-content: center; /* Center the images horizontally */
+  justify-content: center;
+  /* Center the images horizontally */
   transition: transform 0.5s ease;
 }
 
@@ -243,8 +287,10 @@
   padding: 0 10px;
   box-sizing: border-box;
   display: flex;
-  justify-content: center; /* Center the image within the slide */
-  align-items: center; /* Center the image vertically within the slide */
+  justify-content: center;
+  /* Center the image within the slide */
+  align-items: center;
+  /* Center the image vertically within the slide */
 }
 
 .logo-slide img {
@@ -271,36 +317,41 @@
 .provider-dot.active {
   background-color: #555;
 }
+
 @media (min-width: 1800px) {
   .top-providers {
     margin-top: 2%;
   }
+
   .top-providers h2 {
     font-size: 2.4em;
   }
-  
+
   .top-providers p {
     font-size: 1.1em;
   }
-  
-.logo-slide {
-  flex: 0 0 20%;
-  max-width: 20%;
-  padding: 0 15px;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center; /* Center the image within the slide */
-  align-items: center; /* Center the image vertically within the slide */
+
+  .logo-slide {
+    flex: 0 0 20%;
+    max-width: 20%;
+    padding: 0 15px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    /* Center the image within the slide */
+    align-items: center;
+    /* Center the image vertically within the slide */
+  }
+
+  .logo-slide img {
+    margin-top: 25px;
+    max-width: 100%;
+    height: 200px;
+    object-fit: contain;
+  }
+
 }
 
-.logo-slide img {
-  margin-top: 25px;
-  max-width: 100%;
-  height: 200px;
-  object-fit: contain;
-}
-
-}
 @media (max-width: 768px) {
   .top-providers {
     margin-top: 20%;
