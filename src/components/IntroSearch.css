@@ -477,28 +477,6 @@ margin-bottom: 0px;
     margin-left: 5%;
   }
 }
-@media (max-width:635px) {
-
-
-  .search1-option h5{
-    font-size: 8px;
-  }
-  .search1-option p,.search4-option p,.search1-options{
-      font-size: 13px;
-  }
-  .search4-option{
-    margin-top:8px;
-    min-width: 105px;
-  }
-  .search1-options{
-  min-width: 70px;
-  }
-  .search1-option{
-    min-width: 130px;
-    margin-left: 0%;
-  }
-  
-}
 
 @media (max-width:660px) {
 .intro-search-icon{
@@ -520,6 +498,27 @@ margin-bottom: 0px;
   list-style: none;
   padding: 0;
   margin: 0;
+}
+.calendar-dropdown {
+  position: absolute;
+  top: 70%;
+  left: 0px;
+  width: 100%;
+  border-radius: 10px;
+  z-index: 1001;
+  margin-top: 10px;
+  padding: 10px 20px;
+}
+
+.calendar-dropdown2 {
+  position: absolute;
+  top: 70%;
+  left: 0%;
+  width: 100%;
+  border-radius: 10px;
+  z-index: 1001;
+  margin-top: 10px;
+  padding: 10px 20px;
 }
 
 .dropdown ul li, .dropdown2 ul li {
@@ -543,7 +542,7 @@ margin-bottom: 0px;
   top: 70%;
   left: 10%;
   width: 60%;
-  font-size: 12px;
+  font-size: 11px;
   background-color: #ffffff8a;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(10px);
