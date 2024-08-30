@@ -57,6 +57,7 @@
 
 
 
+
 .search1-option {
   flex: 1;
   /* or use a fixed width, e.g., width: 120px; */
@@ -169,11 +170,13 @@
 
 .search1-options {
   font-size: 18px;
-  margin-top: 10px;
+  font-weight: normal;
+  margin-top: 20px;
 }
 
 .sss {
   margin-bottom: 10px;
+  gap: 0px;
 }
 
 .search4-option p {
@@ -186,11 +189,13 @@
   margin: 0px 0px 0px 0px;
 }
 
-.search1-option h4,
+.search1-option h5{
+  font-size: 12px;
+margin-bottom: 0px;
+}
 .search1-options h4,
 .search4-option h4 {
-  font-size: 12px;
-  margin: 0px 30px 0px 0px;
+  font-size: 14px;
 }
 
 .search1-option .fa-chevron-down,
@@ -315,7 +320,7 @@
 
 @media (max-width: 1500px) {
   .intro-search {
-    gap: 50px;
+    gap: 40px;
   }
 }
 
@@ -323,6 +328,9 @@
   .intro-search {
     gap: 20px;
     flex-direction: column;
+  }
+  .search-options {
+    margin-left: 3%;
   }
 
 
@@ -349,7 +357,7 @@
 
   .search-options {
     font-size: 16px;
-    margin-left: 75px;
+    margin-left: 8%;
   }
 
   .intro-title {
@@ -383,10 +391,10 @@
   }
 
   .intro-search-bar {
-    width: 100%;
+    width: 95%;
     display: flex;
     flex-direction: row;
-
+    margin: 15px;
     padding: 10px;
     height: auto;
 
@@ -400,7 +408,7 @@
     gap: 0px;
     margin-left: 15px;
     /* Ensure 10px gap between all search options */
-    width: 100%;
+    width: 0%;
 
     /* Make sure all options fit within the container */
   }
@@ -424,8 +432,94 @@
     margin-top: 0px;
     margin-right: 25px;
   }
+  .search1-options{
+    min-width:110px;
+    margin-top: 14px;
+  }
+  .search1-option h5{
+    font-size: 8px;
+  }
+  .search4-option{
+    margin-top:8px;
+    min-width: 140px;
+  }
+  .search1-option{
+    min-width: 180px;
+    margin-left: 5%;
+  }
 }
 
+@media (max-width:726px) {
+
+  .search1-options{
+    min-width:110px;
+    font-size: 16px;
+    font-weight: 100;
+    margin-top: 14px;
+  }
+  .search1-option h5{
+    font-size: 8px;
+  }
+  .search1-option p,.search4-option p,.search1-options h4{
+      font-size: 16px;
+  }
+  .search4-option{
+    margin-top:8px;
+    min-width: 130px;
+  }
+  .search1-options{
+    min-width: 90px;
+  }
+  .search1-option{
+    min-width: 150px;
+    margin-left: 5%;
+  }
+}
+@media (max-width:635px) {
+
+
+  .search1-option h5{
+    font-size: 8px;
+  }
+  .search1-option p,.search4-option p,.search1-options{
+      font-size: 13px;
+  }
+  .search4-option{
+    margin-top:8px;
+    min-width: 105px;
+  }
+  .search1-options{
+  min-width: 70px;
+  }
+  .search1-option{
+    min-width: 130px;
+    margin-left: 0%;
+  }
+  
+}
+
+@media (max-width:550px) {
+
+
+  .search1-option h5{
+    font-size: 8px;
+  }
+  .search1-option p,.search4-option p,.search1-options{
+      font-size: 13px;
+  }
+  .search4-option{
+    margin-top:8px;
+    min-width: 105px;
+  }
+  .search1-options{
+  min-width: 70px;
+  }
+  .search1-option{
+    min-width: 130px;
+    margin-left: 0%;
+  }
+  
+}
 
 @media (max-width:480px) {
   .search-option {

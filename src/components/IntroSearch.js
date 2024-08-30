@@ -122,16 +122,15 @@ const IntroSearch = () => {
               className={`search1-option ${activeOption === "location" ? "active" : ""}`}
               onClick={() => handleOptionClick("location")}
               style={{
-                fontSize: window.innerWidth < 768 ? "14px" : "18px",
 
               }}
             >
               <div className="sss">
-                <h4 style={{ fontSize: window.innerWidth < 768 ? "14px" : "inherit" }}>Location</h4>
+                <h5 style={{  }}>Location</h5>
                 <p
                   style={{
                     color: missingSelection && !selectedLocation ? "red" : "inherit",
-                    fontSize: window.innerWidth < 768 ? "14px" : "18px",
+                    
                   }}
                 >
                   {selectedLocation}
@@ -161,44 +160,41 @@ const IntroSearch = () => {
 
             <span className="separator-log">|</span>
 
-            <span
+            <h4
               className={`search1-options ${activeOption === "age" ? "active" : ""}`}
               onClick={() => handleOptionClick("age")}
               style={{
                 color: missingSelection && selectedDob === "Age" ? "red" : "inherit",
-                fontSize: window.innerWidth < 768 ? "14px" : "18px",
 
               }}
             >
               {selectedDob}
-            </span>
+            </h4>
 
             <span className="separator-log">|</span>
 
-            <span
+            <h4
               className={`search1-options ${activeOption === "date" ? "active" : ""}`}
               onClick={() => handleOptionClick("date")}
               style={{
                 color: missingSelection && !selectedDate ? "red" : "inherit",
-                fontSize: window.innerWidth < 768 ? "12px" : "18px",
 
               }}
             >
               {selectedDate ? selectedDate.toLocaleDateString("en-GB") : "Date"}
-            </span>
+            </h4>
 
             <span className="separator-log">|</span>
 
-            <span
+            <h4
               className={`search4-option ${activeOption === "activity" ? "active" : ""}`}
               onClick={() => handleOptionClick("activity")}
               style={{
                 color: missingSelection && selectedActivity === "Activity" ? "red" : "inherit",
-                fontSize: window.innerWidth < 768 ? "14px" : "18px",
               }}
             >
               <div className="sss">
-                <p style={{ fontSize: window.innerWidth < 768 ? "14px" : "inherit" }}>
+                <p style={{  }}>
                   {selectedActivity}
                 </p>
               </div>
@@ -221,7 +217,7 @@ const IntroSearch = () => {
                   </ul>
                 </div>
               )}
-            </span>
+            </h4>
           </div>
 
           <button className="intro-search-button" onClick={handleSearchClick}>
