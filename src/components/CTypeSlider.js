@@ -113,8 +113,8 @@ const CTypeSlider = ({ viewAll }) => {
 
   const handleSlideClick = (categoryName) => {
     switch (categoryName.toLowerCase()) {
-      case 'activityswimming':
-        navigate('/swimming');
+      case 'swimming':
+        navigate('/activityswimming');
         break;
       case 'football':
         navigate('/activityinfo');
