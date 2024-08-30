@@ -19,12 +19,14 @@
 }
 
 .intro-title {
+  font-family: 'Playfair display', serif;
+
   font-size: 34px;
   font-weight: 500;
 }
 
 .intro-subtitle {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', serif;
   font-size: 10px;
   margin-top: -12px;
   opacity: 0.8;
@@ -498,8 +500,76 @@ margin-bottom: 0px;
   
 }
 
-@media (max-width:550px) {
+@media (max-width:660px) {
+.intro-search-icon{
+  width: 25px;
+  height: 25px;
+}
+/* Dropdown styles for desktop view */
+.dropdown, .dropdown2 {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #fff;
+  z-index: 1000;
+}
 
+.dropdown ul, .dropdown2 ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown ul li, .dropdown2 ul li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown ul li:hover, .dropdown2 ul li:hover {
+  background: #f0f0f0;
+}
+.intro-search-bar button{
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  font-family: 'Poppins',serif;
+  font-weight: 500px;
+}
+/* Mobile dropdown styles */
+.mobile-dropdown {
+  position: absolute;
+  top: 70%;
+  left: 10%;
+  width: 60%;
+  font-size: 12px;
+  background-color: #ffffff8a;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #000;
+  /* For Safari support */
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  margin-top: 10px;
+  padding: 10px 20px;
+}
+
+.mobile-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-dropdown ul li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.mobile-dropdown ul li:hover {
+  background: #f0f0f0;
+}
 
   .search1-option h5{
     font-size: 8px;
