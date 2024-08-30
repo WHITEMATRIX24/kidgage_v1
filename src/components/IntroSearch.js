@@ -135,7 +135,7 @@ const IntroSearch = () => {
         {window.innerWidth < 660 && (
           <div className="intro-search-bar">
             <button onClick={handleMobileMenuToggle}>Search for Activities,Locations</button>
-              
+
             <i className="fas fa-chevron-down"></i>
             {showMobileMenu && (
               <div className="mobile-dropdown">
@@ -182,20 +182,20 @@ const IntroSearch = () => {
               </div>
             )}
             <button className="intro-search-button" onClick={handleSearchClick}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="intro-search-icon"
-            >
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="intro-search-icon"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
           </div>
         )}
 
@@ -292,43 +292,43 @@ const IntroSearch = () => {
             </div>
 
             <button className="intro-search-button" onClick={handleSearchClick}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="intro-search-icon"
-            >
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="intro-search-icon"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
           </div>
         )}
 
-{showDobCalendar && (
-            <div className="calendar-dropdown">
-              <Calendar2
-                onChange={handleDobChange}
-                value={new Date()}
-                maxDate={new Date()}
-                className="custom-cal"
-              />
-            </div>
-          )}
-          {showCalendar && (
-            <div className="calendar-dropdown2">
-              <Calendar2
-                onChange={handleDateChange}
-                value={selectedDate || new Date()}
-                minDetail="month"
-                className="custom-cal"
-              />
-            </div>
-          )}
+        {showDobCalendar && (
+          <div className="calendar-dropdown">
+            <Calendar2
+              onChange={handleDobChange}
+              value={new Date()}
+              maxDate={new Date()}
+              className="custom-cal"
+            />
+          </div>
+        )}
+        {showCalendar && (
+          <div className="calendar-dropdown2">
+            <Calendar2
+              onChange={handleDateChange}
+              value={selectedDate || new Date()}
+              minDetail="month"
+              className="custom-cal"
+            />
+          </div>
+        )}
         {missingSelection && (
           <p className="missing-selection">Please select all options.</p>
         )}

@@ -15,9 +15,13 @@ const SearchBar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showActivityDropdown, setShowActivityDropdown] = useState(false);
   const [missingSelection, setMissingSelection] = useState(false);
-  const searchBarRef = useRef(null);
+  const [highlightedIndex, setHighlightedIndex] = useState(-1);
 
-  const locations = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix"];
+  const searchBarRef = useRef(null);
+  const dropdownRef = useRef(null);
+  const activityDropdownRef = useRef(null);
+
+  const locations = ["Doha", "Al Wakrah", "Al Khor", "Al Rayyan", "Al Shamal", "Al Shahaniya", "Umm Salal", "Dukhan", "Mesaieed"];
   const activities = ["Swimming", "Skating", "Cricket", "MMA", "Basketball"];
 
   useEffect(() => {
@@ -38,7 +42,34 @@ const SearchBar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (showDropdown) {
+        handleDropdownKeyNavigation(event, locations, handleLocationSelect);
+      } else if (showActivityDropdown) {
+        handleDropdownKeyNavigation(event, activities, handleActivitySelect);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [showDropdown, showActivityDropdown, highlightedIndex]);
+
+  const handleDropdownKeyNavigation = (event, options, handleSelect) => {
+    if (event.key === "ArrowDown") {
+      setHighlightedIndex((prevIndex) => Math.min(prevIndex + 1, options.length - 1));
+    } else if (event.key === "ArrowUp") {
+      setHighlightedIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+    } else if (event.key === "Enter" && highlightedIndex !== -1) {
+      handleSelect(options[highlightedIndex]);
+      setHighlightedIndex(-1);
+    }
+  };
+
   const handleOptionClick = (option) => {
+    setHighlightedIndex(-1);
     if (option === "location") {
       setShowDropdown(!showDropdown);
       setShowActivityDropdown(false);
@@ -95,11 +126,19 @@ const SearchBar = () => {
       selectedDate &&
       selectedActivity !== "Activity"
     ) {
-      // Perform search or navigation
       console.log('Searching with:', { selectedLocation, selectedDob, selectedDate, selectedActivity });
+      setMissingSelection(false); // Reset if all selections are valid
+
+      // Refresh the page after a successful search
+      window.location.reload();
     } else {
       setMissingSelection(true);
     }
+  };
+
+
+  const getLabelClassName = (selectedValue, defaultValue) => {
+    return selectedValue === defaultValue ? "missing-selection-label" : "";
   };
 
   return (
@@ -108,16 +147,21 @@ const SearchBar = () => {
         <div className='sbar'>
           <div className='items'>
             <div className="item" onClick={() => handleOptionClick("location")}>
-              <label>
+              <label className={getLabelClassName(selectedLocation, "Location")} style={{
+                color: missingSelection && selectedLocation === "Location" ? "red" : "#3880C4",
+              }}>
                 {selectedLocation}
                 <FontAwesomeIcon icon={faChevronDown} />
               </label>
-              <span className="sub-label">Search activities near you</span>
+              <span className="sub-label" style={{
+                color: missingSelection && selectedLocation === "Location" ? "red" : "inherit",
+              }}>Search activities near you</span>
               {showDropdown && (
-                <div className="dropdown-menu">
-                  {locations.map((location) => (
+                <div className="dropdown-menu" ref={dropdownRef}>
+                  {locations.map((location, index) => (
                     <div
                       key={location}
+                      className={highlightedIndex === index ? "highlighted" : ""}
                       onClick={() => handleLocationSelect(location)}
                     >
                       {location}
@@ -128,11 +172,15 @@ const SearchBar = () => {
             </div>
             <div className="dividers" />
             <div className="item" onClick={() => handleOptionClick("age")}>
-              <label>
+              <label className={getLabelClassName(selectedDob, "Age")} style={{
+                color: missingSelection && selectedDob === "Age" ? "red" : "#3880C4",
+              }}>
                 {selectedDob}
                 <FontAwesomeIcon icon={faChevronDown} />
               </label>
-              <span className="sub-label">Enter DOB</span>
+              <span className="sub-label" style={{
+                color: missingSelection && selectedDob === "Age" ? "red" : "inherit",
+              }}>Enter DOB</span>
               {showDobCalendar && (
                 <div className="calendar-dropdowns">
                   <Calendar2
@@ -146,11 +194,15 @@ const SearchBar = () => {
             </div>
             <div className="dividers" />
             <div className="item" onClick={() => handleOptionClick("date")}>
-              <label>
+              <label className={getLabelClassName(selectedDate, null)} style={{
+                color: missingSelection && !selectedDate ? "red" : "#3880C4",
+              }}>
                 {selectedDate ? selectedDate.toLocaleDateString("en-GB") : "Date"}
                 <FontAwesomeIcon icon={faChevronDown} />
               </label>
-              <span className="sub-label">All dates and days</span>
+              <span className="sub-label" style={{
+                color: missingSelection && !selectedDate ? "red" : "inherit",
+              }}>All dates and days</span>
               {showCalendar && (
                 <div className="calendar-dropdowna">
                   <Calendar2
@@ -164,17 +216,25 @@ const SearchBar = () => {
             </div>
             <div className="dividers" />
             <div className="item" onClick={() => handleOptionClick("activity")}>
-              <label>
+              <label className={getLabelClassName(selectedActivity, "Activity")} style={{
+                color: missingSelection && selectedActivity === "Activity" ? "red" : "#3880C4",
+              }}>
                 {selectedActivity}
                 <FontAwesomeIcon icon={faChevronDown} />
               </label>
-              <span className="sub-label">All activities</span>
+              <span className="sub-label" style={{
+                color: missingSelection && selectedActivity === "Activity" ? "red" : "inherit",
+              }}>All activities</span>
               {showActivityDropdown && (
-                <div className="dropdown-menu">
-                  {activities.map((activity) => (
+                <div className="dropdown-menu" ref={activityDropdownRef}>
+                  {activities.map((activity, index) => (
                     <div
                       key={activity}
+                      className={highlightedIndex === index ? "highlighted" : ""}
                       onClick={() => handleActivitySelect(activity)}
+                      style={{
+                        color: missingSelection && !selectedDate ? "red" : "inherit",
+                      }}
                     >
                       {activity}
                     </div>
@@ -187,10 +247,8 @@ const SearchBar = () => {
               <FontAwesomeIcon icon={faSearch} />
             </button>
           </div>
-          {missingSelection && (
-            <p className="missing-selection">Please select all options.</p>
-          )}
         </div>
+
       </div>
     </header>
   );
