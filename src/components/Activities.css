@@ -379,9 +379,9 @@
 
 .pagination-container {
   display: grid;
-  margin: 0 auto;
+  margin: 1% 0% 5% 8%;
   /* Centers the container */
-  width: 90%;
+  width: 100%;
   /* 90% of the screen width */
   height: 10%;
   /* 10% of the screen height */
@@ -392,17 +392,35 @@
   border-radius: 12px;
   /* Rounded container corners */
 }
+@media (min-width:1700px) and (max-width:1750px) {
+
+  .banner-container{
+    width: 25%;
+  }
+  .card:nth-child(1) img{
+    height:580px;
+  }
+
+  .card:nth-child(2) img{
+    height: 290px;
+    margin-top: -25px;
+    background-color: #383838;
+  }
+}
 
 
-
-@media (max-width:1750px) {
+@media (max-width:1700px) {
   .activity-actions button {
     font-size: 10px;
   }
-
-  .card:nth-child(1) {
+.banner-container{
+  width: 24%;
+  padding: 0 0px;
+}
+  .card:nth-child(1){
     height: 600px;
     width: 100%;
+
   }
 
   .card:nth-child(2) {
@@ -410,6 +428,7 @@
     width: 100%;
     margin-bottom: 0%;
   }
+
 
   .activity-card {
     display: flex;
@@ -424,14 +443,7 @@
     height: auto;
   }
 
-  .card:nth-child(1) {
-    max-height: 650px;
-  }
 
-  .card:nth-child(2) {
-    min-height: 90%;
-    margin-bottom: 0%;
-  }
 
 }
 
@@ -462,11 +474,10 @@
 
   .promoted-container {
     margin-bottom: 20px;
-    margin-right: 10px;
-    width: 79%;
-    margin-left: 9%;
+    margin-right: 20%;
+    width: 60%;
+    margin-left: 20%;
   }
-
   .promoted-image {
     position: relative;
     width: 100%;
@@ -491,17 +502,17 @@
   }
 
   .banner-container {
-    width: 80%;
+    width: 60%;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 8%;
+    margin: 0 19%;
   }
 
   .card {
     margin-bottom: 10px;
-    width: 80%;
+    width: 100%;
   }
 
   .activity-reviews {
@@ -523,12 +534,14 @@
     font-size: 9px;
     width: 100%;
   }
-
+.day-selector{
+  width:80px
+}
   .more-btn {
     max-width: 100%;
     flex-direction: column;
     align-items: center;
-    margin-left: 30% !important;
+    margin-left: 17% !important;
   }
 
   .descp p {
@@ -576,15 +589,30 @@
   }
 }
 
+@media (min-width: 1460px) and (max-width: 1505px) {
+  .card:nth-child(1){
+    height: 625px;
+    width: 100%;
+
+  }
+
+  .card:nth-child(2) {
+    height: 300px;
+    width: 100%;
+    margin-bottom: 0%;
+  }
+
+}
 
 @media (min-width: 1301px) and (max-width: 1460px) {
   .card-container {
-    width: 70%;
+    width: 67.5%;
     margin-left: 0%;
   }
 
-
-
+.promoted-image img{
+  height: 800px;
+}
   .activity-details {
     padding: 10px;
   }
@@ -597,7 +625,7 @@
 
   .promoted-container {
     margin-right: 0;
-    width: 103%;
+    width: 100%;
   }
 
 
@@ -666,21 +694,18 @@
     width: 100%;
   }
 
-  .card img {
-    width: 100%;
-    height: 100%;
-    object-position: cover;
-  }
 
-  .card:nth-child(1) {
-    min-height: 700px;
-  }
-
-  .card:nth-child(2) {
-    min-height: 345px;
-    margin-bottom: 0%;
-  }
-
+    .card:nth-child(1){
+      height: 710px;
+      width: 100%;
+  
+    }
+  
+    .card:nth-child(2) {
+      height: 340px;
+      width: 100%;
+      margin-bottom: 0%;
+    }
   .activity-actions {
     flex-direction: row;
     align-items: center;
@@ -1038,7 +1063,7 @@
 }
 
 
-@media (min-width: 1700px) and (max-width: 2000px) {
+@media (min-width: 1750px) and (max-width: 2000px) {
   .more-btn {
     margin-left: 210px;
   }
@@ -1046,7 +1071,9 @@
   .activity-reviewss {
     margin-right: 20px;
   }
-
+  .activity-card:nth-child(1)  {
+    margin-bottom: 1%;
+  }
   .banner-container {
     /* float: right; */
     width: 24%;
@@ -1061,19 +1088,20 @@
     margin-bottom: 20px;
     width: 400px;
   }
+.promoted-image{
+  height: 550px;
+}
 
-  .card img {
-    width: 100%;
-    height: 100%;
-    object-position: cover;
+  .banner-container{
+    width: 25%;
+  }
+  .card:nth-child(1) img{
+    height:590px;
   }
 
-  .card:nth-child(1) {
-    height: 600px;
-  }
-
-  .card:nth-child(2) {
-    height: 300px;
+  .card:nth-child(2) img{
+    height: 290px;
+    margin-top: -15px;
     background-color: #383838;
   }
 
@@ -1102,18 +1130,13 @@
     width: 550px;
   }
 
-  .card img {
-    width: 100%;
-    height: 100%;
-    object-position: cover;
-  }
 
   .card:nth-child(1) {
-    height: 635px;
+    height: 570px;
   }
 
   .card:nth-child(2) {
-    height: 299px;
+    height: 280px;
     margin-bottom: 0%;
   }
 
@@ -1143,18 +1166,14 @@
     width: 470px;
   }
 
-  .card img {
-    width: 100%;
-    height: 100%;
-    object-position: cover;
-  }
+
 
   .card:nth-child(1) {
-    height: 595px;
+    height: 570px;
   }
 
   .card:nth-child(2) {
-    height: 299px;
+    height: 283px;
     margin-bottom: 0%;
   }
 

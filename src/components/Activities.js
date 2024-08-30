@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Pagination } from '@mui/material';
+import Box from '@mui/material/Box';
 import image from '../components/assets/images/image.png';
 import banner1 from '../components/assets/images/poster1.png'
 import banner2 from '../components/assets/images/poster3.png'
@@ -409,10 +410,79 @@ const Activities = () => {
                             </button>
                             <div className='more-btn'>
                                 <button className="more">See more from this provider</button>
-                            </div>                        </div>
+                            </div>                        
+                            </div>
                     </div>
+                    
                 </div>
-
+                
+                <div className="pagination-container">
+            <Box
+    sx={{
+      display: 'flex',
+      justifyContent: 'center', // Center align the pagination
+      margin: '0 auto', // Center container horizontally
+    }}
+  >
+    <Pagination
+      count={10}
+      shape="rounded"
+      boundaryCount={10}
+      siblingCount={10}
+      sx={{
+        "& .MuiPaginationItem-root": {
+          fontSize: "1rem", // Adjust font size
+          padding: "6px 12px", // Adjust padding for size
+          backgroundColor: "rgba(173, 216, 230, 0.3)", // Light background for all items
+          color: "#333", // Text color for non-selected items
+          "&:hover": {
+            backgroundColor: "rgba(173, 216, 230, 0.5)", // Slightly darker on hover
+          },
+          "&.Mui-selected": {
+            backgroundColor: "#605CA2", // Darker background for the selected item
+            color: "white", // White text for the selected item
+            boxShadow: "0 0 8px rgba(0, 0, 0, 0.3)", // Add a slight shadow for emphasis
+          },
+          borderRadius: "12px", // Round the corners more
+          margin: "20px 4px", // Small margin between items
+          "@media (max-width: 1460px)": {
+            fontSize: "0.9rem", // Adjust font size for smaller screens
+            padding: "4px 10px", // Adjust padding for smaller screens
+            margin: "15px 2px", // Adjust margin for smaller screens
+          },
+          "@media (max-width: 900px)": {
+            fontSize: "0.8rem", // Adjust font size for smaller screens
+            padding: "4px 8px", // Adjust padding for smaller screens
+            margin: "10px 2px", // Adjust margin for smaller screens
+          },
+        },
+        "& .MuiPaginationItem-previousNext": {
+          border: "2px solid #BDBDBD",
+          padding: "10px 20px",
+          marginLeft: "150px",
+          marginRight: "50px", // Ensure size consistency with the other buttons
+          backgroundColor: "rgba(173, 216, 230, 0.3)", // Light background for previous/next
+          color: "#333", // Text color for non-selected items
+          "&:hover": {
+            backgroundColor: "rgba(173, 216, 230, 0.5)", // Slightly darker on hover
+          },
+          borderRadius: "12px", // Round the corners more
+          "@media (max-width: 1460px)": {
+            padding: "8px 16px", // Adjust padding for smaller screens
+            marginLeft: "100px", // Adjust margin for smaller screens
+            marginRight: "30px", // Adjust margin for smaller screens
+          },
+          "@media (max-width: 900px)": {
+            padding: "8px 8px", // Adjust padding for smaller screens
+            marginLeft: "10px", // Adjust margin for smaller screens
+            marginRight: "10px", // Adjust margin for smaller screens
+          },
+        },
+      }}
+      
+    />
+  </Box>
+            </div>
                 <div style={{ height: '40px' }}></div>
 
             </div>
@@ -428,47 +498,12 @@ const Activities = () => {
                 <div class="card bcard2">
                     <img src={banner2} alt="Image 2" />
                 </div>
+                <div style={{ height: '40px' }}></div>
+
             </div>
             {/* banner section ends */}
 
-            <div className="pagination-container">
-                <Pagination
-                    count={10}
-                    shape="rounded"
-                    boundaryCount={10}
-                    siblingCount={10}
-                    sx={{
-                        "& .MuiPaginationItem-root": {
-                            fontSize: "1rem", // Adjust font size
-                            padding: "6px 12px", // Adjust padding for size
-                            backgroundColor: "rgba(173, 216, 230, 0.3)", // Light background for all items
-                            color: "#333", // Text color for non-selected items
-                            "&:hover": {
-                                backgroundColor: "rgba(173, 216, 230, 0.5)", // Slightly darker on hover
-                            },
-                            "&.Mui-selected": {
-                                backgroundColor: "#605CA2", // Darker background for the selected item
-                                color: "white", // White text for the selected item
-                                boxShadow: "0 0 8px rgba(0, 0, 0, 0.3)", // Add a slight shadow for emphasis
-                            },
-                            borderRadius: "12px", // Round the corners more
-                            margin: "0 4px", // Small margin between items
-                        },
-                        "& .MuiPaginationItem-previousNext": {
-                            border: "2px solid #BDBDBD",
-                            padding: "6px 12px",
-                            marginLeft: "50px",
-                            marginRight: "50px", // Ensure size consistency with the other buttons
-                            backgroundColor: "rgba(173, 216, 230, 0.3)", // Light background for previous/next
-                            color: "#333", // Text color for non-selected items
-                            "&:hover": {
-                                backgroundColor: "rgba(173, 216, 230, 0.5)", // Slightly darker on hover
-                            },
-                            borderRadius: "12px", // Round the corners more
-                        },
-                    }}
-                />
-            </div>
+
 
 
 
