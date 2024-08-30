@@ -11,6 +11,7 @@ const CTypeSlider = ({ viewAll }) => {
   const [categories, setCategories] = useState([]);
   const [categoryFees, setCategoryFees] = useState({});
   const navigate = useNavigate();
+
   const NextArrow = (props) => {
     const { className, style, onClick } = props;
     return (
@@ -32,6 +33,7 @@ const CTypeSlider = ({ viewAll }) => {
       />
     );
   };
+
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -110,7 +112,26 @@ const CTypeSlider = ({ viewAll }) => {
   };
 
   const handleSlideClick = (categoryName) => {
-    navigate('/activitygym', { state: { category: categoryName } });
+    switch (categoryName.toLowerCase()) {
+      case 'activityswimming':
+        navigate('/swimming');
+        break;
+      case 'football':
+        navigate('/activityinfo');
+        break;
+      case 'gymnastics':
+        navigate('/activitygym');
+        break;
+      case 'martial arts':
+        navigate('/activitymartialarts');
+        break;
+      case 'baking':
+        navigate('/activitybaking');
+        break;
+      default:
+        console.warn(`No navigation defined for category: ${categoryName}`);
+        break;
+    }
   };
 
   return (
@@ -133,24 +154,24 @@ const CTypeSlider = ({ viewAll }) => {
         </Slider>
       ) : (
         <div className="drawer-slide-down">
-        <div className="drawer-content">
-        {categories.length > 0 ? (
-          categories.map((category, index) => (
-            <div key={index} className="drawer-item" onClick={() => handleSlideClick(category.name)}>
-              <img src={`data:image/jpeg;base64,${category.image}`} alt={category.name} className="drawer-image" />
-              <div className="drawer-text">
-                <div className='slide-overlay-text'>
-                  <h2 className="product-name">{category.name}</h2>
-                  <p className="product-price"><p>Starting from </p><span>QAR 99/-</span></p>
+          <div className="drawer-content">
+            {categories.length > 0 ? (
+              categories.map((category, index) => (
+                <div key={index} className="drawer-item" onClick={() => handleSlideClick(category.name)}>
+                  <img src={`data:image/jpeg;base64,${category.image}`} alt={category.name} className="drawer-image" />
+                  <div className="drawer-text">
+                    <div className='slide-overlay-text'>
+                      <h2 className="product-name">{category.name}</h2>
+                      <p className="product-price">Starting from<br /><span>QAR {categoryFees[category.name] !== undefined ? categoryFees[category.name] : 'NA'}/-</span></p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))
-        ) : (
-          <p>No categories available</p>
-        )}
-      </div>
-    </div>
+              ))
+            ) : (
+              <p>No categories available</p>
+            )}
+          </div>
+        </div>
       )}
     </div>
   );
