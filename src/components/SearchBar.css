@@ -6,7 +6,7 @@
 .content {
     background-color: #F5F5F5;
     margin: 0 6%;
-
+    border-radius: 10px;
     align-items: center;
     height: 85px;
 }
@@ -70,6 +70,7 @@
     align-items: center;
     flex-direction: row;
     background-color: #F5F5F5;
+    border-radius: 10px;
     flex: 1;
 }
 
@@ -147,6 +148,7 @@
 .sbutton {
     color: #3880c4;
     background-color: #F5F5F5;
+    border-radius: 10px;
     border: none;
     width: 80px;
     height: 80px;
@@ -192,24 +194,34 @@
 .dropdown-menu div:hover {
     background-color: #e9ecef;
 }
+
 @media (max-width: 1461px) {
 
-.calendar-dropdowna,.calendar-dropdowns{
-    width: 150%;
-    left: -10%;
-}}
+    .calendar-dropdowna,
+    .calendar-dropdowns {
+        width: 150%;
+        left: -10%;
+    }
+}
+
 @media (max-width: 840px) {
 
-    .calendar-dropdowna,.calendar-dropdowns{
+    .calendar-dropdowna,
+    .calendar-dropdowns {
         width: 200%;
         left: -60%;
-    }}
-    @media (max-width: 660px) {
+    }
+}
 
-        .calendar-dropdowna,.calendar-dropdowns{
-            width: 250%;
-            left: -90%;
-        }}
+@media (max-width: 660px) {
+
+    .calendar-dropdowna,
+    .calendar-dropdowns {
+        width: 250%;
+        left: -90%;
+    }
+}
+
 @media (max-width: 1461px) {
     .content {
         width: 86%;
@@ -237,6 +249,7 @@
         font-size: 20px;
         /* Further adjust font size for very small screens */
     }
+
     .dropdown-menu {
         position: absolute;
         top: 100%;
@@ -270,6 +283,7 @@
         font-size: 12px;
         overflow: hidden;
     }
+
     .dropdown-menu {
         position: absolute;
         top: 100%;
@@ -281,7 +295,7 @@
         margin-top: 10px;
         padding: 10px 15px;
     }
-    
+
 }
 
 /* Media Queries for Responsive Design */
@@ -304,6 +318,7 @@
         font-size: 20px;
         /* Further adjust font size for very small screens */
     }
+
     .dropdown-menu {
         position: absolute;
         top: 100%;
@@ -348,34 +363,40 @@
     }
 
 
-        .calendar-dropdowna,.calendar-dropdowns{
-            width: 300%;
-            left: -100%;
-        }
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0%;
-            width: 100%;
-            justify-content: center;
-            font-size: 10px;
-            z-index: 1001;
-            margin-top: 10px;
-            padding: 10px 10px;
-        }
+    .calendar-dropdowna,
+    .calendar-dropdowns {
+        width: 300%;
+        left: -100%;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0%;
+        width: 100%;
+        justify-content: center;
+        font-size: 10px;
+        z-index: 1001;
+        margin-top: 10px;
+        padding: 10px 10px;
+    }
 }
 
 @media (max-width:440px) {
     .item {
         padding: 5px 2px;
     }
-    .item label{
+
+    .item label {
         font-size: 9px;
     }
-    .calendar-dropdowna,.calendar-dropdowns{
+
+    .calendar-dropdowna,
+    .calendar-dropdowns {
         width: 380%;
         left: -150%;
     }
+
     .dropdown-menu {
         position: absolute;
         top: 100%;
@@ -387,6 +408,6 @@
         margin-top: 10px;
         padding: 10px 10px;
     }
-    
+
 
 }

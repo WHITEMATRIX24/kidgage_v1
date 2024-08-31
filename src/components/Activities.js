@@ -7,7 +7,9 @@ import banner1 from '../components/assets/images/poster1.png'
 import banner2 from '../components/assets/images/poster3.png'
 import football1 from '../components/assets/images/foot1.jpg'
 import football2 from '../components/assets/images/foot2.jpg'
-import football from '../components/assets/images/foot.jpg'
+import football from '../components/assets/images/child-613199_1280.jpg'
+import football3 from '../components/assets/images/soccer-7392844_1280.jpg'
+import football4 from '../components/assets/images/foot.jpg'
 import logoside from '../components/assets/images/abc.png'
 import logo from '../components/assets/images/abs.png'
 import calendar from '../components/assets/images/calendar.png'
@@ -196,7 +198,7 @@ const Activities = () => {
                 <div className='card-container-top'>
                     <div className="activity-card cards">
                         <div className="activity-image">
-                            <img src={football1} alt="Activity Image" />
+                            <img src={football4} alt="Activity Image" />
 
                         </div>
                         <div className="activity-details">
@@ -271,7 +273,7 @@ const Activities = () => {
                     {/* card 2 */}
                     <div className="activity-card cards">
                         <div className="activity-image">
-                            <img src={football2} alt="Activity Image" />
+                            <img src={football3} alt="Activity Image" />
 
                         </div>
                         <div className="activity-details">
@@ -390,7 +392,7 @@ const Activities = () => {
                             <div style={{ height: '5px' }}></div>
 
 
-                            
+
                         </div>
                         {/* Activity Actions Section */}
                         <div className="activity-actions" style={{ 'margin-top': '15px' }}>

@@ -207,8 +207,8 @@ const IntroSearch = () => {
                 className={`search1-option ${activeOption === "location" ? "active" : ""}`}
                 onClick={() => handleOptionClick("location")}
               >
-                <div className="sss">
-                  <h5>Location</h5>
+                <div className="ssss">
+
                   <p
                     style={{
                       color: missingSelection && !selectedLocation ? "red" : "inherit",
