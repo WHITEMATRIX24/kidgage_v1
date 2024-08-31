@@ -9,8 +9,8 @@ import ActivityImg1 from './assets/images/foot.jpg';
 import ActivityImg2 from './assets/images/foot1.jpg';
 import ActivityImg3 from './assets/images/foot2.jpg';
 import providerImg from './assets/images/abc.png';
-import Trainer1 from './assets/images/trainer1.jpeg'
-import Trainer2 from './assets/images/traner2.jpeg'
+import Trainer1 from './assets/images/trainer1.jpg'
+import Trainer2 from './assets/images/traner2.jpg'
 import Header2 from './Header2';
 
 const ActivityInfo = () => {
