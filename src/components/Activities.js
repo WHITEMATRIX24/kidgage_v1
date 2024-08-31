@@ -70,7 +70,7 @@ const Activities = () => {
                                         Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...</p>
                                     <div>
                                         <p className="plocation"><i class="fa-solid fa-location-dot"></i>
-                                            <span style={{ marginLeft: '5px', fontSize: '12px' }}> Location </span></p>
+                                            <span style={{ marginLeft: '5px', fontSize: '.8vw' }}> Location </span></p>
                                     </div>
                                 </div>
                             </div>
@@ -83,9 +83,8 @@ const Activities = () => {
                                 <img src={logoside} alt="Info Image" style={{ width: '100%', height: 'auto' }} />
                             </div>
                             <div className="activity-reviewss" style={{ marginLeft: '0px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                                <span>⭐⭐⭐⭐⭐</span>
-                                <span className='review-text'>
-                                    100+ reviews</span>
+                                <span className="star-rating">⭐⭐⭐⭐⭐</span>
+                                <span className='review-text'>100+ reviews</span>
                             </div>
                         </div>
 
@@ -146,7 +145,7 @@ const Activities = () => {
                                         Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...</p>
                                     <div>
                                         <p className="plocation"><i class="fa-solid fa-location-dot"></i>
-                                            <span style={{ marginLeft: '5px', fontSize: '12px' }}> Location </span></p>
+                                            <span style={{ marginLeft: '5px', fontSize: '.8vw' }}> Location </span></p>
                                     </div>
                                 </div>
                             </div>
@@ -159,10 +158,10 @@ const Activities = () => {
                                 <img src={logo} alt="Info Image" style={{ width: '100%', height: 'auto' }} />
                             </div>
                             <div className="activity-reviewss" style={{ marginLeft: '0px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                                <span>⭐⭐⭐⭐⭐</span>
-                                <span className='review-text'>
-                                    100+ reviews</span>
+                                <span className="star-rating">⭐⭐⭐⭐⭐</span>
+                                <span className='review-text'>100+ reviews</span>
                             </div>
+
                         </div>
                     </div>
                     {/* Activity Actions Section */}
@@ -203,48 +202,47 @@ const Activities = () => {
                         <div className="activity-details">
 
                             <div className='activity-card-in'>
-                            <div className='info-with-img'>
+                                <div className='info-with-img'>
 
-                            <div className='descp'>
-                                <h3>Summer Football Camp</h3>
+                                    <div className='descp'>
+                                        <h3>Summer Football Camp</h3>
 
-                                <div className="info-row">
-                                    <img src={baby} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
-                                    <div className="age-group">
-                                        <span className="age-text">  0 - 15ys 9ms</span>
+                                        <div className="info-row">
+                                            <img src={baby} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
+                                            <div className="age-group">
+                                                <span className="age-text">  0 - 15ys 9ms</span>
+                                            </div>
+                                            <img src={calendar} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
+                                            <div className="day-selector">
+                                                <span className="day">Su</span><span className="day active">Mo</span><span className="day">Tu</span><span className="day">We</span><span className="day">Th</span>
+                                                <span className="day active">Fr</span><span className="day ">Sa</span>
+                                            </div>
+
+                                        </div>
+                                        <div>
+                                            <p>
+                                                Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...</p>
+                                            <div>
+                                                <p className="plocation"><i class="fa-solid fa-location-dot"></i>
+                                                    <span style={{ marginLeft: '5px', fontSize: '.8vw' }}> Location </span></p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <img src={calendar} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
-                                    <div className="day-selector">
-                                        <span className="day">Su</span><span className="day active">Mo</span><span className="day">Tu</span><span className="day">We</span><span className="day">Th</span>
-                                        <span className="day active">Fr</span><span className="day ">Sa</span>
+                                    <div style={{ height: '3px' }}></div>
+                                    <div className="additional-info" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginLeft: 'auto' }}>
+                                        <div className="info-image" style={{ marginLeft: '0px' }}>
+                                            <img src={logoside} alt="Info Image" style={{ width: '100%', height: 'auto' }} />
+                                        </div>
+                                        <div className="activity-reviewss" style={{ marginLeft: '0px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                            <span className="star-rating">⭐⭐⭐⭐⭐</span>
+                                            <span className='review-text'>100+ reviews</span>
+                                        </div>
                                     </div>
-
                                 </div>
-                                <div>
-                                    <p>
-                                        Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...</p>
-                                    <div>
-                                        <p className="plocation"><i class="fa-solid fa-location-dot"></i>
-                                            <span style={{ marginLeft: '5px', fontSize: '12px' }}> Location </span></p>
-                                    </div>
-                                </div>
+
                             </div>
-                            <div style={{ height: '3px' }}></div>
-                            <div className="additional-info" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginLeft: 'auto' }}>
-                                <div className="info-image" style={{ marginLeft: '0px' }}>
-                                    <img src={logoside} alt="Info Image" style={{ width: '100%', height: 'auto' }} />
-                                </div>
-                                <div className="activity-reviewss" style={{ marginLeft: '0px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                                    <span>⭐⭐⭐⭐⭐</span>
-                                    <span className='review-text'>
-                                        100+ reviews</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        </div>
-                         {/* Activity Actions Section */}
-                         <div className="activity-actions" style={{ 'margin-top': '15px' }}>
+                            {/* Activity Actions Section */}
+                            <div className="activity-actions" style={{ 'margin-top': '15px' }}>
                                 <button
                                     className="book-now"
                                     style={{ backgroundColor: '#5EA858' }}
@@ -262,11 +260,11 @@ const Activities = () => {
                                 </button>
                                 <div className='more-btn'>
                                     <button className="more">See more from this provider</button>
-                                </div>                        
+                                </div>
                             </div>
-                           
+
                         </div>
-                        
+
                     </div>
                     <div style={{ height: '0px' }}></div>
 
@@ -279,45 +277,44 @@ const Activities = () => {
                         <div className="activity-details">
 
                             <div className='activity-card-in'>
-                            <div className='info-with-img'>
+                                <div className='info-with-img'>
 
-                            <div className='descp'>
-                                <h3>Summer Football Camp</h3>
+                                    <div className='descp'>
+                                        <h3>Summer Football Camp</h3>
 
-                                <div className="info-row">
-                                    <img src={baby} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
-                                    <div className="age-group">
-                                        <span className="age-text">  0 - 15ys 9ms</span>
+                                        <div className="info-row">
+                                            <img src={baby} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
+                                            <div className="age-group">
+                                                <span className="age-text">  0 - 15ys 9ms</span>
+                                            </div>
+                                            <img src={calendar} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
+                                            <div className="day-selector">
+                                                <span className="day">Su</span><span className="day active">Mo</span><span className="day">Tu</span><span className="day">We</span><span className="day">Th</span>
+                                                <span className="day active">Fr</span><span className="day ">Sa</span>
+                                            </div>
+
+                                        </div>
+                                        <div>
+                                            <p>
+                                                Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...</p>
+                                            <div>
+                                                <p className="plocation"><i class="fa-solid fa-location-dot"></i>
+                                                    <span style={{ marginLeft: '5px', fontSize: '.8vw' }}> Location </span></p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <img src={calendar} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
-                                    <div className="day-selector">
-                                        <span className="day">Su</span><span className="day active">Mo</span><span className="day">Tu</span><span className="day">We</span><span className="day">Th</span>
-                                        <span className="day active">Fr</span><span className="day ">Sa</span>
-                                    </div>
-
-                                </div>
-                                <div>
-                                    <p>
-                                        Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...</p>
-                                    <div>
-                                        <p className="plocation"><i class="fa-solid fa-location-dot"></i>
-                                            <span style={{ marginLeft: '5px', fontSize: '12px' }}> Location </span></p>
+                                    <div style={{ height: '3px' }}></div>
+                                    <div className="additional-info" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginLeft: 'auto' }}>
+                                        <div className="info-image" style={{ marginLeft: '0px' }}>
+                                            <img src={logo} alt="Info Image" style={{ width: '100%', height: 'auto' }} />
+                                        </div>
+                                        <div className="activity-reviewss" style={{ marginLeft: '0px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                            <span className="star-rating">⭐⭐⭐⭐⭐</span>
+                                            <span className='review-text'>100+ reviews</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div style={{ height: '3px' }}></div>
-                            <div className="additional-info" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginLeft: 'auto' }}>
-                                <div className="info-image" style={{ marginLeft: '0px' }}>
-                                    <img src={logo} alt="Info Image" style={{ width: '100%', height: 'auto' }} />
-                                </div>
-                                <div className="activity-reviewss" style={{ marginLeft: '0px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                                    <span>⭐⭐⭐⭐⭐</span>
-                                    <span className='review-text'>
-                                        100+ reviews</span>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
                             {/* Activity Actions Section */}
                             <div className="activity-actions" style={{ 'margin-top': '15px' }}>
                                 <button
@@ -341,7 +338,7 @@ const Activities = () => {
                         </div>
                     </div>
                 </div>
-            <div style={{ height: '20px' }}></div>
+                <div style={{ height: '20px' }}></div>
 
 
                 {/* card 3 */}
@@ -352,50 +349,49 @@ const Activities = () => {
                     </div>
                     <div className="activity-details">
 
-<div className='activity-card-in'>
-<div className='info-with-img'>
+                        <div className='activity-card-in'>
+                            <div className='info-with-img'>
 
-<div className='descp'>
-    <h3>Summer Football Camp</h3>
+                                <div className='descp'>
+                                    <h3>Summer Football Camp</h3>
 
-    <div className="info-row">
-        <img src={baby} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
-        <div className="age-group">
-            <span className="age-text">  0 - 15ys 9ms</span>
-        </div>
-        <img src={calendar} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
-        <div className="day-selector">
-            <span className="day">Su</span><span className="day active">Mo</span><span className="day">Tu</span><span className="day">We</span><span className="day">Th</span>
-            <span className="day active">Fr</span><span className="day ">Sa</span>
-        </div>
+                                    <div className="info-row">
+                                        <img src={baby} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
+                                        <div className="age-group">
+                                            <span className="age-text">  0 - 15ys 9ms</span>
+                                        </div>
+                                        <img src={calendar} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
+                                        <div className="day-selector">
+                                            <span className="day">Su</span><span className="day active">Mo</span><span className="day">Tu</span><span className="day">We</span><span className="day">Th</span>
+                                            <span className="day active">Fr</span><span className="day ">Sa</span>
+                                        </div>
 
-    </div>
-    <div>
-        <p>
-            Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...</p>
-        <div>
-            <p className="plocation"><i class="fa-solid fa-location-dot"></i>
-                <span style={{ marginLeft: '5px', fontSize: '12px' }}> Location </span></p>
-        </div>
-    </div>
-</div>
-<div style={{ height: '3px' }}></div>
-<div className="additional-info" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginLeft: 'auto' }}>
-    <div className="info-image" style={{ marginLeft: '0px' }}>
-        <img src={logoside} alt="Info Image" style={{ width: '100%', height: 'auto' }} />
-    </div>
-    <div className="activity-reviewss" style={{ marginLeft: '0px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <span>⭐⭐⭐⭐⭐</span>
-        <span className='review-text'>
-            100+ reviews</span>
-    </div>
-</div>
-</div>
+                                    </div>
+                                    <div>
+                                        <p>
+                                            Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...</p>
+                                        <div>
+                                            <p className="plocation"><i class="fa-solid fa-location-dot"></i>
+                                                <span style={{ marginLeft: '5px', fontSize: '.8 vw' }}> Location </span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style={{ height: '3px' }}></div>
+                                <div className="additional-info" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginLeft: 'auto' }}>
+                                    <div className="info-image" style={{ marginLeft: '0px' }}>
+                                        <img src={logoside} alt="Info Image" style={{ width: '100%', height: 'auto' }} />
+                                    </div>
+                                    <div className="activity-reviewss" style={{ marginLeft: '0px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                        <span className="star-rating">⭐⭐⭐⭐⭐</span>
+                                        <span className='review-text'>100+ reviews</span>
+                                    </div>
+                                </div>
+                            </div>
                             <div style={{ height: '5px' }}></div>
 
 
                             <p className="plocation"><i class="fa-solid fa-location-dot"></i>
-                                <span style={{ marginLeft: '5px', fontSize: '12px' }}> Location </span></p>
+                                <span style={{ marginLeft: '5px', fontSize: '.8vw' }}> Location </span></p>
 
                         </div>
                         {/* Activity Actions Section */}
@@ -417,79 +413,12 @@ const Activities = () => {
                             </button>
                             <div className='more-btn'>
                                 <button className="more">See more from this provider</button>
-                            </div>                        
                             </div>
+                        </div>
                     </div>
-                    
+
                 </div>
-                
-                <div className="pagination-container">
-            <Box
-    sx={{
-      display: 'flex',
-      justifyContent: 'center', // Center align the pagination
-      margin: '0 auto', // Center container horizontally
-    }}
-  >
-    <Pagination
-      count={10}
-      shape="rounded"
-      boundaryCount={10}
-      siblingCount={10}
-      sx={{
-        "& .MuiPaginationItem-root": {
-          fontSize: "1rem", // Adjust font size
-          padding: "6px 12px", // Adjust padding for size
-          backgroundColor: "rgba(173, 216, 230, 0.3)", // Light background for all items
-          color: "#333", // Text color for non-selected items
-          "&:hover": {
-            backgroundColor: "rgba(173, 216, 230, 0.5)", // Slightly darker on hover
-          },
-          "&.Mui-selected": {
-            backgroundColor: "#605CA2", // Darker background for the selected item
-            color: "white", // White text for the selected item
-            boxShadow: "0 0 8px rgba(0, 0, 0, 0.3)", // Add a slight shadow for emphasis
-          },
-          borderRadius: "12px", // Round the corners more
-          margin: "20px 4px", // Small margin between items
-          "@media (max-width: 1460px)": {
-            fontSize: "0.9rem", // Adjust font size for smaller screens
-            padding: "4px 10px", // Adjust padding for smaller screens
-            margin: "15px 2px", // Adjust margin for smaller screens
-          },
-          "@media (max-width: 900px)": {
-            fontSize: "0.8rem", // Adjust font size for smaller screens
-            padding: "4px 8px", // Adjust padding for smaller screens
-            margin: "10px 2px", // Adjust margin for smaller screens
-          },
-        },
-        "& .MuiPaginationItem-previousNext": {
-          border: "2px solid #BDBDBD",
-          padding: "10px 20px",
-          marginLeft: "150px",
-          marginRight: "50px", // Ensure size consistency with the other buttons
-          backgroundColor: "rgba(173, 216, 230, 0.3)", // Light background for previous/next
-          color: "#333", // Text color for non-selected items
-          "&:hover": {
-            backgroundColor: "rgba(173, 216, 230, 0.5)", // Slightly darker on hover
-          },
-          borderRadius: "12px", // Round the corners more
-          "@media (max-width: 1460px)": {
-            padding: "8px 16px", // Adjust padding for smaller screens
-            marginLeft: "100px", // Adjust margin for smaller screens
-            marginRight: "30px", // Adjust margin for smaller screens
-          },
-          "@media (max-width: 900px)": {
-            padding: "8px 8px", // Adjust padding for smaller screens
-            marginLeft: "10px", // Adjust margin for smaller screens
-            marginRight: "10px", // Adjust margin for smaller screens
-          },
-        },
-      }}
-      
-    />
-  </Box>
-            </div>
+
                 <div style={{ height: '40px' }}></div>
 
             </div>
@@ -510,11 +439,78 @@ const Activities = () => {
             </div>
             {/* banner section ends */}
 
+            <div className="pagination-container">
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'center', // Center align the pagination
+                        margin: '0 auto', // Center container horizontally
+                    }}
+                >
+                    <Pagination
+                        count={10}
+                        shape="rounded"
+                        boundaryCount={10}
+                        siblingCount={10}
+                        sx={{
+                            "& .MuiPaginationItem-root": {
+                                fontSize: "1.5rem", // Adjust font size
+                                padding: "6px 12px", // Adjust padding for size
+                                backgroundColor: "rgba(173, 216, 230, 0.3)", // Light background for all items
+                                color: "#333", // Text color for non-selected items
+                                "&:hover": {
+                                    backgroundColor: "rgba(173, 216, 230, 0.5)", // Slightly darker on hover
+                                },
+                                "&.Mui-selected": {
+                                    backgroundColor: "#605CA2", // Darker background for the selected item
+                                    color: "white", // White text for the selected item
+                                    boxShadow: "0 0 8px rgba(0, 0, 0, 0.3)", // Add a slight shadow for emphasis
+                                },
+                                borderRadius: "12px", // Round the corners more
+                                margin: "20px 4px", // Small margin between items
+                                "@media (max-width: 1460px)": {
+                                    fontSize: "0.9rem", // Adjust font size for smaller screens
+                                    padding: "4px 10px", // Adjust padding for smaller screens
+                                    margin: "15px 2px", // Adjust margin for smaller screens
+                                },
+                                "@media (max-width: 900px)": {
+                                    fontSize: "0.8rem", // Adjust font size for smaller screens
+                                    padding: "4px 8px", // Adjust padding for smaller screens
+                                    margin: "10px 2px", // Adjust margin for smaller screens
+                                },
+                            },
+                            "& .MuiPaginationItem-previousNext": {
+                                border: "2px solid #BDBDBD",
+                                padding: "10px 20px",
+                                marginLeft: "150px",
+                                marginRight: "50px", // Ensure size consistency with the other buttons
+                                backgroundColor: "rgba(173, 216, 230, 0.3)", // Light background for previous/next
+                                color: "#333", // Text color for non-selected items
+                                "&:hover": {
+                                    backgroundColor: "rgba(173, 216, 230, 0.5)", // Slightly darker on hover
+                                },
+                                borderRadius: "12px", // Round the corners more
+                                "@media (max-width: 1460px)": {
+                                    padding: "8px 16px", // Adjust padding for smaller screens
+                                    marginLeft: "100px", // Adjust margin for smaller screens
+                                    marginRight: "30px", // Adjust margin for smaller screens
+                                },
+                                "@media (max-width: 900px)": {
+                                    padding: "8px 8px", // Adjust padding for smaller screens
+                                    marginLeft: "10px", // Adjust margin for smaller screens
+                                    marginRight: "10px", // Adjust margin for smaller screens
+                                },
+                            },
+                        }}
+
+                    />
+                </Box>
+            </div>
 
 
 
 
-            <div  className='gapss'></div>
+            <div className='gapss'></div>
 
 
             {/* Footer Section */}
