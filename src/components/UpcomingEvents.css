@@ -173,7 +173,7 @@
 
   position: absolute;
   bottom: 7px;
-  left:60%;
+  right:10%;
   background-color: #313131d1;
   color: #fff;
   border: none;
@@ -251,21 +251,21 @@
 
 .event-card button#book-now {
   bottom: 7px;
-  left:50%;
+  right: 10%;
   height: 28px;
   font-size: .9em;
 }
 }
 @media (min-width:2250px) {
   .event-card button#book-now{
-    left: 55%;
+    right: 10%;
     font-size: 1em;
 
   }
 }
 @media (max-width:860px) {
   .event-card button#book-now{
-    left: 50%;
+    right: 10%;
 
   }
 }

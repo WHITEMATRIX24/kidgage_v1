@@ -16,7 +16,7 @@ import share from '../components/assets/images/share.png'
 import './Activities.css';
 import './AcademyList.css';
 import Footer from './Footer';
-import Header from './Header';
+import Header2 from './Header2';
 import ico from './assets/images/ico.png';
 import SearchBar from './SearchBar';
 
@@ -36,7 +36,7 @@ const Activities = () => {
     return (
         <>
             {/* Fixed Navbar */}
-            <Header />
+            <Header2 />
             <SearchBar />
             {/* promoted */}
             <div style={{ height: '22px' }}></div>

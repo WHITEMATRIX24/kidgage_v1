@@ -16,7 +16,7 @@
     right: -200px;
     transform: translate(-50%, -50%);
     position:fixed;
-    z-index: 1000000;
+    z-index: 10000001;
 
   }
 

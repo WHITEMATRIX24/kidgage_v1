@@ -60,15 +60,14 @@
   }
 }
 
-@media (min-width:2000px) {
+@media (min-width:1800px) {
 
 
-  .list-your-academy-btn,
-  .list-your-academy-btn1 {
+  .list-your-academy-btn {
     position: relative;
     background-color: white;
-    padding: 14px;
-    font-size: 30px;
+    padding: 12px;
+    font-size: 22px;
     font-family: 'Poppins', serif;
     color: #0097b2;
     font-weight: 600;
@@ -77,7 +76,7 @@
   }
 
   .badge-image h2 {
-    font-size: 4em
+    font-size: 3em
   }
 
   .badge-image {
@@ -89,13 +88,40 @@
     height: 180px;
     margin: 0px 8%;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     display: flex;
     flex-direction: row;
-    gap: 20%;
   }
 }
+@media (min-width:2300px) {
 
+
+  .list-your-academy-btn {
+    position: relative;
+    background-color: white;
+    padding: 15px;
+    font-size: 25px;
+    font-family: 'Poppins', serif;
+    color: #0097b2;
+    font-weight: 600;
+    border: none;
+    border-radius: 40px;
+  }
+
+  .badge-image h2 {
+    font-size: 3.4em
+  }
+
+  .badge-image {
+    border-radius: 10px;
+    height: 180px;
+    margin: 0px 8%;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+  }
+}
 @media (max-width:1800px) {
 
   .badge-image {

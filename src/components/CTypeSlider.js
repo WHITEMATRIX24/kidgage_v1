@@ -146,7 +146,9 @@ const CTypeSlider = ({ viewAll }) => {
               <div className="slides-overlays">
                 <div className='slides-overlay-text'>
                   <h2 className="product-name">{category.name}</h2>
-                  <p className="product-price">Starting from<br /><span className="start-price">QAR {categoryFees[category.name] !== undefined ? categoryFees[category.name] : 'NA'}/-</span></p>
+                  <p className="product-price">Starting from<br /><span className="start-price">QAR 99/-</span></p>
+                  {/* <p className="product-price">Starting from<br /><span className="start-price">QAR {categoryFees[category.name] !== undefined ? categoryFees[category.name] : '99'}/-</span></p> */}
+
                 </div>
               </div>
             </div>
@@ -162,7 +164,7 @@ const CTypeSlider = ({ viewAll }) => {
                   <div className="drawer-text">
                     <div className='slide-overlay-text'>
                       <h2 className="product-name">{category.name}</h2>
-                      <p className="product-price">Starting from<br /><span>QAR {categoryFees[category.name] !== undefined ? categoryFees[category.name] : 'NA'}/-</span></p>
+                      <p className="product-price">Starting from<br /><span>QAR 99/-</span></p>
                     </div>
                   </div>
                 </div>
