@@ -49,7 +49,6 @@
     gap: 25px;
     margin-bottom: 30px;
 }
-
 .activity-info-iframe-container {
     position: relative;
     padding-bottom: 50%;
@@ -93,11 +92,9 @@
     margin-right: 5px;
     color: white;
 }
-
-.activity-info-icon svg {
+.activity-info-icon svg{
     font-size: 1vw !important;
 }
-
 .activity-info-icon-text {
     font-size: 1vw;
     font-family: 'Poppins', sans-serif;
@@ -121,8 +118,8 @@
     color: white;
     border: none;
     width: 7vw;
-    padding: 12px 6px;
-    border-radius: 17px;
+    padding: .6vw 3vw;
+    border-radius: 1vw;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -136,7 +133,7 @@
     display: flex;
     justify-content: space-between;
     padding: 0 9vw;
-    gap: 5vw;
+    gap:5vw;
 }
 
 .activity-info-left-section {
@@ -167,13 +164,12 @@
     font-family: 'Poppins', sans-serif;
     margin-bottom: 1cm;
 }
-
-.activity-info-main-image {
+.activity-info-main-image{
     height: 50vw;
 }
 
 .activity-info-description {
-    max-width: 50vw;
+    max-width:50vw ;
     width: 100%;
     font-size: 1vw;
     font-family: 'Poppins', sans-serif;
@@ -203,8 +199,7 @@
     flex-direction: column;
     align-items: flex-start;
 }
-
-.gSsNhj {
+.gSsNhj{
     margin-left: 0px;
 }
 
@@ -251,9 +246,9 @@
 }
 
 .activity-info-trainer-image {
-    width: 3.5vw;
-    height: 3.5vw;
-    margin-left: 20px;
+    width: 3.3vw;
+    height: 3.3vw;
+    margin-left: 10px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 4.0cm;
@@ -264,21 +259,6 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-    }
-}
-
-@media (max-width: 1500px) {
-    .activity-info-provider-heading {
-        margin-top: 2vw;
-        font-size: 1.4vw;
-        font-family: 'Poppins', sans-serif;
-        color: #1F4EA3;
-        margin-left: 2vw;
-
-    }
-
-    .activity-info-main-image {
-        height: 55vw;
     }
 }
 
@@ -352,7 +332,7 @@
 
     .activity-info-header-content,
     .activity-info-content {
-        padding: 0 30px;
+        padding: 0 1cm;
         width: 100%;
     }
 
@@ -363,8 +343,7 @@
 
     .activity-info-action-btn {
         width: 2cm;
-        font-size: .8rem;
-        padding: 5px 10px;
+        font-size: 1rem;
     }
 
     .activity-info-home {
@@ -375,13 +354,7 @@
     .activity-info-icon {
         width: 30px;
         height: 30px;
-        font-size: 30px;
-
-    }
-
-    .activity-info-icon svg {
-
-        height: 16px;
+        font-size: 14px;
 
     }
 
@@ -400,26 +373,12 @@
     }
 
     .activity-info-left-section .activity-info-heading {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         margin-bottom: 0.5cm;
     }
 
     .activity-info-left-section .activity-info-image {
-        height: 60vw;
-        width: 80vw;
-    }
-
-    .activity-info-heading-location {
-        font-size: 1.2rem;
-        margin-bottom: 10px;
-    }
-
-    .activity-info-location {
-        margin-top: 10px;
-        font-size: 1vw;
-        font-family: 'Poppins', sans-serif;
-        color: #545454;
-
+        height: 8cm;
     }
 
     .activity-info-location-image {
@@ -429,11 +388,9 @@
     }
 
     .activity-info-description {
-        min-width: 80vw;
         width: 100%;
         margin-bottom: 20px;
-        font-size: .8rem;
-        margin-right: 0;
+        font-size: 1rem;
     }
 
     .activity-info-right-section .activity-info-main-image {
@@ -475,12 +432,6 @@
     .activity-info-icon {
         width: 55px;
         height: 55px;
-
-    }
-
-    .activity-info-icon svg {
-
-        height: 20px;
 
     }
 
@@ -680,8 +631,7 @@
         width: 10cm;
         height: 10cm;
     }
-
-    .activity-info-iframe-container iframe {
+    .activity-info-iframe-container iframe{
         width: 55vw;
     }
 
