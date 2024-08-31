@@ -1248,7 +1248,7 @@
 
 }
 
-@media (min-width: 2560px) {
+@media (min-width: 2561px) {
   .gapss {
     height: 370px;
   }
@@ -1315,7 +1315,7 @@
 
 }
 
-@media (min-width: 2300px) and (max-width: 2560px) {
+@media (min-width: 2300px) and (max-width: 2561px) {
   .activity-card {
     height: 370px;
   }
