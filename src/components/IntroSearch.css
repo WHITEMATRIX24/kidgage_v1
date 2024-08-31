@@ -221,6 +221,7 @@
 
 .separator-log {
   font-size: 26px;
+  color: #2e2d2d8a;
   margin: 5px 0px 0px 0px;
 }
 
@@ -247,7 +248,7 @@
   left: 10%;
   width: 100%;
   font-size: 16px;
-  background-color: #ffffff8a;
+  background-color: #b5afaf8a;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(10px);
   /* For Safari support */
