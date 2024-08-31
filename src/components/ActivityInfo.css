@@ -379,9 +379,9 @@
 
     }
 
-    .activity-info-icon-icon {
+    .activity-info-icon svg {
 
-        font-size: 30px;
+        height: 16px;
 
     }
 
@@ -475,6 +475,12 @@
     .activity-info-icon {
         width: 55px;
         height: 55px;
+
+    }
+
+    .activity-info-icon svg {
+
+        height: 20px;
 
     }
 
