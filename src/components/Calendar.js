@@ -257,7 +257,22 @@ const CustomDatePickerWrapper = styled.div`
       height: 20cm;
       padding: 20px;
     }
-
+    .date-line {
+    font-size: 2rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #001689;
+    margin-left: 20px;
+    margin-bottom:10px;
+  }
+.days-row {
+    display: flex;
+    justify-content: space-around;
+    border-radius: 50px;
+    border: 1px solid #f2f2f3;
+    padding: 20px 0;
+    margin-bottom: 15px;
+  }
     .custom-date-header {
       font-size: 2rem;
       margin-bottom: 30px;
@@ -501,7 +516,7 @@ const Calendar = ({ course, provider }) => {
   return (
     <CustomDatePickerWrapper>
       <div className="calendar-row">
-        <FaCalendarAlt size={24} color="#001689" />
+        <FaCalendarAlt size={35} color="#001689" marginBottom='20px' />
         {courseDetails && (
           <div className="date-line">
             {formatDate(courseDetails.startDate)} - {formatDate(courseDetails.endDate)}

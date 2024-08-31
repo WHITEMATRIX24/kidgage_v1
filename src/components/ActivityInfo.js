@@ -78,7 +78,7 @@ const ActivityInfo = () => {
         <div className="activity-info-container">
             <Header2 className='activity-info-header' />
             <div className="activity-info-gap"></div>
-            <div className="activity-info-gap"></div>
+
             <div className="activity-info-header-content">
                 <div className="activity-info-row">
                     <div className="activity-info-home">
@@ -100,7 +100,7 @@ const ActivityInfo = () => {
                 </div>
                 <div className="activity-info-item">
                     <div className="activity-info-icon">
-                        <FontAwesomeIcon icon={faMusic} />
+                        <FontAwesomeIcon icon={faMusic} fontSize={'12px'} />
                     </div>
                     <span className='activity-info-icon-text'>Football</span>
                 </div>
@@ -109,11 +109,10 @@ const ActivityInfo = () => {
             <div className="activity-info-gap"></div>
             <div className="activity-info-content">
                 <div className="activity-info-left-section">
-                    <h2 className="activity-info-heading">Activity Name</h2>
+                    <h2 className="activity-info-heading">{course.name}</h2>
                     <div className='activity-info-gap'></div>
                     <div className="activity-info-gap"></div>
                     <img src={activityImages[currentImageIndex]} alt="activity image" className='activity-info-image' />
-                    <h3 className="activity-info-heading-title">{course.name}</h3>
                     <div className="activity-info-gap"></div>
                     <p className="activity-info-description">
                         {course.description}
@@ -132,10 +131,10 @@ const ActivityInfo = () => {
                     <div className="activity-info-main-image"><Calendar /></div>
                     <h3 className="activity-info-provider-heading">Activity Provided By</h3>
                     <p className="activity-info-provider-details">
-                        {provider.firstName} {provider.lastName} <br />
+                        ABC Sports Center <br />
                         Registration number: {provider.licenseNo}
                     </p>
-                    <img src={`data:image/jpeg;base64,${provider.logo}`} alt="Provider" className="activity-info-provider-image" />
+                    <img src={providerImg} alt="Provider" className="activity-info-provider-image" />
 
                     <h3 className="activity-info-trainers-heading">Trained by</h3>
                     <div className="activity-info-trainers">

@@ -4,7 +4,7 @@
 }
 
 .activity-info-header {
-    margin-bottom: 2cm;
+    margin-bottom: 10px;
 }
 
 .activity-info-gap {
@@ -156,6 +156,7 @@
     margin-bottom: 2.5cm;
     line-height: 1.5;
     color: #333;
+    text-align: justify;
 }
 
 .activity-info-heading-location {
@@ -229,6 +230,7 @@
     margin-bottom: 4.0cm;
 }
 
+/* 
 @media (max-width: 1200px) {
 
     .activity-info-header-content,
@@ -260,7 +262,7 @@
         width: 3cm;
         height: 3cm;
     }
-}
+} */
 
 /* Media Query for max-width 1080px */
 @media (max-width: 1080px) {
@@ -429,6 +431,48 @@
 
 /* Media Query for min-width 1800px */
 @media (min-width: 1800px) {
+    .activity-info-home-icon {
+        font-size: 20px;
+    }
+
+    .activity-info-header-content,
+    .activity-info-content {
+        padding: 0 5%;
+    }
+
+    .activity-info-icon {
+        width: 55px;
+        height: 55px;
+
+    }
+
+    .activity-info-icon-text {
+        font-size: 25px;
+        font-family: 'Poppins', sans-serif;
+        color: #6b7289;
+    }
+
+    .activity-info-actions {
+        display: flex;
+        align-items: center;
+        gap: 1cm;
+    }
+
+    .activity-info-share {
+        margin-right: 10px;
+        background-color: #677EAB;
+        color: white;
+    }
+
+    .activity-info-action-btn {
+        background-color: #677EAB;
+        width: 5cm;
+        padding: 10px 40px;
+        border-radius: 23px;
+        font-weight: 200px;
+        font-size: 25px;
+
+    }
 
     .activity-info-header-content,
     .activity-info-content {
@@ -448,13 +492,13 @@
     }
 
     .activity-info-image {
-        width: 25cm;
+        width: 28cm;
         height: 16cm;
     }
 
     .activity-info-description {
         font-size: 1.8rem;
-        max-width: 20cm;
+        max-width: 28cm;
     }
 
     .activity-info-main-image {
@@ -469,8 +513,8 @@
     }
 
     .activity-info-provider-image {
-        width: 12cm;
-        height: 12cm;
+        width: 8cm;
+        height: 8cm;
     }
 
     .activity-info-trainer-image {
@@ -498,7 +542,7 @@
 
     .activity-info-description {
         font-size: 2rem;
-        max-width: 22cm;
+        min-width: 28cm;
     }
 
     .activity-info-main-image {
@@ -525,10 +569,47 @@
 
 /* Media Query for min-width 2500px */
 @media (min-width: 2500px) {
+    .activity-info-home-icon {
+        font-size: 20px;
+    }
 
     .activity-info-header-content,
     .activity-info-content {
         padding: 0 5%;
+    }
+
+    .activity-info-icon {
+        width: 55px;
+        height: 55px;
+
+    }
+
+    .activity-info-icon-text {
+        font-size: 25px;
+        font-family: 'Poppins', sans-serif;
+        color: #6b7289;
+    }
+
+    .activity-info-actions {
+        display: flex;
+        align-items: center;
+        gap: 1cm;
+    }
+
+    .activity-info-share {
+        margin-right: 10px;
+        background-color: #677EAB;
+        color: white;
+    }
+
+    .activity-info-action-btn {
+        background-color: #677EAB;
+        width: 5cm;
+        padding: 10px 40px;
+        border-radius: 23px;
+        font-weight: 200px;
+        font-size: 25px;
+
     }
 
     .activity-info-heading {
@@ -536,19 +617,19 @@
     }
 
     .activity-info-image {
-        width: 90%;
-        height: 25cm;
+        width: 80%;
+        height: 20cm;
     }
 
     .activity-info-description {
         font-size: 2.2rem;
-        max-width: 25cm;
+        min-width: 34cm;
     }
 
     .activity-info-main-image {
         width: 14cm;
         height: 28cm;
-        margin-bottom: 10%;
+        margin-bottom: 2%;
     }
 
     .activity-info-provider-heading,
@@ -558,8 +639,8 @@
     }
 
     .activity-info-provider-image {
-        width: 16cm;
-        height: 16cm;
+        width: 10cm;
+        height: 10cm;
     }
 
     .activity-info-trainer-image {
