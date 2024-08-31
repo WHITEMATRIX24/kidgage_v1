@@ -390,7 +390,7 @@
   /* 10% of the screen height */
   align-items: center;
   /* Vertically centers the pagination */
-  background-color: #f6ffef;
+  /* background-color: #f6ffef; */
   /* Light background similar to the image */
   border-radius: 12px;
   /* Rounded container corners */
