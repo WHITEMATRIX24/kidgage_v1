@@ -145,7 +145,7 @@ const ActivityInfo = () => {
 
                     <h3 className="activity-info-trainers-heading">Trained by</h3>
                     <div className="activity-info-trainers">
-                        <img src={ActivityImg1} alt="trainer" className="activity-info-trainer-image" />
+                        <img src={Trainer1} alt="trainer" className="activity-info-trainer-image" />
                         <img src={Trainer2} alt="trainer" className="activity-info-trainer-image" />
                         <img src={Trainer1} alt="trainer" className="activity-info-trainer-image" />
                         <img src={Trainer2} alt="trainer-image" className="activity-info-trainer-image" />
