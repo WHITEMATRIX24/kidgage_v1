@@ -118,8 +118,8 @@
     color: white;
     border: none;
     width: 7vw;
-    padding: .6vw 3vw;
-    border-radius: 1vw;
+    padding: 12px 6px;
+    border-radius: 17px;
     cursor: pointer;
     display: flex;
     align-items: center;
