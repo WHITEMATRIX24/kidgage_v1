@@ -116,3 +116,15 @@
     height: 100px;
   }
 }
+@media (min-width: 2300px) {
+  .hero-banner {
+    height: 330px;
+  }
+  .hero-slider-container {
+    display: flex;
+    width: calc(60% ); /* Adjusted to account for the gap */
+    height: 100%;
+    transform: translateX(10px);
+    position: relative;
+  }
+}

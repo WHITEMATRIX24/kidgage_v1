@@ -8,7 +8,7 @@
   gap: 200px;
   align-items: center;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 30px;
   margin: 60px 100px 40px 100px;
 }
 
@@ -192,7 +192,8 @@
 }
 
 .search1-option h5{
-  font-size: 12px;
+  font-size: 11px;
+  color: #000000c0;
 margin-bottom: 0px;
 }
 .search1-options h4,
@@ -594,5 +595,159 @@ margin-bottom: 0px;
   .search-option {
     font-size: 11px;
     margin: 0 5px;
+  }
+}
+
+@media (min-width:2000px) and (max-width:2360px) {
+  .intro-search {
+    margin: 60px 150px 40px 150px;
+
+  }
+
+
+
+  .intro-search-bar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
+    padding: 10px 20px;
+    height: auto;
+
+    /* Ensure the search bar adjusts to the content */
+  }
+  .intro-search-button{
+    margin-right: 5%;
+  }
+  .search1-option{
+    min-width: 240px;
+    margin-left: 5px;
+  }
+  .search1-options{
+    min-width: 200px;
+  }
+  .search1-option h5{
+    font-size: 12px;
+  }
+  .search1-option p, .search1-options,.search4-option p{
+    font-size: 22px;
+    min-width: 120px;
+    font-weight: 500;
+  }
+  .search4-option{
+    min-width: 200px;
+  }
+  .intro-content{
+    max-width: 700px;
+  }
+  .intro-title{
+    font-size: 3.2em;
+    margin: 0px;
+  }
+  .intro-subtitle{
+    margin-top: 5px;
+    font-size: 1em;
+  }
+}
+
+@media (min-width:2360px) and (max-width:2560px) {
+  .intro-search {
+    margin: 60px 150px 40px 150px;
+
+  }
+  .intro-content{
+    max-width: 700px;
+  }
+  .intro-title{
+    font-size: 3.3em;
+    margin: 0px;
+  }
+  .intro-subtitle{
+    margin-top: 5px;
+    font-size: 1.1em;
+  }
+  .search1-option h5{
+    font-size: 12px;
+  }
+
+  .intro-search-bar {
+    width: 110%;
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
+    padding: 10px 10px;
+    height: auto;
+
+    /* Ensure the search bar adjusts to the content */
+  }
+  .intro-search-button{
+    margin-right: 5%;
+  }
+  .search1-option{
+    min-width: 240px;
+    margin-left: 15px;
+  }
+  .search4-option{
+    min-width: 200px;
+  }
+  .search1-options{
+    min-width: 200px;
+    margin-left: 5px;
+  }
+  .search1-option p, .search1-options,.search4-option p{
+    font-size: 23px;
+    min-width: 120px;
+    font-weight: 500;
+  }
+
+}
+@media (min-width:2560) {
+  .intro-search {
+    margin: 60px 150px 40px 150px;
+
+  }
+  .intro-content{
+    max-width: 700px;
+  }
+  .intro-title{
+    font-size: 3.3em;
+    margin: 0px;
+  }
+  .intro-subtitle{
+    margin-top: 5px;
+    font-size: 1.1em;
+  }
+  .search1-option h5{
+    font-size: 12px;
+  }
+
+  .intro-search-bar {
+    width: 110%;
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
+    padding: 10px 10px;
+    height: auto;
+
+    /* Ensure the search bar adjusts to the content */
+  }
+  .intro-search-button{
+    margin-right: 5%;
+  }
+  .search1-option{
+    min-width: 240px;
+    margin-left: 15px;
+  }
+  .search4-option{
+    min-width: 200px;
+  }
+  .search1-options{
+    min-width: 200px;
+    margin-left: 5px;
+  }
+  .search1-option p, .search1-options,.search4-option p{
+    font-size: 23px;
+    min-width: 120px;
+    font-weight: 500;
   }
 }

@@ -1,20 +1,21 @@
 /* Home Header */
-.home-headers {
+.shome-headers {
     background-color: #ffffff;
     color: #000000;
     top: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     position: relative;
 }
 
 /* Bell Icon */
-.bell-icon {
+.sbell-icon {
     height: 18px;
     margin-right: 10px;
 }
 
 /* Notification Bar */
-.notification-bar {
+.snotification-bar {
     font-family: 'Neue Machina', sans-serif;
     background-color: #000000;
     color: #ffffff;
@@ -26,7 +27,7 @@
     align-items: center;
 }
 
-.notification-bar a {
+.snotification-bar a {
     font-family: 'Neue Machina', sans-serif;
     font-size: 12px;
     color: #ffffff;
@@ -35,7 +36,7 @@
 }
 
 /* Header Content */
-.header-content {
+.sheader-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -44,7 +45,7 @@
 }
 
 /* Home Logo */
-.home-logo img {
+.shome-logo img {
     margin-top: 0px;
     margin-left: 30px;
     height: 30px;
@@ -52,7 +53,7 @@
 }
 
 /* Menu Toggle */
-.menu-toggle {
+.smenu-toggle {
     background: none;
     border: none;
     cursor: pointer;
@@ -65,13 +66,13 @@
 }
 
 /* Menu Icon */
-.menu-icon {
+.smenu-icon {
     width: 30px;
     height: 30px;
 }
 
 /* Popup Menu */
-.popup-menu {
+.spopup-menu {
     position: absolute;
     top: 60px;
     right: 20px;
@@ -83,7 +84,7 @@
     z-index: 1000001;
 }
 
-.popup-menu button {
+.spopup-menu button {
     display: block;
     background: white;
     border: 1px;
@@ -94,12 +95,12 @@
     font-size: 16px;
 }
 
-.popup-menu button:hover {
+.spopup-menu button:hover {
     background-color: #f0f0f0;
 }
 
 /* Profile Popup */
-.profile-popup {
+.sprofile-popup {
     position: fixed;
     top: 30%;
     right: 0px;
@@ -124,18 +125,18 @@
     background: rgba(0, 0, 0, 0.3); 
     z-index: 1000;*/
     @media (min-width: 1800px) {
-        .home-logo img {
+        .shome-logo img {
             height: 30px;
             margin-left: 15px;
         }
-        .menu-icon {
+        .smenu-icon {
             width: 35px;
             height: 35px;
         }
-        .header-content{
+        .sheader-content{
             height: 90px;
         }
-        .notification-bar {
+        .snotification-bar {
             padding: 5px 0;
             font-size: 16px;
             display: flex;
@@ -144,29 +145,29 @@
         }
     }
     @media (max-width: 600px) {
-        .home-logo img {
+        .shome-logo img {
             height: 30px;
             margin-left: 15px;
         }
     
-        .header-content {
+        .sheader-content {
             flex-direction: row;
             align-items: flex-start;
             padding: 10px;
         }
     
-        .menu-toggle {
+        .smenu-toggle {
             margin-top: 10px;
             width: 25px;
             height: 25px;
         }
     
-        .menu-icon {
+        .smenu-icon {
             width: 25px;
             height: 25px;
         }
     
-        .popup-menu {
+        .spopup-menu {
             top: 50px;
             /* Adjusted for smaller screens */
             right: 10px;
@@ -175,7 +176,7 @@
             /* Full width with padding */
         }
     
-        .profile-popup {
+        .sprofile-popup {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -187,27 +188,27 @@
     
     /* Tablets */
     @media (min-width: 601px) and (max-width: 1024px) {
-        .home-logo img {
+        .shome-logo img {
             height: 30px;
             margin-left: 20px;
         }
     
-        .header-content {
+        .sheader-content {
             flex-direction: row;
             padding: 15px;
         }
     
-        .menu-toggle {
+        .smenu-toggle {
             width: 28px;
             height: 28px;
         }
     
-        .menu-icon {
+        .smenu-icon {
             width: 28px;
             height: 28px;
         }
     
-        .popup-menu {
+        .spopup-menu {
             top: 70px;
             /* Adjusted for tablets */
             right: 15px;
@@ -215,7 +216,7 @@
             width: 80%;
         }
     
-        .profile-popup {
+        .sprofile-popup {
             width: 85%;
             /* Slightly narrower than on mobile */
             padding: 25px;
@@ -224,34 +225,34 @@
     
     /* Desktops */
     @media (min-width: 1025px) {
-        .header-content {
+        .sheader-content {
             padding: 0 30px;
         }
     
-        .popup-menu {
+        .spopup-menu {
             top: 60px;
             right: 20px;
             width: 250px;
         }
     
-        .profile-popup {
+        .sprofile-popup {
             width: 80%;
             max-width: 600px;
         }
     }
     @media (min-width: 2000px) {
-        .home-logo img {
+        .shome-logo img {
             height: 40px;
             margin-left: 15px;
         }
-        .menu-icon {
+        .smenu-icon {
             width: 35px;
             height: 35px;
         }
-        .header-content{
+        .sheader-content{
             height: 90px;
         }
-        .notification-bar {
+        .snotification-bar {
             padding: 5px 0;
             font-size: 16px;
             display: flex;
