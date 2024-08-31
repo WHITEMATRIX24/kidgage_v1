@@ -146,16 +146,23 @@
   background-color: #f0f0f0;
 }
 
+.ssss {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 10px;
+
+}
+
 .sss {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 
-}
-
-.search1-option h5{
 
 }
+
+.search1-option h5 {}
 
 .intro-search-icon {
   width: 40px;
@@ -194,11 +201,12 @@
   margin: 0px 0px 0px 0px;
 }
 
-.search1-option h5{
+.search1-option h5 {
   font-size: 11px;
   color: #000000c0;
-margin-bottom: 0px;
+  margin-bottom: 0px;
 }
+
 .search1-options h4,
 .search4-option h4 {
   font-size: 14px;
@@ -213,6 +221,7 @@ margin-bottom: 0px;
 
 .separator-log {
   font-size: 26px;
+  color: #2e2d2d8a;
   margin: 5px 0px 0px 0px;
 }
 
@@ -239,7 +248,7 @@ margin-bottom: 0px;
   left: 10%;
   width: 100%;
   font-size: 16px;
-  background-color: #ffffff8a;
+  background-color: #b5afaf8a;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(10px);
   /* For Safari support */
@@ -335,6 +344,7 @@ margin-bottom: 0px;
     gap: 20px;
     flex-direction: column;
   }
+
   .search-options {
     margin-left: 3%;
   }
@@ -438,18 +448,22 @@ margin-bottom: 0px;
     margin-top: 0px;
     margin-right: 25px;
   }
-  .search1-options{
-    min-width:110px;
+
+  .search1-options {
+    min-width: 110px;
     margin-top: 14px;
   }
-  .search1-option h5{
+
+  .search1-option h5 {
     font-size: 8px;
   }
-  .search4-option{
-    margin-top:8px;
+
+  .search4-option {
+    margin-top: 8px;
     min-width: 140px;
   }
-  .search1-option{
+
+  .search1-option {
     min-width: 180px;
     margin-left: 5%;
   }
@@ -457,141 +471,162 @@ margin-bottom: 0px;
 
 @media (max-width:726px) {
 
-  .search1-options{
-    min-width:110px;
+  .search1-options {
+    min-width: 110px;
     font-size: 16px;
     font-weight: 100;
     margin-top: 14px;
   }
-  .search1-option h5{
+
+  .search1-option h5 {
     font-size: 8px;
   }
-  .search1-option p,.search4-option p,.search1-options h4{
-      font-size: 16px;
+
+  .search1-option p,
+  .search4-option p,
+  .search1-options h4 {
+    font-size: 16px;
   }
-  .search4-option{
-    margin-top:8px;
+
+  .search4-option {
+    margin-top: 8px;
     min-width: 130px;
   }
-  .search1-options{
+
+  .search1-options {
     min-width: 90px;
   }
-  .search1-option{
+
+  .search1-option {
     min-width: 150px;
     margin-left: 5%;
   }
 }
 
 @media (max-width:660px) {
-.intro-search-icon{
-  width: 25px;
-  height: 25px;
-}
-/* Dropdown styles for desktop view */
-.dropdown, .dropdown2 {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  border: 1px solid #ccc;
-  background: #fff;
-  z-index: 1000;
-}
+  .intro-search-icon {
+    width: 25px;
+    height: 25px;
+  }
 
-.dropdown ul, .dropdown2 ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.calendar-dropdown {
-  position: absolute;
-  top: 70%;
-  left: 0px;
-  width: 100%;
-  border-radius: 10px;
-  z-index: 1001;
-  margin-top: 10px;
-  padding: 10px 20px;
-}
+  /* Dropdown styles for desktop view */
+  .dropdown,
+  .dropdown2 {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    background: #fff;
+    z-index: 1000;
+  }
 
-.calendar-dropdown2 {
-  position: absolute;
-  top: 70%;
-  left: 0%;
-  width: 100%;
-  border-radius: 10px;
-  z-index: 1001;
-  margin-top: 10px;
-  padding: 10px 20px;
-}
+  .dropdown ul,
+  .dropdown2 ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
 
-.dropdown ul li, .dropdown2 ul li {
-  padding: 10px;
-  cursor: pointer;
-}
+  .calendar-dropdown {
+    position: absolute;
+    top: 70%;
+    left: 0px;
+    width: 100%;
+    border-radius: 10px;
+    z-index: 1001;
+    margin-top: 10px;
+    padding: 10px 20px;
+  }
 
-.dropdown ul li:hover, .dropdown2 ul li:hover {
-  background: #f0f0f0;
-}
-.intro-search-bar button{
-  background: transparent;
-  border: none;
-  font-size: 14px;
-  font-family: 'Poppins',serif;
-  font-weight: 500px;
-}
-/* Mobile dropdown styles */
-.mobile-dropdown {
-  position: absolute;
-  top: 70%;
-  left: 10%;
-  width: 60%;
-  font-size: 11px;
-  background-color: #ffffff8a;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(10px);
-  color: #000;
-  /* For Safari support */
-  border-radius: 0px 0px 10px 10px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  z-index: 1001;
-  margin-top: 10px;
-  padding: 10px 20px;
-}
+  .calendar-dropdown2 {
+    position: absolute;
+    top: 70%;
+    left: 0%;
+    width: 100%;
+    border-radius: 10px;
+    z-index: 1001;
+    margin-top: 10px;
+    padding: 10px 20px;
+  }
 
-.mobile-dropdown ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+  .dropdown ul li,
+  .dropdown2 ul li {
+    padding: 10px;
+    cursor: pointer;
+  }
 
-.mobile-dropdown ul li {
-  padding: 10px;
-  cursor: pointer;
-}
+  .dropdown ul li:hover,
+  .dropdown2 ul li:hover {
+    background: #f0f0f0;
+  }
 
-.mobile-dropdown ul li:hover {
-  background: #f0f0f0;
-}
+  .intro-search-bar button {
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    font-family: 'Poppins', serif;
+    font-weight: 500px;
+  }
 
-  .search1-option h5{
+  /* Mobile dropdown styles */
+  .mobile-dropdown {
+    position: absolute;
+    top: 70%;
+    left: 10%;
+    width: 60%;
+    font-size: 11px;
+    background-color: #ffffff8a;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #000;
+    /* For Safari support */
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    margin-top: 10px;
+    padding: 10px 20px;
+  }
+
+  .mobile-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mobile-dropdown ul li {
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .mobile-dropdown ul li:hover {
+    background: #f0f0f0;
+  }
+
+  .search1-option h5 {
     font-size: 8px;
   }
-  .search1-option p,.search4-option p,.search1-options{
-      font-size: 13px;
+
+  .search1-option p,
+  .search4-option p,
+  .search1-options {
+    font-size: 13px;
   }
-  .search4-option{
-    margin-top:8px;
+
+  .search4-option {
+    margin-top: 8px;
     min-width: 105px;
   }
-  .search1-options{
-  min-width: 70px;
+
+  .search1-options {
+    min-width: 70px;
   }
-  .search1-option{
+
+  .search1-option {
     min-width: 130px;
     margin-left: 0%;
   }
-  
+
 }
 
 @media (max-width:480px) {
@@ -607,7 +642,7 @@ margin-bottom: 0px;
 
   }
 
-  .search1-option h5{
+  .search1-option h5 {
     padding-left: 13px;
 
 
@@ -623,35 +658,46 @@ margin-bottom: 0px;
 
     /* Ensure the search bar adjusts to the content */
   }
-  .intro-search-button{
+
+  .intro-search-button {
     margin-right: 5%;
   }
-  .search1-option{
+
+  .search1-option {
     min-width: 240px;
     margin-left: 5px;
   }
-  .search1-options{
+
+  .search1-options {
     min-width: 200px;
   }
-  .search1-option h5{
+
+  .search1-option h5 {
     font-size: 12px;
   }
-  .search1-option p, .search1-options,.search4-option p{
+
+  .search1-option p,
+  .search1-options,
+  .search4-option p {
     font-size: 22px;
     min-width: 120px;
     font-weight: 500;
   }
-  .search4-option{
+
+  .search4-option {
     min-width: 200px;
   }
-  .intro-content{
+
+  .intro-content {
     max-width: 700px;
   }
-  .intro-title{
+
+  .intro-title {
     font-size: 3.2em;
     margin: 0px;
   }
-  .intro-subtitle{
+
+  .intro-subtitle {
     margin-top: 5px;
     font-size: 1em;
   }
@@ -662,25 +708,31 @@ margin-bottom: 0px;
     margin: 60px 150px 40px 150px;
 
   }
-  .intro-content{
+
+  .intro-content {
     max-width: 700px;
   }
-  .intro-title{
+
+  .intro-title {
     font-size: 3.3em;
     margin: 0px;
   }
-  .intro-subtitle{
+
+  .intro-subtitle {
     margin-top: 5px;
     font-size: 1.1em;
   }
-  .search1-option h5{
+
+  .search1-option h5 {
     font-size: 12px;
   }
-  .search1-option h5{
+
+  .search1-option h5 {
     padding-left: 13px;
 
 
   }
+
   .intro-search-bar {
     width: 110%;
     display: flex;
@@ -691,44 +743,56 @@ margin-bottom: 0px;
 
     /* Ensure the search bar adjusts to the content */
   }
-  .intro-search-button{
+
+  .intro-search-button {
     margin-right: 5%;
   }
-  .search1-option{
+
+  .search1-option {
     min-width: 240px;
     margin-left: 15px;
   }
-  .search4-option{
+
+  .search4-option {
     min-width: 200px;
   }
-  .search1-options{
+
+  .search1-options {
     min-width: 200px;
     margin-left: 5px;
   }
-  .search1-option p, .search1-options,.search4-option p{
+
+  .search1-option p,
+  .search1-options,
+  .search4-option p {
     font-size: 23px;
     min-width: 120px;
     font-weight: 500;
   }
 
 }
+
 @media (min-width:2560) {
   .intro-search {
     margin: 60px 150px 40px 150px;
 
   }
-  .intro-content{
+
+  .intro-content {
     max-width: 700px;
   }
-  .intro-title{
+
+  .intro-title {
     font-size: 3.3em;
     margin: 0px;
   }
-  .intro-subtitle{
+
+  .intro-subtitle {
     margin-top: 5px;
     font-size: 1.1em;
   }
-  .search1-option h5{
+
+  .search1-option h5 {
     font-size: 12px;
   }
 
@@ -742,21 +806,28 @@ margin-bottom: 0px;
 
     /* Ensure the search bar adjusts to the content */
   }
-  .intro-search-button{
+
+  .intro-search-button {
     margin-right: 5%;
   }
-  .search1-option{
+
+  .search1-option {
     min-width: 240px;
     margin-left: 15px;
   }
-  .search4-option{
+
+  .search4-option {
     min-width: 200px;
   }
-  .search1-options{
+
+  .search1-options {
     min-width: 200px;
     margin-left: 5px;
   }
-  .search1-option p, .search1-options,.search4-option p{
+
+  .search1-option p,
+  .search1-options,
+  .search4-option p {
     font-size: 23px;
     min-width: 120px;
     font-weight: 500;

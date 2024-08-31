@@ -207,11 +207,11 @@ const IntroSearch = () => {
                 className={`search1-option ${activeOption === "location" ? "active" : ""}`}
                 onClick={() => handleOptionClick("location")}
               >
-                <div className="sss">
-                  <h5>Location</h5>
+                <div className="ssss">
+
                   <p
                     style={{
-                      color: missingSelection && !selectedLocation ? "red" : "inherit",
+                      color: missingSelection && !selectedLocation ? "red" : "#2e2d2d8a",
                     }}
                   >
                     {selectedLocation}
@@ -241,7 +241,7 @@ const IntroSearch = () => {
                 className={`search1-options ${activeOption === "age" ? "active" : ""}`}
                 onClick={() => handleOptionClick("age")}
                 style={{
-                  color: missingSelection && selectedDob === "Age" ? "red" : "inherit",
+                  color: missingSelection && selectedDob === "Age" ? "red" : "#2e2d2d8a",
                 }}
               >
                 {selectedDob}
@@ -253,7 +253,7 @@ const IntroSearch = () => {
                 className={`search1-options ${activeOption === "date" ? "active" : ""}`}
                 onClick={() => handleOptionClick("date")}
                 style={{
-                  color: missingSelection && !selectedDate ? "red" : "inherit",
+                  color: missingSelection && !selectedDate ? "red" : "#2e2d2d8a",
                 }}
               >
                 {selectedDate ? selectedDate.toLocaleDateString("en-GB") : "Date"}
@@ -265,7 +265,7 @@ const IntroSearch = () => {
                 className={`search4-option ${activeOption === "activity" ? "active" : ""}`}
                 onClick={() => handleOptionClick("activity")}
                 style={{
-                  color: missingSelection && selectedActivity === "Activity" ? "red" : "inherit",
+                  color: missingSelection && selectedActivity === "Activity" ? "red" : "#2e2d2d8a",
                 }}
               >
                 <div className="sss">
