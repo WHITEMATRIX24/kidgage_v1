@@ -149,10 +149,13 @@
 .sss {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+
 }
 
+.search1-option h5{
 
+}
 
 .intro-search-icon {
   width: 40px;
@@ -604,7 +607,11 @@ margin-bottom: 0px;
 
   }
 
+  .search1-option h5{
+    padding-left: 13px;
 
+
+  }
 
   .intro-search-bar {
     width: 100%;
@@ -669,7 +676,11 @@ margin-bottom: 0px;
   .search1-option h5{
     font-size: 12px;
   }
+  .search1-option h5{
+    padding-left: 13px;
 
+
+  }
   .intro-search-bar {
     width: 110%;
     display: flex;

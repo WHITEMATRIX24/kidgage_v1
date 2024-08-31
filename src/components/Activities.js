@@ -390,9 +390,7 @@ const Activities = () => {
                             <div style={{ height: '5px' }}></div>
 
 
-                            <p className="plocation"><i class="fa-solid fa-location-dot"></i>
-                                <span style={{ marginLeft: '5px', fontSize: '.8vw' }}> Location </span></p>
-
+                            
                         </div>
                         {/* Activity Actions Section */}
                         <div className="activity-actions" style={{ 'margin-top': '15px' }}>
@@ -418,8 +416,6 @@ const Activities = () => {
                     </div>
 
                 </div>
-
-                <div style={{ height: '40px' }}></div>
                 <div className="pagination-container">
                     <Box
                         sx={{
@@ -443,7 +439,7 @@ const Activities = () => {
                                         backgroundColor: "rgba(173, 216, 230, 0.5)", // Slightly darker on hover
                                     },
                                     "&.Mui-selected": {
-                                        backgroundColor: "#605CA2", // Darker background for the selected item
+                                        backgroundColor: "#3880C4", // Darker background for the selected item
                                         color: "white", // White text for the selected item
                                         boxShadow: "0 0 8px rgba(0, 0, 0, 0.3)", // Add a slight shadow for emphasis
                                     },
