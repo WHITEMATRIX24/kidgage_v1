@@ -4,15 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTheaterMasks, faMusic, faLocationArrow, faBookmark, faHome, faMapLocation, faLocation, faLocationDot, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import Footer from './Footer';
-import Footer2 from './Footer2';
 import Calendar from './Calendar';
 import ActivityImg1 from './assets/images/foot.jpg';
 import ActivityImg2 from './assets/images/foot1.jpg';
 import ActivityImg3 from './assets/images/foot2.jpg';
-import LocationImg from './assets/images/mapimg.png';
-import providerImg from './assets/images/abc.png'
+import providerImg from './assets/images/abc.png';
 import Header2 from './Header2';
-import { FaChevronRight } from 'react-icons/fa';
+
 const ActivityInfo = () => {
     const [course, setCourse] = useState(null);
     const [provider, setProvider] = useState(null);
@@ -20,7 +18,7 @@ const ActivityInfo = () => {
     const [fade, setFade] = useState(true);
     const courseId = '66ab808e13912199840ad54b';
 
-    const activityImages = [ActivityImg1, ActivityImg2, ActivityImg3]; // Array of images
+    const activityImages = [ActivityImg1, ActivityImg2, ActivityImg3];
 
     useEffect(() => {
         const fetchCourseData = async () => {
@@ -44,14 +42,14 @@ const ActivityInfo = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setFade(false); // Start fade-out transition
+            setFade(false);
             setTimeout(() => {
                 setCurrentImageIndex((prevIndex) => (prevIndex + 1) % activityImages.length);
-                setFade(true); // Start fade-in transition
-            }, 1000); // Duration of fade-out transition
-        }, 3000); // Total time for image change (2s display + 0.5s transition)
+                setFade(true);
+            }, 1000);
+        }, 3000);
 
-        return () => clearInterval(interval); // Cleanup interval on component unmount
+        return () => clearInterval(interval);
     }, [activityImages.length]);
 
     const handleShare = () => {
@@ -85,8 +83,8 @@ const ActivityInfo = () => {
                         <div className="activity-info-home-icon">
                             <FontAwesomeIcon icon={faHome} /> <span style={{ margin: '0 8px' }}>
                                 <FontAwesomeIcon icon={faChevronRight} fontSize={'12px'} />
-                            </span> {/* ">" Symbol */}
-                            <span>Activity</span> {/* Text */}
+                            </span>
+                            <span>Activity</span>
                         </div>
                     </div>
                     <div className="activity-info-actions">
@@ -106,11 +104,9 @@ const ActivityInfo = () => {
                 </div>
             </div>
             <div className="activity-info-gap"></div>
-            <div className="activity-info-gap"></div>
             <div className="activity-info-content">
                 <div className="activity-info-left-section">
                     <h2 className="activity-info-heading">{course.name}</h2>
-                    <div className='activity-info-gap'></div>
                     <div className="activity-info-gap"></div>
                     <img src={activityImages[currentImageIndex]} alt="activity image" className='activity-info-image' />
                     <div className="activity-info-gap"></div>
@@ -120,11 +116,19 @@ const ActivityInfo = () => {
                     <div className='location-details'>
                         <h3 className="activity-info-heading-location">Location</h3>
                         <li>
-                            <a href='https://maps.app.goo.gl/7U6x1A3orcWMy9rc7' className='activity-info-location'> <FontAwesomeIcon icon={faLocationDot} className='activity-info-location-icon' /> Muaither area</a>
                             <a href='https://maps.app.goo.gl/rm6wK6wZXdcUKdPC6' className='activity-info-location'> <FontAwesomeIcon icon={faLocationDot} className='activity-info-location-icon' /> Doha</a>
-                            <a href='https://maps.app.goo.gl/mXMKd9P3Pb53MEeJA' className='activity-info-location'> <FontAwesomeIcon icon={faLocationDot} className='activity-info-location-icon' /> Dukhan</a>
-                        </li> </div>
+                        </li>
+                    </div>
+                    <div className="activity-info-iframe-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d230887.07868672788!2d51.20014492646293!3d25.283681348778437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45dd377cd38775%3A0xe68469655a0ba81c!2sSparta%20Sports%20Academy!5e0!3m2!1sen!2sin!4v1725102503113!5m2!1sen!2sin" 
+                            allowFullScreen="" 
+                            loading="lazy" 
+                            referrerPolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
                 </div>
+
                 <div className="activity-info-right-section">
                     <div className="activity-info-gap"></div>
                     <div className="activity-info-gap"></div>
@@ -146,7 +150,6 @@ const ActivityInfo = () => {
                 </div>
             </div>
             <Footer />
-
         </div>
     );
 };

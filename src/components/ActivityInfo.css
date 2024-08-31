@@ -4,19 +4,19 @@
 }
 
 .activity-info-header {
-    margin-bottom: 10px;
+    margin-bottom: 1vw;
 }
 
 .activity-info-gap {
-    height: 1cm;
+    height: 2vw;
 }
 
 .activity-info-header-content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0 2.5cm;
-    gap: 20px;
+    padding: 0 9vw;
+    gap: 1.5vw;
 }
 
 .activity-info-row {
@@ -33,7 +33,7 @@
 }
 
 .activity-info-home-icon {
-    font-size: 16px;
+    font-size: .9vw;
     font-family: 'Poppins', sans-serif;
     color: #0d216f;
     font-weight: bold;
@@ -47,6 +47,22 @@
     list-style: none;
     display: flex;
     gap: 25px;
+    margin-bottom: 30px;
+}
+.activity-info-iframe-container {
+    position: relative;
+    padding-bottom: 50%;
+    height: 0;
+    overflow: hidden;
+}
+
+.activity-info-iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 400px;
+    width: 50vw;
+    border: 0;
 }
 
 .activity-info-home-icon-icon {
@@ -58,28 +74,29 @@
 }
 
 .activity-info-item {
-    margin-top: 10px;
+    margin-top: .5vw;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
 .activity-info-icon {
-    width: 45px;
-    height: 45px;
+    width: 2.5vw;
+    height: 2.5vw;
     background-color: #0d216f;
     display: flex;
     align-items: center;
-    font-size: 25px;
     font-family: 'Poppins', sans-serif;
     justify-content: center;
     border-radius: 5px;
     margin-right: 5px;
     color: white;
 }
-
+.activity-info-icon svg{
+    font-size: 1vw !important;
+}
 .activity-info-icon-text {
-    font-size: 18px;
+    font-size: 1vw;
     font-family: 'Poppins', sans-serif;
     color: #6b7289;
 }
@@ -91,7 +108,7 @@
 }
 
 .activity-info-share {
-    margin-right: 10px;
+    margin-right: 1vw;
     background-color: #677EAB;
     color: white;
 }
@@ -100,9 +117,9 @@
     background-color: #677EAB;
     color: white;
     border: none;
-    width: 3cm;
-    padding: 10px 18px;
-    border-radius: 16px;
+    width: 7vw;
+    padding: .6vw 3vw;
+    border-radius: 1vw;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -115,7 +132,8 @@
 .activity-info-content {
     display: flex;
     justify-content: space-between;
-    padding: 0 2.5cm;
+    padding: 0 9vw;
+    gap:5vw;
 }
 
 .activity-info-left-section {
@@ -129,17 +147,16 @@
 }
 
 .activity-info-heading {
-    font-size: 2.6rem;
+    font-size: 2vw;
     font-family: 'Poppins', sans-serif;
-    margin-bottom: 2cm;
 }
 
 .activity-info-image {
-    width: 22cm;
-    height: 14cm;
-    border-radius: 5px;
+    width: 48vw;
+    height: 25vw;
+    border-radius: .5vw;
     object-fit: cover;
-    margin-bottom: 1.5cm;
+    margin-bottom: .5vw;
 }
 
 .activity-info-heading-title {
@@ -147,124 +164,96 @@
     font-family: 'Poppins', sans-serif;
     margin-bottom: 1cm;
 }
+.activity-info-main-image{
+    height: 50vw;
+}
 
 .activity-info-description {
-    max-width: 17cm;
-    width: 90%;
-    font-size: 1.5rem;
+    max-width:50vw ;
+    width: 100%;
+    font-size: 1vw;
     font-family: 'Poppins', sans-serif;
-    margin-bottom: 2.5cm;
-    line-height: 1.5;
+    margin-bottom: 2vw;
     color: #333;
     text-align: justify;
 }
 
 .activity-info-heading-location {
-    font-size: 2rem;
+    font-size: 1.2vw;
+    color: #333;
     font-family: 'Poppins', sans-serif;
 
 }
 
 .activity-info-location {
     margin-top: 1cm;
-    font-size: 1.2rem;
+    font-size: 1vw;
     font-family: 'Poppins', sans-serif;
     color: #545454;
 
 }
 
 .activity-info-right-section {
-    width: 32%;
+    width: 44%;
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: flex-start;
+}
+.gSsNhj{
+    margin-left: 0px;
 }
 
-.activity-info-main-image {
-    width: 9cm;
-    height: 22cm;
-    border-radius: 5px;
-    margin-bottom: 1cm;
-}
 
 .activity-info-provider-heading {
-    font-size: 1.5rem;
+    font-size: 1.4vw;
     font-family: 'Poppins', sans-serif;
     color: #1F4EA3;
-    margin-right: 10px;
+    margin-left: 2vw;
+
 }
 
 .activity-info-provider-details {
-    font-size: 1.5rem;
+    font-size: 1vw;
     font-family: 'Poppins', sans-serif;
     color: #1F4EA3;
     text-align: left;
     margin-bottom: 0.5cm;
+    margin-left: 2vw;
 }
 
 .activity-info-provider-image {
-    width: 10cm;
-    height: 10cm;
+    width: 12vw;
+    height: 13vw;
     border-radius: 5px;
     object-fit: cover;
+    margin-left: 2vw;
+
 }
 
 .activity-info-trainers-heading {
-    font-size: 1.5rem;
+    font-size: 1.4vw;
     margin-bottom: 0.5cm;
     font-family: 'Poppins', sans-serif;
+    margin-left: 2vw;
+
 }
 
 .activity-info-trainers {
     display: flex;
-
     width: 100%;
+    margin-left: 1.5vw;
+
 }
 
 .activity-info-trainer-image {
-    width: 2cm;
-    height: 2cm;
+    width: 3.3vw;
+    height: 3.3vw;
     margin-left: 10px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 4.0cm;
 }
 
-/* 
-@media (max-width: 1200px) {
-
-    .activity-info-header-content,
-    .activity-info-content {
-        padding: 0 2cm;
-    }
-
-    .activity-info-left-section,
-    .activity-info-right-section {
-        width: 100%;
-    }
-
-    .activity-info-left-section .activity-info-image {
-        width: 100%;
-        height: auto;
-    }
-
-    .activity-info-right-section .activity-info-main-image {
-        width: 100%;
-        height: auto;
-    }
-
-    .activity-info-provider-image {
-        width: 6cm;
-        height: 6cm;
-    }
-
-    .activity-info-trainers .activity-info-trainer-image {
-        width: 3cm;
-        height: 3cm;
-    }
-} */
-
-/* Media Query for max-width 1080px */
 @media (max-width: 1080px) {
     .activity-info-content {
         display: flex;
@@ -430,7 +419,7 @@
 }
 
 /* Media Query for min-width 1800px */
-@media (min-width: 1800px) {
+@media (min-width: 1980px) {
     .activity-info-home-icon {
         font-size: 20px;
     }
@@ -575,7 +564,7 @@
 
     .activity-info-header-content,
     .activity-info-content {
-        padding: 0 5%;
+        padding: 0 8vw;
     }
 
     .activity-info-icon {
@@ -617,13 +606,13 @@
     }
 
     .activity-info-image {
-        width: 80%;
+        width: 55vw;
         height: 20cm;
     }
 
     .activity-info-description {
-        font-size: 2.2rem;
-        min-width: 34cm;
+        font-size: 2rem;
+        min-width: 55vw;
     }
 
     .activity-info-main-image {
@@ -641,6 +630,9 @@
     .activity-info-provider-image {
         width: 10cm;
         height: 10cm;
+    }
+    .activity-info-iframe-container iframe{
+        width: 55vw;
     }
 
     .activity-info-trainer-image {
