@@ -11,7 +11,7 @@ import ActivityImg2 from './assets/images/foot1.jpg';
 import ActivityImg3 from './assets/images/foot2.jpg';
 import LocationImg from './assets/images/mapimg.png';
 import providerImg from './assets/images/abc.png'
-import Header2 from './Header2';
+import Header from './Header';
 import { FaChevronRight } from 'react-icons/fa';
 const ActivityInfo = () => {
     const [course, setCourse] = useState(null);
@@ -76,7 +76,7 @@ const ActivityInfo = () => {
 
     return (
         <div className="activity-info-container">
-            <Header2 className='activity-info-header' />
+            <Header className='activity-info-header' />
             <div className="activity-info-gap"></div>
             <div className="activity-info-gap"></div>
             <div className="activity-info-header-content">
