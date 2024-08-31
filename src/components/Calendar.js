@@ -58,7 +58,7 @@ const CustomDatePickerWrapper = styled.div`
 
   justify-content: center;
     padding-top: 1cm;
-    height: 17cm;
+    height: 90%;
     border-radius: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     margin-top: 10px;
@@ -248,6 +248,45 @@ const CustomDatePickerWrapper = styled.div`
   //     }
   //   }
   // }
+  @media (max-width:1500px){
+  height: 10cm;
+    width: 10cm;
+    padding: 20px;
+
+    .calendar-content {
+      height: 13cm;
+      padding: 10px;
+    }
+      .date-line {
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #001689;
+    margin-left: 20px;
+    margin-bottom:5px;
+  }
+     .react-datepicker__day-names {
+      font-size: 1.2rem;
+    }
+
+    .react-datepicker__day {
+      width: 30px;
+      height: 30px;
+      font-size: 1rem;
+    }
+      .custom-date-header {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .custom-date-header{
+      font-size: 1.2rem;    
+    }
+    .custom-date-header-time {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+  }
   @media (min-width: 1800px) {
     height: 25cm;
     width: 15cm;

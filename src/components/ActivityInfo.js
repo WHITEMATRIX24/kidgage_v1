@@ -135,6 +135,7 @@ const ActivityInfo = () => {
                     <div className="activity-info-gap"></div>
                     <div className="activity-info-gap"></div>
                     <div className="activity-info-main-image"><Calendar /></div>
+                    <div className='activity-info-gap'></div>
                     <h3 className="activity-info-provider-heading">Activity Provided By</h3>
                     <p className="activity-info-provider-details">
                         ABC Sports Center <br />

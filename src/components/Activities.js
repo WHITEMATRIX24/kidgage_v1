@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { Pagination } from '@mui/material';
 import Box from '@mui/material/Box';
 import image from '../components/assets/images/image.png';
-import banner1 from '../components/assets/images/poster1.png'
-import banner2 from '../components/assets/images/poster3.png'
+import banner1 from '../components/assets/images/AD01.png'
+import banner2 from '../components/assets/images/AD02 copfy.png'
 import football1 from '../components/assets/images/foot1.jpg'
 import football2 from '../components/assets/images/foot2.jpg'
 import football from '../components/assets/images/child-613199_1280.jpg'
