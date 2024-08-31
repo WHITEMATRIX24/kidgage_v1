@@ -9,6 +9,8 @@ import ActivityImg1 from './assets/images/foot.jpg';
 import ActivityImg2 from './assets/images/foot1.jpg';
 import ActivityImg3 from './assets/images/foot2.jpg';
 import providerImg from './assets/images/abc.png';
+import Trainer1 from './assets/images/trainer1.jpeg'
+import Trainer2 from './assets/images/traner2.jpeg'
 import Header2 from './Header2';
 
 const ActivityInfo = () => {
@@ -120,10 +122,10 @@ const ActivityInfo = () => {
                         </li>
                     </div>
                     <div className="activity-info-iframe-container">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d230887.07868672788!2d51.20014492646293!3d25.283681348778437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45dd377cd38775%3A0xe68469655a0ba81c!2sSparta%20Sports%20Academy!5e0!3m2!1sen!2sin!4v1725102503113!5m2!1sen!2sin" 
-                            allowFullScreen="" 
-                            loading="lazy" 
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115436.81334236015!2d51.42664383993854!3d25.290747612501807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45dd496bdae6f5%3A0x8e62e52b05668a3f!2zQXNjIHNwb3J0IFNoZXJib3JuZSDYp9mKINin2LMg2LPZiiDYp9iz2KjZiNix2Kog2LTZitix2KjZiNmG!5e0!3m2!1sen!2sin!4v1725110558742!5m2!1sen!2sin"
+                            allowFullScreen=""
+                            loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
@@ -142,10 +144,10 @@ const ActivityInfo = () => {
 
                     <h3 className="activity-info-trainers-heading">Trained by</h3>
                     <div className="activity-info-trainers">
-                        <img src={ActivityImg1} alt="trainer-image" className="activity-info-trainer-image" />
-                        <img src={ActivityImg1} alt="trainer-image" className="activity-info-trainer-image" />
-                        <img src={ActivityImg1} alt="trainer-image" className="activity-info-trainer-image" />
-                        <img src={ActivityImg1} alt="trainer-image" className="activity-info-trainer-image" />
+                        <img src={Trainer1} alt="trainer-image" className="activity-info-trainer-image" />
+                        <img src={Trainer2} alt="trainer-image" className="activity-info-trainer-image" />
+                        <img src={Trainer1} alt="trainer-image" className="activity-info-trainer-image" />
+                        <img src={Trainer2} alt="trainer-image" className="activity-info-trainer-image" />
                     </div>
                 </div>
             </div>
