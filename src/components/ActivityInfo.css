@@ -352,7 +352,7 @@
 
     .activity-info-header-content,
     .activity-info-content {
-        padding: 0 1cm;
+        padding: 0 30px;
         width: 100%;
     }
 
@@ -363,7 +363,8 @@
 
     .activity-info-action-btn {
         width: 2cm;
-        font-size: 1rem;
+        font-size: .8rem;
+        padding: 5px 10px;
     }
 
     .activity-info-home {
@@ -374,7 +375,13 @@
     .activity-info-icon {
         width: 30px;
         height: 30px;
-        font-size: 14px;
+        font-size: 30px;
+
+    }
+
+    .activity-info-icon-icon {
+
+        font-size: 30px;
 
     }
 
@@ -393,12 +400,26 @@
     }
 
     .activity-info-left-section .activity-info-heading {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         margin-bottom: 0.5cm;
     }
 
     .activity-info-left-section .activity-info-image {
-        height: 8cm;
+        height: 60vw;
+        width: 80vw;
+    }
+
+    .activity-info-heading-location {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .activity-info-location {
+        margin-top: 10px;
+        font-size: 1vw;
+        font-family: 'Poppins', sans-serif;
+        color: #545454;
+
     }
 
     .activity-info-location-image {
@@ -408,9 +429,11 @@
     }
 
     .activity-info-description {
+        min-width: 80vw;
         width: 100%;
         margin-bottom: 20px;
-        font-size: 1rem;
+        font-size: .8rem;
+        margin-right: 0;
     }
 
     .activity-info-right-section .activity-info-main-image {

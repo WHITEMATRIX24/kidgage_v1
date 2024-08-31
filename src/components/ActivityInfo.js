@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './ActivityInfo.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTheaterMasks, faMusic, faLocationArrow, faBookmark, faHome, faMapLocation, faLocation, faLocationDot, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faTheaterMasks, faMusic, faLocationArrow, faBookmark, faHome, faMapLocation, faLocation, faLocationDot, faChevronRight, faFootball } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import Footer from './Footer';
 import Calendar from './Calendar';
@@ -100,7 +100,7 @@ const ActivityInfo = () => {
                 </div>
                 <div className="activity-info-item">
                     <div className="activity-info-icon">
-                        <FontAwesomeIcon icon={faMusic} fontSize={'12px'} />
+                        <FontAwesomeIcon icon={faFootball} className='activity-info-icon-icon' />
                     </div>
                     <span className='activity-info-icon-text'>Football</span>
                 </div>
