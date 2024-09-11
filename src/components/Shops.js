@@ -1,118 +1,88 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import "./Shops.css";
+import React, { useState } from 'react';
+import './Shops.css';  // Import the new CSS file
+import th1 from './assets/images/thumbnail1.png';
+import th2 from './assets/images/thumbnail2.png';
+import th3 from './assets/images/thumbnail3.png';
+import th4 from './assets/images/main-image.png';
+import Footer from './Footer';
+import Header from './Header';
 
 const Shops = () => {
-  const navigate = useNavigate();
+  const [selectedImage, setSelectedImage] = useState(th1);
+  const images = [th1, th2, th3, th4];
 
-  const handlePlanClick = () => {
-    navigate("/details", { state: { from: "shops" } });
-  };
+  const options = [
+    { months: '1 Month', price: '$24.95' },
+    { months: '3 Months', price: '$69.85' },
+    { months: '6 Months', price: '$129.70' },
+    { months: '12 Months', price: '$239.40' },
+  ];
+
+  const reviews = [
+    {
+      name: 'Jane Doe',
+      text: 'My kids love these boxes! The projects are fun and educational, and we always look forward to the next one.',
+    },
+    {
+      name: 'John Smith',
+      text: 'Great quality and value for the price. Perfect for keeping my little ones entertained and learning!',
+    },
+  ];
 
   return (
-    <div className="shops-container">
-      <div className="shops-content">
-        <h1>SHOP</h1>
-        <p className="intro-text">
-          As you can see, our list of subscription boxes for kids has quite a mix of genres and age ranges. It goes without saying, but a 1-year-old and a 17-year-old are almost always interested in completely different things. So, if you're looking for a more specific age range for subscription boxes, check out our award-winning subscription boxes for 2024:
-        </p>
-        <p className="hashtag">#subscriptionbox</p>
-        <h1>Subscription Plans</h1>
-        <div className="plan-tiles">
-          {/* For Ages 1-3 */}
-          <div className="plan-tile">
-            <h2>For Ages 1-3</h2>
-            <div className="plan-content">
-              <div className="plan-item" onClick={handlePlanClick}>
-                <h3>Early Learning Box</h3>
-                <ul>
-                  <li>Sensory toys</li>
-                  <li>Board books</li>
-                  <li>Educational puzzles</li>
-                  <li>Interactive learning games</li>
-                </ul>
-              </div>
-              <div className="plan-item" onClick={handlePlanClick}>
-                <h3>Creative Play Box</h3>
-                <ul>
-                  <li>Soft play toys</li>
-                  <li>Washable art supplies</li>
-                  <li>Simple craft kits</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+    <div>
+      {/* Header */}
+      <Header/>
 
-          {/* For Ages 4-7 */}
-          <div className="plan-tile">
-            <h2>For Ages 4-7</h2>
-            <div className="plan-content">
-              <div className="plan-item" onClick={handlePlanClick}>
-                <h3>STEM Explorers Box</h3>
-                <ul>
-                  <li>Simple science experiments</li>
-                  <li>Building kits</li>
-                  <li>Educational games</li>
-                </ul>
-              </div>
-              <div className="plan-item" onClick={handlePlanClick}>
-                <h3>Storytime Adventure Box</h3>
-                <ul>
-                  <li>Themed books</li>
-                  <li>Character-based puzzles</li>
-                  <li>Storytelling activities</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* For Ages 8-12 */}
-          <div className="plan-tile">
-            <h2>For Ages 8-12</h2>
-            <div className="plan-content">
-              <div className="plan-item" onClick={handlePlanClick}>
-                <h3>Young Inventors Box</h3>
-                <ul>
-                  <li>DIY science projects</li>
-                  <li>Robotics kits</li>
-                  <li>Coding challenges</li>
-                </ul>
-              </div>
-              <div className="plan-item" onClick={handlePlanClick}>
-                <h3>Artistic Genius Box</h3>
-                <ul>
-                  <li>Advanced art supplies</li>
-                  <li>Instructional guides</li>
-                  <li>Creative projects</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* For Ages 13-17 */}
-          <div className="plan-tile">
-            <h2>For Ages 13-17</h2>
-            <div className="plan-content">
-              <div className="plan-item" onClick={handlePlanClick}>
-                <h3>Tech Enthusiasts Box</h3>
-                <ul>
-                  <li>Gadgets</li>
-                  <li>Programming challenges</li>
-                  <li>Tech-themed accessories</li>
-                </ul>
-              </div>
-              <div className="plan-item" onClick={handlePlanClick}>
-                <h3>Creative Writers Box</h3>
-                <ul>
-                  <li>Writing prompts</li>
-                  <li>Journals</li>
-                  <li>Literary tools</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+     <div className='shops-top'>
+       {/* Product Images */}
+       <div className="image-container">
+        <img className="main-image" src={selectedImage} alt="Product" />
+        <div className="thumbnail-container">
+          {images.map((image, index) => (
+            <img
+              key={index}
+              className={`thumbnail ${selectedImage === image ? 'active' : ''}`}
+              src={image}
+              alt={`Thumbnail ${index + 1}`}
+              onClick={() => setSelectedImage(image)}
+            />
+          ))}
         </div>
       </div>
+
+      {/* Product Details */}
+     <div className='shops-right'>
+     <div className="details-container">
+        <h1 className="product-title">Green Kid Crafts Subscription Box</h1>
+        <p className="price">QAR. 24.95 per month</p>
+        <p className="description">
+          Green Kid Crafts is a monthly subscription box that fosters creativity and learning for kids through eco-friendly, hands-on science and art projects.
+        </p>
+      </div>
+
+      {/* Subscription Options */}
+      <div className="options-container">
+        {options.map((option, index) => (
+          <div key={index} className="option">
+            <strong>{option.months}</strong> - {option.price}
+          </div>
+        ))}
+      </div>
+     </div>
+     </div>
+
+      {/* Customer Reviews */}
+      <div className="reviews-container">
+        {reviews.map((review, index) => (
+          <div key={index} className="review">
+            <p className="reviewer-name">{review.name}</p>
+            <p className="review-text">{review.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <Footer/>
     </div>
   );
 };

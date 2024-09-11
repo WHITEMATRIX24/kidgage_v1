@@ -38,3 +38,7 @@ body {
 .home {
     background-color: #fff;
 }
+/* Home.css */
+.no-scroll {
+  overflow: hidden;
+}

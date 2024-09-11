@@ -285,48 +285,131 @@
 /* Media Query for max-width 768px */
 @media (max-width: 768px) {
     .activity-info-header {
-        height: 1.5cm;
-        font-size: 1.2rem;
+        height: 1.2cm;
+        font-size: 1rem;
+    }
+
+    .location-details li {
+        list-style: none;
+        display: flex;
+        gap: 10px;
+    }
+
+    .location-details li a {
+        list-style: none;
+        display: flex;
+        font-size: 13px;
+        gap: 10px;
     }
 
     .activity-info-header-content,
     .activity-info-content {
-        padding: 0 1.5cm;
+        padding: 0 10vw;
+        width: 100%;
+    }
+
+    .activity-info-home-icon {
+        font-size: 15px;
+        margin-left: 0px;
+
+    }
+
+    .activity-info-action-btn {
+        width: 2.2cm;
+        font-size: .9rem;
+        padding: 5px 10px;
+    }
+
+    .activity-info-home {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .activity-info-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 30px;
+
+    }
+
+    .activity-info-icon svg {
+        height: 15px;
+
+    }
+
+    .activity-info-icon-text {
+        font-size: 14px;
+    }
+
+    .activity-info-gap {
+        height: 10px;
+    }
+
+    .activity-info-header-content,
+    .activity-info-content {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .activity-info-actions {
-        gap: 0.5cm;
+    .activity-info-left-section .activity-info-heading {
+        font-size: 1.3rem;
+        margin-bottom: 0.5cm;
     }
 
     .activity-info-left-section .activity-info-image {
-        height: 10cm;
+        height: 50vw;
+        width: 80vw;
     }
 
-    .activity-info-right-section {
+    .activity-info-heading-location {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .activity-info-location {
+        margin-top: 10px;
+        font-size: 1vw;
+        font-family: 'Poppins', sans-serif;
+        color: #545454;
+
+    }
+
+    .activity-info-location-image {
         width: 100%;
+        height: auto;
+        margin-top: 20px;
+    }
+
+    .activity-info-description {
+        min-width: 80vw;
+        width: 100%;
+        margin-bottom: 20px;
+        font-size: .8rem;
+        margin-right: 0;
     }
 
     .activity-info-right-section .activity-info-main-image {
+        width: 100%;
         height: 14cm;
-        margin-bottom: 7cm;
+        margin-bottom: 3cm;
+
     }
 
     .activity-info-provider-heading,
     .activity-info-provider-details,
     .activity-info-trainers-heading {
-        font-size: 1.2rem;
+        font-size: 1rem;
+        margin-bottom: 20px;
     }
 
     .activity-info-provider-image {
-        width: 4cm;
-        height: 4cm;
+        width: 3cm;
+        height: 3cm;
     }
 
     .activity-info-trainers .activity-info-trainer-image {
-        width: 2cm;
-        height: 2cm;
+        width: 1cm;
+        height: 1cm;
     }
 }
 
@@ -335,6 +418,9 @@
     .activity-info-header {
         height: 1.2cm;
         font-size: 1rem;
+    }
+    .activity-info-iframe-container iframe{
+        width: 70vw;
     }
 
     .location-details li {

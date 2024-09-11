@@ -1,0 +1,56 @@
+/* CitySelector.css */
+.city-selector-overlay {
+    position: fixed;
+    top: 90px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.city-selector-modal {
+    background-color: #ffffff8a;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px); /* For Safari support */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 200px;
+    list-style: none;
+}
+
+.city-selector-modal h5 {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.city-selector-modal ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.city-selector-modal li {
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.city-selector-modal li:hover {
+    background-color: #f0f0f0;
+}
+
+.city-selector-modal li:active {
+    background-color: #e0e0e0;
+}
+
+.city-selector-modal li:last-child {
+    margin-bottom: 0;
+}

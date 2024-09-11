@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
 import './Header.css';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
+import { useNavigate } from 'react-router-dom';
 import logo from './assets/images/logo.png';
 import bell from './assets/images/bell.png';
 import hamburger from './assets/images/hamburger.png';
-import Login from './Login'; // Ensure this path is correct
+import Login from './Login';
 
-const Header = () => {
+const Header = ({ userCity, onChangeCity }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const navigate = useNavigate(); // Initialize useNavigate
+    const navigate = useNavigate();
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+
     const handleLogoClick = () => {
-        navigate('/'); // Navigate to root page
+        navigate('/');
     };
+
     return (
         <header className="home-headers">
             <div className="notification-bar">
@@ -26,20 +28,20 @@ const Header = () => {
                 <div className="home-logo" onClick={handleLogoClick}>
                     <img src={logo} alt="KIDGAGE" style={{ cursor: 'pointer' }} />
                 </div>
-                <button 
-                    className="menu-toggle" 
-                    onClick={toggleMenu}
-                >
-                    <img 
-                        src={hamburger} 
-                        alt="Menu" 
-                        className="menu-icon" 
-                    />
-                </button>
-            </div>
+              
+                    <button 
+                        className="menu-toggle" 
+                        onClick={toggleMenu}
+                    >
+                        <img 
+                            src={hamburger} 
+                            alt="Menu" 
+                            className="menu-icon" 
+                        />
+                    </button>
+                </div>
             {isMenuOpen && (
-
-                    <Login closeMenu={toggleMenu}/>
+                <Login closeMenu={toggleMenu}/>
             )}
         </header>
     );

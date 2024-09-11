@@ -22,7 +22,6 @@ import EventDetails from './components/EventDetails';
 import AttendeeInfo from './components/AttendeeInfoPage';
 import WishlistPage from './components/WishListPage';
 import Shops from "./components/Shops";
-import Details from "./components/Details"; // Import the new Details component
 import ActivityInfo from "./components/ActivityInfo";
 import Activities from "./components/Activities";
 import Gymnastics from './components/ActivityGymnastics';
@@ -81,7 +80,6 @@ function AppContent() {
         <Route path="/activitybaking" element={<ActivityBaking />} />
         <Route path="/activityswimming" element={<ActivitySwimming />} />
         <Route path="/activitymartialarts" element={<ActivityMartialArts />} />
-        <Route path="/details" element={<Details />} />{" "}
 
       </Routes>
     </ScrollToTop>
