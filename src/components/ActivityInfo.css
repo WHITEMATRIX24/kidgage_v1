@@ -265,6 +265,12 @@
         flex-direction: column;
         align-items: flex-start;
     }
+
+    .activity-info-right-section .activity-info-main-image {
+        height: 60vw;
+        margin-bottom: 4vw;
+    }
+
 }
 
 @media (max-width: 1500px) {
@@ -278,7 +284,16 @@
     }
 
     .activity-info-main-image {
-        height: 55vw;
+        height: 43vw;
+        margin-bottom: 4vw;
+    }
+}
+
+@media (max-width: 1900px) {
+
+    .activity-info-main-image {
+        height: 40vw;
+        margin-bottom: 2vw;
     }
 }
 
@@ -616,7 +631,7 @@
     }
 
     .activity-info-image {
-        width: 28cm;
+        max-width: 28cm;
         height: 16cm;
     }
 
@@ -627,7 +642,7 @@
 
     .activity-info-main-image {
         width: 11cm;
-        height: 24cm;
+        height: 40vw;
     }
 
     .activity-info-provider-heading,
@@ -660,7 +675,7 @@
     }
 
     .activity-info-image {
-        width: 28cm;
+        max-width: 38cm;
         height: 18cm;
     }
 
@@ -671,7 +686,7 @@
 
     .activity-info-main-image {
         width: 12cm;
-        height: 26cm;
+        height: 40vw;
     }
 
     .activity-info-provider-heading,
@@ -681,8 +696,8 @@
     }
 
     .activity-info-provider-image {
-        width: 14cm;
-        height: 14cm;
+        width: 15vw;
+        height: 15vw;
     }
 
     .activity-info-trainer-image {
@@ -741,7 +756,7 @@
     }
 
     .activity-info-image {
-        width: 55vw;
+        min-width: 55vw;
         height: 20cm;
     }
 
