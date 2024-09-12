@@ -1,22 +1,58 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Header.css';
 import { useNavigate } from 'react-router-dom';
 import logo from './assets/images/logo.png';
 import bell from './assets/images/bell.png';
+import CitySelector from './CitySelector';
 import hamburger from './assets/images/hamburger.png';
 import Login from './Login';
 
-const Header = ({ userCity, onChangeCity }) => {
+const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [city, setCity] = useState(localStorage.getItem('selectedCity') || '');
+    const [isCitySelectorOpen, setIsCitySelectorOpen] = useState(false);
     const navigate = useNavigate();
 
+    // Handle city selection
+    const handleCitySelect = (selectedCity) => {
+        setCity(selectedCity);
+        localStorage.setItem('selectedCity', selectedCity);
+        setIsCitySelectorOpen(false);
+    };
+
+    // Function to close the CitySelector modal
+    const handleCitySelectorClose = () => {
+        setIsCitySelectorOpen(false);
+    };
+
+    // Toggle the menu for the hamburger icon
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
+    // Handle logo click navigation
     const handleLogoClick = () => {
         navigate('/');
     };
+
+    // Disable scrolling when the city selector modal is open
+    useEffect(() => {
+        if (isCitySelectorOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+    }, [isCitySelectorOpen]);
+
+    // Show city selector after 3 seconds if no city is selected
+    useEffect(() => {
+        if (!city) {
+            const timer = setTimeout(() => {
+                setIsCitySelectorOpen(true);
+            }, 1000);
+            return () => clearTimeout(timer);
+        }
+    }, [city]);
 
     return (
         <header className="home-headers">
@@ -28,20 +64,27 @@ const Header = ({ userCity, onChangeCity }) => {
                 <div className="home-logo" onClick={handleLogoClick}>
                     <img src={logo} alt="KIDGAGE" style={{ cursor: 'pointer' }} />
                 </div>
-              
+                <div className="city-section">
+                    <span className="selected-city" onClick={() => setIsCitySelectorOpen(true)}>
+                        {city ? `${city}` : 'Select Your City'}
+                    </span>
                     <button 
-                        className="menu-toggle" 
-                        onClick={toggleMenu}
-                    >
-                        <img 
-                            src={hamburger} 
-                            alt="Menu" 
-                            className="menu-icon" 
-                        />
-                    </button>
+                    className="menu-toggle" 
+                    onClick={toggleMenu}
+                >
+                    <img 
+                        src={hamburger} 
+                        alt="Menu" 
+                        className="menu-icon" 
+                    />
+                </button>
                 </div>
+            </div>
             {isMenuOpen && (
-                <Login closeMenu={toggleMenu}/>
+                <Login closeMenu={toggleMenu} />
+            )}
+            {isCitySelectorOpen && (
+                <CitySelector onCitySelect={handleCitySelect} onClose={handleCitySelectorClose} />
             )}
         </header>
     );
