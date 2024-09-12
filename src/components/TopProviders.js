@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom'; // Import Link
 import "./TopProviders.css";
-import badge from './assets/images/badge.jpg';
-import badgem from './assets/images/badgem.png';
 
 
 const TopProviders = () => {
@@ -18,7 +16,7 @@ const TopProviders = () => {
     // Fetch the providers from the backend
     const fetchProviders = async () => {
       try {
-        const response = await axios.get('https://kidgage-backend.onrender.com/api/users/all'); // Adjust the endpoint if necessary
+        const response = await axios.get('http://localhost:5000/api/users/all'); // Adjust the endpoint if necessary
         setProviders(response.data);
       } catch (error) {
         console.error('Error fetching providers:', error);
