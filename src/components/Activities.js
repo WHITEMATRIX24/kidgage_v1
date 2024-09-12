@@ -297,78 +297,78 @@ const Activities = () => {
             {/* card 1 */}
             <div className='card-container'>
                 <div className='card-container-top'>
-                    {nonPromotedActivities.map((activity) => (
-                        <div className="activity-card cards" key={activity.id}>
-                            <div className="activity-image">
-                                <img src={activity.image} alt="Activity Image" />
+                {[...nonPromotedActivities, ...courses].map((item) => (
+    <div className="activity-card cards" key={item.id || item._id}>
+        <div className="activity-image">
+            <img src={item.image || (item.images && item.images[0])} alt="Activity Image" />
+        </div>
+        <div className="activity-details">
+            <div className='activity-card-in'>
+                <div className='info-with-img'>
+                    <div className='descp'>
+                        <h3>{item.title || item.name}</h3>
+                        <div>
+                            <p className="location">
+                                <i className="fa-solid fa-location-dot"></i>
+                                <span style={{ marginLeft: '5px' }}>{item.location.join ? item.location.join(', ') : item.location}</span>
+                            </p>
+                        </div>
+                        <div className="info-row">
+                            <img src={item.baby || '/path-to-default-baby-image.jpg'} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
+                            <div className="age-group">
+                                <span className="age-text">{item.ageRange}</span>
                             </div>
-                            <div className="activity-details">
-                                <div className='activity-card-in'>
-                                    <div className='info-with-img'>
-                                        <div className='descp'>
-                                            <h3>{activity.title}</h3>
-                                            <div>
-                                                <p className="location">
-                                                    <i className="fa-solid fa-location-dot"></i>
-                                                    <span style={{ marginLeft: '5px' }}>{activity.location}</span>
-                                                </p>
-                                            </div>
-                                            <div className="info-row">
-                                                <img src={activity.baby} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
-                                                <div className="age-group">
-                                                    <span className="age-text">{activity.ageRange}</span>
-                                                </div>
-                                                <img src={activity.calendar} alt='calendar' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
-                                                <div className="day-selector">
-                                                    {activity.days.map((day) => (
-                                                        <span key={day} className={`day ${activity.activeDays.includes(day) ? 'active' : ''}`}>
-                                                            {day}
-                                                        </span>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                            {/* Flex container for description and logo image */}
-                                            <div className={`description-logo-container ${openDropdowns[activity.id] ? 'show' : 'hide'}`}>
-                                                <p className="activity-description">{activity.description}</p>
-                                                <div className="additional-info">
-                                                    <div className="info-image">
-                                                        <img src={activity.logoImage} alt="Info Image" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div style={{ height: '3px' }}></div>
-                                    </div>
-                                </div>
-
-                                {/* Chevron dropdown for smaller screens only */}
-                                <div className="chevron-dropdown" onClick={() => toggleDropdown(activity.id)}>
-                                    <i className="fa-solid fa-chevron-down"></i>
-                                </div>
-
-                                {/* Activity Actions Section */}
-                                <div className={`activity-actions ${openDropdowns[activity.id] ? 'show' : 'hide'}`}>
-                                    <div className='activity-buttons'>
-                                        <button className="book-now" style={{ backgroundColor: '#5EA858' }} onClick={() => sendMessage(activity.title, activity.location)}>
-                                            <i className="fa-brands fa-whatsapp"></i>
-                                            <span style={{ marginLeft: '5px', fontWeight: 'bold' }}>Book Now</span>
-                                        </button>
-                                        <button className="share" style={{ backgroundColor: '#3880C4' }}>
-                                            <i className="fa-solid fa-share"></i>
-                                            <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Share</span>
-                                        </button>
-                                        <button className="save" style={{ backgroundColor: '#3880C4' }}>
-                                            <i className="fa-regular fa-bookmark"></i>
-                                            <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Save</span>
-                                        </button>
-                                    </div>
-                                    <div className='more-btn'>
-                                        <button className="more">See more from this provider</button>
-                                    </div>
+                            <img src={item.calendar || '/path-to-default-calendar-image.jpg'} alt='calendar' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
+                            <div className="day-selector">
+                                {item.days.map((day) => (
+                                    <span key={day} className={`day ${item.activeDays?.includes(day) ? 'active' : ''}`}>
+                                        {day}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                        <div className={`description-logo-container ${openDropdowns[item.id || item._id] ? 'show' : 'hide'}`}>
+                            <p className="activity-description">{item.description}</p>
+                            <div className="additional-info">
+                                <div className="info-image">
+                                    <img src={item.logoImage || '/path-to-default-logo.jpg'} alt="Info Image" />
                                 </div>
                             </div>
                         </div>
-                    ))}
+                    </div>
+                    <div style={{ height: '3px' }}></div>
+                </div>
+            </div>
+
+            {/* Chevron dropdown for smaller screens only */}
+            <div className="chevron-dropdown" onClick={() => toggleDropdown(item.id || item._id)}>
+                <i className="fa-solid fa-chevron-down"></i>
+            </div>
+
+            {/* Activity Actions Section */}
+            <div className={`activity-actions ${openDropdowns[item.id || item._id] ? 'show' : 'hide'}`}>
+                <div className='activity-buttons'>
+                    <button className="book-now" style={{ backgroundColor: '#5EA858' }} onClick={() => sendMessage(item.title || item.name, item.location.join ? item.location.join(', ') : item.location)}>
+                        <i className="fa-brands fa-whatsapp"></i>
+                        <span style={{ marginLeft: '5px', fontWeight: 'bold' }}>Book Now</span>
+                    </button>
+                    <button className="share" style={{ backgroundColor: '#3880C4' }}>
+                        <i className="fa-solid fa-share"></i>
+                        <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Share</span>
+                    </button>
+                    <button className="save" style={{ backgroundColor: '#3880C4' }}>
+                        <i className="fa-regular fa-bookmark"></i>
+                        <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Save</span>
+                    </button>
+                </div>
+                <div className='more-btn'>
+                    <button className="more">See more from this provider</button>
+                </div>
+            </div>
+        </div>
+    </div>
+))}
+
                     <div style={{ height: '0px' }}></div>
                 </div>
 
