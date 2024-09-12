@@ -37,7 +37,7 @@ const CTypeSlider = ({ viewAll }) => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get('/api/course-category/categories');
+        const response = await axios.get('http://localhost:5000/api/course-category/categories');
         const fetchedCategories = response.data;
         setCategories(fetchedCategories);
 
@@ -45,9 +45,9 @@ const CTypeSlider = ({ viewAll }) => {
         const fees = {};
         await Promise.all(fetchedCategories.map(async (category) => {
           try {
-            const providerResponse = await axios.get(`https://kidgage-backend.onrender.com/api/users/all/${category.name}`);
+            const providerResponse = await axios.get(`'http://localhost:5000/api/users/all/${category.name}`);
             const providerIds = providerResponse.data.map(provider => provider._id);
-            const courseResponse = await axios.get('https://kidgage-backend.onrender.com/api/courses/by-providers', {
+            const courseResponse = await axios.get('http://localhost:5000/api/courses/by-providers', {
               params: { providerIds }
             });
             const coursesData = courseResponse.data;
