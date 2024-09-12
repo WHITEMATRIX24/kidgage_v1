@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './UpcomingEvents.css';
 import { useNavigate } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import heart from'./assets/images/heart.png';
+import heart from './assets/images/heart.png';
 
 const WishlistPage = () => {
   const [wishlistEvents, setWishlistEvents] = useState([]);
@@ -11,16 +11,14 @@ const WishlistPage = () => {
   const [showPopup, setShowPopup] = useState(null); // State for popup visibility
   const navigate = useNavigate();
 
+  // Fetch wishlist items from localStorage
   useEffect(() => {
-    const fetchWishlistEvents = async () => {
+    const fetchWishlistEvents = () => {
       try {
         setLoading(true);
-        const response = await fetch('https://kidgage-backend.onrender.com/api/posters?wishlist=true');
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-        setWishlistEvents(data);
+        const storedWishlist = localStorage.getItem('wishlistEvents');
+        const wishlist = storedWishlist ? JSON.parse(storedWishlist) : [];
+        setWishlistEvents(wishlist);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching wishlist events:', error);
@@ -63,21 +61,12 @@ const WishlistPage = () => {
     return null;
   };
 
-  const removeFromWishlist = async (eventId) => {
+  // Remove item from localStorage wishlist
+  const removeFromWishlist = (eventId) => {
     try {
-      const response = await fetch(`https://kidgage-backend.onrender.com/api/posters/${eventId}/wishlist`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ wishlist: false }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to update wishlist');
-      }
-
-      setWishlistEvents(wishlistEvents.filter(event => event._id !== eventId));
+      const updatedWishlist = wishlistEvents.filter(event => event._id !== eventId);
+      localStorage.setItem('wishlistEvents', JSON.stringify(updatedWishlist));
+      setWishlistEvents(updatedWishlist);
       setShowPopup('removed'); // Show popup on success
     } catch (error) {
       console.error('Error removing from wishlist:', error);
@@ -92,7 +81,7 @@ const WishlistPage = () => {
         </div>
       )}
       <div className="wishlist-events-heading">
-        <img src={heart}></img>
+        <img src={heart} alt="wishlist-heart" />
         <h2> My Wishlist</h2>
       </div>
 
@@ -113,10 +102,8 @@ const WishlistPage = () => {
                     <h4 className='event-description'>{event.description}</h4>
                     <h4>{formatDate(event.startDate)} - {formatDate(event.endDate)}</h4>
                     <a href={event.location}>View Location</a>
-                    
+
                     <button id="book-now" onClick={() => bookNow(event)}><i className="fas fa-arrow-right"></i>BOOK NOW</button>
-                    {/* <button id="calendar"><i className="fa-regular fa-calendar-plus"></i></button>
-                    <button id="call"><i className="fa-solid fa-phone"></i></button> */}
                     <button id="wishlist" onClick={() => removeFromWishlist(event._id)}>
                       <i className="fa-solid fa-heart-crack"></i>
                     </button>
