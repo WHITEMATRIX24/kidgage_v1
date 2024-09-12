@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Pagination } from '@mui/material';
 import Box from '@mui/material/Box';
@@ -21,7 +20,9 @@ import Footer from './Footer';
 import Header2 from './Header2';
 import ico from './assets/images/ico.png';
 import SearchBar from './SearchBar';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
 
 const activities = [
@@ -132,7 +133,12 @@ const activities = [
 
 
 const Activities = () => {
-
+    const location = useLocation();
+    const { category } = location.state || {}; // Get category from state, fallback to empty object
+    const [courses, setCourses] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+  
     // Separate the activities based on their promoted status
     const promotedActivities = activities.filter(activity => activity.promoted);
     const nonPromotedActivities = activities.filter(activity => !activity.promoted);
@@ -159,16 +165,47 @@ const Activities = () => {
             [id]: !prevOpenDropdowns[id],
         }));
     };
-
-
-
+    useEffect(() => {
+        const fetchCourses = async () => {
+          try {
+            const response = await axios.get('http://localhost:5000/api/courses/by-course-type', {
+              params: { courseType: category }
+            });
+            setCourses(response.data);
+            setLoading(false);
+          } catch (error) {
+            setError('Error fetching courses');
+            setLoading(false);
+          }
+        };
+    
+        if (category) {
+          fetchCourses();
+        }
+      }, [category]);
+    
     return (
         <>
             {/* Fixed Navbar */}
             <Header2 />
             <SearchBar />
+            
             {/* promoted */}
-            <div style={{ height: '22px' }}></div>
+            <div style={{ height: '22px' }}>
+                    {/* <div className="activities-list">
+                {courses.length > 0 ? (
+                courses.map((course, index) => (
+                    <div key={index} className="course-item">
+                    <h2 className="course-name">{course.name}</h2>
+                    <p className="course-description">{course.description}</p>
+                    <p className="course-fee">Fee: QAR {course.feeAmount}</p>
+                    </div>
+                ))
+                ) : (
+                <p>No courses available for this category.</p>
+                )}
+            </div> */}
+            </div>
 
             <div className='promoted-container'>
                 {/* promoted card 1 */}
@@ -222,10 +259,7 @@ const Activities = () => {
                                     <div className="pinfo-image" style={{ marginLeft: '0px' }}>
                                         <img src={activity.logoImage} alt="Info Image" style={{ width: '100%', height: 'auto' }} />
                                     </div>
-                                    {/* <div className="activity-reviewss" style={{ marginLeft: '0px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                                        <span className="star-rating">{activity.rating}</span>
-                                        <span className='review-text'>{activity.reviews}</span>
-                                    </div> */}
+                                
                                 </div>
                             </div>
                             {/* Activity Actions Section */}
@@ -338,73 +372,6 @@ const Activities = () => {
                     <div style={{ height: '0px' }}></div>
                 </div>
 
-                {/*<div className="pagination-container">
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            justifyContent: 'center', // Center align the pagination
-                            margin: '0 auto', // Center container horizontally
-                        }}
-                    >
-                        <Pagination
-                            count={10}
-                            shape="rounded"
-                            boundaryCount={10}
-                            siblingCount={10}
-                            sx={{
-                                "& .MuiPaginationItem-root": {
-                                    fontSize: "1.5rem", // Adjust font size
-                                    padding: "6px 12px", // Adjust padding for size
-                                    backgroundColor: "rgba(173, 216, 230, 0.3)", // Light background for all items
-                                    color: "#333", // Text color for non-selected items
-                                    "&:hover": {
-                                        backgroundColor: "rgba(173, 216, 230, 0.5)", // Slightly darker on hover
-                                    },
-                                    "&.Mui-selected": {
-                                        backgroundColor: "#3880C4", // Darker background for the selected item
-                                        color: "white", // White text for the selected item
-                                        boxShadow: "0 0 8px rgba(0, 0, 0, 0.3)", // Add a slight shadow for emphasis
-                                    },
-                                    borderRadius: "12px", // Round the corners more
-                                    margin: "20px 4px", // Small margin between items
-                                    "@media (max-width: 1460px)": {
-                                        fontSize: "0.9rem", // Adjust font size for smaller screens
-                                        padding: "4px 10px", // Adjust padding for smaller screens
-                                        margin: "15px 2px", // Adjust margin for smaller screens
-                                    },
-                                    "@media (max-width: 900px)": {
-                                        fontSize: "0.8rem", // Adjust font size for smaller screens
-                                        padding: "4px 8px", // Adjust padding for smaller screens
-                                        margin: "10px 2px", // Adjust margin for smaller screens
-                                    },
-                                },
-                                "& .MuiPaginationItem-previousNext": {
-                                    border: "2px solid #BDBDBD",
-                                    padding: "10px 20px",
-                                    marginLeft: "150px",
-                                    marginRight: "50px", // Ensure size consistency with the other buttons
-                                    backgroundColor: "rgba(173, 216, 230, 0.3)", // Light background for previous/next
-                                    color: "#333", // Text color for non-selected items
-                                    "&:hover": {
-                                        backgroundColor: "rgba(173, 216, 230, 0.5)", // Slightly darker on hover
-                                    },
-                                    borderRadius: "12px", // Round the corners more
-                                    "@media (max-width: 1460px)": {
-                                        padding: "8px 16px", // Adjust padding for smaller screens
-                                        marginLeft: "100px", // Adjust margin for smaller screens
-                                        marginRight: "30px", // Adjust margin for smaller screens
-                                    },
-                                    "@media (max-width: 900px)": {
-                                        padding: "8px 8px", // Adjust padding for smaller screens
-                                        marginLeft: "10px", // Adjust margin for smaller screens
-                                        marginRight: "10px", // Adjust margin for smaller screens
-                                    },
-                                },
-                            }}
-
-                        />
-                    </Box>
-                </div> */}
 
             </div>
             {/* cards ends */}

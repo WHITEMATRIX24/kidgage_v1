@@ -112,26 +112,7 @@ const CTypeSlider = ({ viewAll }) => {
   };
 
   const handleSlideClick = (categoryName) => {
-    switch (categoryName.toLowerCase()) {
-      case 'swimming':
-        navigate('/activityswimming');
-        break;
-      case 'football':
-        navigate('/activityinfo');
-        break;
-      case 'gymnastics':
-        navigate('/activitygym');
-        break;
-      case 'martial arts':
-        navigate('/activitymartialarts');
-        break;
-      case 'baking':
-        navigate('/activitybaking');
-        break;
-      default:
-        console.warn(`No navigation defined for category: ${categoryName}`);
-        break;
-    }
+    navigate('/activityinfo', { state: { category: categoryName } });
   };
 
   return (
