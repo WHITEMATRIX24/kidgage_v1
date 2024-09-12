@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './UpcomingEvents.css';
-import ChatbotPage from "./ChatbotPage";  // Import the ChatbotPage component
 import { useNavigate } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import chatbotImage from './assets/images/chatbot.png'; // Import the chatbot image
-
 
 const months = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'];
 
@@ -18,7 +16,7 @@ const UpcomingEvents = () => {
   const [error, setError] = useState(null);
   const [showPopup, setShowPopup] = useState(false); // State for popup visibility
   const navigate = useNavigate();
-  const [showChat, setShowChat] = useState(false);
+
   useEffect(() => {
     const fetchEvents = async () => {
       try {
@@ -93,22 +91,21 @@ const UpcomingEvents = () => {
     isEventInSelectedMonth(event.startDate, event.endDate)
   );
 
-  const addToWishlist = async (eventId) => {
+  // Add event to wishlist and store it in local storage
+  const addToWishlist = (event) => {
     try {
-      const response = await fetch(`https://kidgage-backend.onrender.com/api/posters/${eventId}/wishlist`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ wishlist: true }),
-      });
+      // Get current wishlist from local storage
+      const storedWishlist = localStorage.getItem('wishlistEvents');
+      const currentWishlist = storedWishlist ? JSON.parse(storedWishlist) : [];
 
-      if (!response.ok) {
-        throw new Error('Failed to update wishlist');
+      // Add the event to the wishlist if it's not already in it
+      const isEventInWishlist = currentWishlist.some(wishlistEvent => wishlistEvent._id === event._id);
+      if (!isEventInWishlist) {
+        const updatedWishlist = [...currentWishlist, event];
+        localStorage.setItem('wishlistEvents', JSON.stringify(updatedWishlist));
+        setWishlist(updatedWishlist); // Update local wishlist state
+        setShowPopup(true); // Show popup on success
       }
-
-      setWishlist([...wishlist, eventId]);
-      setShowPopup(true); // Show popup on success
     } catch (error) {
       console.error('Error adding to wishlist:', error);
     }
@@ -165,16 +162,14 @@ const UpcomingEvents = () => {
                   return (
                     <div key={event._id} className="event-card">
                       <img src={imageUrl} alt={event.name} />
-                      <button id="wishlist" onClick={() => addToWishlist(event._id)}><i className="fa-solid fa-heart-circle-plus"></i></button>
+                      <button id="wishlist" onClick={() => addToWishlist(event)}><i className="fa-solid fa-heart-circle-plus"></i></button>
                       <p className={status === 'Upcoming' ? 'upcoming' : ''}>{status}</p>
                       <h3>{event.name}</h3>
                       <h4 className='event-description'>{event.description}</h4>
                       <span className='date-h4'>{formatDate(event.startDate)} - {formatDate(event.endDate)}</span>
-                      <a href={event.location}>VENUE</a>  
+                      <a href={event.location}>VENUE</a>
 
                       <button id="book-now" onClick={() => bookNow(event)}><i className="fas fa-arrow-right"></i>BOOK NOW</button>
-                      {/* <button id="calendar"><i className="fa-regular fa-calendar-plus"></i></button>
-                      <button id="call"><i className="fa-solid fa-phone"></i></button> */}
                     </div>
                   );
                 })}
@@ -190,7 +185,7 @@ const UpcomingEvents = () => {
           )}
         </>
       )}
-      
+
     </div>
 
   );
