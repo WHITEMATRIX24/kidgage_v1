@@ -168,7 +168,7 @@ const Activities = () => {
     useEffect(() => {
         const fetchCourses = async () => {
           try {
-            const response = await axios.get('http://localhost:5000/api/courses/by-course-type', {
+            const response = await axios.get('https://kidgage-backend.onrender.com/api/courses/by-course-type', {
               params: { courseType: category }
             });
             setCourses(response.data);
