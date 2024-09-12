@@ -37,7 +37,7 @@ const CTypeSlider = ({ viewAll }) => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get('https://kidgage-backend.onrender.com/api/course-category/categories');
+        const response = await axios.get('/api/course-category/categories');
         const fetchedCategories = response.data;
         setCategories(fetchedCategories);
 
