@@ -1,109 +1,460 @@
+/* General Styles */
+
 /* Image Container Styles */
 .image-container {
-    display: flex;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.main-image {
+  width: 100%;
+  max-width: 450px; /* Adjusted size */
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.thumbnail-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.thumbnail {
+  width: 70px; /* Adjusted size */
+  height: 70px; /* Adjusted size */
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.thumbnail:hover,
+.thumbnail.active {
+  border-color: #ff6f00; /* Orange border on hover or active */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Arrow Button Styles */
+.arrow-left,
+.arrow-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.arrow-left {
+  left: 10px;
+}
+
+.arrow-right {
+  right: 10px;
+}
+
+.arrow-left:hover,
+.arrow-right:hover {
+  background-color: #0056b3;
+  transform: scale(1.1); /* Slightly enlarge the button */
+}
+
+/* Product Details Styles */
+.details-container {
+  padding: 20px;
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.product-title {
+  font-size: 26px;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.price {
+  font-size: 22px;
+  color: #ff5a5f;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Subscription Options Styles */
+.options-container {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option {
+  padding: 15px 20px; /* Adjusted padding for better appearance */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 400px; /* Adjust as needed */
+  font-family: 'Arial', sans-serif; /* Improved font for better readability */
+  background-color: #fff; /* Default background color */
+  box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+.option:hover,
+.option.selected {
+  background-color: #fff; /* White background on hover or selected */
+  border-color: #ff6f00; /* Orange border color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.option input {
+  margin-right: 15px; /* Increased space between input and label */
+}
+
+.option label {
+  font-size: 18px; /* Increased font size */
+  font-weight: 500; /* Slightly bolder text */
+  color: #333; /* Darker text color */
+  line-height: 1.4; /* Improved line height for readability */
+}
+
+/* Radio Button Styles */
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  background-color: #fff;
+  position: relative;
+  cursor: pointer;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+input[type="radio"]:checked {
+  border-color: #ff6f00; /* Orange border for checked state */
+  background-color: #ff6f00; /* Orange background for checked state */
+}
+
+input[type="radio"]:checked::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: #fff; /* White dot for checked state */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+input[type="radio"]:hover {
+  border-color: #ff6f00; /* Orange border on hover */
+}
+
+/* Tabs Styles */
+.tabs-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.tab {
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #f8f8f8;
+  transition: background-color 0.3s;
+}
+
+.tab.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.tab:not(.active):hover {
+  background-color: #e2e6ea;
+}
+
+/* Product Description Styles */
+.product-details {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.product-details ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.product-details li {
+  margin-bottom: 10px;
+}
+
+/* Customer Reviews Styles */
+.reviews-container {
+  margin-top: 40px;
+}
+
+.review {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+}
+
+.reviewer-name {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.review-text {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.review-date {
+  font-size: 14px;
+  color: #888;
+  margin-top: 10px;
+}
+
+/* Button Container Styles */
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.button {
+  padding: 15px 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 350px;
+  font-family: inherit;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+/* Button Variants */
+.add-to-cart {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.add-to-cart:hover {
+  background-color: #218838;
+}
+
+.give-gift {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.give-gift:hover {
+  background-color: #0056b3;
+}
+
+.wishlist {
+  background-color: #ffc107;
+  color: #333;
+  border-color: #ffc107;
+}
+
+.wishlist.active {
+  background-color: #e0a800;
+}
+
+.wishlist:hover {
+  background-color: #e0a800;
+}
+
+/* Video Container */
+.video-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+iframe {
+  border: 0;
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
+}
+
+/* Shops Layout */
+.shops-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.shops-right {
+  width: 35%;
+}
+
+.shops-left {
+  width: 65%;
+}
+
+/* Responsive Design */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .shops-top {
     flex-direction: column;
     align-items: center;
-    width: 80%;
   }
-  
-  .main-image {
+
+  .shops-right,
+  .shops-left {
     width: 100%;
-    max-width: 450px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
   }
-  
-  .thumbnail-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+
+  .image-container {
+    width: 100%;
   }
-  
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  .main-image {
+    max-width: 300px;
+  }
+
   .thumbnail {
-    width: 80px;
-    height: 80px;
-    border-radius: 5px;
-    cursor: pointer;
-    border: 2px solid transparent;
+    width: 50px;
+    height: 50px;
   }
-  
-  .thumbnail:hover,
-  .thumbnail.active {
-    border-color: #007bff;
-  }
-  
-  /* Product Details Styles */
-  .details-container {
-    padding: 20px;
-    border: 1px solid #e3e3e3;
-    border-radius: 5px;
-    margin-bottom: 20px;
-  }
-  
+
   .product-title {
-    font-size: 26px;
-    color: #333;
-    margin-bottom: 15px;
-    font-weight: 600;
-  }
-  
-  .price {
     font-size: 22px;
-    color: #ff5a5f;
-    font-weight: 600;
-    margin-bottom: 20px;
   }
-  
+
+  .price {
+    font-size: 18px;
+  }
+
   .description {
+    font-size: 14px;
+  }
+
+  .button {
+    padding: 10px 20px;
     font-size: 16px;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 15px;
   }
-  
-  /* Subscription Options Styles */
-  .options-container {
-    margin: 20px 0;
+}
+
+/* High Resolution Displays */
+
+/* 4K Screens and Large Desktops */
+@media (min-width: 2560px) {
+  .main-image {
+    max-width: 600px;
   }
-  
-  .option {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    cursor: pointer;
+
+  .thumbnail {
+    width: 90px;
+    height: 90px;
   }
-  
-  .option:hover {
-    background-color: #f8f8f8;
+
+  .product-title {
+    font-size: 30px;
   }
-  
-  /* Customer Reviews Styles */
-  .reviews-container {
-    margin-top: 40px;
+
+  .price {
+    font-size: 24px;
   }
-  
-  .review {
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    background-color: #f9f9f9;
+
+  .description {
+    font-size: 18px;
   }
-  
-  .reviewer-name {
-    font-weight: bold;
-    margin-bottom: 10px;
+
+  .button {
+    padding: 25px 30px;
+    font-size: 20px;
   }
-  
-  .review-text {
-    font-size: 16px;
-    color: #555;
+}
+
+/* Theater Screens (8K) */
+@media (min-width: 3840px) {
+  .main-image {
+    max-width: 800px;
   }
-  .shops-top{
-    display: flex;
+
+  .thumbnail {
+    width: 120px;
+    height: 120px;
   }
-  .shops-right{
-    width: 20%;
+
+  .product-title {
+    font-size: 36px;
   }
+
+  .price {
+    font-size: 28px;
+  }
+
+  .description {
+    font-size: 20px;
+  }
+
+  .button {
+    padding: 20px 40px;
+    font-size: 22px;
+  }
+}

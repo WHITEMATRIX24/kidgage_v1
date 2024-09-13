@@ -25,7 +25,6 @@ const Activities = () => {
     const [courses, setCourses] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [ageRange, setAgeRange] = useState({});
     const [providers, setProviders] = useState({}); // Change to an object to map providerId to provider details
 
     useEffect(() => {
@@ -50,6 +49,7 @@ const Activities = () => {
         console.log("WhatsApp URL:", whatsappUrl); // Log the URL for debugging
         window.open(whatsappUrl, '_blank');
     };
+
     const navigate = useNavigate();
 
     const handleClick = (courseId) => {
@@ -61,60 +61,7 @@ const Activities = () => {
             .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
             .join(' '); // Join them with a space
     };
-    const calculateAgeRange = (startDate, endDate) => {
-        const today = new Date();
-    
-        // Convert ISO strings to Date objects
-        let start = new Date(startDate);
-        let end = new Date(endDate);
-    
-        // Check if both dates are valid
-        if (!start || !end || isNaN(start.getTime()) || isNaN(end.getTime())) {
-            return 'unvailable';
-        }
-    
-        // Helper function to calculate the difference in years and months
-        const calculateDifference = (fromDate, toDate) => {
-            let years = toDate.getFullYear() - fromDate.getFullYear();
-            let months = toDate.getMonth() - fromDate.getMonth();
-    
-            // Adjust if the month difference is negative
-            if (months < 0) {
-                years--;
-                months += 12;
-            }
-    
-            return { years, months };
-        };
-    
-        // Calculate the differences from both start and end dates to today
-        const startDiff = calculateDifference(start, today);
-        const endDiff = calculateDifference(end, today);
-    
-        // Function to format the age in 'x years y months' format
-        const formatAge = ({ years, months }) => {
-            let ageString = `${years} yr`;
-            if (months > 0) {
-                ageString += ` ${months} mo`;
-            }
-            return ageString;
-        };
-    
-        // Sort the age differences to always display the smallest age first
-        const sortedAges = [startDiff, endDiff].sort((a, b) => {
-            if (a.years === b.years) {
-                return a.months - b.months;
-            }
-            return a.years - b.years;
-        });
-    
-        // Return the age range in 'smallest-age-to-largest-age' format with years and months
-        return `${formatAge(sortedAges[0])} - ${formatAge(sortedAges[1])}`;
-    };
-    
-    // Example usage:
-    console.log(calculateAgeRange('2015-08-15', '2020-04-10')); // Output: e.g. "4 years 5 months - 9 years 1 month"
-    
+
     useEffect(() => {
         const fetchCourses = async () => {
             try {
@@ -189,21 +136,6 @@ const Activities = () => {
         }
     }, [category]);
 
-    const [advertisements, setAdvertisements] = useState([]);
-
-    useEffect(() => {
-        fetchAdvertisements();
-    }, []);
-
-    const fetchAdvertisements = async () => {
-        try {
-            const response = await axios.get('https://kidgage-backend.onrender.com/api/advertisement');
-            setAdvertisements(response.data);
-        } catch (error) {
-            console.error('Error fetching advertisements:', error);
-        }
-    };
-
     return (
         <>
             {/* Fixed Navbar */}
@@ -247,11 +179,7 @@ const Activities = () => {
                                             <div className="infop-row">
                                                 <img src={baby} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
                                                 <div className="age-group">
-                                                    {activity.ageGroup && activity.ageGroup.length > 0 ? (
-                                                        <span className="age-text">{calculateAgeRange(activity.ageGroup[0].ageStart, activity.ageGroup[0].ageEnd)}</span>
-                                                    ) : (
-                                                        <span className="age-text">Unavailable</span>
-                                                    )}
+                                                    <span className="age-text">0 - 15ys 9ms</span>
                                                 </div>
                                                 <img src={calendar} alt='calendar' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
                                                 <div className="day-selector">
@@ -268,7 +196,7 @@ const Activities = () => {
                                         </div>
                                         <div className='gap-after' style={{ height: '3px' }}></div>
                                         <div className="additional-info" style={{ display: 'flex', flexDirection: 'column', position: 'relative', alignItems: 'center', justifyContent: 'center', marginLeft: 'auto' }}>
-                                            <div className="pinfo-image" style={{ marginLeft: '0px' }}>
+                                            <div className="info-image" style={{ marginLeft: '0px' }}>
                                                 {providers[activity.providerId] && providers[activity.providerId].logo ? (
                                                     <img src={`data:image/jpeg;base64,${providers[activity.providerId].logo}`} alt="Provider" />
                                                 ) : (
@@ -281,10 +209,21 @@ const Activities = () => {
                                 {/* Activity Actions Section */}
                                 <div className="activity-actions">
                                     <div className='activity-buttons'>
-                                        <button className="book-now" style={{ backgroundColor: '#5EA858' }} onClick={() => sendMessage(activity.name, activity.location)}>
+                                        <button
+                                            className="book-now"
+                                            style={{ backgroundColor: '#5EA858' }}
+                                            onClick={() => {
+                                                const provider = providers[activity.providerId];
+                                                const providerName = provider ? provider.firstName : 'Unknown Provider';
+                                                sendMessage(activity.name, providerName);
+                                            }}
+                                        >
                                             <i className="fa-brands fa-whatsapp"></i>
                                             <span style={{ marginLeft: '5px', fontWeight: 'bold' }}>Book Now</span>
                                         </button>
+
+
+
                                         <button className="share" style={{ backgroundColor: '#3880C4' }}>
                                             <i className="fa-solid fa-share"></i>
                                             <span style={{ marginLeft: '5px', fontWeight: 'bold' }}>Share</span>
@@ -350,11 +289,7 @@ const Activities = () => {
                                                             {/* Display age range if applicable */}
                                                             <img src={baby} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
                                                             <div className="age-group">
-                                                                {course.ageGroup && course.ageGroup.length > 0 ? (
-                                                                    <span className="age-text">{calculateAgeRange(course.ageGroup[0].ageStart, course.ageGroup[0].ageEnd)}</span>
-                                                                ) : (
-                                                                    <span className="age-text">Unavailable</span>
-                                                                )}
+                                                                <span className="age-text">0 - 15ys 9ms</span>
                                                             </div>
                                                             <img src={calendar} alt='calendar' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
                                                             <div className="day-selector">
@@ -389,11 +324,11 @@ const Activities = () => {
                                                 </div>
                                             </div>
 
-                                    {/* Chevron dropdown for smaller screens only */}
-                                    <div className="chevron-dropdown">
+                                            {/* Chevron dropdown for smaller screens only */}
+                                            {/* <div className="chevron-dropdown">
                                         See More
                                         <i className="fa-solid fa-chevron-down"></i>
-                                    </div>
+                                    </div> */}
 
                                             {/* Activity Actions Section */}
                                             <div className='activity-actions'>
@@ -429,19 +364,20 @@ const Activities = () => {
                 {/* banner section starts*/}
 
                 <div className="banner-container">
-                {advertisements.length > 0 ? (
-                    advertisements.map((ad, index) => (
-                        <div key={ad._id} className={`card bcard${index + 1}`}>
-                            <img
-                                src={isSmallScreen ? `data:image/jpeg;base64,${ad.mobileImage}` : `data:image/jpeg;base64,${ad.desktopImage}`}
-                                alt={`Banner ${index + 1}`}
-                            />
-                        </div>
-                    ))
-                ) : (
-                    <p>No advertisements found.</p> // Fallback content
-                )}
-            </div>
+                    <div className="card bcard1">
+                        <img
+                            src={isSmallScreen ? smallBanner1 : banner1}
+                            alt="Banner 1"
+                        />
+                    </div>
+                    <div className="card bcard2">
+                        <img
+                            src={isSmallScreen ? smallBanner2 : banner2}
+                            alt="Banner 2"
+                        />
+                    </div>
+                    <div style={{ height: '40px' }}></div>
+                </div>
                 {/* banner section ends */}
             </div>
 
