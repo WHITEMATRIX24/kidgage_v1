@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import styled from 'styled-components';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -597,9 +598,10 @@ const CustomDatePickerWrapper = styled.div`
     margin-right: 15px;
   }
   }
+
   @media (min-width: 1900px) {
-    height: 31vw;
-    width: 20vw;
+    height: 34vw;
+    width: 22vw;
     .calendar-row {
     margin-bottom: 10px;
   }
@@ -1284,12 +1286,13 @@ const CustomDatePickerWrapper = styled.div`
 `;
 
 const Calendar = ({ course, provider }) => {
+  const location = useLocation();
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState("");
   const [courseDetails, setCourseDetails] = useState(null);
   const [allowedDays, setAllowedDays] = useState([]);
   const [timeSlots, setTimeSlots] = useState([]);
-  const courseId = '66e409717466b28bc674e433';
+  const { id: courseId } = location.state || {};
   useEffect(() => {
     const fetchCourseDetails = async () => {
       try {
