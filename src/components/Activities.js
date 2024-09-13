@@ -250,10 +250,10 @@ const Activities = () => {
                                     </div>
 
                                     {/* Chevron dropdown for smaller screens only */}
-                                    {/* <div className="chevron-dropdown">
+                                    <div className="chevron-dropdown">
                                         See More
                                         <i className="fa-solid fa-chevron-down"></i>
-                                    </div> */}
+                                    </div>
 
                                     {/* Activity Actions Section */}
                                     <div className='activity-actions'>
