@@ -80,7 +80,7 @@ const CTypeSlider = ({ viewAll }) => {
     slidesToShow: 5,
     slidesToScroll: 5,
     // autoplay: true,
-    // autoplaySpeed: 5000,
+    // autoplaySpeed: 10000,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     pauseOnHover: true,
