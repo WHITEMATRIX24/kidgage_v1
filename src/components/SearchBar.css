@@ -5,7 +5,8 @@
 
 .content {
     background-color: #F5F5F5;
-    margin: 0 6%;
+    margin: 0 8%;
+    width: 84%;
     border-radius: 10px;
     align-items: center;
     height: 85px;
@@ -213,7 +214,7 @@
     }
 }
 
-@media (max-width: 660px) {
+@media (min-width: 1025px) and (max-width: 660px) {
 
     .calendar-dropdowna,
     .calendar-dropdowns {
@@ -221,12 +222,22 @@
         left: -90%;
     }
 }
-
-@media (max-width: 1461px) {
+@media (max-width: 1260px) {
     .content {
-        width: 86%;
+        width: 88.5%;
         margin: 0% 6%;
     }
+}
+
+@media (min-width: 1261px) and (max-width: 1461px) {
+
+.content {
+    width: 88%;
+    margin: 0% 6%;
+}
+}
+@media (max-width: 1461px) {
+
 
     .sbar {
         height: auto;
@@ -264,10 +275,7 @@
 }
 
 @media (max-width: 1058px) {
-    .content {
-        width: 94%;
-        margin: 0% 3%;
-    }
+
 
     .item {
         padding: 2px 5px;

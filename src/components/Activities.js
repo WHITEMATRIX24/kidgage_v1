@@ -1,148 +1,46 @@
 import { useNavigate } from 'react-router-dom';
-import { Pagination } from '@mui/material';
-import Box from '@mui/material/Box';
-import image from '../components/assets/images/image.png';
 import banner1 from '../components/assets/images/AD01.png'
-import banner2 from '../components/assets/images/AD02 copfy.png'
-import football1 from '../components/assets/images/foot1.jpg'
-import football2 from '../components/assets/images/foot2.jpg'
+import banner2 from '../components/assets/images/AD02.png'
+import smallBanner1 from '../components/assets/images/ad1.png';
+import smallBanner2 from '../components/assets/images/ad2.png';
 import football from '../components/assets/images/child-613199_1280.jpg'
-import football3 from '../components/assets/images/soccer-7392844_1280.jpg'
-import football4 from '../components/assets/images/foot.jpg'
-import logoside from '../components/assets/images/abc.png'
-import logo from '../components/assets/images/abs.png'
+import placeholderLogo from '../components/assets/images/abs.png'
 import calendar from '../components/assets/images/calendar.png'
 import baby from '../components/assets/images/baby.png'
-import share from '../components/assets/images/share.png'
 import './Activities.css';
 import './AcademyList.css';
 import Footer from './Footer';
 import Header2 from './Header2';
-import ico from './assets/images/ico.png';
 import SearchBar from './SearchBar';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
-
-
-const activities = [
-    {
-        id: 1,
-        image: require('../components/assets/images/child-613199_1280.jpg'),
-        logoImage: require('../components/assets/images/abs.png'),
-        baby: require('../components/assets/images/baby.png'),
-        calendar: require('../components/assets/images/calendar.png'),
-        title: 'Summer Football Camp',
-        ageRange: '0 - 15ys 9ms',
-        days: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-        activeDays: ['Mo', 'Fr'], // Days that are active
-        description:
-            'Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...',
-        location: 'Location ',
-        reviews: '100+ reviews',
-        rating: '⭐⭐⭐⭐⭐',
-        promoted: false,
-    },
-    {
-        id: 2,
-        image: require('../components/assets/images/foot1.jpg'),
-        logoImage: require('../components/assets/images/abs.png'),
-        baby: require('../components/assets/images/baby.png'),
-        calendar: require('../components/assets/images/calendar.png'),
-        title: 'Summer Football Camp',
-        ageRange: '0 - 15ys 9ms',
-        days: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-        activeDays: ['Mo', 'Fr'], // Days that are active
-        description:
-            'Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...',
-        location: 'Location ',
-        reviews: '100+ reviews',
-        rating: '⭐⭐⭐⭐⭐',
-        promoted: false,
-    },
-    {
-        id: 3,
-        image: require('../components/assets/images/foot2.jpg'),
-        logoImage: require('../components/assets/images/abs.png'),
-        baby: require('../components/assets/images/baby.png'),
-        calendar: require('../components/assets/images/calendar.png'),
-        title: 'Summer Football Camp',
-        ageRange: '0 - 15ys 9ms',
-        days: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-        activeDays: ['Mo', 'Fr'], // Days that are active
-        description:
-            'Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...',
-        location: 'Location ',
-        reviews: '100+ reviews',
-        rating: '⭐⭐⭐⭐⭐',
-        promoted: false,
-    },
-    {
-        id: 4,
-        image: require('../components/assets/images/foot.jpg'),
-        logoImage: require('../components/assets/images/abs.png'),
-        baby: require('../components/assets/images/baby.png'),
-        calendar: require('../components/assets/images/calendar.png'),
-        title: 'Summer Football Camp',
-        ageRange: '0 - 15ys 9ms',
-        days: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-        activeDays: ['Mo', 'Fr'], // Days that are active
-        description:
-            'Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...',
-        location: 'Location ',
-        reviews: '100+ reviews',
-        rating: '⭐⭐⭐⭐⭐',
-        promoted: false,
-    },
-    {
-        id: 5,
-        image: require('../components/assets/images/soccer-7392844_1280.jpg'),
-        logoImage: require('../components/assets/images/abc.png'),
-        baby: require('../components/assets/images/baby.png'),
-        calendar: require('../components/assets/images/calendar.png'),
-        title: 'Summer Football Camp',
-        ageRange: '0 - 15ys 9ms',
-        days: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-        activeDays: ['Mo', 'Fr'], // Days that are active
-        description:
-            'Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...',
-        location: 'Location ',
-        reviews: '100+ reviews',
-        rating: '⭐⭐⭐⭐⭐',
-        promoted: true,
-    },
-    {
-        id: 6,
-        image: require('../components/assets/images/child-613199_1280.jpg'),
-        logoImage: require('../components/assets/images/abs.png'),
-        baby: require('../components/assets/images/baby.png'),
-        calendar: require('../components/assets/images/calendar.png'),
-        title: 'Summer Football Camp',
-        ageRange: '0 - 15ys 9ms',
-        days: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-        activeDays: ['Mo', 'Fr'], // Days that are active
-        description:
-            'Join us for an exhilarating morning football camp designed for young athletes eager to develop their skills and enjoy the beautiful game. Our camp offers a perfect blend of fun, fitness, and football fundamentals, tailored to players of all ...',
-        location: 'Location ',
-        reviews: '100+ reviews',
-        rating: '⭐⭐⭐⭐⭐',
-        promoted: true,
-    },
-    // Add more card objects if needed
-];
+const allDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 
 const Activities = () => {
+    const [isSmallScreen, setIsSmallScreen] = useState(false);
     const location = useLocation();
     const { category } = location.state || {}; // Get category from state, fallback to empty object
     const [courses, setCourses] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-  
-    // Separate the activities based on their promoted status
-    const promotedActivities = activities.filter(activity => activity.promoted);
-    const nonPromotedActivities = activities.filter(activity => !activity.promoted);
+    useEffect(() => {
+        const handleResize = () => {
+            setIsSmallScreen(window.innerWidth < 1024);
+        };
 
+        // Check the screen size when the component mounts
+        handleResize();
+
+        // Add event listener to check the window size on resize
+        window.addEventListener('resize', handleResize);
+
+        // Clean up the event listener on component unmount
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+  
     const sendMessage = (activityName) => {
         const message = `Hello! I am interested in booking the ${activityName} provided by Sparta Academy. Can you please provide more details?`;
         const whatsappUrl = `https://wa.me/9447526695?text=${encodeURIComponent(message)}`;
@@ -154,23 +52,21 @@ const Activities = () => {
     const handleClick = () => {
         navigate('/activity-info');
     };
-
-    // State to keep track of which dropdowns are open
-    const [openDropdowns, setOpenDropdowns] = useState({});
-
-    // Function to toggle dropdown visibility
-    const toggleDropdown = (id) => {
-        setOpenDropdowns((prevOpenDropdowns) => ({
-            ...prevOpenDropdowns,
-            [id]: !prevOpenDropdowns[id],
-        }));
+    const formatFeeType = (feeType) => {
+        return feeType
+            .split('_') // Split by underscore
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
+            .join(' '); // Join them with a space
     };
+    
     useEffect(() => {
         const fetchCourses = async () => {
           try {
             const response = await axios.get('https://kidgage-backend.onrender.com/api/courses/by-course-type', {
               params: { courseType: category }
             });
+                    console.log('API Response:', response.data); // Log the full response
+
             setCourses(response.data);
             setLoading(false);
           } catch (error) {
@@ -192,174 +88,78 @@ const Activities = () => {
             
             {/* promoted */}
             <div style={{ height: '22px' }}>
-                    {/* <div className="activities-list">
-                {courses.length > 0 ? (
-                courses.map((course, index) => (
-                    <div key={index} className="course-item">
-                    <h2 className="course-name">{course.name}</h2>
-                    <p className="course-description">{course.description}</p>
-                    <p className="course-fee">Fee: QAR {course.feeAmount}</p>
-                    </div>
-                ))
-                ) : (
-                <p>No courses available for this category.</p>
-                )}
-            </div> */}
+            
+
             </div>
 
             <div className='promoted-container'>
                 {/* promoted card 1 */}
-                {promotedActivities.map((activity) => (
-                    <>
-                        {/* Render the first card */}
-                        <div key={activity.id} className="promoted-card ">
-                            <div className="promoted-image" onClick={handleClick}>
-                                <img src={activity.image} alt="Activity Image" />
-                                <div className="promoted-overlay">
-                                    <div className="promoted-label">Promoted</div>
-                                </div>
-                            </div>
-                            <div className="activity-detailss" onClick={handleClick}>
-                                <div className='info-with-img'>
-                                    <div className='descp'>
-                                        <h3>{activity.title}</h3>
-                                        <div>
-                                            <p className="location">
-                                                <i className="fa-solid fa-location-dot"></i>
-                                                <span style={{ marginLeft: '5px' }}> {activity.location} </span>
-                                            </p>
-                                        </div>
-                                        <div className="info-row">
-                                            <img src={activity.baby}
-                                                alt='baby'
-                                                style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }}
-                                            />
-                                            <div className="age-group">
-                                                <span className="age-text">{activity.ageRange}</span>
-                                            </div>
-                                            <img src={activity.calendar}
-                                                alt='calendar'
-                                                style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }}
-                                            />
-                                            <div className="day-selector">
-                                                {activity.days.map((day) => (
-                                                    <span key={day} className={`day ${activity.activeDays.includes(day) ? 'active' : ''}`}>
-                                                        {day}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <p>{activity.description}</p>
-                                        </div>
+                {courses.length > 0 ? (
+                    courses
+                        .filter((course) => course.promoted) // Filter to only include promoted courses
+                        .map((activity) => (
+                            <div key={activity._id} className="promoted-card ">
+                                <div className="promoted-image" onClick={handleClick}>
+                                    {activity.images && activity.images.length > 0 ? (
+                                        <img src={`data:image/png;base64,${activity.images[0]}`} alt="Activity Image" />
+                                    ) : (
+                                        <img src={football} alt="Placeholder" />
+                                    )}
+                                    <div className="promoted-overlay">
+                                        <div className="promoted-label">Promoted</div>
                                     </div>
                                 </div>
-                                <div style={{ height: '3px' }}></div>
-                                <div className="additional-info" style={{ display: 'flex', flexDirection: 'column', position: 'relative', alignItems: 'center', justifyContent: 'center', marginLeft: 'auto' }}>
-                                    <div className="pinfo-image" style={{ marginLeft: '0px' }}>
-                                        <img src={activity.logoImage} alt="Info Image" style={{ width: '100%', height: 'auto' }} />
-                                    </div>
-                                
-                                </div>
-                            </div>
-                            {/* Activity Actions Section */}
-                            <div className="activity-actions">
-                                <div className='activity-buttons'>
-                                    <button
-                                        className="book-now"
-                                        style={{ backgroundColor: '#5EA858' }}
-                                        onClick={() => sendMessage(activity.title, activity.location)}>
-                                        <i className="fa-brands fa-whatsapp"></i>
-                                        <span style={{ marginLeft: '5px', fontWeight: 'bold' }}>Book Now</span>
-                                    </button>
-                                    <button className="share" style={{ backgroundColor: '#3880C4' }}>
-                                        <i className="fa-solid fa-share"></i>
-                                        <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Share</span>
-                                    </button>
-                                    <button className="save" style={{ backgroundColor: '#3880C4' }}>
-                                        <i className="fa-regular fa-bookmark"></i>
-                                        <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Save</span>
-                                    </button>
-                                </div>
-                                <div className='more-btn'>
-                                    <button className="more">See more from this provider</button>
-                                </div>
-                            </div>
-                        </div>
-                    </>
-                ))}
-            </div>
-
-
-            <div style={{ height: '60px' }}></div>
-            {/* --------cards starts -----------*/}
-
-            {/* card 1 */}
-            <div className='card-container'>
-                <div className='card-container-top'>
-                    {nonPromotedActivities.map((activity) => (
-                        <div className="activity-card cards" key={activity.id}>
-                            <div className="activity-image">
-                                <img src={activity.image} alt="Activity Image" />
-                            </div>
-                            <div className="activity-details">
-                                <div className='activity-card-in'>
+                                <div className="activity-detailss" onClick={handleClick}>
+                                    <h3>{activity.name}</h3>
                                     <div className='info-with-img'>
-                                        <div className='descp'>
-                                            <h3>{activity.title}</h3>
+                                        <div className='pdescp'>
                                             <div>
                                                 <p className="location">
-                                                    <i className="fa-solid fa-location-dot"></i>
-                                                    <span style={{ marginLeft: '5px' }}>{activity.location}</span>
+                                                    {/* <i className="fa-solid fa-location-dot"></i> */}
+                                                    <span style={{ color: '#5EA858', fontWeight:'bold'}}>QAR. {activity.feeAmount} {formatFeeType(activity.feeType)}</span>
+
                                                 </p>
                                             </div>
-                                            <div className="info-row">
-                                                <img src={activity.baby} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
+                                            <div className="infop-row">
+                                                <img src={baby} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
                                                 <div className="age-group">
-                                                    <span className="age-text">{activity.ageRange}</span>
+                                                    <span className="age-text">0 - 15ys 9ms</span>
                                                 </div>
-                                                <img src={activity.calendar} alt='calendar' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
+                                                <img src={calendar} alt='calendar' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
                                                 <div className="day-selector">
-                                                    {activity.days.map((day) => (
-                                                        <span key={day} className={`day ${activity.activeDays.includes(day) ? 'active' : ''}`}>
+                                                    {allDays.map((day) => (
+                                                        <span key={day} className={`day ${activity.days.includes(day) ? 'active' : ''}`}>
                                                             {day}
                                                         </span>
                                                     ))}
                                                 </div>
                                             </div>
-                                            {/* Flex container for description and logo image */}
-                                            <div className={`description-logo-container ${openDropdowns[activity.id] ? 'show' : 'hide'}`}>
-                                                <p className="activity-description">{activity.description}</p>
-                                                <div className="additional-info">
-                                                    <div className="info-image">
-                                                        <img src={activity.logoImage} alt="Info Image" />
-                                                    </div>
-                                                </div>
+                                            <div className='pdesc'>
+                                                <p>{activity.description || 'No description available'}</p>
                                             </div>
                                         </div>
-                                        <div style={{ height: '3px' }}></div>
+                                        <div className='gap-after' style={{ height: '3px' }}></div>
+                                        <div className="additional-info" style={{ display: 'flex', flexDirection: 'column', position: 'relative', alignItems: 'center', justifyContent: 'center', marginLeft: 'auto' }}>
+                                            <div className="pinfo-image" style={{ marginLeft: '0px' }}>
+                                                <img src={activity.logoImage || placeholderLogo} alt="Info Image" style={{ width: '100%', height: 'auto' }} />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-
-                                {/* Chevron dropdown for smaller screens only */}
-                                <div className="chevron-dropdown" onClick={() => toggleDropdown(activity.id)}>
-                                    <i className="fa-solid fa-chevron-down"></i>
-                                </div>
-
                                 {/* Activity Actions Section */}
-                                <div className={`activity-actions ${openDropdowns[activity.id] ? 'show' : 'hide'}`}>
+                                <div className="activity-actions">
                                     <div className='activity-buttons'>
-                                        <button className="book-now" style={{ backgroundColor: '#5EA858' }} onClick={() => sendMessage(activity.title, activity.location)}>
+                                        <button className="book-now" style={{ backgroundColor: '#5EA858' }} onClick={() => sendMessage(activity.name, activity.location)}>
                                             <i className="fa-brands fa-whatsapp"></i>
                                             <span style={{ marginLeft: '5px', fontWeight: 'bold' }}>Book Now</span>
                                         </button>
                                         <button className="share" style={{ backgroundColor: '#3880C4' }}>
                                             <i className="fa-solid fa-share"></i>
-                                            <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Share</span>
+                                            <span style={{ marginLeft: '5px', fontWeight: 'bold' }}>Share</span>
                                         </button>
                                         <button className="save" style={{ backgroundColor: '#3880C4' }}>
                                             <i className="fa-regular fa-bookmark"></i>
-                                            <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Save</span>
+                                            <span style={{ marginLeft: '5px', fontWeight: 'bold' }}>Save</span>
                                         </button>
                                     </div>
                                     <div className='more-btn'>
@@ -367,29 +167,144 @@ const Activities = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
-                    <div style={{ height: '0px' }}></div>
-                </div>
-
+                        ))
+                ) : (
+                    <p>No promoted activities available at the moment.</p>
+                )}
 
             </div>
+
+
+            <div className='gap-bw' style={{ height: '60px' }}></div>
+            {/* --------cards starts -----------*/}
+
+          <div className='activity-bottom'>
+              {/* card 1 */}
+              <div className='card-container'>
+            <div className='card-container-top'>
+            {courses.length > 0 ? (
+                    courses
+                        .filter((course) => !course.promoted) // Filter out promoted courses
+                        .map((course) => (
+                            <div className="activity-card cards" key={course._id}>
+                                <div className="activity-image">
+                                    {/* Display image if available */}
+                                    {course.images && course.images.length > 0 ? (
+                                        <img src={`data:image/png;base64,${course.images[0]}`} alt="Course Image" />
+                                    ) : (
+                                        <img src={football} alt="Placeholder" />
+                                    )}
+                                </div>
+                                <div className="activity-details">
+                                    <div className='activity-card-in'>
+                                        <div className='info-with-img'>
+                                            <div className='descp'>
+                                                <h3>{course.name}</h3>
+                                                <div>
+                                                    <p className="location">
+                                                        
+                                                        {/* <i className="fa-solid fa-location-dot"></i> */}
+                                                        <span style={{ marginLeft: '5px' }}>
+                                                            {/* Display location if available */}
+                                                            {/* {course.location && Array.isArray(course.location) && course.location.length > 0
+                                                                ? course.location[0]
+                                                                : 'Location not available'} */}
+                                                    <span style={{ color: '#5EA858', fontWeight:'bold'}}>QAR. {course.feeAmount} {formatFeeType(course.feeType)}</span>
+
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                                <div className="info-row">
+                                                    {/* Display age range if applicable */}
+                                                    <img src={baby} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
+                                                    <div className="age-group">
+                                                        <span className="age-text">0 - 15ys 9ms</span>
+                                                    </div>
+                                                    <img src={calendar} alt='calendar' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
+                                                    <div className="day-selector">
+                                                        {allDays.map((day) => (
+                                                            <span
+                                                                key={day}
+                                                                className={`day ${course.days.includes(day) ? 'active' : ''}`}
+                                                            >
+                                                                {day}
+                                                            </span>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                                {/* Flex container for description and logo image */}
+                                                <div className={`description-logo-container`}>
+                                                    <p className="activity-description">
+                                                        {course.description || 'No description available'}
+                                                    </p>
+                                                    <div className="additional-info">
+                                                        <div className="info-image">
+                                                            {/* Display additional info image if available */}
+                                                            <img src={course.logoImage || placeholderLogo} alt="Info Image" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className='gap-after' style={{ height: '3px' }}></div>
+                                        </div>
+                                    </div>
+
+                                    {/* Chevron dropdown for smaller screens only */}
+                                    <div className="chevron-dropdown">
+                                        See More
+                                        <i className="fa-solid fa-chevron-down"></i>
+                                    </div>
+
+                                    {/* Activity Actions Section */}
+                                    <div className='activity-actions'>
+                                        <div className='activity-buttons'>
+                                            <button className="book-now" style={{ backgroundColor: '#5EA858' }} onClick={() => sendMessage(course.name, course.location)}>
+                                                <i className="fa-brands fa-whatsapp"></i>
+                                                <span style={{ marginLeft: '5px', fontWeight: 'bold' }}>Book Now</span>
+                                            </button>
+                                            <button className="share" style={{ backgroundColor: '#3880C4' }}>
+                                                <i className="fa-solid fa-share"></i>
+                                                <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Share</span>
+                                            </button>
+                                            <button className="save" style={{ backgroundColor: '#3880C4' }}>
+                                                <i className="fa-regular fa-bookmark"></i>
+                                                <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Save</span>
+                                            </button>
+                                        </div>
+                                        <div className='more-btn'>
+                                            <button className="more">See more from this provider</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+                ) : (
+                    <p>No courses available for this category.</p>
+                )}
+
+            </div>
+        </div>
             {/* cards ends */}
 
             {/* banner section starts*/}
 
-            <div class="banner-container">
-                <div class="card bcard1">
-                    <img src={banner1} alt="Image 1" />
+            <div className="banner-container">
+                <div className="card bcard1">
+                    <img
+                        src={isSmallScreen ? smallBanner1 : banner1}
+                        alt="Banner 1"
+                    />
                 </div>
-                {/* <div style={{ height: '10px' }}></div> */}
-                <div class="card bcard2">
-                    <img src={banner2} alt="Image 2" />
+                <div className="card bcard2">
+                    <img
+                        src={isSmallScreen ? smallBanner2 : banner2}
+                        alt="Banner 2"
+                    />
                 </div>
                 <div style={{ height: '40px' }}></div>
-
             </div>
             {/* banner section ends */}
+          </div>
 
             <div className='gapss'></div>
 
