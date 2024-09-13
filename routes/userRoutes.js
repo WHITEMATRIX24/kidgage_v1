@@ -135,6 +135,28 @@ router.get('/all/:category', async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
+// Route to get provider details by providerId
+router.get('/:providerId', async (req, res) => {
+  const { providerId } = req.params;
+
+  try {
+      // Fetch provider details using the providerId
+      const provider = await User.findById(providerId);
+
+      if (!provider) {
+          return res.status(404).json({ message: 'Provider not found' });
+      }
+
+      // Respond with provider name and logo
+      res.json({
+          name: provider.name,
+          logo: provider.logo,
+      });
+  } catch (error) {
+      console.error('Error fetching provider:', error);
+      res.status(500).json({ message: 'Server error' });
+  }
+});
 
 router.get('/provider/:id', async (req, res) => {
   try {

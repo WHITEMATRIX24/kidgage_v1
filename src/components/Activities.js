@@ -25,8 +25,6 @@ const Activities = () => {
     const [courses, setCourses] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [providers, setProviders] = useState({}); // To store providers' data
-
     useEffect(() => {
         const handleResize = () => {
             setIsSmallScreen(window.innerWidth < 1025);
@@ -43,8 +41,8 @@ const Activities = () => {
     }, []);
 
 
-    const sendMessage = (activityName, providerName) => {
-        const message = `Hello! I am interested in booking the ${activityName} provided by ${providerName}. Can you please provide more details?`;
+    const sendMessage = (activityName) => {
+        const message = `Hello! I am interested in booking the ${activityName} provided by Sparta Academy. Can you please provide more details?`;
         const whatsappUrl = `https://wa.me/9447526695?text=${encodeURIComponent(message)}`;
         console.log("WhatsApp URL:", whatsappUrl); // Log the URL for debugging
         window.open(whatsappUrl, '_blank');
@@ -60,20 +58,6 @@ const Activities = () => {
             .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
             .join(' '); // Join them with a space
     };
-    const fetchProviderDetails = async (providerId) => {
-        if (!providers[providerId]) { // Check if provider's data is already fetched
-            try {
-                const response = await axios.get(`https://kidgage-backend.onrender.com/api/users/provider/${providerId}`);
-                setProviders((prevProviders) => ({
-                    ...prevProviders,
-                    [providerId]: response.data, // Store provider's data
-                }));
-            } catch (error) {
-                console.error('Error fetching provider details', error);
-            }
-        }
-    };
-
 
     useEffect(() => {
         const fetchCourses = async () => {
@@ -265,11 +249,11 @@ const Activities = () => {
                                                 </div>
                                             </div>
 
-                                    {/* Chevron dropdown for smaller screens only
+                                    {/* Chevron dropdown for smaller screens only */}
                                     <div className="chevron-dropdown">
                                         See More
                                         <i className="fa-solid fa-chevron-down"></i>
-                                    </div> */}
+                                    </div>
 
                                             {/* Activity Actions Section */}
                                             <div className='activity-actions'>
