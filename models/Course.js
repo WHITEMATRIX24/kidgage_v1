@@ -5,10 +5,6 @@ const timeSlotSchema = new mongoose.Schema({
     to: { type: String, required: true }
 });
 
-const timeSlotSchema = new mongoose.Schema({
-    from: { type: String, required: true },
-    to: { type: String, required: true }
-});
 const locationSchema = new mongoose.Schema({
     address: { type: String, required: true },
     city: { type: String, required: true },
