@@ -956,9 +956,13 @@
     flex-direction: column;
     margin: 0 0%;
   }
-  
+ .info-image{
+    width: 80px;
+    height: auto;
+    margin-top: 0px;
+}
   .pinfo-image{
-    width: 100px;
+    width: 80px;
     height: auto;
     margin: 0;
   }
@@ -988,20 +992,20 @@
   }
   .card-container {
     flex-direction: column;
-    width: 60%;
+    width: 80%;
     max-height: 1230px;
-    margin: 0 19%;
+    margin: 0 10%;
     padding: 0;
   }
 
   .card:nth-child(1) {
-    height: 30vw;
+    height: 40vw;
     width: auto;
 
   }
 
   .card:nth-child(2) {
-    height: 30vw;
+    height: 40vw;
     width: auto;
     margin-bottom: 0%;
   }
@@ -1028,12 +1032,12 @@
   }
 
   .promoted-container {
-    width: 60%;
+    width: 80%;
     padding: 0;
     /* background-color: #f25c2a; */
     display: flex;
     flex-direction: column;
-    margin: 0 20%;
+    margin: 0 10%;
     align-items: center;
   }
   
@@ -1069,7 +1073,7 @@
     width: 80%;
   }
   .info-with-img{
-    padding: 10px;
+    padding: 3px;
   }
   .activity-actions {
     font-size: 8px;
@@ -1633,8 +1637,12 @@
 }
 
 
-@media (max-width: 480px) {
-
+@media (max-width: 492px) {
+  .activity-buttons{
+    justify-content: space-between;
+    gap: 0px;
+    width: 100%;
+  }
   .description-logo-container {
     display: flex; /* Use flexbox to align items in a row */
     justify-content: space-between; /* Space between description and logo */
@@ -1676,37 +1684,30 @@
     margin-bottom: 5px;
   }
 
-  
-
-  .card:nth-child(1) {
-    height: 100%;
-    width: 100%;
-
-  }
-
-  .card:nth-child(2) {
-    height: 100%;
-    width: 100%;
-    margin-bottom: 0%;
-  }
-
   .activity-card {
     flex-direction: column;
-    margin-left: 10px;
+    margin:0 6%;
     margin-bottom: 20px;
     float: none;
+    width: 90%;
   }
 
   .activity-image {
     width: 100%;
-    height: 420px;
+    height: 400px;
   }
 
   .activity-details {
     padding: 5px;
   }
 
-
+  .card-container {
+    flex-direction: column;
+    width: 100%;
+    max-height: 1230px;
+    margin: 0 0%;
+    padding: 0;
+}
   .promoted-container {
     margin-bottom: 20px;
     margin-right: 10px;
@@ -1726,8 +1727,6 @@
     width: 97.8%;
     margin-bottom: 20px;
     float: none;
-    margin-left: 5px !important;
-    margin-right: 20px;
   }
 
   .banner-container {
@@ -1751,7 +1750,7 @@
 
   .activity-actions button {
     width: 90%;
-    margin: 3px 5%;
+    margin: 3px 3%;
   }
 
   .more {
@@ -1777,7 +1776,9 @@
   .plocation {
     margin-top: 4%;
   }
-
+  .info-with-img {
+    padding: 3px;
+}
   .pagination-container {
     /* background-color: red;  */
     width: 80%;
@@ -1794,10 +1795,16 @@
   .info-row ,.infop-row{
     flex-direction: row;
     align-items: flex-start;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
   }
-
-
+  .pinfo-image ,.info-image{
+    width: 80px;
+    height: auto;
+    margin-top: 50px;
+}
+.descp p{
+  margin-right: 10px;
+}
 
   .day-selector {
     width: 20px;
