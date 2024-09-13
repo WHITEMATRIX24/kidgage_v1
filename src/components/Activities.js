@@ -63,7 +63,7 @@ const Activities = () => {
     const fetchProviderDetails = async (providerId) => {
         if (!providers[providerId]) { // Check if provider's data is already fetched
             try {
-                const response = await axios.get(`http://localhost:5000/api/users/provider/${providerId}`);
+                const response = await axios.get(`https://kidgage-backend.onrender.com/api/users/provider/${providerId}`);
                 setProviders((prevProviders) => ({
                     ...prevProviders,
                     [providerId]: response.data, // Store provider's data
@@ -265,11 +265,11 @@ const Activities = () => {
                                                 </div>
                                             </div>
 
-                                    {/* Chevron dropdown for smaller screens only */}
+                                    {/* Chevron dropdown for smaller screens only
                                     <div className="chevron-dropdown">
                                         See More
                                         <i className="fa-solid fa-chevron-down"></i>
-                                    </div>
+                                    </div> */}
 
                                             {/* Activity Actions Section */}
                                             <div className='activity-actions'>
