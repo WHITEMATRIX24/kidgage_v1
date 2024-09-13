@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import banner1 from '../components/assets/images/AD01.png'
-import banner2 from '../components/assets/images/AD02.png'
+import banner2 from '../components/assets/images/ads2.png'
 import smallBanner1 from '../components/assets/images/ad1.png';
 import smallBanner2 from '../components/assets/images/ad2.png';
 import football from '../components/assets/images/child-613199_1280.jpg'
@@ -27,7 +27,7 @@ const Activities = () => {
     const [error, setError] = useState(null);
     useEffect(() => {
         const handleResize = () => {
-            setIsSmallScreen(window.innerWidth < 1024);
+            setIsSmallScreen(window.innerWidth < 1025);
         };
 
         // Check the screen size when the component mounts

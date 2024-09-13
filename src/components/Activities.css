@@ -956,6 +956,7 @@
     flex-direction: column;
     margin: 0 0%;
   }
+  
   .pinfo-image{
     width: 100px;
     height: auto;
@@ -1055,7 +1056,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 11%;
+    margin: 0 9%;
+    margin-top: 20px;
   }
 
   .day-selector {
@@ -1126,12 +1128,12 @@
 
 }
 
-
 @media (min-width: 769px) and (max-width: 1024px) {
   .activity-bottom{
     flex-direction: column;
     margin: 0 0%;
   }
+
   .pinfo-image{
     width: 100px;
     height: auto;

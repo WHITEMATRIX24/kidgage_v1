@@ -225,6 +225,7 @@
 @media (max-width: 1260px) {
     .content {
         width: 88.5%;
+        height: 60px;
         margin: 0% 6%;
     }
 }
@@ -317,6 +318,9 @@
         padding: 5px 5px;
         /* Adjust padding for smaller screens */
     }
+    .item span{
+        display: none;
+    }
 
     .sbutton {
         width: 50px;
@@ -326,7 +330,10 @@
         font-size: 20px;
         /* Further adjust font size for very small screens */
     }
-
+    .content{
+        height: 50px;
+        width: 85%;
+    }
     .dropdown-menu {
         position: absolute;
         top: 100%;
@@ -338,6 +345,11 @@
         margin-top: 10px;
         padding: 10px 10px;
     }
+}
+@media (max-width:900px) {
+    .item span {
+    font-size: 10px ;
+}
 }
 
 @media (max-width: 530px) {
