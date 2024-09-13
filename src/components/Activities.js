@@ -80,6 +80,22 @@ const Activities = () => {
         }
     }, [category]);
 
+
+    const [advertisements, setAdvertisements] = useState([]);
+
+    useEffect(() => {
+        fetchAdvertisements();
+    }, []);
+
+    const fetchAdvertisements = async () => {
+        try {
+            const response = await axios.get('https://kidgage-backend.onrender.com/api/advertisement');
+            setAdvertisements(response.data);
+        } catch (error) {
+            console.error('Error fetching advertisements:', error);
+        }
+    };
+
     return (
         <>
             {/* Fixed Navbar */}
@@ -289,20 +305,19 @@ const Activities = () => {
                 {/* banner section starts*/}
 
                 <div className="banner-container">
-                    <div className="card bcard1">
-                        <img
-                            src={isSmallScreen ? smallBanner1 : banner1}
-                            alt="Banner 1"
-                        />
-                    </div>
-                    <div className="card bcard2">
-                        <img
-                            src={isSmallScreen ? smallBanner2 : banner2}
-                            alt="Banner 2"
-                        />
-                    </div>
-                    <div style={{ height: '40px' }}></div>
-                </div>
+                {advertisements.length > 0 ? (
+                    advertisements.map((ad, index) => (
+                        <div key={ad._id} className={`card bcard${index + 1}`}>
+                            <img
+                                src={isSmallScreen ? `data:image/jpeg;base64,${ad.mobileImage}` : `data:image/jpeg;base64,${ad.desktopImage}`}
+                                alt={`Banner ${index + 1}`}
+                            />
+                        </div>
+                    ))
+                ) : (
+                    <p>No advertisements found.</p> // Fallback content
+                )}
+            </div>
                 {/* banner section ends */}
             </div>
 

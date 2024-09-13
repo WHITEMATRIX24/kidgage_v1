@@ -12,6 +12,7 @@ const studentRoutes = require('./routes/studentRoutes');
 const bannerRoutes = require('./routes/bannerRoutes'); // New routes for banners
 const posterRoutes = require('./routes/posterRoutes');
 const bookingRoutes = require('./routes/bookingRoutes');
+const advertisementRoutes = require('./routes/advertisementRoutes');
 
 
 const app = express();
@@ -35,6 +36,8 @@ app.use('/api/student', studentRoutes);
 app.use('/api/banners', bannerRoutes); // Add the banner routes here
 app.use('/api/posters', posterRoutes);
 app.use('/api/bookings', bookingRoutes);
+app.use('/api/advertisement', advertisementRoutes);
+
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
