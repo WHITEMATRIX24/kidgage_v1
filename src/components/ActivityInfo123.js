@@ -8,6 +8,8 @@ import Footer from './Footer';
 import Footer2 from './Footer2';
 import Calendar from './Calendar';
 import Header2 from './Header2';
+import Trainer1 from './assets/images/trainer1.jpg'
+import Trainer2 from './assets/images/traner2.jpg'
 
 const ActivityInfo = () => {
     const location = useLocation(); // Access navigation state
@@ -24,11 +26,11 @@ const ActivityInfo = () => {
 
         const fetchCourseData = async () => {
             try {
-                const courseResponse = await axios.get(`http://localhost:5000/api/courses/course/${courseId}`);
+                const courseResponse = await axios.get(`https://kidgage-backend.onrender.com/api/courses/course/${courseId}`);
                 setCourse(courseResponse.data);
 
                 if (courseResponse.data && courseResponse.data.providerId) {
-                    const providerResponse = await axios.get(`http://localhost:5000/api/users/provider/${courseResponse.data.providerId}`);
+                    const providerResponse = await axios.get(`https://kidgage-backend.onrender.com/api/users/provider/${courseResponse.data.providerId}`);
                     setProvider(providerResponse.data);
                 } else {
                     console.error('Provider ID is missing from course data');
@@ -144,7 +146,7 @@ const ActivityInfo = () => {
                         <h2>Trainers</h2>
                         <div className="activity-info-trainer-images">
                             {[...Array(12)].map((_, index) => (
-                                <img key={index} src={getBase64ImageSrc(course.images[0])} alt={`trainer-${index + 1}`} className="activity-info-trainer-image" />
+                                <img key={index} src={Trainer1} alt={`trainer-${index + 1}`} className="activity-info-trainer-image" />
                             ))}
                         </div>
                     </div>
