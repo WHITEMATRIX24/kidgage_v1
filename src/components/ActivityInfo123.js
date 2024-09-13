@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import './ActivityInfo.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationArrow, faBookmark, faHome, faChevronRight } from '@fortawesome/free-solid-svg-icons';
@@ -9,12 +10,18 @@ import Calendar from './Calendar';
 import Header2 from './Header2';
 
 const ActivityInfo = () => {
+    const location = useLocation(); // Access navigation state
+    const { id: courseId } = location.state || {}; // Extract courseId from state
     const [course, setCourse] = useState(null);
     const [provider, setProvider] = useState(null);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);  // State to track the current image index
-    const courseId = '66e409717466b28bc674e433';  // Example course ID
 
     useEffect(() => {
+        if (!courseId) {
+            console.error('No course ID provided');
+            return;
+        }
+
         const fetchCourseData = async () => {
             try {
                 const courseResponse = await axios.get(`http://localhost:5000/api/courses/course/${courseId}`);
@@ -36,7 +43,7 @@ const ActivityInfo = () => {
         };
 
         fetchCourseData();
-    }, []);
+    }, [courseId]);  // Dependency on courseId
 
     // Function to decode and format base64 images
     const getBase64ImageSrc = (base64String) => `data:image/jpeg;base64,${base64String}`;
