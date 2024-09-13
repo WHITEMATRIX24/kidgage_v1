@@ -598,8 +598,8 @@ const CustomDatePickerWrapper = styled.div`
   }
   }
   @media (min-width: 1900px) {
-    height: 37vw;
-    width: 23vw;
+    height: 31vw;
+    width: 20vw;
     .calendar-row {
     margin-bottom: 10px;
   }
@@ -1289,7 +1289,7 @@ const Calendar = ({ course, provider }) => {
   const [courseDetails, setCourseDetails] = useState(null);
   const [allowedDays, setAllowedDays] = useState([]);
   const [timeSlots, setTimeSlots] = useState([]);
-  const courseId = '66ab808e13912199840ad54b';
+  const courseId = '66e409717466b28bc674e433';
   useEffect(() => {
     const fetchCourseDetails = async () => {
       try {

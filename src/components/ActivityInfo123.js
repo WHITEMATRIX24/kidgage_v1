@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import './ActivityInfo.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTheaterMasks, faMusic, faLocationArrow, faBookmark } from '@fortawesome/free-solid-svg-icons';
+import { faLocationArrow, faBookmark, faHome, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import Footer from './Footer';
 import Footer2 from './Footer2';
-import Calendar from './Calender';
-import ActivityImg from './assets/images/football.jpg';
-import LocationImg from './assets/images/mapimg.png';
+import Calendar from './Calendar';
+import Header2 from './Header2';
 
 const ActivityInfo = () => {
     const [course, setCourse] = useState(null);
     const [provider, setProvider] = useState(null);
-    const courseId = '66ab808e13912199840ad54b';
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);  // State to track the current image index
+    const courseId = '66e409717466b28bc674e433';  // Example course ID
 
     useEffect(() => {
         const fetchCourseData = async () => {
@@ -24,15 +24,33 @@ const ActivityInfo = () => {
                     const providerResponse = await axios.get(`http://localhost:5000/api/users/provider/${courseResponse.data.providerId}`);
                     setProvider(providerResponse.data);
                 } else {
-                    console.error('Provider ID is missing');
+                    console.error('Provider ID is missing from course data');
                 }
             } catch (error) {
-                console.error('Error fetching course or provider data:', error);
+                if (error.response && error.response.status === 404) {
+                    console.error('Resource not found:', error.response.config.url);
+                } else {
+                    console.error('Error fetching course or provider data:', error);
+                }
             }
         };
 
         fetchCourseData();
     }, []);
+
+    // Function to decode and format base64 images
+    const getBase64ImageSrc = (base64String) => `data:image/jpeg;base64,${base64String}`;
+
+    // Slideshow effect for images
+    useEffect(() => {
+        if (course && course.images && course.images.length > 1) {
+            const interval = setInterval(() => {
+                setCurrentImageIndex((prevIndex) => (prevIndex + 1) % course.images.length);  // Cycle through images
+            }, 3000);  // 3 seconds interval
+
+            return () => clearInterval(interval);  // Cleanup on component unmount
+        }
+    }, [course]);
 
     const handleShare = () => {
         const shareData = {
@@ -56,67 +74,72 @@ const ActivityInfo = () => {
 
     return (
         <div className="activity-info-container">
-            <header className="activity-info-header">KIDGAGE HEADER</header>
-            <div className="activity-info-gap"></div>
-            <div className="activity-info-gap"></div>
-            <div className="activity-info-header-content">
-                <div className="activity-info-row">
-                    <div className="activity-info-home">
-                        <div className="activity-info-home-icon">
-                            <FontAwesomeIcon icon={faTheaterMasks} /> Activity
-                        </div>
+            <Header2 />
+            <div className="activity-info-content">
+                <div className="activity-info-breadcrumb">
+                    <div className='activity-info-path'>
+                        <FontAwesomeIcon icon={faHome} />
+                        <FontAwesomeIcon icon={faChevronRight} />
+                        Activity
                     </div>
                     <div className="activity-info-actions">
                         <button className="activity-info-action-btn" onClick={handleShare}>
-                            <FontAwesomeIcon icon={faLocationArrow} className='activity-info-share' /> Share
+                            <FontAwesomeIcon icon={faLocationArrow} /> Share
                         </button>
                         <button className="activity-info-action-btn">
-                            <FontAwesomeIcon icon={faBookmark} className='activity-info-save' /> Save
+                            <FontAwesomeIcon icon={faBookmark} /> Save
                         </button>
                     </div>
                 </div>
-                <div className="activity-info-item">
-                    <div className="activity-info-icon">
-                        <FontAwesomeIcon icon={faTheaterMasks} />
+
+                <h1 className="activity-info-heading">{course.name}</h1>
+                <div className="activity-info-main">
+                    <div className="activity-info-left-section">
+                        {/* Display the current image in the slideshow */}
+                        {course.images && course.images.length > 0 ? (
+                            <img
+                                src={getBase64ImageSrc(course.images[currentImageIndex])}
+                                alt={`activity-${currentImageIndex}`}
+                                className="activity-info-image"
+                            />
+                        ) : (
+                            <p>No images available</p>
+                        )}
+                        <p className="activity-info-description">{course.description}</p>
                     </div>
-                    <span className='activity-info-icon-text'>Sports & Games</span>
-                    <div className="activity-info-icon">
-                        <FontAwesomeIcon icon={faMusic} />
+                    <div className="activity-info-right-section">
+                        <Calendar providerName={`${provider.firstName} ${provider.lastName}`} courseName={course.name} />
                     </div>
-                    <span className='activity-info-icon-text'>Football</span>
                 </div>
-            </div>
-            <div className="activity-info-gap"></div>
-            <div className="activity-info-gap"></div>
-            <div className="activity-info-content">
-                <div className="activity-info-left-section">
-                    <h2 className="activity-info-heading">{course.name}</h2>
-                    <div className='activity-info-gap'></div>
-                    <img src={ActivityImg} alt="activity image" className='activity-info-image' />
-                    <h3 className="activity-info-heading">Description</h3>
-                    <div className="activity-info-gap"></div>
-                    <p className="activity-info-description">
-                        {course.description}
-                    </p>
-                    <h3 className="activity-info-heading">LOCATION</h3>
-                    <img src={LocationImg} alt="location image" className='activity-info-location-image' />
+
+                {/* Display course locations dynamically if available */}
+                <div className="activity-info-locations">
+                    {course.location && course.location.length > 0 ? (
+                        course.location.map((loc, index) => (
+                            <div key={index} className="activity-info-location">
+                                <h3>Location {index + 1}</h3>
+                                <p>{loc.address}, {loc.city}, {loc.phoneNumber}</p>
+                            </div>
+                        ))
+                    ) : (
+                        <p>No locations available</p>
+                    )}
                 </div>
-                <div className="activity-info-right-section">
-                    <div className="activity-info-gap"></div>
-                    <div className="activity-info-gap"></div>
-                    <div className="activity-info-main-image"><Calendar /></div>
-                    <h3 className="activity-info-provider-heading">Activity Provided By</h3>
-                    <p className="activity-info-provider-details">
-                        {provider.firstName} {provider.lastName} <br />
-                        Registration number: {provider.licenseNo}
-                    </p>
-                    <img src={`data:image/jpeg;base64,${provider.logo}`} alt="Provider" className="activity-info-provider-image" />
-                    <h3 className="activity-info-trainers-heading">Trainers</h3>
+
+                <div className="provider-trainer-container">
+                    <div className="activity-info-provider">
+                        <h2>Activity provided by</h2>
+                        <p>{provider.firstName} {provider.lastName}</p>
+                        <p>Commercial Registration: {provider.licenseNo}</p>
+                        <img src={`data:image/jpeg;base64,${provider.logo}`} alt="Provider" className="activity-info-provider-image" />
+                    </div>
                     <div className="activity-info-trainers">
-                        <img src={ActivityImg} alt="trainer-image" className="activity-info-trainer-image" />
-                        <img src={ActivityImg} alt="trainer-image" className="activity-info-trainer-image" />
-                        <img src={ActivityImg} alt="trainer-image" className="activity-info-trainer-image" />
-                        <img src={ActivityImg} alt="trainer-image" className="activity-info-trainer-image" />
+                        <h2>Trainers</h2>
+                        <div className="activity-info-trainer-images">
+                            {[...Array(12)].map((_, index) => (
+                                <img key={index} src={getBase64ImageSrc(course.images[0])} alt={`trainer-${index + 1}`} className="activity-info-trainer-image" />
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
