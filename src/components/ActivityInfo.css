@@ -70,7 +70,7 @@
 .activity-info-image {
     width: 100%;
     max-width: 750px;
-    max-height: 430px;
+    max-height: auto;
     border-radius: 8px;
     margin-bottom: 20px;
 }
@@ -165,7 +165,6 @@
 
     .activity-info-image {
         max-width: 750px;
-        max-height: 430px;
     }
 
     .activity-info-description {
@@ -214,7 +213,6 @@
 
     .activity-info-image {
         max-width: 750px;
-        max-height: 430px;
     }
 
     .activity-info-description {
@@ -263,7 +261,6 @@
 
     .activity-info-image {
         max-width: 1200px;
-        max-height: 800px;
     }
 
     .activity-info-description {
@@ -322,7 +319,6 @@
 
     .activity-info-image {
         max-width: 750px;
-        max-height: 400px;
     }
 
     .provider-trainer-container {
@@ -343,7 +339,7 @@
 /* Small screens */
 @media (max-width: 768px) {
     .activity-info-breadcrumb {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         gap: 20px;
     }
@@ -355,6 +351,9 @@
 
     .activity-info-action-btn {
         margin-left: 0;
+        width: 60px;
+        font-size: 10px;
+        padding: 8px;
     }
 
     .activity-info-locations {
@@ -367,7 +366,7 @@
     }
 
     .activity-info-trainer-images {
-        grid-template-columns: repeat(3, 60px);
+        grid-template-columns: repeat(4, 60px);
     }
 }
 
@@ -379,10 +378,21 @@
 
     .activity-info-location {
         flex-basis: 100%;
+        margin-top: 20px;
     }
 
     .activity-info-trainer-images {
-        grid-template-columns: repeat(2, 60px);
+        grid-template-columns: repeat(4, 60px);
         gap: 20px;
     }
+}
+
+/* Very small screens */
+@media (max-width: 400px) {
+
+
+    .activity-info-location {
+        margin-top: 60px;
+    }
+
 }

@@ -1188,7 +1188,7 @@ const CustomDatePickerWrapper = styled.div`
 
   justify-content: center;
     padding-top: 1vw;
-    height: 100%;
+    height: 380px;
     border-radius: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     margin-top: 10px;

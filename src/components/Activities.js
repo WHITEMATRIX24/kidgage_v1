@@ -1,18 +1,13 @@
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import banner1 from '../components/assets/images/AD01.png'
-import banner2 from '../components/assets/images/ads2.png'
-import smallBanner1 from '../components/assets/images/ad1.png';
-import smallBanner2 from '../components/assets/images/ad2.png';
 import football from '../components/assets/images/child-613199_1280.jpg'
 import placeholderLogo from '../components/assets/images/abs.png'
 import calendar from '../components/assets/images/calendar.png'
 import baby from '../components/assets/images/baby.png'
 import './Activities.css';
-import './AcademyList.css';
 import Footer from './Footer';
-import Header2 from './Header2';
+import Header from './Header';
 import SearchBar from './SearchBar';
-import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 const allDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -207,7 +202,7 @@ const Activities = () => {
     return (
         <>
             {/* Fixed Navbar */}
-            <Header2 />
+            <Header />
             <SearchBar />
 
             {/* promoted */}

@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationArrow, faBookmark, faHome, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import Footer from './Footer';
-import Footer2 from './Footer2';
 import Calendar from './Calendar';
 import Header2 from './Header2';
 import Trainer1 from './assets/images/trainer1.jpg'
@@ -153,7 +152,6 @@ const ActivityInfo = () => {
                 </div>
             </div>
             <Footer />
-            <Footer2 />
         </div>
     );
 };

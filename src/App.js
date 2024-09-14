@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, useNavigate, useLocation, useNavigationType } from 'react-router-dom';
 import Home from './components/Home';
-import AcademyList from './components/AcademyList';
 import SlotSelection from './components/SlotSelection';
 import BookingForm from './components/BookingForm';
 import CheckoutPage from './components/CheckoutPage';
@@ -23,12 +22,8 @@ import AttendeeInfo from './components/AttendeeInfoPage';
 import WishlistPage from './components/WishListPage';
 import Shops from "./components/Shops";
 // import ActivityInfo from "./components/ActivityInfo";
-import ActivityInfo from './components/ActivityInfo123';
+import ActivityInfo from './components/ActivityInfo';
 import Activities from "./components/Activities";
-import Gymnastics from './components/ActivityGymnastics';
-import ActivityBaking from './components/ActivityBaking';
-import ActivitySwimming from './components/ActivitySwimming';
-import ActivityMartialArts from './components/ActivityMartialArts';
 // Add any other paths from your secondary navbar here
 const secondaryNavPaths = ['/shops', '/parents', '/providers', '/about'];
 
@@ -55,7 +50,6 @@ function AppContent() {
     <ScrollToTop>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/academy-list" element={<AcademyList />} />
         <Route path="/slot-selection" element={<SlotSelection />} />
         <Route path="/bookingform" element={<BookingForm />} />
         <Route path="/checkout" element={<CheckoutPage />} />
@@ -77,10 +71,6 @@ function AppContent() {
         <Route path="/shops" element={<Shops />} />
         <Route path="/activity-info" element={<ActivityInfo />} />
         <Route path="/activityinfo" element={<Activities />} />
-        <Route path="/activitygym" element={<Gymnastics />} />
-        <Route path="/activitybaking" element={<ActivityBaking />} />
-        <Route path="/activityswimming" element={<ActivitySwimming />} />
-        <Route path="/activitymartialarts" element={<ActivityMartialArts />} />
 
       </Routes>
     </ScrollToTop>
