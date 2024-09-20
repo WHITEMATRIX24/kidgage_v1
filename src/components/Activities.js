@@ -58,34 +58,34 @@ const Activities = () => {
     };
     const calculateAgeRange = (startDate, endDate) => {
         const today = new Date();
-    
+
         // Convert ISO strings to Date objects
         let start = new Date(startDate);
         let end = new Date(endDate);
-    
+
         // Check if both dates are valid
         if (!start || !end || isNaN(start.getTime()) || isNaN(end.getTime())) {
             return 'unvailable';
         }
-    
+
         // Helper function to calculate the difference in years and months
         const calculateDifference = (fromDate, toDate) => {
             let years = toDate.getFullYear() - fromDate.getFullYear();
             let months = toDate.getMonth() - fromDate.getMonth();
-    
+
             // Adjust if the month difference is negative
             if (months < 0) {
                 years--;
                 months += 12;
             }
-    
+
             return { years, months };
         };
-    
+
         // Calculate the differences from both start and end dates to today
         const startDiff = calculateDifference(start, today);
         const endDiff = calculateDifference(end, today);
-    
+
         // Function to format the age in 'x years y months' format
         const formatAge = ({ years, months }) => {
             let ageString = `${years} yr`;
@@ -94,7 +94,7 @@ const Activities = () => {
             }
             return ageString;
         };
-    
+
         // Sort the age differences to always display the smallest age first
         const sortedAges = [startDiff, endDiff].sort((a, b) => {
             if (a.years === b.years) {
@@ -102,14 +102,14 @@ const Activities = () => {
             }
             return a.years - b.years;
         });
-    
+
         // Return the age range in 'smallest-age-to-largest-age' format with years and months
         return `${formatAge(sortedAges[0])} - ${formatAge(sortedAges[1])}`;
     };
-    
+
     // Example usage:
     console.log(calculateAgeRange('2015-08-15', '2020-04-10')); // Output: e.g. "4 years 5 months - 9 years 1 month"
-    
+
     useEffect(() => {
         const fetchCourses = async () => {
             try {
@@ -177,19 +177,55 @@ const Activities = () => {
             }
         };
 
-
-
         if (category) {
             fetchCourses();
         }
     }, [category]);
+
+
+    // Define handleShare as a separate function
+    const handleShare = (course) => {
+        const shareData = {
+            title: course || 'Check this out!',
+            text: 'Check out this course on Kidgage!',
+            url: window.location.href,
+        };
+
+        if (navigator.share) {
+            navigator.share(shareData)
+                .then(() => console.log(shareData))
+                .catch((error) => console.log('Error sharing', error));
+        } else {
+            alert('Web Share API is not supported in your browser.');
+        }
+    };
+
 
     const [advertisements, setAdvertisements] = useState([]);
 
     useEffect(() => {
         fetchAdvertisements();
     }, []);
+    const [wishlist, setWishlist] = useState([]);
+    const [showPopup, setShowPopup] = useState(false);
+    const addToWishlist = (event) => {
+        try {
+            // Get current wishlist from local storage
+            const storedWishlist = localStorage.getItem('wishlistEvents');
+            const currentWishlist = storedWishlist ? JSON.parse(storedWishlist) : [];
 
+            // Add the event to the wishlist if it's not already in it
+            const isEventInWishlist = currentWishlist.some(wishlistEvent => wishlistEvent._id === event._id);
+            if (!isEventInWishlist) {
+                const updatedWishlist = [...currentWishlist, event];
+                localStorage.setItem('wishlistEvents', JSON.stringify(updatedWishlist));
+                setWishlist(updatedWishlist); // Update local wishlist state
+                setShowPopup(true); // Show popup on success
+            }
+        } catch (error) {
+            console.error('Error adding to wishlist:', error);
+        }
+    };
     const fetchAdvertisements = async () => {
         try {
             const response = await axios.get('https://kidgage-backend.onrender.com/api/advertisement');
@@ -276,11 +312,20 @@ const Activities = () => {
                                 {/* Activity Actions Section */}
                                 <div className="activity-actions">
                                     <div className='activity-buttons'>
-                                        <button className="book-now" style={{ backgroundColor: '#5EA858' }} onClick={() => sendMessage(activity.name, activity.location)}>
+                                        <button
+                                            className="book-now"
+                                            style={{ backgroundColor: '#5EA858' }}
+                                            onClick={() => {
+                                                const provider = providers[activity.providerId];
+                                                const providerName = provider ? provider.firstName : 'Unknown Provider';
+                                                sendMessage(activity.name, providerName);
+                                            }}
+                                        >
                                             <i className="fa-brands fa-whatsapp"></i>
                                             <span style={{ marginLeft: '5px', fontWeight: 'bold' }}>Book Now</span>
                                         </button>
-                                        <button className="share" style={{ backgroundColor: '#3880C4' }}>
+
+                                        <button className="share" style={{ backgroundColor: '#3880C4' }} onClick={() => handleShare(activity.name)}>
                                             <i className="fa-solid fa-share"></i>
                                             <span style={{ marginLeft: '5px', fontWeight: 'bold' }}>Share</span>
                                         </button>
@@ -313,8 +358,8 @@ const Activities = () => {
                             courses
                                 .filter((course) => !course.promoted) // Filter out promoted courses
                                 .map((course) => (
-                                    <div className="activity-card cards" key={course._id} onClick={() => handleClick(course._id)}>
-                                        <div className="activity-image">
+                                    <div className="activity-card cards" key={course._id} >
+                                        <div className="activity-image" onClick={() => handleClick(course._id)}>
                                             {/* Display image if available */}
                                             {course.images && course.images.length > 0 ? (
                                                 <img src={`data:image/png;base64,${course.images[0]}`} alt="Course Image" />
@@ -322,8 +367,8 @@ const Activities = () => {
                                                 <img src={football} alt="Placeholder" />
                                             )}
                                         </div>
-                                        <div className="activity-details">
-                                            <div className='activity-card-in'>
+                                        <div className="activity-details" >
+                                            <div className='activity-card-in' onClick={() => handleClick(course._id)}>
                                                 <div className='info-with-img'>
                                                     <div className='descp'>
                                                         <h3>{course.name}</h3>
@@ -384,24 +429,33 @@ const Activities = () => {
                                                 </div>
                                             </div>
 
-                                    {/* Chevron dropdown for smaller screens only */}
-                                    <div className="chevron-dropdown">
-                                        See More
-                                        <i className="fa-solid fa-chevron-down"></i>
-                                    </div>
+                                            {/* Chevron dropdown for smaller screens only */}
+                                            <div className="chevron-dropdown">
+                                                See More
+                                                <i className="fa-solid fa-chevron-down"></i>
+                                            </div>
 
                                             {/* Activity Actions Section */}
                                             <div className='activity-actions'>
                                                 <div className='activity-buttons'>
-                                                    <button className="book-now" style={{ backgroundColor: '#5EA858' }} onClick={() => sendMessage(course.name, course.location)}>
+                                                    <button
+                                                        className="book-now"
+                                                        style={{ backgroundColor: '#5EA858' }}
+                                                        onClick={() => {
+                                                            const provider = providers[course.providerId];
+                                                            const providerName = provider ? provider.firstName : 'Unknown Provider';
+                                                            sendMessage(course.name, providerName);
+                                                        }}
+                                                    >
                                                         <i className="fa-brands fa-whatsapp"></i>
                                                         <span style={{ marginLeft: '5px', fontWeight: 'bold' }}>Book Now</span>
                                                     </button>
-                                                    <button className="share" style={{ backgroundColor: '#3880C4' }}>
+
+                                                    <button className="share" style={{ backgroundColor: '#3880C4' }} onClick={() => handleShare(course.name)}>
                                                         <i className="fa-solid fa-share"></i>
                                                         <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Share</span>
                                                     </button>
-                                                    <button className="save" style={{ backgroundColor: '#3880C4' }}>
+                                                    <button className="save" style={{ backgroundColor: '#3880C4' }} onClick={() => addToWishlist(course)}>
                                                         <i className="fa-regular fa-bookmark"></i>
                                                         <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Save</span>
                                                     </button>
@@ -424,19 +478,19 @@ const Activities = () => {
                 {/* banner section starts*/}
 
                 <div className="banner-container">
-                {advertisements.length > 0 ? (
-                    advertisements.map((ad, index) => (
-                        <div key={ad._id} className={`card bcard${index + 1}`}>
-                            <img
-                                src={isSmallScreen ? `data:image/jpeg;base64,${ad.mobileImage}` : `data:image/jpeg;base64,${ad.desktopImage}`}
-                                alt={`Banner ${index + 1}`}
-                            />
-                        </div>
-                    ))
-                ) : (
-                    <p>No advertisements found.</p> // Fallback content
-                )}
-            </div>
+                    {advertisements.length > 0 ? (
+                        advertisements.map((ad, index) => (
+                            <div key={ad._id} className={`card bcard${index + 1}`}>
+                                <img
+                                    src={isSmallScreen ? `data:image/jpeg;base64,${ad.mobileImage}` : `data:image/jpeg;base64,${ad.desktopImage}`}
+                                    alt={`Banner ${index + 1}`}
+                                />
+                            </div>
+                        ))
+                    ) : (
+                        <p>No advertisements found.</p> // Fallback content
+                    )}
+                </div>
                 {/* banner section ends */}
             </div>
 
