@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import football from '../components/assets/images/child-613199_1280.jpg'
-import placeholderLogo from '../components/assets/images/abs.png'
+import football from '../components/assets/images/placeholder.jpg'
+import placeholderLogo from '../components/assets/images/placeholder.jpg'
 import calendar from '../components/assets/images/calendar.png'
 import baby from '../components/assets/images/baby.png'
 import './Activities.css';

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Header from './Header';
 import HeroBanner from './HeroBanner';
 import IntroSearch from './IntroSearch';
@@ -7,7 +7,6 @@ import BlogSection from './BlogSection';
 import TopProviders from './TopProviders';
 import UpcomingEvents from './UpcomingEvents';
 import Footer from './Footer';
-import CitySelector from './CitySelector';
 import './Home.css';
 
 const Home = () => {

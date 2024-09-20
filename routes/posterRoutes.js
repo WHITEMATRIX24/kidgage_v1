@@ -8,35 +8,6 @@ const router = express.Router();
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-// Route to add a new poster
-router.post('/add', upload.single('image'), async (req, res) => {
-  const { name, description, location, phone, startDate, endDate } = req.body;
-
-  if (!req.file) {
-    return res.status(400).json({ message: 'Image is required' });
-  }
-
-  const imageBase64 = req.file.buffer.toString('base64');
-
-  try {
-    const newPoster = new Poster({
-      name,
-      description,
-      location,
-      phone,
-      startDate,
-      endDate,
-      image: imageBase64,
-    });
-
-    const savedPoster = await newPoster.save();
-    res.status(201).json(savedPoster);
-  } catch (error) {
-    console.error('Error saving poster:', error);
-    res.status(500).json({ message: 'Internal server error. Please try again later.' });
-  }
-});
-
 // Route to fetch all posters or wishlist posters based on query parameter
 router.get('/', async (req, res) => {
   const { wishlist } = req.query;
@@ -105,21 +76,6 @@ router.put('/:id', upload.single('image'), async (req, res) => {
   }
 });
 
-// Route to delete a specific poster by ID
-router.delete('/:id', async (req, res) => {
-  const { id } = req.params;
-
-  try {
-    const deletedPoster = await Poster.findByIdAndDelete(id);
-    if (!deletedPoster) {
-      return res.status(404).json({ message: 'Poster not found' });
-    }
-    res.status(200).json({ message: 'Poster deleted successfully' });
-  } catch (error) {
-    console.error('Error deleting poster:', error);
-    res.status(500).json({ message: 'Internal server error. Please try again later.' });
-  }
-});
 
 // Route to update the wishlist status of a poster
 router.put('/:id/wishlist', async (req, res) => {

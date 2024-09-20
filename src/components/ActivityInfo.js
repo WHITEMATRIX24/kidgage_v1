@@ -6,7 +6,7 @@ import { faLocationArrow, faBookmark, faHome, faChevronRight } from '@fortawesom
 import axios from 'axios';
 import Footer from './Footer';
 import Calendar from './Calendar';
-import Header2 from './Header2';
+import Header from './Header';
 
 const ActivityInfo = () => {
     const location = useLocation(); // Access navigation state
@@ -80,7 +80,7 @@ const ActivityInfo = () => {
 
     return (
         <div className="activity-info-container">
-            <Header2 />
+            <Header/>
             <div className="activity-info-content">
                 <div className="activity-info-breadcrumb">
                     <div className='activity-info-path'>
