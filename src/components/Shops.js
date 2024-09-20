@@ -127,9 +127,9 @@ const Shops = () => {
 
           {/* Buttons: Add to Cart, Give as Gift, Wishlist */}
           <div className="button-container">
-            <button className="button add-to-cart">Add to Cart</button>
-            <button className="button give-gift">Give as Gift</button>
-            <button onClick={handleWishlistToggle} className={`button wishlist ${isInWishlist ? 'active' : ''}`}>
+            <button className="shbutton add-to-cart">Add to Cart</button>
+            <button className="shbutton give-gift">Give as Gift</button>
+            <button onClick={handleWishlistToggle} className={`shbutton wishlist ${isInWishlist ? 'active' : ''}`}>
               {isInWishlist ? 'Remove from Wishlist' : 'Add to Wishlist'}
             </button>
           </div>

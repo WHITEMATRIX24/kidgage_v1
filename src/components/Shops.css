@@ -75,6 +75,8 @@
   border: 1px solid #e3e3e3;
   border-radius: 5px;
   margin-bottom: 20px;
+  width: 100%;
+  max-width: 400px;
 }
 
 .product-title {
@@ -262,13 +264,13 @@ body {
 .button-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 10px;
-  margin-top: 20px;
+  margin: 20px 0;
 }
 
-.button {
+.shbutton {
   padding: 15px 20px;
+  font-size:medium;
   border: 1px solid #ddd;
   border-radius: 8px;
   cursor: pointer;
@@ -276,7 +278,7 @@ body {
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 350px;
+  max-width: 400px;
   font-family: inherit;
   background-color: #fff;
   box-sizing: border-box;
@@ -424,7 +426,7 @@ iframe {
     font-size: 18px;
   }
 
-  .button {
+  .shbutton {
     padding: 25px 30px;
     font-size: 20px;
   }
@@ -453,7 +455,7 @@ iframe {
     font-size: 20px;
   }
 
-  .button {
+  .shbutton {
     padding: 20px 40px;
     font-size: 22px;
   }
