@@ -10,7 +10,6 @@ const courseCategoryRoutes = require('./routes/courseCategoryRoutes'); // New ro
 const courseRoutes = require('./routes/course');// New routes for courses
 const bannerRoutes = require('./routes/bannerRoutes'); // New routes for banners
 const posterRoutes = require('./routes/posterRoutes');
-const bookingRoutes = require('./routes/bookingRoutes');
 const advertisementRoutes = require('./routes/advertisementRoutes');
 
 
@@ -33,7 +32,6 @@ app.use('/api/course-category', courseCategoryRoutes); // Add the course categor
 app.use('/api/courses', courseRoutes);
 app.use('/api/banners', bannerRoutes); // Add the banner routes here
 app.use('/api/posters', posterRoutes);
-app.use('/api/bookings', bookingRoutes);
 app.use('/api/advertisement', advertisementRoutes);
 
 
