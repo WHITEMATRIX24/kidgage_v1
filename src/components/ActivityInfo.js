@@ -7,6 +7,7 @@ import axios from 'axios';
 import Footer from './Footer';
 import Calendar from './Calendar';
 import Header from './Header';
+import placeholder from '../components/assets/images/placeholder.jpg'
 
 const ActivityInfo = () => {
     const location = useLocation(); // Access navigation state
@@ -109,7 +110,7 @@ const ActivityInfo = () => {
                                 className="activity-info-image"
                             />
                         ) : (
-                            <p>No images available</p>
+                            <img src={placeholder} alt="Placeholder" />
                         )}
                         <p className="activity-info-description">{course.description}</p>
                     </div>
@@ -131,7 +132,6 @@ const ActivityInfo = () => {
                         <p>No locations available</p>
                     )}
                 </div>
-
                 <div className="provider-trainer-container">
                     <div className="activity-info-provider">
                         <h2>Activity provided by</h2>
@@ -143,7 +143,7 @@ const ActivityInfo = () => {
                         <h2>Trainers</h2>
                         <div className="activity-info-trainer-images">
                             {[...Array(12)].map((_, index) => (
-                                <img key={index} src={getBase64ImageSrc(course.images[0])} alt={`trainer-${index + 1}`} className="activity-info-trainer-image" />
+                                <img key={index} src={placeholder} alt={`trainer-${index + 1}`} className="activity-info-trainer-image" />
                             ))}
                         </div>
                     </div>
