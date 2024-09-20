@@ -92,4 +92,16 @@ router.post('/signin', async (req, res) => {
 });
 
 
+// New route to get all users
+router.get('/all', async (req, res) => {
+  try {
+    const users = await User.find({}, 'username logo'); // Fetch only the username and logo fields
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+
+
 module.exports = router;
