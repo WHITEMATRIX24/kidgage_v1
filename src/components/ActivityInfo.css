@@ -56,6 +56,7 @@
 .activity-info-main {
     display: flex;
     gap: 30px;
+    max-height:100vh;
     margin-bottom: 50px;
 }
 
@@ -70,14 +71,14 @@
 .activity-info-image {
     width: 100%;
     max-width: 750px;
-    max-height: auto;
+    max-height: 50%;
+    object-fit:cover;
     border-radius: 8px;
     margin-bottom: 20px;
 }
 
 .activity-info-description {
     margin-bottom: 20px;
-    height: 100px;
     text-align: justify;
 }
 
@@ -158,7 +159,10 @@
     .activity-info-content {
         min-width: 1200px;
     }
+    .activity-info-main{
+        max-height:45vw;
 
+    }
     .activity-info-heading {
         font-size: 2rem;
     }
@@ -261,6 +265,8 @@
 
     .activity-info-image {
         max-width: 1200px;
+        max-height: 60%;
+
     }
 
     .activity-info-description {
@@ -319,6 +325,8 @@
 
     .activity-info-image {
         max-width: 750px;
+        max-height: 40%;
+        height: 50vw;
     }
 
     .provider-trainer-container {
