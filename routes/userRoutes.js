@@ -91,6 +91,27 @@ router.post('/signin', async (req, res) => {
   }
 });
 
+// Search Route
+router.get('/search', async (req, res) => {
+  const { query } = req.query;
+
+  try {
+    // Find the user by email or phone number
+    const user = await User.findOne({
+      $or: [{ email: query }, { phoneNumber: query }]
+    });
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found.' });
+    }
+
+    // Send the user details
+    res.status(200).json(user);
+  } catch (error) {
+    console.error('Search error:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
 
 // New route to get all users
 router.get('/all', async (req, res) => {
@@ -99,6 +120,41 @@ router.get('/all', async (req, res) => {
     res.status(200).json(users);
   } catch (error) {
     res.status(400).json({ message: error.message });
+  }
+});
+
+// Route to get provider details by providerId
+router.get('/:providerId', async (req, res) => {
+  const { providerId } = req.params;
+
+  try {
+      // Fetch provider details using the providerId
+      const provider = await User.findById(providerId);
+
+      if (!provider) {
+          return res.status(404).json({ message: 'Provider not found' });
+      }
+
+      // Respond with provider name and logo
+      res.json({
+          name: provider.name,
+          logo: provider.logo,
+      });
+  } catch (error) {
+      console.error('Error fetching provider:', error);
+      res.status(500).json({ message: 'Server error' });
+  }
+});
+
+router.get('/provider/:id', async (req, res) => {
+  try {
+    const provider = await User.findById(req.params.id);
+    if (!provider) {
+      return res.status(404).json({ message: 'Provider not found' });
+    }
+    res.status(200).json(provider);
+  } catch (error) {
+    res.status(500).json({ message: 'Server error', error });
   }
 });
 
