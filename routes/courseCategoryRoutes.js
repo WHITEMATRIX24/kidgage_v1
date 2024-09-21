@@ -1,12 +1,10 @@
 const express = require('express');
-const multer = require('multer');
 const CourseCategory = require('../models/CourseCategory'); // Adjust the path as necessary
 
 const router = express.Router();
 
 // Set up multer for file handling
-const storage = multer.memoryStorage();
-const upload = multer({ storage });
+
 
 router.get('/categories', async (req, res) => {
     try {
