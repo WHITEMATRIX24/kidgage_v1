@@ -114,7 +114,18 @@ const UpcomingEvents = () => {
   const bookNow = (event) => {
     navigate('/event-details', { state: { event } });
   };
+  const [showDropdown, setShowDropdown] = useState(false);
 
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
+  const handleMonthSelect = (month) => {
+    setSelectedMonth(month);
+    setShowDropdown(false); // Hide the dropdown after selection
+  };
+  
+  
   const viewWishlist = () => {
     navigate('/wishlist'); // Replace '/wishlist' with the path to your wishlist page
   };
@@ -138,16 +149,25 @@ const UpcomingEvents = () => {
         </div>
       )}
       <div className="upcoming-events-heading">
-        <h2>
-          Upcoming event in
-          <div className="select-container">
-            <select className="select-month" value={selectedMonth} onChange={e => setSelectedMonth(e.target.value)}>
-              {months.map(month => <option key={month} value={month}>{month}</option>)}
-            </select>
-            <i className="fa-solid fa-caret-down event-drop-down"></i>
+      <h2>
+        Upcoming event in
+        <div className="custom-dropdown-container">
+          <div className="custom-dropdown" onClick={toggleDropdown}>
+            <span className="dropdown-selected">{selectedMonth}</span>
+            <i className={`fa-solid fa-caret-down event-drop-down ${showDropdown ? 'rotate' : ''}`}></i>
           </div>
-        </h2>
-      </div>
+          {showDropdown && (
+            <ul className="dropdown-list">
+              {months.map(month => (
+                <li key={month} onClick={() => handleMonthSelect(month)} className="dropdown-item">
+                  {month}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </h2>
+    </div>
 
       {loading && <div className="loading">Loading events...</div>}
       {error && <div className="error">Error: {error}</div>}

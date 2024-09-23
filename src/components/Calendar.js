@@ -733,6 +733,7 @@ const CustomDatePickerWrapper = styled.div`
     border: none;
     font-weight: bold;
     margin-right: 10px;
+    
   }
   }
    @media (max-width: 1080px) {
