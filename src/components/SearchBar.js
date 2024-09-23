@@ -7,7 +7,7 @@ import './SearchBar.css';
 const SearchBar = () => {
   const [activeOption, setActiveOption] = useState(null);
   const [showCalendar, setShowCalendar] = useState(false);
-  const [showDobCalendar, setShowDobCalendar] = useState(false);
+  const [showDobDropdown, setShowDobDropdown] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedDob, setSelectedDob] = useState("Age");
   const [selectedLocation, setSelectedLocation] = useState("Location");
@@ -23,13 +23,14 @@ const SearchBar = () => {
 
   const locations = ["Doha", "Al Wakrah", "Al Khor", "Al Rayyan", "Al Shamal", "Al Shahaniya", "Umm Salal", "Dukhan", "Mesaieed"];
   const activities = ["Swimming", "Skating", "Cricket", "MMA", "Basketball"];
+  const ageRanges = ["0-2 years", "3-5 years", "6-8 years", "9-12 years", "13-17 years"];
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (searchBarRef.current && !searchBarRef.current.contains(event.target)) {
         setActiveOption(null);
         setShowCalendar(false);
-        setShowDobCalendar(false);
+        setShowDobDropdown(false);
         setShowDropdown(false);
         setShowActivityDropdown(false);
         setMissingSelection(false);
@@ -74,14 +75,14 @@ const SearchBar = () => {
       setShowDropdown(!showDropdown);
       setShowActivityDropdown(false);
       setShowCalendar(false);
-      setShowDobCalendar(false);
+      setShowDobDropdown(false);
     } else if (option === "activity") {
       setShowActivityDropdown(!showActivityDropdown);
       setShowDropdown(false);
       setShowCalendar(false);
-      setShowDobCalendar(false);
+      setShowDobDropdown(false);
     } else if (option === "age") {
-      setShowDobCalendar(!showDobCalendar);
+      setShowDobDropdown(!showDobDropdown);
       setShowDropdown(false);
       setShowActivityDropdown(false);
       setShowCalendar(false);
@@ -89,13 +90,13 @@ const SearchBar = () => {
       setShowCalendar(!showCalendar);
       setShowDropdown(false);
       setShowActivityDropdown(false);
-      setShowDobCalendar(false);
+      setShowDobDropdown(false);
     } else {
       setActiveOption(option === activeOption ? null : option);
       setShowDropdown(false);
       setShowActivityDropdown(false);
       setShowCalendar(false);
-      setShowDobCalendar(false);
+      setShowDobDropdown(false);
     }
   };
 
@@ -104,9 +105,9 @@ const SearchBar = () => {
     setShowCalendar(false);
   };
 
-  const handleDobChange = (date) => {
-    setSelectedDob(date.toLocaleDateString("en-GB"));
-    setShowDobCalendar(false);
+  const handleDobSelect = (ageRange) => {
+    setSelectedDob(ageRange);
+    setShowDobDropdown(false);
   };
 
   const handleLocationSelect = (location) => {
@@ -146,7 +147,7 @@ const SearchBar = () => {
       <div className='content'>
         <div className='sbar'>
           <div className='items'>
-            <div className="item" onClick={() => handleOptionClick("location")}>
+            {/* <div className="item" onClick={() => handleOptionClick("location")}>
               <label className={getLabelClassName(selectedLocation, "Location")} style={{
                 color: missingSelection && selectedLocation === "Location" ? "red" : "#3880C4",
               }}>
@@ -169,8 +170,8 @@ const SearchBar = () => {
                   ))}
                 </div>
               )}
-            </div>
-            <div className="dividers" />
+            </div> */}
+            {/* <div className="dividers" /> */}
             <div className="item" onClick={() => handleOptionClick("age")}>
               <label className={getLabelClassName(selectedDob, "Age")} style={{
                 color: missingSelection && selectedDob === "Age" ? "red" : "#3880C4",
@@ -180,15 +181,18 @@ const SearchBar = () => {
               </label>
               <span className="sub-label" style={{
                 color: missingSelection && selectedDob === "Age" ? "red" : "inherit",
-              }}>Enter DOB</span>
-              {showDobCalendar && (
-                <div className="calendar-dropdowns">
-                  <Calendar2
-                    onChange={handleDobChange}
-                    value={selectedDob === "Age" ? new Date() : new Date(selectedDob)}
-                    maxDate={new Date()}
-                    className="custom-cal"
-                  />
+              }}>Select age range</span>
+              {showDobDropdown && (
+                <div className="dropdown-menu">
+                  {ageRanges.map((ageRange, index) => (
+                    <div
+                      key={ageRange}
+                      className={highlightedIndex === index ? "highlighted" : ""}
+                      onClick={() => handleDobSelect(ageRange)}
+                    >
+                      {ageRange}
+                    </div>
+                  ))}
                 </div>
               )}
             </div>

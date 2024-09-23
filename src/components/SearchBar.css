@@ -229,7 +229,13 @@
         margin: 0% 6%;
     }
 }
+@media (min-width: 1101px) and (max-width: 1260px) {
 
+    .content {
+        width: 84%;
+        margin: 0% 8%;
+    }
+    }
 @media (min-width: 1261px) and (max-width: 1461px) {
 
 .content {
@@ -239,18 +245,15 @@
 }
 @media (max-width: 1461px) {
 
-
-    .sbar {
+    .content{
         height: auto;
-        /* Allow height to adjust automatically */
-
     }
 
     .item {
         padding: 5px 10px;
         /* Adjust padding for smaller screens */
         width: 100%;
-        max-width: 300px;
+        /* max-width: 300px; */
     }
 
     .sbutton {
@@ -310,7 +313,7 @@
 /* Media Queries for Responsive Design */
 @media (max-width: 768px) {
     .sbar {
-        height: auto;
+        height: 60px;
         /* Allow height to adjust automatically */
     }
 
@@ -321,7 +324,9 @@
     .item span{
         display: none;
     }
-
+    .item label{
+        font-size: 11px;
+    }
     .sbutton {
         width: 50px;
         /* Further adjust width for very small screens */
@@ -332,7 +337,8 @@
     }
     .content{
         height: 50px;
-        width: 85%;
+        width: 80%;
+        margin: 0 10%;
     }
     .dropdown-menu {
         position: absolute;
@@ -355,13 +361,13 @@
 @media (max-width: 530px) {
 
     .content {
-        width: 96%;
-        margin: 0% 2%;
+        width: 80%;
+        margin: 0% 10%;
         height: 30%;
     }
 
     .item label {
-        font-size: 12px;
+        font-size: 10.6px;
     }
 
     .item span {
@@ -401,7 +407,14 @@
         padding: 10px 10px;
     }
 }
+@media (max-width: 492px) {
 
+    .content {
+        width: 89%;
+        margin: 0% 6%;
+        height: 30%;
+    }
+}
 @media (max-width:440px) {
     .item {
         padding: 5px 2px;
@@ -410,6 +423,7 @@
     .item label {
         font-size: 9px;
     }
+
 
     .calendar-dropdowna,
     .calendar-dropdowns {
@@ -429,5 +443,26 @@
         padding: 10px 10px;
     }
 
+    .sbar {
+        height: 50px;
+        /* Allow height to adjust automatically */
+    }
+    .sbar .dividers{
+        height: 30px;
+    }
+}
 
+@media (min-width:1920px) {
+    .content{
+        height: 100px;
+    }
+    .sbar{
+        height: 100px;
+    }
+    .item label{
+        font-size: 24px;
+    }
+    .item span{
+        font-size: 20px;
+    }
 }
