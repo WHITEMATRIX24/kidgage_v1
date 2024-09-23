@@ -290,7 +290,7 @@ const Activities = () => {
                                                 </p>
                                             </div>
                                             <div className="infop-row">
-                                            <img src={getGenderImage(activity.preferredGender)} alt="gender" style={{ width: '5%', height: 'auto', marginTop: '-2%' }} />
+                                            <img src={getGenderImage(activity.preferredGender)} alt="gender" style={{ width: '5%', height: 'auto', marginTop: '-1%' ,marginRight:'10px' }} />
                                             <div className="age-group">
                                                     {activity.ageGroup && activity.ageGroup.length > 0 ? (
                                                         <span className="age-text">{calculateAgeRange(activity.ageGroup[0].ageStart, activity.ageGroup[0].ageEnd)}</span>
@@ -298,7 +298,7 @@ const Activities = () => {
                                                         <span className="age-text">Unavailable</span>
                                                     )}
                                                 </div>
-                                                <img src={calendar} alt='calendar' style={{ width: '5%', height: 'auto', marginTop: '-2%' }} />
+                                                <img src={calendar} alt='calendar' style={{ width: '5%', height: 'auto', marginTop: '-2%'}} />
                                                 <div className="day-selector">
                                                     {allDays.map((day) => (
                                                         <span key={day} className={`day ${activity.days.includes(day) ? 'active' : ''}`}>
@@ -402,7 +402,7 @@ const Activities = () => {
                                                         </div>
                                                         <div className="info-row">
                                                             {/* Display age range if applicable */}
-                                                            <img src={getGenderImage(course.preferredGender)} alt="gender" style={{ width: '5%', height: 'auto', marginTop: '-2%' }} />
+                                                            <img src={getGenderImage(course.preferredGender)} alt="gender" style={{ width: '5%', height: 'auto', marginTop: '-1%',marginRight:'10px'  }} />
                                                             <div className="age-group">
                                                                 {course.ageGroup && course.ageGroup.length > 0 ? (
                                                                     <span className="age-text">{calculateAgeRange(course.ageGroup[0].ageStart, course.ageGroup[0].ageEnd)}</span>
