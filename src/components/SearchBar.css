@@ -454,15 +454,18 @@
 
 @media (min-width:1920px) {
     .content{
-        height: 100px;
+        height: 120px;
     }
     .sbar{
-        height: 100px;
+        height: 120px;
     }
     .item label{
         font-size: 24px;
     }
     .item span{
         font-size: 20px;
+    }
+    .sbar .dividers{
+        height: 90px;
     }
 }
