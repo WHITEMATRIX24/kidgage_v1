@@ -4,6 +4,9 @@ import football from '../components/assets/images/placeholder.jpg'
 import placeholderLogo from '../components/assets/images/placeholder.jpg'
 import calendar from '../components/assets/images/calendar.png'
 import baby from '../components/assets/images/baby.png'
+import boy from '../components/assets/images/boy.png'
+import girl from '../components/assets/images/girl.png'
+
 import './Activities.css';
 import Footer from './Footer';
 import Header from './Header';
@@ -237,7 +240,15 @@ const Activities = () => {
 
     const [isExpanded, setIsExpanded] = useState(false);
 
-
+    const getGenderImage = (preferredGender) => {
+        if (preferredGender === 'Male') {
+          return boy;
+        } else if (preferredGender === 'Female') {
+          return girl;
+        } else {
+          return baby; // Default to 'Any' or not mentioned
+        }
+    }
     return (
         <>
             {/* Fixed Navbar */}
@@ -279,15 +290,15 @@ const Activities = () => {
                                                 </p>
                                             </div>
                                             <div className="infop-row">
-                                                <img src={baby} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
-                                                <div className="age-group">
+                                            <img src={getGenderImage(activity.preferredGender)} alt="gender" style={{ width: '5%', height: 'auto', marginTop: '-2%' }} />
+                                            <div className="age-group">
                                                     {activity.ageGroup && activity.ageGroup.length > 0 ? (
                                                         <span className="age-text">{calculateAgeRange(activity.ageGroup[0].ageStart, activity.ageGroup[0].ageEnd)}</span>
                                                     ) : (
                                                         <span className="age-text">Unavailable</span>
                                                     )}
                                                 </div>
-                                                <img src={calendar} alt='calendar' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
+                                                <img src={calendar} alt='calendar' style={{ width: '5%', height: 'auto', marginTop: '-2%' }} />
                                                 <div className="day-selector">
                                                     {allDays.map((day) => (
                                                         <span key={day} className={`day ${activity.days.includes(day) ? 'active' : ''}`}>
@@ -391,7 +402,7 @@ const Activities = () => {
                                                         </div>
                                                         <div className="info-row">
                                                             {/* Display age range if applicable */}
-                                                            <img src={baby} alt='baby' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
+                                                            <img src={getGenderImage(course.preferredGender)} alt="gender" style={{ width: '5%', height: 'auto', marginTop: '-2%' }} />
                                                             <div className="age-group">
                                                                 {course.ageGroup && course.ageGroup.length > 0 ? (
                                                                     <span className="age-text">{calculateAgeRange(course.ageGroup[0].ageStart, course.ageGroup[0].ageEnd)}</span>
@@ -399,7 +410,7 @@ const Activities = () => {
                                                                     <span className="age-text">Unavailable</span>
                                                                 )}
                                                             </div>
-                                                            <img src={calendar} alt='calendar' style={{ width: '6.2%', height: 'auto', marginTop: '-2%' }} />
+                                                            <img src={calendar} alt='calendar' style={{ width: '5%', height: 'auto', marginTop: '-2%' }} />
                                                             <div className="day-selector">
                                                                 {allDays.map((day) => (
                                                                     <span
