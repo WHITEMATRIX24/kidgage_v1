@@ -985,6 +985,7 @@
     display: flex;
     padding: 5px;
     justify-content: flex-end;
+    margin-top: 0px;
     margin-right: 20px;
     align-items: center;
     gap: 10px;
@@ -1721,8 +1722,11 @@
 
   .activity-details {
     padding: 5px;
+    justify-content: unset;
   }
-
+  .activity-card{
+    height: 580px;
+  }
   .card-container {
     flex-direction: column;
     width: 100%;
@@ -1862,6 +1866,31 @@
   .location {
     margin-top: -1% !important;
   }
+  .chevron-dropdown{
+    align-self: flex-start;
+  }
 
 }
 
+/* Default state: hidden on screens less than 1024px */
+@media (max-width: 1024px) {
+  .description-logo-container,
+  .activity-actions {
+      display: none;
+  }
+
+  .description-logo-container.visible,
+  .activity-actions.visible {
+      display: flex;
+  }
+
+}
+
+/* For larger screens, show these sections as usual */
+@media (min-width: 1024px) {
+  .description-logo-container,
+  .activity-actions {
+      display: flex;
+  }
+
+}

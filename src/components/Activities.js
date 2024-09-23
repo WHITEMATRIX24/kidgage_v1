@@ -235,6 +235,9 @@ const Activities = () => {
         }
     };
 
+    const [isExpanded, setIsExpanded] = useState(false);
+
+
     return (
         <>
             {/* Fixed Navbar */}
@@ -409,8 +412,8 @@ const Activities = () => {
                                                             </div>
                                                         </div>
                                                         {/* Flex container for description and logo image */}
-                                                        <div className={`description-logo-container`}>
-                                                            <p className="activity-description">
+                                                        <div className={`description-logo-container ${isExpanded ? 'visible' : 'hidden'}`}>
+                                                        <p className="activity-description">
                                                                 {course.description || 'No description available'}
                                                             </p>
                                                             <div className="additional-info">
@@ -430,14 +433,15 @@ const Activities = () => {
                                             </div>
 
                                             {/* Chevron dropdown for smaller screens only */}
-                                            <div className="chevron-dropdown">
-                                                See More
-                                                <i className="fa-solid fa-chevron-down"></i>
-                                            </div>
+                                            <div className="chevron-dropdown" onClick={() => setIsExpanded(!isExpanded)}>
+    {isExpanded ? 'See Less' : 'See More'}
+    <i className={`fa-solid fa-chevron-${isExpanded ? 'up' : 'down'}`}></i>
+</div>
+
 
                                             {/* Activity Actions Section */}
-                                            <div className='activity-actions'>
-                                                <div className='activity-buttons'>
+                                            <div className={`activity-actions ${isExpanded ? 'visible' : 'hidden'}`}>
+                                            <div className='activity-buttons'>
                                                     <button
                                                         className="book-now"
                                                         style={{ backgroundColor: '#5EA858' }}
