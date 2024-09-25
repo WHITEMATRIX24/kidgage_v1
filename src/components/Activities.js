@@ -249,11 +249,24 @@ const Activities = () => {
           return baby; // Default to 'Any' or not mentioned
         }
     }
+
+    const [searchParams, setSearchParams] = useState(null);
+
+    // Function to handle search
+    const handleSearch = (searchData) => {
+      setSearchParams(searchData);
+      console.log('Received search data:', searchData);
+  
+      // You can now use the `searchData` to make API requests or filter data.
+      // For example:
+      // fetchData(searchData);
+    };
+
     return (
         <>
             {/* Fixed Navbar */}
             <Header />
-            <SearchBar />
+            <SearchBar onSearch={handleSearch} />
 
             {/* promoted */}
             <div style={{ height: '22px' }}>

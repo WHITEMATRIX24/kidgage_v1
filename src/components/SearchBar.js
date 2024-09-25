@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import Calendar2 from 'react-calendar';
+import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import './SearchBar.css';
 
-const SearchBar = () => {
+const SearchBar = ({onSearch}) => {
   const [activeOption, setActiveOption] = useState(null);
   const [showCalendar, setShowCalendar] = useState(false);
   const [showDobDropdown, setShowDobDropdown] = useState(false);
@@ -22,8 +23,23 @@ const SearchBar = () => {
   const activityDropdownRef = useRef(null);
 
   const locations = ["Doha", "Al Wakrah", "Al Khor", "Al Rayyan", "Al Shamal", "Al Shahaniya", "Umm Salal", "Dukhan", "Mesaieed"];
-  const activities = ["Swimming", "Skating", "Cricket", "MMA", "Basketball"];
   const ageRanges = ["0-2 years", "3-5 years", "6-8 years", "9-12 years", "13-17 years"];
+  const [courseTypes, setCourseTypes] = useState([]);
+    useEffect(() => {
+      const fetchCourseTypes = async () => {
+        try {
+          const response = await axios.get('http://localhost:5000/api/course-category/categories');
+          // Assuming the response is an array of objects and each object has a 'name' property for the category
+          const categoryNames = response.data.map((category) => category.name);
+          setCourseTypes(categoryNames);
+        } catch (error) {
+          console.error('Error fetching course types', error);
+        }
+      };
+    
+      fetchCourseTypes();
+    }, []);
+    
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -37,6 +53,7 @@ const SearchBar = () => {
       }
     };
 
+
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
@@ -48,7 +65,7 @@ const SearchBar = () => {
       if (showDropdown) {
         handleDropdownKeyNavigation(event, locations, handleLocationSelect);
       } else if (showActivityDropdown) {
-        handleDropdownKeyNavigation(event, activities, handleActivitySelect);
+        handleDropdownKeyNavigation(event, courseTypes, handleActivitySelect);
       }
     };
 
@@ -129,9 +146,9 @@ const SearchBar = () => {
     ) {
       console.log('Searching with:', { selectedLocation, selectedDob, selectedDate, selectedActivity });
       setMissingSelection(false); // Reset if all selections are valid
+      onSearch({ selectedLocation, selectedDob, selectedDate, selectedActivity });
 
       // Refresh the page after a successful search
-      window.location.reload();
     } else {
       setMissingSelection(true);
     }
@@ -147,7 +164,7 @@ const SearchBar = () => {
       <div className='content'>
         <div className='sbar'>
           <div className='items'>
-            {/* <div className="item" onClick={() => handleOptionClick("location")}>
+            <div className="item" onClick={() => handleOptionClick("location")}>
               <label className={getLabelClassName(selectedLocation, "Location")} style={{
                 color: missingSelection && selectedLocation === "Location" ? "red" : "#3880C4",
               }}>
@@ -170,8 +187,8 @@ const SearchBar = () => {
                   ))}
                 </div>
               )}
-            </div> */}
-            {/* <div className="dividers" /> */}
+            </div>
+            <div className="dividers" />
             <div className="item" onClick={() => handleOptionClick("age")}>
               <label className={getLabelClassName(selectedDob, "Age")} style={{
                 color: missingSelection && selectedDob === "Age" ? "red" : "#3880C4",
@@ -231,7 +248,7 @@ const SearchBar = () => {
               }}>All activities</span>
               {showActivityDropdown && (
                 <div className="dropdown-menu" ref={activityDropdownRef}>
-                  {activities.map((activity, index) => (
+                  {courseTypes.map((activity, index) => (
                     <div
                       key={activity}
                       className={highlightedIndex === index ? "highlighted" : ""}
