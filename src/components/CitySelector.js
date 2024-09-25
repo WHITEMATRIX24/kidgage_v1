@@ -14,7 +14,7 @@ const CitySelector = ({ onCitySelect, onClose }) => {
       <div className="city-selector-modal">
         <h5>Select Your Nearest City</h5>
         <ul>
-          {["Doha", "Al Wakrah", "Al Khor", "Al Rayyan", "Al Shamal", "Al Shahaniya", "Umm Salal", "Dukhan", "Mesaieed"].map((city) => (
+          {["Doha", "Al Wakrah", "Al Khor", "Al Rayyan", "Al Shamal", "Al Shahaniya","Al Daayen", "Umm Salal", "Dukhan", "Mesaieed"].map((city) => (
             <li key={city} onClick={() => handleCityClick(city)}>
               {city}
             </li>

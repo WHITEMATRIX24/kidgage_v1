@@ -22,7 +22,7 @@ const SearchBar = ({onSearch}) => {
   const dropdownRef = useRef(null);
   const activityDropdownRef = useRef(null);
 
-  const locations = ["Doha", "Al Wakrah", "Al Khor", "Al Rayyan", "Al Shamal", "Al Shahaniya", "Umm Salal", "Dukhan", "Mesaieed"];
+  const locations = ["Doha", "Al Wakrah", "Al Khor", "Al Rayyan", "Al Shamal","Al Daayen", "Al Shahaniya", "Umm Salal", "Dukhan", "Mesaieed"];
   const ageRanges = ["0-2 years", "3-5 years", "6-8 years", "9-12 years", "13-17 years"];
   const [courseTypes, setCourseTypes] = useState([]);
     useEffect(() => {
