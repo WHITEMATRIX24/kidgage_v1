@@ -119,8 +119,8 @@ const SearchBar = ({onSearch}) => {
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
-    setShowCalendar(false);
-  };
+    setShowCalendar(false); // Close the calendar after selecting a date
+};
 
   const handleDobSelect = (ageRange) => {
     setSelectedDob(ageRange);

@@ -18,8 +18,9 @@
   .wishlist-heading {
     text-align: center;
     margin-bottom: 20px;
+
   }
-  
+
   .loading, .error, .no-events {
     text-align: center;
     margin-top: 20px;

@@ -16,7 +16,6 @@ const ageGroupSchema = new mongoose.Schema({
 })
 const courseSchema = new mongoose.Schema({
     providerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-    providerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     name: { type: String, required: true },
     duration: { type: Number, required: true },
     durationUnit: { type: String, enum: ['days', 'weeks', 'months', 'years'], required: true },

@@ -19,12 +19,13 @@ const allDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const Activities = () => {
     const [isSmallScreen, setIsSmallScreen] = useState(false);
     const location = useLocation();
-    const { category } = location.state || {}; // Get category from state, fallback to empty object
+    const { category: initialCategory } = location.state || {}; // Get category from state
     const [courses, setCourses] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [ageRange, setAgeRange] = useState({});
     const [providers, setProviders] = useState({}); // Change to an object to map providerId to provider details
+    const [searchParams, setSearchParams] = useState(initialCategory || null); // Initialize with location category or null
 
     useEffect(() => {
         const handleResize = () => {
@@ -61,34 +62,39 @@ const Activities = () => {
     };
     const calculateAgeRange = (startDate, endDate) => {
         const today = new Date();
-
+    
         // Convert ISO strings to Date objects
         let start = new Date(startDate);
         let end = new Date(endDate);
-
+    
         // Check if both dates are valid
         if (!start || !end || isNaN(start.getTime()) || isNaN(end.getTime())) {
-            return 'unvailable';
+            return 'unavailable';
         }
-
+    
         // Helper function to calculate the difference in years and months
         const calculateDifference = (fromDate, toDate) => {
             let years = toDate.getFullYear() - fromDate.getFullYear();
             let months = toDate.getMonth() - fromDate.getMonth();
-
+    
             // Adjust if the month difference is negative
             if (months < 0) {
                 years--;
                 months += 12;
             }
-
+    
+            // Ensure years and months are not negative
+            if (years < 0 || months < 0) {
+                return { years: 0, months: 0 };
+            }
+    
             return { years, months };
         };
-
+    
         // Calculate the differences from both start and end dates to today
         const startDiff = calculateDifference(start, today);
         const endDiff = calculateDifference(end, today);
-
+    
         // Function to format the age in 'x years y months' format
         const formatAge = ({ years, months }) => {
             let ageString = `${years} yr`;
@@ -97,7 +103,7 @@ const Activities = () => {
             }
             return ageString;
         };
-
+    
         // Sort the age differences to always display the smallest age first
         const sortedAges = [startDiff, endDiff].sort((a, b) => {
             if (a.years === b.years) {
@@ -105,86 +111,104 @@ const Activities = () => {
             }
             return a.years - b.years;
         });
-
+    
         // Return the age range in 'smallest-age-to-largest-age' format with years and months
         return `${formatAge(sortedAges[0])} - ${formatAge(sortedAges[1])}`;
     };
-
+    
+    // Example usage
+    console.log(calculateAgeRange("2024-09-01", "2025-09-01")); // Should show appropriate age range
+    
     // Example usage:
     console.log(calculateAgeRange('2015-08-15', '2020-04-10')); // Output: e.g. "4 years 5 months - 9 years 1 month"
 
-    useEffect(() => {
-        const fetchCourses = async () => {
-            try {
-                const response = await axios.get(
-                    'https://kidgage-backend.onrender.com/api/courses/by-course-type',
-                    {
-                        params: { courseType: category },
-                    }
-                );
-
-                console.log('API Response:', response.data); // Log the full response
-
-                if (response.data && Array.isArray(response.data)) {
-                    setCourses(response.data); // Assuming response.data is an array of courses
-
-                    // Create an array to hold all provider data
-                    const providerPromises = response.data.map(async (course) => {
-                        if (course.providerId) {
-                            try {
-                                const providerResponse = await axios.get(
-                                    `https://kidgage-backend.onrender.com/api/users/provider/${course.providerId}`
-                                );
-                                console.log(
-                                    `Provider Response for course ${course._id}:`,
-                                    providerResponse.data
-                                ); // Log each provider response
-
-                                return { [course.providerId]: providerResponse.data }; // Return the provider data mapped by providerId
-                            } catch (providerError) {
-                                console.error(
-                                    `Error fetching provider for course ${course._id}:`,
-                                    providerError
-                                );
-                                return null; // Return null if there's an error fetching the provider
-                            }
-                        } else {
-                            console.error(
-                                `Provider ID is missing from course data for course ${course._id}`
-                            );
-                            return null; // Return null if providerId is missing
-                        }
-                    });
-
-                    // Wait for all provider fetches to complete
-                    const providersArray = await Promise.all(providerPromises);
-
-                    // Combine all providers into a single object using reduce
-                    const providersObject = providersArray.reduce((acc, provider) => {
-                        if (provider) {
-                            return { ...acc, ...provider };
-                        }
-                        return acc;
-                    }, {});
-
-                    setProviders(providersObject); // Set the providers in state
-                } else {
-                    console.error('Course data is empty or not an array');
-                }
-
-                setLoading(false);
-            } catch (error) {
-                console.error('Error fetching courses:', error); // Log the error for debugging
-                setError('Error fetching courses');
-                setLoading(false);
+    const fetchCourses = async (category) => {
+        if (!category) return; // Avoid fetching if no category is provided
+        setLoading(true);
+        setError(null);
+    
+        try {
+          const response = await axios.get(
+            'https://kidgage-backend.onrender.com/api/courses/by-course-type',
+            {
+              params: { courseType: category },
             }
-        };
-
-        if (category) {
-            fetchCourses();
+          );
+    
+          console.log('API Response:', response.data);
+    
+          if (response.data && Array.isArray(response.data)) {
+            setCourses(response.data); // Set courses in state
+    
+            // Fetch provider data for each course
+            const providerPromises = response.data.map(async (course) => {
+              if (course.providerId) {
+                try {
+                  const providerResponse = await axios.get(
+                    `https://kidgage-backend.onrender.com/api/users/provider/${course.providerId}`
+                  );
+                  console.log(`Provider Response for course ${course._id}:`, providerResponse.data);
+    
+                  return { [course.providerId]: providerResponse.data }; // Return provider data mapped by providerId
+                } catch (providerError) {
+                  console.error(`Error fetching provider for course ${course._id}:`, providerError);
+                  return null;
+                }
+              } else {
+                console.error(`Provider ID is missing for course ${course._id}`);
+                return null;
+              }
+            });
+    
+            // Wait for all providers to be fetched
+            const providersArray = await Promise.all(providerPromises);
+    
+            // Combine all providers into a single object
+            const providersObject = providersArray.reduce((acc, provider) => {
+              if (provider) {
+                return { ...acc, ...provider };
+              }
+              return acc;
+            }, {});
+    
+            setProviders(providersObject); // Set providers in state
+          } else {
+            console.error('Course data is empty or not an array');
+          }
+    
+          setLoading(false);
+        } catch (error) {
+          console.error('Error fetching courses:', error);
+          setError('Error fetching courses');
+          setLoading(false);
         }
-    }, [category]);
+      };
+    
+      // Trigger fetching courses based on both location-based category or searchParams
+      useEffect(() => {
+        const categoryToFetch = searchParams || initialCategory; // Prefer searchParams over location
+        if (categoryToFetch) {
+          fetchCourses(categoryToFetch);
+        }
+      }, [searchParams, initialCategory]); // Rerun if searchParams or location category changes
+      const [selectedLocation, setSelectedLocation] = useState("Location");
+      const [selectedDob, setSelectedDob] = useState("Age");
+      const [selectedDate, setSelectedDate] = useState(null);
+      const [searchInitiated, setSearchInitiated] = useState(false); // Track if a search has been initiated
 
+      // Function to handle search
+      const handleSearch = (searchData) => {
+        const { selectedLocation, selectedDob, selectedDate } = searchData;
+            setSelectedLocation(selectedLocation); // Save the selected location in state
+            setSelectedDob(selectedDob); // Save the selected DOB in state
+            setSelectedDate(selectedDate); // Save the selected date in state
+        const selectedActivity = searchData.selectedActivity;
+        setSearchParams(selectedActivity); // Set the selected activity in state
+        console.log('Received search data:', searchData);
+        setSearchInitiated(true);
+        // Fetch courses for the selected activity
+        fetchCourses(selectedActivity);
+      };
 
     // Define handleShare as a separate function
     const handleShare = (course) => {
@@ -250,17 +274,37 @@ const Activities = () => {
         }
     }
 
-    const [searchParams, setSearchParams] = useState(null);
-
-    // Function to handle search
-    const handleSearch = (searchData) => {
-      setSearchParams(searchData);
-      console.log('Received search data:', searchData);
-  
-      // You can now use the `searchData` to make API requests or filter data.
-      // For example:
-      // fetchData(searchData);
+    const ageGroupMappings = {
+        "0-2 years": { min: 0, max: 2 },
+        "3-5 years": { min: 3, max: 5 },
+        "6-8 years": { min: 6, max: 8 },
+        "9-12 years": { min: 9, max: 12 },
+        "13-17 years": { min: 13, max: 17 }
     };
+    
+    const isAgeGroupMatch = (ageRange, selectedDob) => {
+        if (!selectedDob) return true; // If no age group is selected, return true
+        
+        const [startAge, endAge] = ageRange.split(' - ').map(age => {
+            const [years] = age.split(' '); // Get only the years part
+            return parseInt(years, 10); // Convert to number
+        });
+        
+        const { min, max } = ageGroupMappings[selectedDob] || { min: 0, max: 0 };
+    
+        // Check if the course age range is within the selected age group
+        return ((startAge >= min && startAge <= max)||(endAge >= min && endAge <= max));
+    };
+    
+    // // Function to handle search
+    // const handleSearch = (searchData) => {
+    //   setSearchParams(searchData);
+    //   console.log('Received search data:', searchData);
+  
+    //   // You can now use the `searchData` to make API requests or filter data.
+    //   // For example:
+    //   // fetchData(searchData);
+    // };
 
     return (
         <>
@@ -270,12 +314,11 @@ const Activities = () => {
 
             {/* promoted */}
             <div style={{ height: '22px' }}>
-
-
             </div>
 
             <div className='promoted-container'>
                 {/* promoted card 1 */}
+                
                 {courses.length > 0 ? (
                     courses
                         .filter((course) => course.promoted) // Filter to only include promoted courses
@@ -298,7 +341,9 @@ const Activities = () => {
                                             <div>
                                                 <p className="location">
                                                     {/* <i className="fa-solid fa-location-dot"></i> */}
-                                                    <span style={{ color: '#5EA858', fontWeight: 'bold' }}>QAR. {activity.feeAmount} {formatFeeType(activity.feeType)}</span>
+                                                    <span style={{ color: '#5EA858', fontWeight: 'bold' }}>QAR.    {`${activity.feeAmount} (${formatFeeType(activity.feeType)})`}
+
+                                                    </span>
 
                                                 </p>
                                             </div>
@@ -384,6 +429,33 @@ const Activities = () => {
                         {courses.length > 0 ? (
                             courses
                                 .filter((course) => !course.promoted) // Filter out promoted courses
+                                .filter((course) => {
+                                    // Step 2: Check if selectedDate is between course.startDate and course.endDate
+                                    if (searchInitiated && selectedDate) {
+                                        const startDate = new Date(course.startDate);
+                                        const endDate = new Date(course.endDate);
+                                        const selected = new Date(selectedDate);
+                                        return selected >= startDate && selected <= endDate;
+                                    }
+                                    return true; // If no search has been initiated, return all courses
+                                })
+                                .filter((course) => {
+                                    // Only filter by location if a search has been initiated
+                                    if (searchInitiated && selectedLocation) {
+                                        return course.location.some((loc) => loc.city === selectedLocation);
+                                    }
+                                    return true; // If no search has been initiated, return all courses
+                                })
+                                .filter((course) => {
+                                    // Only filter by age group if a search has been initiated
+                                    if (searchInitiated) {
+                                        const ageRange = course.ageGroup && course.ageGroup.length > 0 ? 
+                                            calculateAgeRange(course.ageGroup[0].ageStart, course.ageGroup[0].ageEnd) : 
+                                            "Unavailable";
+                                        return isAgeGroupMatch(ageRange, selectedDob); // Filter based on age group
+                                    }
+                                    return true; // If no search has been initiated, return all courses
+                                })
                                 .map((course) => (
                                     <div className="activity-card cards" key={course._id} >
                                         <div className="activity-image" onClick={() => handleClick(course._id)}>
@@ -399,6 +471,7 @@ const Activities = () => {
                                                 <div className='info-with-img'>
                                                     <div className='descp'>
                                                         <h3>{course.name}</h3>
+                                                        
                                                         <div>
                                                             <p className="location">
 
@@ -408,7 +481,8 @@ const Activities = () => {
                                                                     {/* {course.location && Array.isArray(course.location) && course.location.length > 0
                                                                 ? course.location[0]
                                                                 : 'Location not available'} */}
-                                                                    <span style={{ color: '#5EA858', fontWeight: 'bold' }}>QAR. {course.feeAmount} {formatFeeType(course.feeType)}</span>
+                                                                    <span style={{ color: '#5EA858', fontWeight: 'bold' }}>QAR.  {`${course.feeAmount} (${formatFeeType(course.feeType)})`}
+                                                                    </span>
 
                                                                 </span>
                                                             </p>
@@ -458,10 +532,9 @@ const Activities = () => {
 
                                             {/* Chevron dropdown for smaller screens only */}
                                             <div className="chevron-dropdown" onClick={() => setIsExpanded(!isExpanded)}>
-    {isExpanded ? 'See Less' : 'See More'}
-    <i className={`fa-solid fa-chevron-${isExpanded ? 'up' : 'down'}`}></i>
-</div>
-
+                                                {isExpanded ? 'See Less' : 'See More'}
+                                                <i className={`fa-solid fa-chevron-${isExpanded ? 'up' : 'down'}`}></i>
+                                            </div>
 
                                             {/* Activity Actions Section */}
                                             <div className={`activity-actions ${isExpanded ? 'visible' : 'hidden'}`}>
@@ -495,10 +568,31 @@ const Activities = () => {
                                         </div>
                                     </div>
                                 ))
+                                
                         ) : (
                             <p>No courses available for this category.</p>
                         )}
-
+                        
+                        {searchInitiated && (
+                <>
+                    {courses
+                        .filter((course) => !course.promoted)
+                        .filter((course) => {
+                            if (selectedLocation) {
+                                return course.location.some((loc) => loc.city === selectedLocation);
+                            }
+                            return true;
+                        })
+                        .filter((course) => {
+                            const ageRange = course.ageGroup && course.ageGroup.length > 0
+                                ? calculateAgeRange(course.ageGroup[0].ageStart, course.ageGroup[0].ageEnd)
+                                : "Unavailable";
+                            return isAgeGroupMatch(ageRange, selectedDob); // Filter based on age group
+                        }).length === 0 && (
+                            <p>There are no courses available under the selections made.</p>
+                        )}
+                </>
+            )}
                     </div>
                 </div>
                 {/* cards ends */}
