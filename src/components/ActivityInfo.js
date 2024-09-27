@@ -107,7 +107,7 @@ const ActivityInfo = () => {
                             <img
                                 src={getBase64ImageSrc(course.images[currentImageIndex])}
                                 alt={`activity-${currentImageIndex}`}
-                                className="activity-info-image"
+                                className="activity-info-image" 
                             />
                         ) : (
                             <img src={placeholder} alt="Placeholder" />
