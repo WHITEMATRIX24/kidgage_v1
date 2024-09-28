@@ -72,7 +72,7 @@ const Footer = () => {
         <i className="fa-solid fa-heart"></i>
       </button>
       <button className="floating-btn cart-btn" onClick={() => setShowChat(!showChat)}>
-        <img src={chatbotImage} alt="Chatbot" style={{ marginTop:'0px', width: '95%', height: 'auto' }} /> {/* Use the chatbot image */}
+        <img src={chatbotImage} alt="Chatbot" style={{ marginTop:'0px', width: '95%', height: 'auto',minWidth: '30px', minHeight: '30px' }} /> {/* Use the chatbot image */}
       </button>
       {showChat &&
         (<div className="chatbot-container">
