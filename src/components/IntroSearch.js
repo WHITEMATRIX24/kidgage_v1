@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./IntroSearch.css";
 import Calendar2 from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import axios from 'axios';
 
 const IntroSearch = () => {
   const [activeOption, setActiveOption] = useState(null);
@@ -10,7 +11,7 @@ const IntroSearch = () => {
   const [showDobCalendar, setShowDobCalendar] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedDob, setSelectedDob] = useState("Age");
-  const [selectedLocation, setSelectedLocation] = useState("Doha");
+  // const [selectedLocation, setSelectedLocation] = useState("Doha");
   const [selectedActivity, setSelectedActivity] = useState("Activity");
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const [isActivityDropdownVisible, setIsActivityDropdownVisible] = useState(false);
@@ -21,20 +22,34 @@ const IntroSearch = () => {
   const searchBarRef = useRef(null);
   const navigate = useNavigate();
 
-  const locations = [
-    "Doha",
-    "Al Wakrah",
-    "Al Khor",
-    "Al Rayyan",
-    "Al Shamal",
-    "Al Shahaniya",
-    "Umm Salal",
-    "Dukhan",
-    "Mesaieed",
-  ];
+  // const locations = [
+  //   "Doha",
+  //   "Al Wakrah",
+  //   "Al Khor",
+  //   "Al Rayyan",
+  //   "Al Shamal",
+  //   "Al Shahaniya",
+  //   "Umm Salal",
+  //   "Dukhan",
+  //   "Mesaieed",
+  // ];
 
-  const activities = ["Swimming", "Skating", "Cricket", "MMA", "Basketball"];
-
+  const ageRanges = ["0-2 years", "3-5 years", "6-8 years", "9-12 years", "13-17 years"];
+  const [activities, setCourseTypes] = useState([]);
+  useEffect(() => {
+    const fetchCourseTypes = async () => {
+      try {
+        const response = await axios.get('https://kidgage-backend.onrender.com/api/course-category/categories');
+        // Assuming the response is an array of objects and each object has a 'name' property for the category
+        const categoryNames = response.data.map((category) => category.name);
+        setCourseTypes(categoryNames);
+      } catch (error) {
+        console.error('Error fetching course types', error);
+      }
+    };
+  
+    fetchCourseTypes();
+  }, []);
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (searchBarRef.current && !searchBarRef.current.contains(event.target)) {
@@ -84,16 +99,16 @@ const IntroSearch = () => {
     setShowCalendar(false);
   };
 
-  const handleDobChange = (date) => {
-    setSelectedDob(date.toLocaleDateString("en-GB"));
+  const handleDobChange = (ageRange) => {
+    setSelectedDob(ageRange);
     setShowDobCalendar(false);
   };
 
-  const handleLocationSelect = (location) => {
-    setSelectedLocation(location);
-    setShowSubDropdown(null); // Close sub-dropdown when location is selected
-    setIsDropdownVisible(false);
-  };
+  // const handleLocationSelect = (location) => {
+  //   setSelectedLocation(location);
+  //   setShowSubDropdown(null); // Close sub-dropdown when location is selected
+  //   setIsDropdownVisible(false);
+  // };
 
   const handleActivitySelect = (activity) => {
     setSelectedActivity(activity);
@@ -103,13 +118,17 @@ const IntroSearch = () => {
 
   const handleSearchClick = () => {
     if (
-      selectedLocation &&
       selectedDob !== "Age" &&
       selectedDate &&
       selectedActivity !== "Activity"
     ) {
-      navigate("/activityinfo");
-    } else {
+      navigate("/activityinfo", {
+        state: {
+          dob: selectedDob,
+          ageRange: selectedDate ? selectedDate.toLocaleDateString("en-GB") : "",
+          category: selectedActivity,
+        },
+      });    } else {
       setMissingSelection(true);
     }
   };
@@ -140,7 +159,7 @@ const IntroSearch = () => {
             {showMobileMenu && (
               <div className="mobile-dropdown">
                 <ul>
-                  <li onClick={() => toggleSubDropdown("location")}>
+                  {/* <li onClick={() => toggleSubDropdown("location")}>
                     {selectedLocation}
                     <i className="fas fa-chevron-down"></i>
                     {showSubDropdown === "location" && (
@@ -155,9 +174,22 @@ const IntroSearch = () => {
                         ))}
                       </ul>
                     )}
-                  </li>
+                  </li> */}
                   <li onClick={() => handleOptionClick("age")}>
                     {selectedDob}
+                    <i className="fas fa-chevron-down"></i>
+                    {showDobCalendar&& (
+                      <ul className="mobile-sub-dropdown">
+                        {ageRanges.map((ageRange, index) => (
+                          <li
+                            key={index}
+                            onClick={() => handleDobChange(ageRange)}
+                          >
+                            {ageRange}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </li>
                   <li onClick={() => handleOptionClick("date")}>
                     {selectedDate ? selectedDate.toLocaleDateString("en-GB") : "Date"}
@@ -203,7 +235,7 @@ const IntroSearch = () => {
         {window.innerWidth >= 660 && (
           <div className="intro-search-bar">
             <div className="search-options">
-              <div
+              {/* <div
                 className={`search1-option ${activeOption === "location" ? "active" : ""}`}
                 onClick={() => handleOptionClick("location")}
               >
@@ -235,18 +267,36 @@ const IntroSearch = () => {
                 )}
               </div>
 
-              <span className="separator-log">|</span>
+              <span className="separator-log">|</span> */}
 
-              <h4
-                className={`search1-options ${activeOption === "age" ? "active" : ""}`}
+              <div className="search4-option">
+              <div className="sss">
+              <p
+                className={` ${activeOption === "age" ? "active" : ""}`}
                 onClick={() => handleOptionClick("age")}
                 style={{
                   color: missingSelection && selectedDob === "Age" ? "red" : "#2e2d2d8a",
                 }}
               >
                 {selectedDob}
-              </h4>
-
+              </p>
+              </div>
+              {showDobCalendar && (
+          <div className="dropdown">
+            <ul>
+            {ageRanges.map((ageRange, index) => (
+                    <li
+                      key={ageRange}
+                      onClick={() => handleDobChange(ageRange)}
+                      className="dropdown-item"
+                    >
+                      {ageRange}
+                    </li>
+                  ))}
+            </ul>
+          </div>
+        )}  
+              </div>
               <span className="separator-log">|</span>
 
               <h4
@@ -309,16 +359,7 @@ const IntroSearch = () => {
           </div>
         )}
 
-        {showDobCalendar && (
-          <div className="calendar-dropdown">
-            <Calendar2
-              onChange={handleDobChange}
-              value={new Date()}
-              maxDate={new Date()}
-              className="custom-cal"
-            />
-          </div>
-        )}
+        
         {showCalendar && (
           <div className="calendar-dropdown2">
             <Calendar2

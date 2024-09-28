@@ -51,6 +51,7 @@
 }
 
 .search-options {
+  width: 100%;
   display: flex;
   color: #000;
   align-items: center;
@@ -125,7 +126,7 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  margin-left: -20px;
+  margin-left: 20px;
 
 }
 
@@ -183,7 +184,7 @@
 .search1-options {
   font-size: 18px;
   font-weight: normal;
-  margin-top: 20px;
+  margin-top: 20px !important;
 }
 
 .sss {
@@ -413,6 +414,7 @@
     margin: 15px;
     padding: 10px;
     height: auto;
+    justify-content: space-around;
 
     /* Ensure the search bar adjusts to the content */
   }
@@ -424,7 +426,6 @@
     gap: 0px;
     margin-left: 15px;
     /* Ensure 10px gap between all search options */
-    width: 0%;
 
     /* Make sure all options fit within the container */
   }
