@@ -401,7 +401,7 @@ const Activities = () => {
                                             <i className="fa-solid fa-share"></i>
                                             <span style={{ marginLeft: '5px', fontWeight: 'bold' }}>Share</span>
                                         </button>
-                                        <button className="save" style={{ backgroundColor: '#3880C4' }}>
+                                        <button className="save" style={{ backgroundColor: '#3880C4' }} onClick={() => addToWishlist(activity)}>
                                             <i className="fa-regular fa-bookmark"></i>
                                             <span style={{ marginLeft: '5px', fontWeight: 'bold' }}>Save</span>
                                         </button>
