@@ -382,7 +382,7 @@ const Activities = () => {
                                     </div>
                                 </div>
                                 {/* Activity Actions Section */}
-                                <div className="activity-actions">
+                                <div className="activity-actionss">
                                     <div className='activity-buttons'>
                                         <button
                                             className="book-now"

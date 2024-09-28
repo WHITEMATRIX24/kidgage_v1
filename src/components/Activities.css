@@ -166,7 +166,7 @@
 
 /* --------- */
 
-.activity-actions {
+.activity-actions ,.activity-actionss{
   display: flex;
   gap: 5px;
   background-color: #E5E5E5;
@@ -375,7 +375,7 @@
 }
 
 
-.activity-actions button {
+.activity-actions button ,.activity-actionss button{
   margin: 0 5px;
   border: none;
   border-radius: 20px;
@@ -385,7 +385,7 @@
   justify-content: space-evenly;
 }
 
-.activity-actions {
+.activity-actions ,.activity-actionss {
   display: flex;              /* Enable Flexbox */
   justify-content: space-between; /* Space out the children (left and right alignment) */
   align-items: center;        /* Align items vertically center */
@@ -399,7 +399,7 @@
 
 }
 
-.activity-actions button:hover {
+.activity-actions button:hover ,.activity-actionss:hover{
   opacity: 0.8;
 }
 
@@ -478,7 +478,7 @@
 
 
 @media (min-width: 1460px) and (max-width: 1700px) {
-  .activity-actions button {
+  .activity-actions button ,.activity-actionss button{
     font-size: 10px;
   }
   .promoted-image {
@@ -576,7 +576,7 @@
     .card {
       margin-bottom: 8%;
     }
-    .activity-actions button{
+    .activity-actions button,.activity-actionss{
       font-size: .45em;
       padding: 5px;
     }
@@ -639,7 +639,7 @@
     .card {
       margin-bottom: 9%;
     }
-    .activity-actions button{
+    .activity-actions button,.activity-actionss button{
       font-size:8px;
     }
     .promoted-image{
@@ -696,7 +696,7 @@
     .activity-image{
       height: 230px;
     }
-    .activity-actions button{
+    .activity-actions button,.activity-actionss button{
       font-size:10px;
     }
     .promoted-container {
@@ -807,7 +807,7 @@
 .activity-detailss{
   padding: 10px 20px 10px 20px;
 }
-.activity-buttons{
+.activity-buttons,.activity-actionss button{
   gap: 0px;
 }
 .activity-bottom{
@@ -887,9 +887,9 @@
     margin-top: 0px;
   }
 
-  .activity-actions button.save,
-  .activity-actions button.share,
-  .activity-actions button.book-now {
+  .activity-actions button.save,.activity-actionss button.save,
+  .activity-actions button.share,.activity-actionss button.share
+  .activity-actions button.book-now,.activity-actionss button.book-now{
     padding: 8px;
   }
 
@@ -1091,7 +1091,7 @@
   .info-with-img{
     padding: 3px;
   }
-  .activity-actions {
+  .activity-actions,.activity-actionss {
     font-size: 8px;
     flex-direction: row;
     align-items: center;
@@ -1099,7 +1099,7 @@
     margin: 0px;
   }
 
-  .activity-actions button {
+  .activity-actions button ,.activity-actionss button{
     padding: 5px 10px;
     margin: 0px 0;
   }
@@ -1276,7 +1276,7 @@
   .info-with-img{
     padding:5px;
   }
-  .activity-actions {
+  .activity-actions,.activity-actionss {
     font-size: 8px;
     flex-direction: row;
     align-items: center;
@@ -1284,7 +1284,7 @@
     margin: 0px;
   }
 
-  .activity-actions button {
+  .activity-actions button,.activity-actionss button{
     padding: 5px 10px;
     margin: 0px 0;
   }
@@ -1337,7 +1337,7 @@
 
 
 @media (min-width: 1701px) and (max-width: 2000px) {
-  .activity-actions button {
+  .activity-actions button,.activity-actionss {
     font-size: 12px;
   }
   .promoted-card{
@@ -1384,7 +1384,7 @@
 
 @media (min-width: 2001px) and (max-width: 2100px) {
 
-  .activity-actions button {
+  .activity-actions button,.activity-actionss {
     font-size: 12px;
   }
   .promoted-card{
@@ -1466,7 +1466,7 @@
   .info-image img{
     padding-top: 80px;
   }
-  .activity-actions button {
+  .activity-actions button ,.activity-actionss button{
     font-size: 14px;
   }
   .promoted-card{
@@ -1544,7 +1544,7 @@
   .info-image img{
     padding-top: 80px;
   }
-  .activity-actions button {
+  .activity-actions button ,.activity-actionss button{
     font-size: 14px;
   }
   .promoted-card{
@@ -1611,7 +1611,7 @@
   .info-image img{
     padding-top: 80px;
   }
-  .activity-actions button {
+  .activity-actions button ,.activity-actionss button{
     font-size: 14px;
   }
   .promoted-card{
@@ -1769,12 +1769,12 @@
     width: 80%;
   }
 
-  .activity-actions {
+  .activity-actions ,.activity-actionss{
     flex-direction: column;
     align-items: center;
   }
 
-  .activity-actions button {
+  .activity-actions button,.activity-actionss button {
     width: 90%;
     margin: 3px 3%;
   }

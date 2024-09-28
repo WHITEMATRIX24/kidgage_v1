@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ChatbotPage from "./ChatbotPage";  // Import the ChatbotPage component
-import chatbotImage from './assets/images/chatbot.svg'; // Import the chatbot image
+import chatbotImage from './assets/images/chatbot.png'; // Import the chatbot image
 import { useNavigate } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -72,7 +72,7 @@ const Footer = () => {
         <i className="fa-solid fa-heart"></i>
       </button>
       <button className="floating-btn cart-btn" onClick={() => setShowChat(!showChat)}>
-        <img src={chatbotImage} alt="Chatbot" style={{ marginTop:'0px', width: '90%', height: 'auto' }} /> {/* Use the chatbot image */}
+        <img src={chatbotImage} alt="Chatbot" style={{ marginTop:'0px', width: '100%', height: 'auto' }} /> {/* Use the chatbot image */}
       </button>
       {showChat &&
         (<div className="chatbot-container">
