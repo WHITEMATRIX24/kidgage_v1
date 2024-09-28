@@ -58,7 +58,26 @@ const ActivityInfo = () => {
             return () => clearInterval(interval);  // Cleanup on component unmount
         }
     }, [course]);
+    const [wishlist, setWishlist] = useState([]);
+    const [showPopup, setShowPopup] = useState(false);
+    const addToWishlist = (event) => {
+        try {
+            // Get current wishlist from local storage
+            const storedWishlist = localStorage.getItem('wishlistEvents');
+            const currentWishlist = storedWishlist ? JSON.parse(storedWishlist) : [];
 
+            // Add the event to the wishlist if it's not already in it
+            const isEventInWishlist = currentWishlist.some(wishlistEvent => wishlistEvent._id === event._id);
+            if (!isEventInWishlist) {
+                const updatedWishlist = [...currentWishlist, event];
+                localStorage.setItem('wishlistEvents', JSON.stringify(updatedWishlist));
+                setWishlist(updatedWishlist); // Update local wishlist state
+                setShowPopup(true); // Show popup on success
+            }
+        } catch (error) {
+            console.error('Error adding to wishlist:', error);
+        }
+    };
     const handleShare = () => {
         const shareData = {
             title: course?.name || 'Check this out!',
@@ -93,7 +112,7 @@ const ActivityInfo = () => {
                         <button className="activity-info-action-btn" onClick={handleShare}>
                             <FontAwesomeIcon icon={faLocationArrow} /> Share
                         </button>
-                        <button className="activity-info-action-btn">
+                        <button className="activity-info-action-btn" onClick={() => addToWishlist(course)}>
                             <FontAwesomeIcon icon={faBookmark} /> Save
                         </button>
                     </div>
