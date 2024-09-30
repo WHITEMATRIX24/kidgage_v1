@@ -14,7 +14,7 @@ const Home = () => {
     <div className="home">
       <Header/>
       <HeroBanner />
-      <IntroSearch />
+      {/* <IntroSearch /> */}
       <TopActivities />
       <BlogSection />
       <TopProviders />

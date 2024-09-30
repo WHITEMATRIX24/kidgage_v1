@@ -47,7 +47,7 @@ const TopProviders = () => {
 
   useEffect(() => {
     let interval;
-    if (providers.length > 4) {
+    if (providers.length > 5) {
       interval = setInterval(() => {
         setPosition((prevPosition) => {
           const slideWidth = imageWidth || 0;

@@ -116,11 +116,6 @@ const Activities = () => {
         return `${formatAge(sortedAges[0])} - ${formatAge(sortedAges[1])}`;
     };
     
-    // Example usage
-    console.log(calculateAgeRange("2024-09-01", "2025-09-01")); // Should show appropriate age range
-    
-    // Example usage:
-    console.log(calculateAgeRange('2015-08-15', '2020-04-10')); // Output: e.g. "4 years 5 months - 9 years 1 month"
 
     const fetchCourses = async (category) => {
         if (!category) return; // Avoid fetching if no category is provided
@@ -293,7 +288,7 @@ const Activities = () => {
         const { min, max } = ageGroupMappings[selectedDob] || { min: 0, max: 0 };
     
         // Check if the course age range is within the selected age group
-        return ((startAge >= min && startAge <= max)||(endAge >= min && endAge <= max));
+        return ((min >= startAge && min <= endAge)||(min >= endAge && min <= startAge));
     };
     
     // // Function to handle search
@@ -316,15 +311,15 @@ const Activities = () => {
             <div style={{ height: '22px' }}>
             </div>
 
-            <div className='promoted-container'>
+            {/* <div className='promoted-container'> */}
                 {/* promoted card 1 */}
                 
-                {courses.length > 0 ? (
+                {/* {courses.length > 0 ? (
                     courses
                         .filter((course) => course.promoted) // Filter to only include promoted courses
                         .map((activity) => (
-                            <div key={activity._id} className="promoted-card ">
-                                <div className="promoted-image" onClick={() => handleClick(activity._id)}>
+                            <div key={activity._id} className="promoted-card "> */}
+                                {/* <div className="promoted-image" onClick={() => handleClick(activity._id)}>
                                     {activity.images && activity.images.length > 0 ? (
                                         <img src={`data:image/png;base64,${activity.images[0]}`} alt="Activity Image" />
                                     ) : (
@@ -333,19 +328,19 @@ const Activities = () => {
                                     <div className="promoted-overlay">
                                         <div className="promoted-label">Promoted</div>
                                     </div>
-                                </div>
-                                <div className="activity-detailss" onClick={() => handleClick(activity._id)}>
+                                </div> */}
+                                {/* <div className="activity-detailss" onClick={() => handleClick(activity._id)}>
                                     <h3>{activity.name}</h3>
                                     <div className='info-with-img'>
                                         <div className='pdescp'>
                                             <div>
-                                                <p className="location">
+                                                <p className="location"> */}
                                                     {/* <i className="fa-solid fa-location-dot"></i> */}
-                                                    <span style={{ color: '#5EA858', fontWeight: 'bold' }}>QAR.    {`${activity.feeAmount} (${formatFeeType(activity.feeType)})`}
+                                                    {/* <span style={{ color: '#5EA858', fontWeight: 'bold' }}>QAR.    {`${activity.feeAmount} (${formatFeeType(activity.feeType)})`}
 
-                                                    </span>
+                                                    </span> */}
 
-                                                </p>
+                                                {/* </p>
                                             </div>
                                             <div className="infop-row">
                                             <img src={getGenderImage(activity.preferredGender)} alt="gender" style={{ width: '5%', height: 'auto', marginTop: '-1%' ,marginRight:'10px' }} />
@@ -380,9 +375,9 @@ const Activities = () => {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                                 {/* Activity Actions Section */}
-                                <div className="activity-actionss">
+                                {/* <div className="activity-actionss">
                                     <div className='activity-buttons'>
                                         <button
                                             className="book-now"
@@ -414,48 +409,77 @@ const Activities = () => {
                         ))
                 ) : (
                     <p>No promoted activities available at the moment.</p>
-                )}
+                )} */}
 
-            </div>
+            {/* </div> */}
 
 
             <div className='gap-bw' style={{ height: '60px' }}></div>
-            {/* --------cards starts -----------*/}
+            {/* --------cards starts ----------- */}
 
             <div className='activity-bottom'>
                 {/* card 1 */}
                 <div className='card-container'>
                     <div className='card-container-top'>
+                        
                         {courses.length > 0 ? (
-                            courses
-                                .filter((course) => !course.promoted) // Filter out promoted courses
-                                .filter((course) => {
-                                    // Step 2: Check if selectedDate is between course.startDate and course.endDate
-                                    if (searchInitiated && selectedDate) {
-                                        const startDate = new Date(course.startDate);
-                                        const endDate = new Date(course.endDate);
-                                        const selected = new Date(selectedDate);
-                                        return selected >= startDate && selected <= endDate;
-                                    }
-                                    return true; // If no search has been initiated, return all courses
-                                })
-                                .filter((course) => {
-                                    // Only filter by location if a search has been initiated
-                                    if (searchInitiated && selectedLocation) {
-                                        return course.location.some((loc) => loc.city === selectedLocation);
-                                    }
-                                    return true; // If no search has been initiated, return all courses
-                                })
-                                .filter((course) => {
-                                    // Only filter by age group if a search has been initiated
-                                    if (searchInitiated) {
-                                        const ageRange = course.ageGroup && course.ageGroup.length > 0 ? 
-                                            calculateAgeRange(course.ageGroup[0].ageStart, course.ageGroup[0].ageEnd) : 
-                                            "Unavailable";
-                                        return isAgeGroupMatch(ageRange, selectedDob); // Filter based on age group
-                                    }
-                                    return true; // If no search has been initiated, return all courses
-                                })
+                                [
+                                    ...courses
+                                        .filter(course => course.promoted) // Get promoted courses
+                                        .filter(course => {
+                                            // Step 2: Check if selectedDate is between course.startDate and course.endDate
+                                            if (searchInitiated && selectedDate) {
+                                                const startDate = new Date(course.startDate);
+                                                const endDate = new Date(course.endDate);
+                                                const selected = new Date(selectedDate);
+                                                return selected >= startDate && selected <= endDate;
+                                            }
+                                            return true; // If no search has been initiated, return all courses
+                                        })
+                                        .filter(course => {
+                                            // Only filter by location if a search has been initiated
+                                            if (searchInitiated && selectedLocation) {
+                                                return course.location.some(loc => loc.city === selectedLocation);
+                                            }
+                                            return true; // If no search has been initiated, return all courses
+                                        })
+                                        .filter(course => {
+                                            // Only filter by age group if a search has been initiated
+                                            if (searchInitiated) {
+                                                const ageRange = course.ageGroup && course.ageGroup.length > 0
+                                                    ? calculateAgeRange(course.ageGroup[0].ageStart, course.ageGroup[0].ageEnd)
+                                                    : "Unavailable";
+                                                return isAgeGroupMatch(ageRange, selectedDob); // Filter based on age group
+                                            }
+                                            return true; // If no search has been initiated, return all courses
+                                        }),
+                                    ...courses
+                                        .filter(course => !course.promoted) // Get non-promoted courses
+                                        .filter(course => {
+                                            if (searchInitiated && selectedDate) {
+                                                const startDate = new Date(course.startDate);
+                                                const endDate = new Date(course.endDate);
+                                                const selected = new Date(selectedDate);
+                                                return selected >= startDate && selected <= endDate;
+                                            }
+                                            return true;
+                                        })
+                                        .filter(course => {
+                                            if (searchInitiated && selectedLocation) {
+                                                return course.location.some(loc => loc.city === selectedLocation);
+                                            }
+                                            return true;
+                                        })
+                                        .filter(course => {
+                                            if (searchInitiated) {
+                                                const ageRange = course.ageGroup && course.ageGroup.length > 0
+                                                    ? calculateAgeRange(course.ageGroup[0].ageStart, course.ageGroup[0].ageEnd)
+                                                    : "Unavailable";
+                                                return isAgeGroupMatch(ageRange, selectedDob);
+                                            }
+                                            return true;
+                                        })
+                                ]
                                 .map((course) => (
                                     <div className="activity-card cards" key={course._id} >
                                         <div className="activity-image" onClick={() => handleClick(course._id)}>
@@ -465,6 +489,11 @@ const Activities = () => {
                                             ) : (
                                                 <img src={football} alt="Placeholder" />
                                             )}
+                                            {course.promoted && (
+                                                <div className="promoted-overlay">
+                                                    <div className="promoted-label">Promoted</div>
+                                                </div>
+                                            )}
                                         </div>
                                         <div className="activity-details" >
                                             <div className='activity-card-in' onClick={() => handleClick(course._id)}>
@@ -472,21 +501,29 @@ const Activities = () => {
                                                     <div className='descp'>
                                                         <h3>{course.name}</h3>
                                                         
-                                                        <div>
-                                                            <p className="location">
+                                                        <div className="act-location">
 
                                                                 {/* <i className="fa-solid fa-location-dot"></i> */}
-                                                                <span style={{ marginLeft: '5px' }}>
+                                                                <div style={{display:'flex', marginLeft: '5px' }}>
                                                                     {/* Display location if available */}
-                                                                    {/* {course.location && Array.isArray(course.location) && course.location.length > 0
-                                                                ? course.location[0]
-                                                                : 'Location not available'} */}
-                                                                    <span style={{ color: '#5EA858', fontWeight: 'bold' }}>QAR.  {`${course.feeAmount} (${formatFeeType(course.feeType)})`}
-                                                                    </span>
+                                                                    {course.location && course.location.length > 0 ? (
+                                                                        course.location.map((loc, index) => (
+                                                                            <div key={index} className="activity-location">
+                                                                            <p style={{marginRight:'8px'}}>
+                                                                                <i className="fa-solid fa-location-dot" style={{marginRight: '5px'}}></i>
+                                                                                {loc.address}
+                                                                            </p>                                                                            
+                                                                            </div>
+                                                                        ))
+                                                                    ) : (
+                                                                        <p>No locations available</p>
+                                                                    )}
+                                                                    
 
-                                                                </span>
-                                                            </p>
+                                                                </div>
                                                         </div>
+                                                        <span style={{ color: '#5EA858', fontWeight: 'bold' }}>QAR.  {`${course.feeAmount} (${formatFeeType(course.feeType)})`}
+                                                                    </span>
                                                         <div className="info-row">
                                                             {/* Display age range if applicable */}
                                                             <img src={getGenderImage(course.preferredGender)} alt="gender" style={{ width: '5%', height: 'auto', marginTop: '-1%',marginRight:'10px'  }} />
@@ -510,7 +547,7 @@ const Activities = () => {
                                                             </div>
                                                         </div>
                                                         {/* Flex container for description and logo image */}
-                                                        <div className={`description-logo-container ${isExpanded ? 'visible' : 'hidden'}`}>
+                                                        <div className='description-logo-container' >
                                                         <p className="activity-description">
                                                                 {course.description || 'No description available'}
                                                             </p>
@@ -530,11 +567,11 @@ const Activities = () => {
                                                 </div>
                                             </div>
 
-                                            {/* Chevron dropdown for smaller screens only */}
+                                            {/* Chevron dropdown for smaller screens only
                                             <div className="chevron-dropdown" onClick={() => setIsExpanded(!isExpanded)}>
                                                 {isExpanded ? 'See Less' : 'See More'}
                                                 <i className={`fa-solid fa-chevron-${isExpanded ? 'up' : 'down'}`}></i>
-                                            </div>
+                                            </div> */}
 
                                             {/* Activity Actions Section */}
                                             <div className={`activity-actions ${isExpanded ? 'visible' : 'hidden'}`}>

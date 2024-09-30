@@ -97,7 +97,12 @@ const ActivityInfo = () => {
     if (!course || !provider) {
         return <div>Loading...</div>;
     }
-
+    const formatFeeType = (feeType) => {
+        return feeType
+            .split('_') // Split by underscore
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
+            .join(' '); // Join them with a space
+    };
     return (
         <div className="activity-info-container">
             <Header/>
@@ -131,6 +136,7 @@ const ActivityInfo = () => {
                         ) : (
                             <img src={placeholder} alt="Placeholder" />
                         )}
+                        <h4 style={{color:'darkblue'}}>QAR. {course.feeAmount} ({formatFeeType(course.feeType)})</h4>
                         <p className="activity-info-description">{course.description}</p>
                     </div>
                     <div className="activity-info-right-section">
@@ -144,7 +150,11 @@ const ActivityInfo = () => {
                         course.location.map((loc, index) => (
                             <div key={index} className="activity-info-location">
                                 <h3>Location {index + 1}</h3>
-                                <p>{loc.address}, {loc.city}, {loc.phoneNumber}</p>
+                                <p>{loc.address}</p>
+                                <p> {loc.city}</p>
+                                <p>{loc.phoneNumber}</p>
+                                <a href={loc.link}>View Location</a>
+
                             </div>
                         ))
                     ) : (
@@ -154,18 +164,18 @@ const ActivityInfo = () => {
                 <div className="provider-trainer-container">
                     <div className="activity-info-provider">
                         <h2>Activity provided by</h2>
-                        <p>{provider.firstName} {provider.lastName}</p>
+                        <p>{provider.username}</p>
                         <p>Commercial Registration: {provider.licenseNo}</p>
                         <img src={`data:image/jpeg;base64,${provider.logo}`} alt="Provider" className="activity-info-provider-image" />
                     </div>
-                    <div className="activity-info-trainers">
+                    {/* <div className="activity-info-trainers">
                         <h2>Trainers</h2>
                         <div className="activity-info-trainer-images">
                             {[...Array(12)].map((_, index) => (
                                 <img key={index} src={placeholder} alt={`trainer-${index + 1}`} className="activity-info-trainer-image" />
                             ))}
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <Footer />

@@ -293,11 +293,15 @@
   font-size: 8px;
   position: absolute;
   top: 10px;
-  right: 10px;
+  left: 10px;
   border-radius: 50px; /* Optional: Add slight rounding to the corners */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Optional: Add a slight shadow */
 }
-
+.act-location{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 8px;
+}
 
 .promoted-details {
   padding: 15px 0;
@@ -1866,14 +1870,14 @@
   .location {
     margin-top: -1% !important;
   }
-  .chevron-dropdown{
+  /* .chevron-dropdown{
     align-self: flex-start;
-  }
+  } */
 
 }
 
 /* Default state: hidden on screens less than 1024px */
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
   .description-logo-container,
   .activity-actions {
       display: none;
@@ -1884,13 +1888,13 @@
       display: flex;
   }
 
-}
+} */
 
 /* For larger screens, show these sections as usual */
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   .description-logo-container,
   .activity-actions {
       display: flex;
   }
 
-}
+} */

@@ -132,6 +132,7 @@ const IntroSearch = () => {
       setMissingSelection(true);
     }
   };
+  
 
   const handleMobileMenuToggle = () => {
     setShowMobileMenu(!showMobileMenu);

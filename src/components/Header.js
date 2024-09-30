@@ -36,23 +36,23 @@ const Header = () => {
     };
 
     // Disable scrolling when the city selector modal is open
-    useEffect(() => {
-        if (isCitySelectorOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'unset';
-        }
-    }, [isCitySelectorOpen]);
+    // useEffect(() => {
+    //     if (isCitySelectorOpen) {
+    //         document.body.style.overflow = 'hidden';
+    //     } else {
+    //         document.body.style.overflow = 'unset';
+    //     }
+    // }, [isCitySelectorOpen]);
 
     // Show city selector after 3 seconds if no city is selected
-    useEffect(() => {
-        if (!city) {
-            const timer = setTimeout(() => {
-                setIsCitySelectorOpen(true);
-            }, 1000);
-            return () => clearTimeout(timer);
-        }
-    }, [city]);
+    // useEffect(() => {
+    //     if (!city) {
+    //         const timer = setTimeout(() => {
+    //             setIsCitySelectorOpen(true);
+    //         }, 1000);
+    //         return () => clearTimeout(timer);
+    //     }
+    // }, [city]);
 
     return (
         <header className="home-headers">
@@ -65,9 +65,9 @@ const Header = () => {
                     <img src={logo} alt="KIDGAGE" style={{ cursor: 'pointer' }} />
                 </div>
                 <div className="city-section">
-                    <span className="selected-city" onClick={() => setIsCitySelectorOpen(true)}>
+                    {/* <span className="selected-city" onClick={() => setIsCitySelectorOpen(true)}>
                         {city ? `${city}` : 'Select Your City'}
-                    </span>
+                    </span> */}
                     <button 
                     className="menu-toggle" 
                     onClick={toggleMenu}
@@ -83,9 +83,9 @@ const Header = () => {
             {isMenuOpen && (
                 <Login closeMenu={toggleMenu} />
             )}
-            {isCitySelectorOpen && (
+            {/* {isCitySelectorOpen && (
                 <CitySelector onCitySelect={handleCitySelect} onClose={handleCitySelectorClose} />
-            )}
+            )} */}
         </header>
     );
 };

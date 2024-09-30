@@ -20,26 +20,26 @@
   z-index: 1000;
 }
 .rsc-ts-bubble {
-  background-color: #ff1493; 
+  background: linear-gradient(to right, #67d1e8, #1b60c2);
   color: #ffffff;
 }
 .rsc-os-bubble {
-  background-color: #ff1493; 
+  background: linear-gradient(to right, #67d1e8, #1b60c2);
   color: #000000; 
 }
 /* App.css */
 .rsc-os-option-element {
-  background-color: #ff1493;
+  background: linear-gradient(to right, #67d1e8, #1b60c2);
   color: #ffffff; 
   border: none; 
 }
 
 .rsc-os-option-element:hover {
-  background-color: #ff1493; 
+  background: linear-gradient(to right, #67d1e8, #1b60c2);
 }
 
 .rsc-header {
-  background-color: #ff1493 !important; 
+  background: linear-gradient(to right, #67d1e8, #1b60c2) !important; 
   color: white; 
   margin-bottom: -3px;
 }
@@ -49,14 +49,13 @@ height: 60px;
 
 }
 .fBGGBn{
-background-color: #ffffffad;
-backdrop-filter: blur(8px);
--webkit-backdrop-filter: blur(8px); /* For Safari support */
+background:transparent;
 
 }
 .dPdbIW{
-  background-color: transparent;
-}
+  background-color: #ffffffad;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* For Safari support */}
 
 .chatbot-wrapper {
   position: relative;
@@ -66,7 +65,7 @@ backdrop-filter: blur(8px);
   position: absolute;
   top: 13px;
   left: 320px;
-  background-color: #ff1493; 
+  background-color: transparent; 
   color: white;
   border: none;
   padding: 5px 10px;
@@ -76,5 +75,5 @@ backdrop-filter: blur(8px);
 }
 
 .minimize-button:hover {
-  background-color: #e01381; 
+  background-color: transparent; 
 }
