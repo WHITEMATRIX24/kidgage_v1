@@ -322,8 +322,8 @@ const ProviderInfo = () => {
                     {courses.length > 0 ? (
                         <ul className="pr-courses-list">
                     {courses.slice(0, visibleCourses).map((course) => (
-                                <div className="pr-activity-card" key={course._id} onClick={() => handleClick(course._id)}>
-                                    <div className="pr-activity-image">
+                                <div className="pr-activity-card" key={course._id} >
+                                    <div className="pr-activity-image" onClick={() => handleClick(course._id)}>
                                         {/* Display image if available */}
                                         {course.images && course.images.length > 0 ? (
                                             <img src={`data:image/png;base64,${course.images[0]}`} alt="Course Image" />
@@ -337,7 +337,7 @@ const ProviderInfo = () => {
                                         )}
                                     </div>
                                     <div className="pr-activity-details">
-                                        <div className='pr-activity-card-in'>
+                                        <div className='pr-activity-card-in' onClick={() => handleClick(course._id)}>
                                             <div className='pr-info-with-img'>
                                                 <div className='pr-descp'>
                                                     <h3>{course.name}</h3>
