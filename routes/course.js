@@ -44,6 +44,7 @@ router.get('/course/:id', async (req, res) => {
         res.status(500).json({ message: 'Server error', error });
     }
 });
+
 // Route to get courses by courseType
 router.get('/by-course-type', async (req, res) => {
     const { courseType } = req.query;

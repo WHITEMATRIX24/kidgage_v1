@@ -1286,7 +1286,7 @@ const CustomDatePickerWrapper = styled.div`
   }
 `;
 
-const Calendar = ({ course, provider }) => {
+const Calendar = ({ providerName, courseName }) => {
   const location = useLocation();
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState("");
@@ -1318,7 +1318,23 @@ const Calendar = ({ course, provider }) => {
     const isFutureDate = date >= new Date().setHours(0, 0, 0, 0); // Ensure it's today or a future date
     return isAllowedDay && isFutureDate;
   };
-
+  function convertTo12HourFormat(timeSlot) {
+    // Split the time into hours and minutes
+    let [hours, minutes] = timeSlot.split(':').map(Number);
+  
+    // Determine AM or PM
+    let period = hours >= 12 ? 'PM' : 'AM';
+  
+    // Convert hours to 12-hour format
+    hours = hours % 12 || 12;
+  
+    // Format minutes to always have two digits
+    minutes = minutes.toString().padStart(2, '0');
+  
+    // Return the formatted time
+    return `${hours}:${minutes} ${period}`;
+  }
+  
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const options = { day: 'numeric', month: 'long', year: 'numeric' }; // "October 1, 2024"
@@ -1328,8 +1344,8 @@ const Calendar = ({ course, provider }) => {
     if (selectedDate && selectedTime) {
       const formattedDate = formatDate(selectedDate);
       const timeSlot = courseDetails.timeSlots.find(slot => slot._id === selectedTime);
-      const message = `I'd like to book the course "${course}" provided by ${provider} on ${formattedDate} during the time slot ${timeSlot.from} - ${timeSlot.to}.`;
-      const phoneNumber = '9447526695'; // Your phone number
+      const message = `I'd like to book the course "${courseName}" provided by ${providerName} on ${formattedDate} during the time slot ${convertTo12HourFormat(timeSlot.from)} - ${convertTo12HourFormat(timeSlot.to)}.`;
+      const phoneNumber = '97477940018'; // Your phone number
       const encodedMessage = encodeURIComponent(message);
       const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
       window.open(whatsappURL, '_blank');
@@ -1376,7 +1392,7 @@ const Calendar = ({ course, provider }) => {
           <select value={selectedTime} onChange={(e) => setSelectedTime(e.target.value)}>
             <option value="" disabled>Select Timing</option>
             {courseDetails?.timeSlots.map((slot, index) => (
-              <option key={index} value={slot._id}>{`${slot.from} - ${slot.to}`}</option>
+              <option key={index} value={slot._id}>{`${convertTo12HourFormat(slot.from)} - ${convertTo12HourFormat(slot.to)}`}</option>
             ))}
           </select>
           <button onClick={handleBookNow}>

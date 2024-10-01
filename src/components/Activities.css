@@ -1446,6 +1446,7 @@
   }
   .info-row, .infop-row{
     font-size: 24px;
+    margin-top: 20px;
   }
   .age-text{
     font-size: 16px;
@@ -1524,6 +1525,8 @@
   }
   .info-row, .infop-row{
     font-size: 24px;
+    margin-top: 15px;
+
   }
   .age-text{
     font-size: 16px;
@@ -1601,6 +1604,8 @@
   }
   .info-row, .infop-row{
     font-size: 20px;
+    margin-top: 10px;
+
   }
   .age-text{
     font-size: 16px;

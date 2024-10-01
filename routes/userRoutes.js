@@ -146,6 +146,34 @@ router.get('/:providerId', async (req, res) => {
   }
 });
 
+// Route to get provider details by providerId
+router.get('provider/:providerId', async (req, res) => {
+  const { providerId } = req.params;
+
+  try {
+      // Fetch provider details using the providerId
+      const provider = await User.findById(providerId);
+
+      if (!provider) {
+          return res.status(404).json({ message: 'Provider not found' });
+      }
+
+      // Respond with more provider details
+      res.json({
+          name: provider.name,
+          logo: provider.logo,
+          email: provider.email,
+          phone: provider.phone,
+          address: provider.address,
+          description: provider.description,  // Example additional field
+      });
+  } catch (error) {
+      console.error('Error fetching provider:', error);
+      res.status(500).json({ message: 'Server error' });
+  }
+});
+
+
 router.get('/provider/:id', async (req, res) => {
   try {
     const provider = await User.findById(req.params.id);

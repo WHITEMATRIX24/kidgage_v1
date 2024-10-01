@@ -45,7 +45,7 @@ const Activities = () => {
 
     const sendMessage = (activityName, providerName) => {
         const message = `Hello! I am interested in booking the ${activityName} provided by ${providerName}. Can you please provide more details?`;
-        const whatsappUrl = `https://wa.me/9447526695?text=${encodeURIComponent(message)}`;
+        const whatsappUrl = `https://wa.me/97477940018?text=${encodeURIComponent(message)}`;
         console.log("WhatsApp URL:", whatsappUrl); // Log the URL for debugging
         window.open(whatsappUrl, '_blank');
     };
@@ -268,7 +268,14 @@ const Activities = () => {
           return baby; // Default to 'Any' or not mentioned
         }
     }
-
+    const handleNavigate = (provider) => {
+        if (provider) {
+            navigate('/providerinfo', { state: { provider } }); // Pass the provider object as state
+        } else {
+            console.error('Provider data is unavailable');
+        }
+    };
+    
     const ageGroupMappings = {
         "0-2 years": { min: 0, max: 2 },
         "3-5 years": { min: 3, max: 5 },
@@ -581,7 +588,7 @@ const Activities = () => {
                                                         style={{ backgroundColor: '#5EA858' }}
                                                         onClick={() => {
                                                             const provider = providers[course.providerId];
-                                                            const providerName = provider ? provider.firstName : 'Unknown Provider';
+                                                            const providerName = provider ? provider.username : 'Unknown Provider';
                                                             sendMessage(course.name, providerName);
                                                         }}
                                                     >
@@ -599,7 +606,7 @@ const Activities = () => {
                                                     </button>
                                                 </div>
                                                 <div className='more-btn'>
-                                                    <button className="more">See more from this provider</button>
+                                                    <button className="more" onClick={() => handleNavigate(providers[course.providerId])}>See more from this provider</button>
                                                 </div>
                                             </div>
                                         </div>

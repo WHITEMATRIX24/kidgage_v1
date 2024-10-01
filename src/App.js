@@ -12,7 +12,7 @@ import WishlistPage from './components/WishListPage';
 import Shops from "./components/Shops";
 import ActivityInfo from './components/ActivityInfo';
 import Activities from "./components/Activities";
-
+ import ProviderInfo from './components/Provider';
 function App() {
   return (
     <Router>
@@ -37,6 +37,7 @@ function AppContent() {
         <Route path="/shops" element={<Shops />} />
         <Route path="/activity-info" element={<ActivityInfo />} />
         <Route path="/activityinfo" element={<Activities />} />
+        <Route path="/providerinfo" element={<ProviderInfo />} />
 
       </Routes>
     </ScrollToTop>
