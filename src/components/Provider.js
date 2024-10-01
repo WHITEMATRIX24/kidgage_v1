@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation,useNavigate } from 'react-router-dom';
 import './ActivityInfo.css';
 import './Provider.css';
 import calendar from '../components/assets/images/calendar.png'
@@ -264,7 +264,11 @@ const ProviderInfo = () => {
     const handleSeeMore = () => {
         setVisibleCourses((prevVisibleCourses) => Math.min(prevVisibleCourses + 6, courses.length));
     };
+    const navigate = useNavigate();
 
+    const handleClick = (courseId) => {
+        navigate('/activity-info', { state: { id: courseId } });
+    };
     return (
         <div className="activity-info-container">
             <Header />
@@ -318,7 +322,7 @@ const ProviderInfo = () => {
                     {courses.length > 0 ? (
                         <ul className="pr-courses-list">
                     {courses.slice(0, visibleCourses).map((course) => (
-                                <div className="pr-activity-card" key={course._id}>
+                                <div className="pr-activity-card" key={course._id} onClick={() => handleClick(course._id)}>
                                     <div className="pr-activity-image">
                                         {/* Display image if available */}
                                         {course.images && course.images.length > 0 ? (
