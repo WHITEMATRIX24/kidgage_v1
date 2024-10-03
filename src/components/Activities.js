@@ -260,20 +260,35 @@ const Activities = () => {
     const getAdsBySpace = (space) => {
         return advertisements.filter(ad => ad.space === space);
     };
-    useEffect(() => {
-        const interval = setInterval(() => {
+       // Start interval for space 1 ads
+       useEffect(() => {
+        const space1Interval = setInterval(() => {
             setCurrentAdIndex((prevIndex) => {
                 const space1Ads = getAdsBySpace(1);
-                const space2Ads = getAdsBySpace(2);
-
                 return {
+                    ...prevIndex,
                     space1: (prevIndex.space1 + 1) % space1Ads.length, // Cycle space 1 ads
-                    space2: (prevIndex.space2 + 1) % space2Ads.length  // Cycle space 2 ads
                 };
             });
-        }, 4000); // 3 seconds
-        return () => clearInterval(interval); // Cleanup interval on component unmount
-    }, [advertisements]); // Rerun the effect when advertisements change
+        }, 3000); // 3-second interval for space 1
+
+        return () => clearInterval(space1Interval); // Cleanup interval on component unmount
+    }, [advertisements]);
+
+    // Start interval for space 2 ads
+    useEffect(() => {
+        const space2Interval = setInterval(() => {
+            setCurrentAdIndex((prevIndex) => {
+                const space2Ads = getAdsBySpace(2);
+                return {
+                    ...prevIndex,
+                    space2: (prevIndex.space2 + 1) % space2Ads.length, // Cycle space 2 ads
+                };
+            });
+        }, 4000); // 5-second interval for space 2
+
+        return () => clearInterval(space2Interval); // Cleanup interval on component unmount
+    }, [advertisements]);
 
     const [isExpanded, setIsExpanded] = useState(false);
 
