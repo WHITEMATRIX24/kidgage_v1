@@ -224,6 +224,7 @@ const Activities = () => {
 
 
     const [advertisements, setAdvertisements] = useState([]);
+    const [currentAdIndex, setCurrentAdIndex] = useState({ space1: 0, space2: 0 });
 
     useEffect(() => {
         fetchAdvertisements();
@@ -256,6 +257,23 @@ const Activities = () => {
             console.error('Error fetching advertisements:', error);
         }
     };
+    const getAdsBySpace = (space) => {
+        return advertisements.filter(ad => ad.space === space);
+    };
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentAdIndex((prevIndex) => {
+                const space1Ads = getAdsBySpace(1);
+                const space2Ads = getAdsBySpace(2);
+
+                return {
+                    space1: (prevIndex.space1 + 1) % space1Ads.length, // Cycle space 1 ads
+                    space2: (prevIndex.space2 + 1) % space2Ads.length  // Cycle space 2 ads
+                };
+            });
+        }, 4000); // 3 seconds
+        return () => clearInterval(interval); // Cleanup interval on component unmount
+    }, [advertisements]); // Rerun the effect when advertisements change
 
     const [isExpanded, setIsExpanded] = useState(false);
 
@@ -275,7 +293,8 @@ const Activities = () => {
             console.error('Provider data is unavailable');
         }
     };
-    
+    const space1Ads = getAdsBySpace(1);
+    const space2Ads = getAdsBySpace(2);
     const ageGroupMappings = {
         "0-2 years": { min: 0, max: 2 },
         "3-5 years": { min: 3, max: 5 },
@@ -644,19 +663,24 @@ const Activities = () => {
                 {/* banner section starts*/}
 
                 <div className="banner-container">
-                    {advertisements.length > 0 ? (
-                        advertisements.map((ad, index) => (
-                            <div key={ad._id} className={`card bcard${index + 1}`}>
-                                <img
-                                    src={isSmallScreen ? `data:image/jpeg;base64,${ad.mobileImage}` : `data:image/jpeg;base64,${ad.desktopImage}`}
-                                    alt={`Banner ${index + 1}`}
-                                />
-                            </div>
-                        ))
-                    ) : (
-                        <p>No advertisements found.</p> // Fallback content
-                    )}
+            {space1Ads.length > 0 && (
+                <div className="card bcard1">
+                    <img
+                        src={isSmallScreen ? `data:image/jpeg;base64,${space1Ads[currentAdIndex.space1].mobileImage}` : `data:image/jpeg;base64,${space1Ads[currentAdIndex.space1].desktopImage}`}
+                        alt={`Banner Space 1`}
+                    />
                 </div>
+            )}
+            {space2Ads.length > 0 && (
+                <div className="card bcard2">
+                    <img
+                        src={isSmallScreen ? `data:image/jpeg;base64,${space2Ads[currentAdIndex.space2].mobileImage}` : `data:image/jpeg;base64,${space2Ads[currentAdIndex.space2].desktopImage}`}
+                        alt={`Banner Space 2`}
+                    />
+                </div>
+            )}
+            {advertisements.length === 0 && <p>No advertisements found.</p>}
+        </div>
                 {/* banner section ends */}
             </div>
 
