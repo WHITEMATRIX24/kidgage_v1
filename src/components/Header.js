@@ -58,7 +58,7 @@ const Header = () => {
         <header className="home-headers">
             <div className="notification-bar">
                 <img className='bell-icon' src={bell} alt="Notification" />
-                Are you an activity provider? <a href="/learn-more">Learn how to be listed</a>
+                Are you an activity provider? <a href="/business-signup">Learn how to be listed</a>
             </div>
             <div className='header-content'>
                 <div className="home-logo" onClick={handleLogoClick}>

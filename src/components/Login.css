@@ -42,7 +42,9 @@
   justify-content: center;
   gap: 5px;
 }
-
+.tab-contentss h5{
+  font-family: 'Poppins',serif;
+}
 .tab-icon {
   font-size: 20px;
   margin-bottom: 5px; /* Space between icon and text */

@@ -9,24 +9,26 @@ const Login = ({ closeMenu }) => {
   return (
     <div className="login-container">
       <FaTimes className="close-btn-minus" onClick={closeMenu} />
-      <Tabs>
-        <div label={<div className="tab-label"><FaUser className="tab-icon" />Parent</div>}>
-          <Link to="/personal-signin">
-            <Button primary>Log in to Kidgage</Button>
-          </Link>
-          <Link to="/personal-signup">
-            <Button>Create an Account</Button>
-          </Link>
-        </div>
-        <div label={<div className="tab-label"><FaBuilding className="tab-icon" />Business</div>}>
-          <Link to="/business-signin">
+      {/* <Tabs> */}
+      <div label={<div className="tab-label"><FaBuilding className="tab-icon" />Business</div>}>
+      <div className="tab-label"><FaBuilding className="tab-icon" />Business</div>
+          {/* <Link to="/business-signin"> */}
             <Button primary>Activities Manager</Button>
-          </Link>
+          {/* </Link> */}
           <Link to="/business-signup">
             <Button>Get Started</Button>
           </Link>
         </div>
-      </Tabs>
+        <div label={<div className="tab-label"><FaUser className="tab-icon" />Parent</div>}>
+          {/* <Link to="/personal-signin">
+            <Button primary>Log in to Kidgage</Button>
+          </Link>
+          <Link to="/personal-signup">
+            <Button>Create an Account</Button>
+          </Link> */}
+        </div>
+
+      {/* </Tabs> */}
     </div>
   );
 };

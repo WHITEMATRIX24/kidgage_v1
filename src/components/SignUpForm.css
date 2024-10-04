@@ -1,3 +1,4 @@
+
 .form-body {
   padding: 25px;
   margin-top: 100px;
@@ -31,7 +32,6 @@
   background-color: #ffffff;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   margin: 0% auto;
-
 }
 .sign-in-label{
   margin-left: 10px;
@@ -45,6 +45,8 @@
 .signup-form h2,.signup-form-bs h2 {
   text-align: center;
   margin-bottom: 20px;
+  font-family: 'Poppins', serif;
+
 }
 
 .signup-form-bs select{
@@ -64,14 +66,16 @@
 .signup-form input,.signup-form-bs input,
 .signup-form select,
 .signup-form textarea,.signup-form-bs textarea {
+  font-family: 'Poppins', serif;
+  font-size: small;
   width: 100%;
-  padding: 10px;
+  padding: 10px 20px;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
+  border: 2px solid #9f9e9e67;
   border-radius: 20px;
   box-sizing: border-box;
   background-color: #f9f9f9;
-  color: #000066;
+  color: #aeaeae;
   outline: none;
   transition: border-color 0.3s;
 }
@@ -101,7 +105,24 @@ box-shadow: none;
 .signup-form-bs textarea:hover {
   border: 1px solid #E26936;
 }
-
+.signup-form-bs input::placeholder,
+.signup-form-bs select::placeholder,
+.signup-form-bs textarea::placeholder {
+  color: #aeaeae;
+  font-size: small;
+}
+.signup-form-bs input::-webkit-file-upload-button,
+.signup-form input::-webkit-file-upload-button {
+  background: transparent;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  width: 150px;
+  padding: 5px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  color: #9f9e9e91;
+}
 /* Autofill styles */
 .signup-form-bs input:-webkit-autofill,
 .signup-form-bs select:-webkit-autofill,
