@@ -11,7 +11,7 @@ const courseRoutes = require('./routes/course');// New routes for courses
 const bannerRoutes = require('./routes/bannerRoutes'); // New routes for banners
 const posterRoutes = require('./routes/posterRoutes');
 const advertisementRoutes = require('./routes/advertisementRoutes');
-const VerificationRequest = require('../models/VerificationRequest');
+const VerificationRequest = require('./models/VerificationRequest');
 
 
 const app = express();
