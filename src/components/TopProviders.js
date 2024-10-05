@@ -16,7 +16,7 @@ const TopProviders = () => {
     // Fetch the providers from the backend
     const fetchProviders = async () => {
       try {
-        const response = await axios.get('https://kidgage-backend.onrender.com/api/users/all'); // Adjust the endpoint if necessary
+        const response = await axios.get('https://main.d15nt38h7hbizi.amplifyapp.com/api/users/all'); // Adjust the endpoint if necessary
         setProviders(response.data);
       } catch (error) {
         console.error('Error fetching providers:', error);

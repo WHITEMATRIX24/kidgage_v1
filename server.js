@@ -11,7 +11,6 @@ const courseRoutes = require('./routes/course');// New routes for courses
 const bannerRoutes = require('./routes/bannerRoutes'); // New routes for banners
 const posterRoutes = require('./routes/posterRoutes');
 const advertisementRoutes = require('./routes/advertisementRoutes');
-const VerificationRequest = require('./models/VerificationRequest');
 
 
 const app = express();
@@ -35,35 +34,7 @@ app.use('/api/banners', bannerRoutes); // Add the banner routes here
 app.use('/api/posters', posterRoutes);
 app.use('/api/advertisement', advertisementRoutes);
 
-// Endpoint to handle verification requests
-app.post('/api/verify-account', async (req, res) => {
-    try {
-      // Extract form data from request body
-      const { username, email, phoneNumber, description, location, fullName, designation, agreeTerms } = req.body;
-      const crFile = req.files ? req.files.crFile : null; // Handle file if present
-  
-      // Create a new verification request
-      const newRequest = new VerificationRequest({
-        username,
-        email,
-        phoneNumber,
-        description,
-        location,
-        fullName,
-        designation,
-        agreeTerms,
-        crFile,
-        status: 'Pending', // Initially set status as 'Pending'
-      });
-  
-      await newRequest.save();
-      res.status(201).json({ success: true, message: 'Account verification request submitted!' });
-    } catch (error) {
-      console.error('Error submitting verification request:', error);
-      res.status(500).json({ success: false, message: 'Failed to submit verification request.' });
-    }
-  });
-  
+
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).json({ message: 'Something went wrong!' });

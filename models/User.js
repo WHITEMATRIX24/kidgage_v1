@@ -13,21 +13,19 @@ const userSchema = new mongoose.Schema({
       message: props => `${props.value} is not a valid phone number!`
     }
   },
-  password: { type: String, required: true },
-  firstName: { type: String, required: true },
-  lastName: { type: String, required: true },
-  logo: { type: String },
-  crFile: { type: String },
-  idCard: { type: String },
-  licenseNo: { type: String, required: true },
-  academyImg: {type : String},
-  description : {type : String},
-  location : {type : String},
-  agreeTerms: { type: Boolean, required: true, default:true },
-  academyType: { type: String, required: true } // New field
+  fullName: { type: String, required: true },
+  designation: { type: String, required: true },
+  description: { type: String, required: true },
+  location: { type: String, required: true },
+  website: { type: String }, // Optional field
+  instaId: { type: String }, // Optional field
+  crFile: { type: String, required: true }, // Stores file path or link to the CR document
+  agreeTerms: { type: Boolean, required: true, default: true },
+  verificationStatus: { type: String, default: 'pending' },
+  academyImg: { type: String, default: null }, // Optional, to be updated later
+  logo: { type: String, default: null }, // Optional, to be updated later
+  licenseNo: { type: String, default: null }, // Optional, to be updated later
 });
-
-
 
 const User = mongoose.model('User', userSchema);
 module.exports = User;
