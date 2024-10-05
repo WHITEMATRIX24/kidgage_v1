@@ -20,9 +20,7 @@ const transporter = nodemailer.createTransport({
 });
 
 // Signup Route
-router.post('/signup', upload.fields([
-  { name: 'crFile', maxCount: 1 },
-]), async (req, res) => {
+router.post('/signup', upload.single('crFile'), async (req, res) => {
   try {
     const {
       username,
@@ -41,12 +39,7 @@ router.post('/signup', upload.fields([
     if (description.length < 450 || description.length > 500) {
       return res.status(400).json({ message: 'Description must be between 450 to 500 characters.' });
     }
-    const files = req.files;
-    const fileBase64 = {};
-  
-    if (files) {
-      if (files.crFile) fileBase64.crFile = files.crFile[0].buffer.toString('base64');
-    }
+
     // Create new user document
     const newUser = new User({
       username,
@@ -58,7 +51,7 @@ router.post('/signup', upload.fields([
       location,
       website: website || null, // Optional
       instaId: instaId || null, // Optional
-      crFile: fileBase64.crFile,
+      crFile: req.file ? req.file.path : null, // Store file path
       agreeTerms,
     });
 

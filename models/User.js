@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
   location: { type: String, required: true },
   website: { type: String }, // Optional field
   instaId: { type: String }, // Optional field
-  crFile: { type: String, required: true }, // Stores file path or link to the CR document
+  crFile: { type: String}, // Stores file path or link to the CR document
   agreeTerms: { type: Boolean, required: true, default: true },
   verificationStatus: { type: String, default: 'pending' },
   academyImg: { type: String, default: null }, // Optional, to be updated later

@@ -10,7 +10,7 @@ const BusinessSignUp = () => {
     phoneNumber: '',
     fullName: '',
     designation: '',
-    crFile: [],
+    crFile: null,
     description: '',
     location: '',
     website: '',
@@ -52,63 +52,47 @@ const BusinessSignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('button clicked!')
-
-    setError('');
-
-    const data = new FormData();
-    Object.keys(formData).forEach(key => {
-        if (Array.isArray(formData[key])) {
-            formData[key].forEach(file => {
-                data.append(key, file);
-            });
-        } else {
-            data.append(key, formData[key]);
-        }
-    });
-
-    try {
-        const response = await axios.post('https://kidgage-backend.onrender.com/api/users/signup', data);
-        setSuccess('Academy added Successfully!');
-        setFormData({ ...initialFormState }); // Reset form fields
-    } catch (error) {
-        setError(error.response ? error.response.data.message : 'An error occurred. Please try again later.');
-        setSuccess('');
-    }
-};
-
-  const [fileError, setFileError] = useState('');
-  // const handleFileChange = (e) => {
-  //   const { name, files } = e.target;
   
-  //   // Handle file upload and check file size
-  //   if (files) {
-  //     const file = files[0];
-  //     if (file && file.size > 1024 * 1024) { // 1MB in bytes
-  //       setFileError(`The file size of ${file.name} exceeds 1MB.`);
-  //       setFormData((prevState) => ({
-  //         ...prevState,
-  //         [name]: null  // Clear file if it exceeds limit
-  //       }));
-  //     } else {
-  //       setFileError(''); // Clear error if file size is valid
-  //       setFormData((prevState) => ({
-  //         ...prevState,
-  //         [name]: file // Directly set the file object
-  //       }));
-  //     }
-  //   }
-  // };
-  const handleFileChange = (e) => {
-    const file = e.target.files[0]; // Get the first file
-    if (file) {
-      setFormData((prevState) => ({
-        ...prevState,
-        crFile: file, // Set the file to formData
-      }));
+    if (charCount < 450 || charCount > charLimit) {
+      setError('Description must be between 450 to 500 characters.');
+      setSuccess('');
+      return;
+    }
+  
+    const data = new FormData();
+    Object.keys(formData).forEach((key) => {
+      if (formData[key]) {
+        if (key === 'crFile' && formData[key] instanceof File) {
+          data.append(key, formData[key]);
+        } else {
+          data.append(key, formData[key]);
+        }
+      }
+    });
+  
+    try {
+      const response = await axios.post('http://localhost:5000/api/users/signup', data, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+  
+      if (response.status === 201) {
+        setSuccess('Signed Up Successfully!');
+        setError('');
+        setFormData(initialFormState);
+        setCharCount(0);
+      } else {
+        setError('An error occurred during signup. Please try again.');
+        setSuccess('');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error.response ? error.response.data : error.message);
+      setError('An error occurred. Please try again.');
+      setSuccess('');
     }
   };
-  
+
   return (
     <div className='s-form-body'>
       <form className="signup-form-bs" onSubmit={handleSubmit}>
@@ -164,8 +148,7 @@ const BusinessSignUp = () => {
         <div className='side-by-side' style={{gap:'44%'}}>
 
         <label className='sign-in-label'>Location</label>
-        <label className='sign-in-label' htmlFor="crFile">CR Doc{fileError && <p className="error-message">{fileError}</p>}
-        </label>
+        <label className='sign-in-label' htmlFor="crFile">CR Doc</label>
         </div>
 
         <div className='side-by-side'>
@@ -176,8 +159,11 @@ const BusinessSignUp = () => {
             <option key={city} value={city}>{city}</option>
           ))}
         </select>
-        <input type="file" name="crFile" onChange={handleFileChange} accept=".pdf" required/>
+        <input type="file" name="crFile" onChange={handleChange} accept=".pdf" />
+
         </div>
+        
+
         <div className='side-by-side' style={{marginTop:'20px',gap:'42%'}}>
         <label className='sign-in-label'>Full Name</label>
         <label className='sign-in-label'>Designation</label>
