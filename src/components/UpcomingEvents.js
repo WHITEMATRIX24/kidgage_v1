@@ -21,7 +21,7 @@ const UpcomingEvents = () => {
     const fetchEvents = async () => {
       try {
         setLoading(true);
-        const response = await fetch('https://main.d15nt38h7hbizi.amplifyapp.com/api/posters');
+        const response = await fetch('https://kidgage-backend.onrender.com/api/posters');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
