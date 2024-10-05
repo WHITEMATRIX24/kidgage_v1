@@ -78,36 +78,36 @@ const BusinessSignUp = () => {
 };
 
   const [fileError, setFileError] = useState('');
-  // const handleFileChange = (e) => {
-  //   const { name, files } = e.target;
-  
-  //   // Handle file upload and check file size
-  //   if (files) {
-  //     const file = files[0];
-  //     if (file && file.size > 1024 * 1024) { // 1MB in bytes
-  //       setFileError(`The file size of ${file.name} exceeds 1MB.`);
-  //       setFormData((prevState) => ({
-  //         ...prevState,
-  //         [name]: null  // Clear file if it exceeds limit
-  //       }));
-  //     } else {
-  //       setFileError(''); // Clear error if file size is valid
-  //       setFormData((prevState) => ({
-  //         ...prevState,
-  //         [name]: file // Directly set the file object
-  //       }));
-  //     }
-  //   }
-  // };
   const handleFileChange = (e) => {
-    const file = e.target.files[0]; // Get the first file
-    if (file) {
-      setFormData((prevState) => ({
-        ...prevState,
-        crFile: file, // Set the file to formData
-      }));
+    const { name, files } = e.target;
+  
+    // Handle file upload and check file size
+    if (files) {
+      const file = files[0];
+      if (file && file.size > 1024 * 1024) { // 1MB in bytes
+        setFileError(`The file size of ${file.name} exceeds 1MB.`);
+        setFormData((prevState) => ({
+          ...prevState,
+          [name]: null  // Clear file if it exceeds limit
+        }));
+      } else {
+        setFileError(''); // Clear error if file size is valid
+        setFormData((prevState) => ({
+          ...prevState,
+          [name]: file // Directly set the file object
+        }));
+      }
     }
   };
+  // const handleFileChange = (e) => {
+  //   const file = e.target.files[0]; // Get the first file
+  //   if (file) {
+  //     setFormData((prevState) => ({
+  //       ...prevState,
+  //       crFile: file, // Set the file to formData
+  //     }));
+  //   }
+  // };
   
   return (
     <div className='s-form-body'>
@@ -164,7 +164,7 @@ const BusinessSignUp = () => {
         <div className='side-by-side' style={{gap:'44%'}}>
 
         <label className='sign-in-label'>Location</label>
-        <label className='sign-in-label' htmlFor="crFile">CR Doc{fileError && <p className="error-message">{fileError}</p>}
+        <label className='sign-in-label' htmlFor="crFile">CR Doc[file size: upto 1MB in pdf format]{fileError && <p className="error-message">{fileError}</p>}
         </label>
         </div>
 
