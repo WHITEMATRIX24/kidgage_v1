@@ -124,7 +124,7 @@ const Activities = () => {
     
         try {
           const response = await axios.get(
-            'https://main.d15nt38h7hbizi.amplifyapp.com/api/courses/by-course-type',
+            'https://kidgage-backend.onrender.com/api/courses/by-course-type',
             {
               params: { courseType: category },
             }
@@ -140,7 +140,7 @@ const Activities = () => {
               if (course.providerId) {
                 try {
                   const providerResponse = await axios.get(
-                    `https://main.d15nt38h7hbizi.amplifyapp.com/api/users/provider/${course.providerId}`
+                    `https://kidgage-backend.onrender.com/api/users/provider/${course.providerId}`
                   );
                   console.log(`Provider Response for course ${course._id}:`, providerResponse.data);
     
@@ -251,7 +251,7 @@ const Activities = () => {
     };
     const fetchAdvertisements = async () => {
         try {
-            const response = await axios.get('https://main.d15nt38h7hbizi.amplifyapp.com/api/advertisement');
+            const response = await axios.get('https://kidgage-backend.onrender.com/api/advertisement');
             setAdvertisements(response.data);
         } catch (error) {
             console.error('Error fetching advertisements:', error);
