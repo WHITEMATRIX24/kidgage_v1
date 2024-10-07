@@ -1,6 +1,7 @@
 /* General Styles */
 
 /* Image Container Styles */
+/* Image Container Styles */
 .image-container {
   display: flex;
   flex-direction: column;
@@ -9,24 +10,27 @@
   position: relative;
 }
 
+/* Main Image Style */
 .main-image {
   width: 100%;
-  max-width: 450px; /* Adjusted size */
+  max-width: 680px; /* Increased size */
   margin-bottom: 20px;
-  border-radius: 5px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px; /* Slightly increased radius for a smoother look */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow for better depth */
 }
 
+/* Thumbnail Container Style */
 .thumbnail-container {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 15px; /* Increased gap for better spacing */
 }
 
+/* Thumbnail Style */
 .thumbnail {
-  width: 70px; /* Adjusted size */
-  height: 70px; /* Adjusted size */
-  border-radius: 5px;
+  width: 90px; /* Increased size */
+  height: 90px; /* Increased size */
+  border-radius: 8px; /* Slightly increased radius for consistency */
   cursor: pointer;
   border: 2px solid transparent;
   transition: border-color 0.3s, transform 0.3s;
@@ -35,38 +39,57 @@
 .thumbnail:hover,
 .thumbnail.active {
   border-color: #ff6f00; /* Orange border on hover or active */
-  transform: scale(1.05); /* Slight zoom effect */
+  transform: scale(1.1); /* Slightly increased zoom effect */
 }
 
 /* Arrow Button Styles */
 .arrow-left,
 .arrow-right {
   position: absolute;
-  top: 50%;
+  top: 20%;
   transform: translateY(-50%);
-  background-color: #007bff;
-  color: #fff;
-  border: none;
+  background-color: #f8f8f8;
+  color: #333;
+  border: 2px solid #ddd;
   padding: 10px;
   border-radius: 50%;
-  font-size: 18px;
   cursor: pointer;
   z-index: 10;
-  transition: background-color 0.3s, transform 0.3s;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .arrow-left {
-  left: 10px;
+  left: 20px;
 }
 
 .arrow-right {
-  right: 10px;
+  right: 20px;
 }
 
 .arrow-left:hover,
 .arrow-right:hover {
-  background-color: #0056b3;
-  transform: scale(1.1); /* Slightly enlarge the button */
+  background-color: #e0e0e0; /* Lighter background color on hover */
+  transform: scale(1.1); /* Slightly enlarge the button on hover */
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+}
+
+/* SVG Arrow Styling */
+.arrow-left svg,
+.arrow-right svg {
+  stroke: #333; /* Color for the arrow icon */
+  width: 24px;
+  height: 24px;
+}
+
+
+
+/* content section */
+.content-section{
+  margin: 5%;
 }
 
 /* Product Details Styles */
@@ -179,30 +202,58 @@ input[type="radio"]:hover {
 }
 
 /* Tabs Styles */
+/* Tabs Container */
 .tabs-container {
   display: flex;
   justify-content: center;
   margin: 20px 0;
+  border-bottom: 2px solid #ddd; /* Add a bottom border for alignment */
 }
 
+/* Tab Button Styles */
 .tab {
   padding: 10px 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  border: none;
+  background: none; /* Remove background for a clean look */
   cursor: pointer;
-  background-color: #f8f8f8;
-  transition: background-color 0.3s;
+  font-size: 16px;
+  margin: 0 10px;
+  position: relative; /* To position the underline */
+  transition: color 0.3s;
 }
 
+/* Active Tab with Blue Underline */
 .tab.active {
-  background-color: #007bff;
-  color: #fff;
-  border-color: #007bff;
+  color: #007bff !important; /* Change text color for active tab */
 }
 
-.tab:not(.active):hover {
-  background-color: #e2e6ea;
+.tab.active::after {
+  content: ''; /* Create a pseudo-element for the underline */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 2px;
+  background-color: #007bff; /* Blue color for the underline */
+  transition: width 0.3s;
 }
+
+/* Tab Hover Effect */
+.tab:hover {
+  color: #007bff; /* Text color change on hover */
+}
+
+/* Hover Effect for Non-active Tabs */
+.tab:not(.active):hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 2px;
+  background-color: #007bff; /* Blue color for hover underline */
+}
+
 
 /* Product Description Styles */
 .product-details {
@@ -340,12 +391,14 @@ iframe {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 20px;
+  gap: 10px;
   margin: 20px 0;
 }
 
 .shops-right {
-  width: 35%;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
 }
 
 .shops-left {
@@ -363,10 +416,9 @@ iframe {
 
   .shops-right,
   .shops-left {
-    width: 100%;
     margin-top: 20px;
   }
-
+  
   .image-container {
     width: 100%;
   }
