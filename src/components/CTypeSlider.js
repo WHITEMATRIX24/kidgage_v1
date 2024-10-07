@@ -111,8 +111,8 @@ const CTypeSlider = ({ viewAll }) => {
     ]
   };
 
-  const handleSlideClick = (categoryName) => {
-    navigate('/activityinfo', { state: { category: categoryName } });
+  const handleSlideClick = (categoryName,categoryId) => {
+    navigate(`/activityinfo/${categoryId}/${categoryName}`, { state: { category: categoryName } });
   };
 
   return (
@@ -122,7 +122,7 @@ const CTypeSlider = ({ viewAll }) => {
       {!viewAll ? (
         <Slider {...settings}>
           {categories.map((category, index) => (
-            <div key={index} className="slides" onClick={() => handleSlideClick(category.name)}>
+            <div key={index} className="slides" onClick={() => handleSlideClick(category.name,category._id)}>
               <img src={`data:image/jpeg;base64,${category.image}`} alt={category.name} className="slides-image" />
               <div className="slides-overlays">
                 <div className='slides-overlay-text'>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams} from 'react-router-dom';
 import football from '../components/assets/images/placeholder.jpg'
 import placeholderLogo from '../components/assets/images/placeholder.jpg'
 import calendar from '../components/assets/images/calendar.png'
@@ -19,14 +19,21 @@ const allDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const Activities = () => {
     const [isSmallScreen, setIsSmallScreen] = useState(false);
     const location = useLocation();
-    const { category: initialCategory } = location.state || {}; // Get category from state
+    const { id, name } = useParams();
+    const decodedName = decodeURIComponent(name);
+    const { category: initialCategoryFromState } = location.state || {};
+    const [initialCategory, setInitialCategory] = useState(initialCategoryFromState || decodedName);
     const [courses, setCourses] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [ageRange, setAgeRange] = useState({});
     const [providers, setProviders] = useState({}); // Change to an object to map providerId to provider details
     const [searchParams, setSearchParams] = useState(initialCategory || null); // Initialize with location category or null
-
+    useEffect(() => {
+        // Update initialCategory whenever the URL or state changes
+        setInitialCategory(initialCategoryFromState || decodedName);
+      }, [initialCategoryFromState, decodedName]);
+    
     useEffect(() => {
         const handleResize = () => {
             setIsSmallScreen(window.innerWidth < 1025);
@@ -43,8 +50,21 @@ const Activities = () => {
     }, []);
 
 
-    const sendMessage = (activityName, providerName) => {
-        const message = `Hello! I am interested in booking the ${activityName} provided by ${providerName}. Can you please provide more details?`;
+    const sendMessage = (activityName, providerName,activityId,fee,feetype) => {
+        const link= `${window.location.origin}/activity-info/${activityId}`;
+        const message = `
+        Hello!
+        
+        I am interested in booking the *${activityName}* provided by *${providerName}*. 
+        
+        Here are the details:
+        - **Link**: ${link}
+        - **Fee**: QAR ${fee} (${feetype})
+        
+        Could you please provide more information? 
+        
+        Thank you!
+        `;
         const whatsappUrl = `https://wa.me/97477940018?text=${encodeURIComponent(message)}`;
         console.log("WhatsApp URL:", whatsappUrl); // Log the URL for debugging
         window.open(whatsappUrl, '_blank');
@@ -223,9 +243,6 @@ const handleShare = (courseName, courseId) => {
     }
 };
 
-    
-
-
     const [advertisements, setAdvertisements] = useState([]);
     const [currentAdIndex, setCurrentAdIndex] = useState({ space1: 0, space2: 0 });
 
@@ -304,13 +321,11 @@ const handleShare = (courseName, courseId) => {
           return baby; // Default to 'Any' or not mentioned
         }
     }
-    const handleNavigate = (provider) => {
-        if (provider) {
-            navigate('/providerinfo', { state: { provider } }); // Pass the provider object as state
-        } else {
-            console.error('Provider data is unavailable');
-        }
+    const handleNavigate = (providerId) => { 
+            const provider = providers[providerId]; // Get the provider object using the providerId
+            navigate(`/providerinfo`, { state: { provider } }); // Pass providerId in URL and provider object in state
     };
+    
     const space1Ads = getAdsBySpace(1);
     const space2Ads = getAdsBySpace(2);
     const ageGroupMappings = {
@@ -626,7 +641,7 @@ const handleShare = (courseName, courseId) => {
                                                         onClick={() => {
                                                             const provider = providers[course.providerId];
                                                             const providerName = provider ? provider.username : 'Unknown Provider';
-                                                            sendMessage(course.name, providerName);
+                                                            sendMessage(course.name, providerName,course._id,course.feeAmount,formatFeeType(course.feeType));
                                                         }}
                                                     >
                                                         <i className="fa-brands fa-whatsapp"></i>
@@ -643,7 +658,7 @@ const handleShare = (courseName, courseId) => {
                                                     </button>
                                                 </div>
                                                 <div className='more-btn'>
-                                                    <button className="more" onClick={() => handleNavigate(providers[course.providerId])}>See more from this provider</button>
+                                                    <button className="more" onClick={() => handleNavigate(course.providerId)}>See more from this provider</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -657,7 +672,15 @@ const handleShare = (courseName, courseId) => {
                         {searchInitiated && (
                 <>
                     {courses
-                        .filter((course) => !course.promoted)
+                    .filter(course => {
+                        if (selectedDate) {
+                            const startDate = new Date(course.startDate);
+                            const endDate = new Date(course.endDate);
+                            const selected = new Date(selectedDate);
+                            return selected >= startDate && selected <= endDate;
+                        }
+                        return true;
+                    })
                         .filter((course) => {
                             if (selectedLocation) {
                                 return course.location.some((loc) => loc.city === selectedLocation);

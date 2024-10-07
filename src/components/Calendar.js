@@ -1334,7 +1334,12 @@ const Calendar = ({ providerName, courseName }) => {
     // Return the formatted time
     return `${hours}:${minutes} ${period}`;
   }
-  
+  const formatted = (feeType) => {
+    return feeType
+        .split('_') // Split by underscore
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
+        .join(' '); // Join them with a space
+};
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const options = { day: 'numeric', month: 'long', year: 'numeric' }; // "October 1, 2024"
@@ -1344,7 +1349,16 @@ const Calendar = ({ providerName, courseName }) => {
     if (selectedDate && selectedTime) {
       const formattedDate = formatDate(selectedDate);
       const timeSlot = courseDetails.timeSlots.find(slot => slot._id === selectedTime);
-      const message = `I'd like to book the course "${courseName}" provided by ${providerName} on ${formattedDate} during the time slot ${convertTo12HourFormat(timeSlot.from)} - ${convertTo12HourFormat(timeSlot.to)}.`;
+      const url=window.location.href;
+      const message = `I would like to book the course "${courseName}" offered by ${providerName}. 
+
+      The course is scheduled for ${formattedDate} during the time slot of 
+      ${convertTo12HourFormat(timeSlot.from)} to ${convertTo12HourFormat(timeSlot.to)}. 
+      
+      The fee is ${courseDetails.feeAmount} (${formatted(courseDetails.feeType)}). 
+      
+      For more details, please visit ${url}.`;
+
       const phoneNumber = '97477940018'; // Your phone number
       const encodedMessage = encodeURIComponent(message);
       const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;

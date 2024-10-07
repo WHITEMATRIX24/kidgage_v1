@@ -184,6 +184,12 @@ const ProviderInfo = () => {
           return baby; // Default to 'Any' or not mentioned
         }
     }
+    const formatFeeType = (feeType) => {
+        return feeType
+            .split('_') // Split by underscore
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
+            .join(' '); // Join them with a space
+    };
     const [wishlist, setWishlist] = useState([]);
     const [showPopup, setShowPopup] = useState(false);
     const addToWishlist = (event) => {
@@ -220,8 +226,21 @@ const ProviderInfo = () => {
         }
     };
     
-    const sendMessage = (activityName, providerName) => {
-        const message = `Hello! I am interested in booking the ${activityName} provided by ${providerName}. Can you please provide more details?`;
+    const sendMessage = (activityName, providerName,activityId,fee,feetype) => {
+        const link= `${window.location.origin}/activity-info/${activityId}`;
+        const message = `
+        Hello!
+        
+        I am interested in booking the *${activityName}* provided by *${providerName}*. 
+        
+        Here are the details:
+        - **Link**: ${link}
+        - **Fee**: QAR ${fee} (${feetype})
+        
+        Could you please provide more information? 
+        
+        Thank you!
+        `;
         const whatsappUrl = `https://wa.me/97477940018?text=${encodeURIComponent(message)}`;
         console.log("WhatsApp URL:", whatsappUrl); // Log the URL for debugging
         window.open(whatsappUrl, '_blank');
@@ -265,10 +284,11 @@ const ProviderInfo = () => {
     const handleSeeMore = () => {
         setVisibleCourses((prevVisibleCourses) => Math.min(prevVisibleCourses + 6, courses.length));
     };
+
     const navigate = useNavigate();
 
     const handleClick = (courseId) => {
-        navigate('/activity-info', { state: { id: courseId } });
+        navigate(`/activity-info/${courseId}`, { state: { id: courseId } });
     };
     return (
         <div className="activity-info-container">
@@ -398,7 +418,7 @@ const ProviderInfo = () => {
                                             <div className='activity-buttons'>
                                                 <button className="book-now" style={{ backgroundColor: '#5EA858' }} onClick={() => {
                                                             const providerName = provider ? provider.username : 'Unknown Provider';
-                                                            sendMessage(course.name, providerName);
+                                                            sendMessage(course.name, providerName,course._id,course.feeAmount,formatFeeType(course.feeType));
                                                         }}>
                                                 <i className="fa-brands fa-whatsapp"></i>
                                                 <span style={{ marginLeft: '5px', fontWeight: 'bold' }}>Book Now</span>

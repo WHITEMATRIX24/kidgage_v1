@@ -144,8 +144,8 @@ const WishlistPage = () => {
         .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
         .join(' '); // Join them with a space
 };
-  const handleClick = (courseId) => {
-    navigate('/activity-info', { state: { id: courseId } });
+const handleClick = (courseId) => {
+  navigate(`/activity-info/${courseId}`, { state: { id: courseId } });
 };
   return (
     <div className="upcoming-events">

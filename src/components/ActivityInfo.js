@@ -140,7 +140,12 @@ const ActivityInfo = () => {
                         <p className="activity-info-description">{course.description}</p>
                     </div>
                     <div className="activity-info-right-section">
-                        <Calendar providerName={provider.username} courseName={course.name} />
+                        <Calendar providerName={provider.username} 
+                            courseName={course.name}  
+                            url={window.location.href}  // Pass the current URL
+                            feeAmount={course.feeAmount} // Pass the fee amount
+                            formattedFeeType={formatFeeType(course.feeType)} // Pass the formatted fee type
+                            />
                     </div>
                 </div>
 

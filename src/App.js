@@ -36,7 +36,7 @@ function AppContent() {
         <Route path="/wishlist" element={<WishlistPage />} />
         <Route path="/shops" element={<Shops />} />
         <Route path="/activity-info/:id" element={<ActivityInfo />} />
-        <Route path="/activityinfo" element={<Activities />} />
+        <Route path="/activityinfo/:id/:name" element={<Activities />} />
         <Route path="/providerinfo" element={<ProviderInfo />} />
 
       </Routes>
