@@ -143,7 +143,7 @@ const BusinessSignUp = () => {
         <div className='side-by-side'>
           <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="E-mail ID" required />
           <div className="phone-number-container" style={{ position: 'relative', width: '100%' }}>
-            <span className="country-code" style={{ position: 'absolute', left: '10px', top: '21px', transform: 'translateY(-50%)', fontSize: 'small', color: '#555' }}>
+            <span className="country-code" style={{ position: 'absolute', left: '10px', top: '16px', transform: 'translateY(-50%)', fontSize: 'small', color: '#555' }}>
               +974
             </span>
             <input
@@ -166,6 +166,7 @@ const BusinessSignUp = () => {
         <div className='side-by-side'>
         <input type="url" name="website" value={formData.website} onChange={handleChange} placeholder="Enter website link" />
         <input type="text" name="instaId" value={formData.instaId} onChange={handleChange} placeholder="Enter Instagram ID" />
+
         </div>
 
         <div className='side-by-side' style={{gap:'44%'}}>
