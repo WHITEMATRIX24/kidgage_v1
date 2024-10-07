@@ -196,7 +196,6 @@ box-shadow: none;
   margin-top: 20px;
   color: red;
   font-size: 14px;
-
 }
 .s-form-body button[type="submit"] {
 background-color: #387cb8;
@@ -208,4 +207,15 @@ font-size: small;
 border-radius: 30px;
 color: #fff;
 font-family: 'Poppins',serif;
+}
+
+.success-message{
+  position: fixed;
+  top: 50%;
+  left: 40vw;
+  z-index: 1000;
+  background-color: #333333b4;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
 }

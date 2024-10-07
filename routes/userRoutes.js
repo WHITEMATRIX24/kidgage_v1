@@ -211,4 +211,24 @@ router.get('/:providerId', async (req, res) => {
   }
 });
 
+// Route to get provider details by providerId
+router.get('/provider/:providerId', async (req, res) => {
+  const { providerId } = req.params;
+
+  try {
+    // Fetch provider details using the providerId
+    const provider = await User.findById(providerId);
+
+    if (!provider) {
+      return res.status(404).json({ message: 'Provider not found' });
+    }
+
+    // Respond with all provider details
+    res.json(provider);
+  } catch (error) {
+    console.error('Error fetching provider:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
 module.exports = router;

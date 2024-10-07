@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import Button from './Button';
 import './SignUpForm.css';
 import axios from 'axios';
@@ -76,7 +76,15 @@ const BusinessSignUp = () => {
         setSuccess('');
     }
 };
+  useEffect(() => {
+    if (success) {
+      const timer = setTimeout(() => {
+        setSuccess(''); // Clear the success message after 3 seconds
+      }, 3000);
 
+      return () => clearTimeout(timer); // Cleanup the timer on component unmount or re-render
+    }
+  }, [success]);
   const [fileError, setFileError] = useState('');
   const handleFileChange = (e) => {
     const { name, files } = e.target;
@@ -164,7 +172,7 @@ const BusinessSignUp = () => {
         <div className='side-by-side' style={{gap:'44%'}}>
 
         <label className='sign-in-label'>Location</label>
-        <label className='sign-in-label' htmlFor="crFile">CR Doc[file size: upto 1MB in pdf format]{fileError && <p className="error-message">{fileError}</p>}
+        <label className='sign-in-label' htmlFor="crFile">CR Doc[file size upto 1MB in pdf format]{fileError && <p className="error-message">{fileError}</p>}
         </label>
         </div>
 

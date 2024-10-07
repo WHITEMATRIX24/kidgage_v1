@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useState, useEffect} from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 import './ActivityInfo.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationArrow, faBookmark, faHome, faChevronRight } from '@fortawesome/free-solid-svg-icons';
@@ -11,7 +11,7 @@ import placeholder from '../components/assets/images/placeholder.jpg'
 
 const ActivityInfo = () => {
     const location = useLocation(); // Access navigation state
-    const { id: courseId } = location.state || {}; // Extract courseId from state
+    const { id: courseId } = useParams(); // Extract courseId from the URL
     const [course, setCourse] = useState(null);
     const [provider, setProvider] = useState(null);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);  // State to track the current image index

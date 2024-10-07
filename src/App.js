@@ -35,7 +35,7 @@ function AppContent() {
         <Route path="/chatbotpage" element={<ChatbotPage />} />
         <Route path="/wishlist" element={<WishlistPage />} />
         <Route path="/shops" element={<Shops />} />
-        <Route path="/activity-info" element={<ActivityInfo />} />
+        <Route path="/activity-info/:id" element={<ActivityInfo />} />
         <Route path="/activityinfo" element={<Activities />} />
         <Route path="/providerinfo" element={<ProviderInfo />} />
 

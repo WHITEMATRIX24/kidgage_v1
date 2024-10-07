@@ -52,7 +52,7 @@ const Activities = () => {
     const navigate = useNavigate();
 
     const handleClick = (courseId) => {
-        navigate('/activity-info', { state: { id: courseId } });
+        navigate(`/activity-info/${courseId}`, { state: { id: courseId } });
     };
     const formatFeeType = (feeType) => {
         return feeType
@@ -206,21 +206,24 @@ const Activities = () => {
       };
 
     // Define handleShare as a separate function
-    const handleShare = (course) => {
-        const shareData = {
-            title: course || 'Check this out!',
-            text: 'Check out this course on Kidgage!',
-            url: window.location.href,
-        };
-
-        if (navigator.share) {
-            navigator.share(shareData)
-                .then(() => console.log(shareData))
-                .catch((error) => console.log('Error sharing', error));
-        } else {
-            alert('Web Share API is not supported in your browser.');
-        }
+  // Define handleShare function to accept course name and id
+const handleShare = (courseName, courseId) => {
+    const shareData = {
+        title: courseName || 'Check this out!', // Use the course name
+        text: `Check out this course on Kidgage!`,
+        url: `${window.location.origin}/activity-info/${courseId}`, // Construct the URL dynamically with the course ID
     };
+
+    if (navigator.share) {
+        navigator.share(shareData)
+            .then(() => console.log('Shared successfully:', shareData))
+            .catch((error) => console.log('Error sharing:', error));
+    } else {
+        alert('Web Share API is not supported in your browser.');
+    }
+};
+
+    
 
 
     const [advertisements, setAdvertisements] = useState([]);
@@ -630,7 +633,7 @@ const Activities = () => {
                                                         <span style={{ marginLeft: '5px', fontWeight: 'bold' }}>Book Now</span>
                                                     </button>
 
-                                                    <button className="share" style={{ backgroundColor: '#3880C4' }} onClick={() => handleShare(course.name)}>
+                                                    <button className="share" style={{ backgroundColor: '#3880C4' }} onClick={() => handleShare(course.name, course._id)}>
                                                         <i className="fa-solid fa-share"></i>
                                                         <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Share</span>
                                                     </button>
