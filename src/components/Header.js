@@ -6,6 +6,7 @@ import bell from './assets/images/bell.png';
 import CitySelector from './CitySelector';
 import hamburger from './assets/images/hamburger.png';
 import Login from './Login';
+import gift from './assets/images/gift1.png';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,7 +35,9 @@ const Header = () => {
     const handleLogoClick = () => {
         navigate('/');
     };
-
+    const handleClick = () => {
+        navigate('/shops');
+    };
     // Disable scrolling when the city selector modal is open
     // useEffect(() => {
     //     if (isCitySelectorOpen) {
@@ -65,9 +68,14 @@ const Header = () => {
                     <img src={logo} alt="KIDGAGE" style={{ cursor: 'pointer' }} />
                 </div>
                 <div className="city-section">
-                    {/* <span className="selected-city" onClick={() => setIsCitySelectorOpen(true)}>
-                        {city ? `${city}` : 'Select Your City'}
-                    </span> */}
+                <span className="selected-city">
+                <img 
+                        src={gift} 
+                        alt="Menu" 
+                        className="menu-icon" 
+                        onClick={handleClick}
+                    />
+                </span >
                     <button 
                     className="menu-toggle" 
                     onClick={toggleMenu}
