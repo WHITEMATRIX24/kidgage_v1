@@ -18,8 +18,11 @@
     flex-direction: row;
 }
 .pro-logoimage{
-    width: 20%;
-    height: auto;
+    width: 100%;
+    max-width: 120px;
+    max-height: 120px;
+    object-fit: cover;
+    margin-top: 10px;
 }
 
 .logo-contain{
@@ -146,6 +149,7 @@
         list-style: none;
         justify-content: center; /* Center the grid content if there are fewer than 6 cards */
     }
+
 }
 
 /* Style for individual course card */

@@ -204,21 +204,22 @@ const ProviderInfo = () => {
             console.error('Error adding to wishlist:', error);
         }
     };
-    const handleShare = (course) => {
+    const handleShare = (courseName, courseId) => {
         const shareData = {
-            title: course || 'Check this out!',
-            text: 'Check out this course on Kidgage!',
-            url: window.location.href,
+            title: courseName || 'Check this out!', // Use the course name
+            text: `Check out this course on Kidgage!`,
+            url: `${window.location.origin}/activity-info/${courseId}`, // Construct the URL dynamically with the course ID
         };
-
+    
         if (navigator.share) {
             navigator.share(shareData)
-                .then(() => console.log(shareData))
-                .catch((error) => console.log('Error sharing', error));
+                .then(() => console.log('Shared successfully:', shareData))
+                .catch((error) => console.log('Error sharing:', error));
         } else {
             alert('Web Share API is not supported in your browser.');
         }
     };
+    
     const sendMessage = (activityName, providerName) => {
         const message = `Hello! I am interested in booking the ${activityName} provided by ${providerName}. Can you please provide more details?`;
         const whatsappUrl = `https://wa.me/97477940018?text=${encodeURIComponent(message)}`;
@@ -403,7 +404,7 @@ const ProviderInfo = () => {
                                                 <span style={{ marginLeft: '5px', fontWeight: 'bold' }}>Book Now</span>
                                                 </button>
 
-                                                <button className="share" style={{ backgroundColor: '#3880C4' }} onClick={() => handleShare(course.name)}>
+                                                <button className="share" style={{ backgroundColor: '#3880C4' }} onClick={() => handleShare(course.name, course._id)}>
                                                 <i className="fa-solid fa-share"></i>
                                                 <span style={{ marginLeft: '5px', fontWeight: 'bold' }}>Share</span>
                                                 </button>
