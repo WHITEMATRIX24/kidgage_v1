@@ -24,6 +24,7 @@ router.post('/signup', upload.fields([
   { name: 'crFile', maxCount: 1 },
 ]), async (req, res) => {
   try {
+    
     const {
       username,
       email,
@@ -40,6 +41,10 @@ router.post('/signup', upload.fields([
     // Validate description character length on the server-side
     if (description.length < 450 || description.length > 500) {
       return res.status(400).json({ message: 'Description must be between 450 to 500 characters.' });
+    }
+    const existingUser = await User.findOne({ $or: [{ email }, { phoneNumber }] });
+    if (existingUser) {
+      return res.status(400).json({ message: 'User with this email or phone number already exists.' });
     }
     const files = req.files;
     const fileBase64 = {};

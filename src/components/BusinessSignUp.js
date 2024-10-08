@@ -2,6 +2,7 @@ import React, { useState , useEffect} from 'react';
 import Button from './Button';
 import './SignUpForm.css';
 import axios from 'axios';
+import ReCAPTCHA from 'react-google-recaptcha'; // Import ReCAPTCHA component
 
 const BusinessSignUp = () => {
   const initialFormState = {
@@ -23,7 +24,11 @@ const BusinessSignUp = () => {
   const [success, setSuccess] = useState('');
   const [charCount, setCharCount] = useState(0);
   const charLimit = 500;
+  const [captchaValue, setCaptchaValue] = useState(null); // State to hold the captcha value
 
+  const handleCaptchaChange = (value) => {
+    setCaptchaValue(value); // Store the captcha value
+  };
   const cities = [
     "Doha", "Al Wakrah", "Al Khor", "Al Rayyan", 
     "Al Shamal", "Al Shahaniya", "Al Daayen", 
@@ -53,7 +58,10 @@ const BusinessSignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('button clicked!')
-
+    if (!captchaValue) {
+      setError('Please complete the CAPTCHA verification.');
+      return;
+    }
     setError('');
 
     const data = new FormData();
@@ -69,7 +77,7 @@ const BusinessSignUp = () => {
 
     try {
         const response = await axios.post('https://kidgage-backend.onrender.com/api/users/signup', data);
-        setSuccess('Academy added Successfully!');
+        setSuccess('Successfully sumitted for verification!');
         setFormData({ ...initialFormState }); // Reset form fields
     } catch (error) {
         setError(error.response ? error.response.data.message : 'An error occurred. Please try again later.');
@@ -200,7 +208,11 @@ const BusinessSignUp = () => {
           <input type="checkbox" name="agreeTerms" checked={formData.agreeTerms} onChange={handleChange} required />
           <label htmlFor="agreeTerms">I agree that all provided information is correct for administrators' verification.</label>
         </div>
-
+        {/* <ReCAPTCHA
+          sitekey="YOUR_RECAPTCHA_SITE_KEY" // Replace with your site key
+          onChange={handleCaptchaChange}
+          style={{ margin: '20px 0' }} // Optional styling
+        /> */}
         {error && <p className="error-message">{error}</p>}
         {success && <p className="success-message">{success}</p>}
           <div style={{display:'flex', flexDirection:'row',width:'100%', justifyContent:'flex-end'}}>
