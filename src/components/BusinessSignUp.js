@@ -58,10 +58,10 @@ const BusinessSignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('button clicked!')
-    if (!captchaValue) {
-      setError('Please complete the CAPTCHA verification.');
-      return;
-    }
+    // if (!captchaValue) {
+    //   setError('Please complete the CAPTCHA verification.');
+    //   return;
+    // }
     setError('');
 
     const data = new FormData();
