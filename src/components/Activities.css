@@ -454,7 +454,10 @@
   margin: 0%;
   padding: 3%;
 }
+.day-selector .day{
+  background-color: #F2F1EB !important;
 
+}
 .active {
   color: #f25c2a !important;
   background-color: #F2F1EB !important;

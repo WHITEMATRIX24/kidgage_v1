@@ -53,8 +53,8 @@ const CustomDatePickerWrapper = styled.div`
 
   .highlighted-day {
     color:  #3880C4;
-    background-color: #ecfdda;
-    border: 1px solid #ace96c;
+    background-color: #F2F1EB;
+    border: 1px solid #3880C4;
     border-radius: 50%;
     padding: 5px 10px;
   }
@@ -136,7 +136,7 @@ const CustomDatePickerWrapper = styled.div`
     font-size: 1rem;
     font-family: 'Poppins', sans-serif;
     color: #001689;
-    background-color: #ecfdda;
+    background-color: #F2F1EB;
   }
 
   .react-datepicker__day--selected,
@@ -221,8 +221,8 @@ const CustomDatePickerWrapper = styled.div`
 
   .highlighted-day {
     color:  #3880C4;
-    background-color: #ecfdda;
-    border: 1px solid #ace96c;
+    background-color: #F2F1EB;
+    border: 1px solid #3880C4;
     border-radius: 50%;
     padding: 3px 8px;
   }
@@ -357,8 +357,8 @@ const CustomDatePickerWrapper = styled.div`
 
   .highlighted-day {
     color:  #3880C4;
-    background-color: #ecfdda;
-    border: 1px solid #ace96c;
+    background-color: #F2F1EB;
+    border: 1px solid #3880C4;
     border-radius: 50%;
     padding: 3px 8px;
   }
@@ -493,8 +493,8 @@ const CustomDatePickerWrapper = styled.div`
 
   .highlighted-day {
     color:  #3880C4;
-    background-color: #ecfdda;
-    border: 1px solid #ace96c;
+    background-color: #F2F1EB;
+    border: 1px solid #3880C4;
     border-radius: 50%;
     padding: 3px 8px;
   }
@@ -630,8 +630,8 @@ const CustomDatePickerWrapper = styled.div`
 
   .highlighted-day {
     color:  #3880C4;
-    background-color: #ecfdda;
-    border: 1px solid #ace96c;
+    background-color: #F2F1EB;
+    border: 1px solid #3880C4;
     border-radius: 50%;
     padding: 8px 10px;
   }
@@ -767,8 +767,8 @@ const CustomDatePickerWrapper = styled.div`
 
   .highlighted-day {
     color:  #3880C4;
-    background-color: #ecfdda;
-    border: 1px solid #ace96c;
+    background-color: #F2F1EB;
+    border: 1px solid #3880C4;
     border-radius: 50%;
     padding: 3px 8px;
   }
@@ -904,8 +904,8 @@ const CustomDatePickerWrapper = styled.div`
 
   .highlighted-day {
     color:  #3880C4;
-    background-color: #ecfdda;
-    border: 1px solid #ace96c;
+    background-color: #F2F1EB;
+    border: 1px solid #3880C4;
     border-radius: 50%;
     padding: 3px 8px;
   }
@@ -1041,8 +1041,8 @@ const CustomDatePickerWrapper = styled.div`
 
   .highlighted-day {
     color:  #3880C4;
-    background-color: #ecfdda;
-    border: 1px solid #ace96c;
+    background-color: #F2F1EB;
+    border: 1px solid #3880C4;
     border-radius: 50%;
     padding: 3px 8px;
   }
@@ -1178,8 +1178,8 @@ const CustomDatePickerWrapper = styled.div`
 
   .highlighted-day {
     color:  #3880C4;
-    background-color: #ecfdda;
-    border: 1px solid #ace96c;
+    background-color: #F2F1EB;
+    border: 1px solid #3880C4;
     border-radius: 50%;
     padding: 3px 8px;
   }
