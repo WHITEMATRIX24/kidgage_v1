@@ -76,7 +76,7 @@ const Shops = () => {
       <div className='shops-top'>
         {/* Product Images */}
         <div className="image-container">
-          <button onClick={handlePrevImage} className="arrow-left">
+          {/* <button onClick={handlePrevImage} className="arrow-left">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -90,11 +90,11 @@ const Shops = () => {
             >
               <polyline points="15 18 9 12 15 6" />
             </svg>
-          </button>
+          </button> */}
 
           <img className="main-image" src={selectedImage} alt="Product" />
 
-          <button onClick={handleNextImage} className="arrow-right">
+          {/* <button onClick={handleNextImage} className="arrow-right">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -108,7 +108,7 @@ const Shops = () => {
             >
               <polyline points="9 18 15 12 9 6" />
             </svg>
-          </button>
+          </button> */}
 
           <div className="thumbnail-container">
             {images.map((image, index) => (
@@ -121,8 +121,56 @@ const Shops = () => {
               />
             ))}
           </div>
+          </div>
 
+          {/* Product Details */}
+          <div className='shops-right'>
+          <div className="details-container">
+            <h1 className="product-title">Green Kid Crafts Subscription Box</h1>
+            <p className="price">QAR. 24.95 per month</p>
+            <p className="description">
+              Green Kid Crafts is a monthly subscription box that fosters creativity and learning for kids through eco-friendly, hands-on science and art projects.
+            </p>
+          </div>
 
+          <div className="buttons-options">
+            {/* Subscription Options */}
+          <div className="options-container">
+            {['1 Month', '3 Months', '6 Months', '12 Months'].map((option) => (
+              <div
+                key={option}
+                className={`option ${selectedSubscription === option ? 'selected' : ''}`}
+                onClick={() => setSelectedSubscription(option)}
+              >
+                <input
+                  type="radio"
+                  name="subscription"
+                  value={option}
+                  checked={selectedSubscription === option}
+                  onChange={handleSubscriptionChange}
+                />
+                <label>
+                  <strong>{option}</strong> - QAR. {(option === '1 Month' ? '24.95' :
+                    option === '3 Months' ? '69.85' :
+                      option === '6 Months' ? '129.70' : '239.40')}
+                </label>
+              </div>
+            ))}
+          </div>
+          
+          {/* Buttons: Add to Cart, Give as Gift, Wishlist */}
+          <div className="button-container">
+            <button className="shbutton add-to-cart">Add to Cart</button>
+            <button className="shbutton give-gift">Give as Gift</button>
+            <button onClick={handleWishlistToggle} className={`shbutton wishlist ${isInWishlist ? 'active' : ''}`}>
+              {isInWishlist ? 'Remove from Wishlist' : 'Add to Wishlist'}
+            </button>
+          </div>
+          </div>
+        </div>
+        </div>
+
+          
           <div className='content-section'>
       {/* Tabs: Overview, Reviews & Questions */}
       <div className="tabs-container">
@@ -168,53 +216,9 @@ const Shops = () => {
       )}
     </div>
 
-        </div>
 
 
-        {/* Product Details */}
-        <div className='shops-right'>
-          <div className="details-container">
-            <h1 className="product-title">Green Kid Crafts Subscription Box</h1>
-            <p className="price">QAR. 24.95 per month</p>
-            <p className="description">
-              Green Kid Crafts is a monthly subscription box that fosters creativity and learning for kids through eco-friendly, hands-on science and art projects.
-            </p>
-          </div>
-
-          {/* Subscription Options */}
-          <div className="options-container">
-            {['1 Month', '3 Months', '6 Months', '12 Months'].map((option) => (
-              <div
-                key={option}
-                className={`option ${selectedSubscription === option ? 'selected' : ''}`}
-                onClick={() => setSelectedSubscription(option)}
-              >
-                <input
-                  type="radio"
-                  name="subscription"
-                  value={option}
-                  checked={selectedSubscription === option}
-                  onChange={handleSubscriptionChange}
-                />
-                <label>
-                  <strong>{option}</strong> - ${(option === '1 Month' ? '24.95' :
-                    option === '3 Months' ? '69.85' :
-                      option === '6 Months' ? '129.70' : '239.40')}
-                </label>
-              </div>
-            ))}
-          </div>
-
-          {/* Buttons: Add to Cart, Give as Gift, Wishlist */}
-          <div className="button-container">
-            <button className="shbutton add-to-cart">Add to Cart</button>
-            <button className="shbutton give-gift">Give as Gift</button>
-            <button onClick={handleWishlistToggle} className={`shbutton wishlist ${isInWishlist ? 'active' : ''}`}>
-              {isInWishlist ? 'Remove from Wishlist' : 'Add to Wishlist'}
-            </button>
-          </div>
-        </div>
-      </div>
+       
 
 
 
@@ -223,7 +227,7 @@ const Shops = () => {
         <iframe
           width="560"
           height="315"
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ" // Replace with the actual video URL
+          src="https://www.youtube.com/embed/Z4R17TTg-wk?si=PAZNrUzGMwlraKma" 
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
