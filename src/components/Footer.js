@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faFacebook, faLinkedin, faYoutube,faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import "./Footer.css";
 import logoimage from './assets/images/logobw.png';
-
 const Footer = () => {
   const [showChat, setShowChat] = useState(false);
   const navigate = useNavigate();

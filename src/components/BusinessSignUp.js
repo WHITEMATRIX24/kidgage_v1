@@ -24,11 +24,11 @@ const BusinessSignUp = () => {
   const [success, setSuccess] = useState('');
   const [charCount, setCharCount] = useState(0);
   const charLimit = 500;
-  const [captchaValue, setCaptchaValue] = useState(null); // State to hold the captcha value
+  // const [captchaValue, setCaptchaValue] = useState(null); // State to hold the captcha value
 
-  const handleCaptchaChange = (value) => {
-    setCaptchaValue(value); // Store the captcha value
-  };
+  // const handleCaptchaChange = (value) => {
+  //   setCaptchaValue(value); // Store the captcha value
+  // };
   const cities = [
     "Doha", "Al Wakrah", "Al Khor", "Al Rayyan", 
     "Al Shamal", "Al Shahaniya", "Al Daayen", 

@@ -42,10 +42,7 @@ router.post('/signup', upload.fields([
     if (description.length < 450 || description.length > 500) {
       return res.status(400).json({ message: 'Description must be between 450 to 500 characters.' });
     }
-    const existingUser = await User.findOne({ $or: [{ email }, { phoneNumber }] });
-    if (existingUser) {
-      return res.status(400).json({ message: 'User with this email or phone number already exists.' });
-    }
+
     const files = req.files;
     const fileBase64 = {};
   
@@ -66,7 +63,10 @@ router.post('/signup', upload.fields([
       crFile: fileBase64.crFile,
       agreeTerms,
     });
-
+    const existingUser = await User.findOne({ $or: [{ email }, { phoneNumber }] });
+    if (existingUser) {
+      return res.status(400).json({ message: 'User with this email or phone number already exists.' });
+    }
     await newUser.save();
 
     // Send welcome email to the user
