@@ -285,30 +285,32 @@ const handleShare = (courseName, courseId) => {
         const space1Interval = setInterval(() => {
             setCurrentAdIndex((prevIndex) => {
                 const space1Ads = getAdsBySpace(1);
+                if (space1Ads.length === 0) return prevIndex; // Skip if no ads available
                 return {
                     ...prevIndex,
-                    space1: (prevIndex.space1 + 1) % space1Ads.length, // Cycle space 1 ads
+                    space1: (prevIndex.space1 + 1) % space1Ads.length,
                 };
             });
-        }, 3000); // 3-second interval for space 1
-
-        return () => clearInterval(space1Interval); // Cleanup interval on component unmount
+        }, 3000);
+    
+        return () => clearInterval(space1Interval);
     }, [advertisements]);
-
-    // Start interval for space 2 ads
+    
     useEffect(() => {
         const space2Interval = setInterval(() => {
             setCurrentAdIndex((prevIndex) => {
                 const space2Ads = getAdsBySpace(2);
+                if (space2Ads.length === 0) return prevIndex; // Skip if no ads available
                 return {
                     ...prevIndex,
-                    space2: (prevIndex.space2 + 1) % space2Ads.length, // Cycle space 2 ads
+                    space2: (prevIndex.space2 + 1) % space2Ads.length,
                 };
             });
-        }, 4000); // 5-second interval for space 2
-
-        return () => clearInterval(space2Interval); // Cleanup interval on component unmount
+        }, 4000);
+    
+        return () => clearInterval(space2Interval);
     }, [advertisements]);
+    
 
     const [isExpanded, setIsExpanded] = useState(false);
 
@@ -704,24 +706,24 @@ const handleShare = (courseName, courseId) => {
                 {/* banner section starts*/}
 
                 <div className="banner-container">
-            {space1Ads.length > 0 && (
-                <div className="card bcard1">
-                    <img
-                        src={isSmallScreen ? `data:image/jpeg;base64,${space1Ads[currentAdIndex.space1].mobileImage}` : `data:image/jpeg;base64,${space1Ads[currentAdIndex.space1].desktopImage}`}
-                        alt={`Banner Space 1`}
-                    />
+                {space1Ads.length > 0 && (
+                    <div className="card bcard1">
+                        <img
+                            src={isSmallScreen ? `data:image/jpeg;base64,${space1Ads[currentAdIndex.space1].mobileImage}` : `data:image/jpeg;base64,${space1Ads[currentAdIndex.space1].desktopImage}`}
+                            alt={`Banner Space 1`}
+                        />
+                    </div>
+                )}
+                {space2Ads.length > 0 && (
+                    <div className="card bcard2">
+                        <img
+                            src={isSmallScreen ? `data:image/jpeg;base64,${space2Ads[currentAdIndex.space2].mobileImage}` : `data:image/jpeg;base64,${space2Ads[currentAdIndex.space2].desktopImage}`}
+                            alt={`Banner Space 2`}
+                        />
+                    </div>
+                )}
+                {advertisements.length === 0 && <p>No advertisements found.</p>}
                 </div>
-            )}
-            {space2Ads.length > 0 && (
-                <div className="card bcard2">
-                    <img
-                        src={isSmallScreen ? `data:image/jpeg;base64,${space2Ads[currentAdIndex.space2].mobileImage}` : `data:image/jpeg;base64,${space2Ads[currentAdIndex.space2].desktopImage}`}
-                        alt={`Banner Space 2`}
-                    />
-                </div>
-            )}
-            {advertisements.length === 0 && <p>No advertisements found.</p>}
-        </div>
                 {/* banner section ends */}
             </div>
 

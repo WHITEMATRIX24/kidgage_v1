@@ -1355,7 +1355,7 @@ const Calendar = ({ providerName, courseName }) => {
       The course is scheduled for ${formattedDate} during the time slot of 
       ${convertTo12HourFormat(timeSlot.from)} to ${convertTo12HourFormat(timeSlot.to)}. 
       
-      The fee is ${courseDetails.feeAmount} (${formatted(courseDetails.feeType)}). 
+      The fee is QAR. ${courseDetails.feeAmount} (${formatted(courseDetails.feeType)}). 
       
       For more details, please visit ${url}.`;
 
