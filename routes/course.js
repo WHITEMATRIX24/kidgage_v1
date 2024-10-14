@@ -58,5 +58,25 @@ router.get('/by-course-type', async (req, res) => {
     }
 });
 
-
+router.get('/lowest-fee/:category', async (req, res) => {
+    try {
+      const category = req.params.category;
+  
+      // Fetch all courses that match the given category name
+      const courses = await Course.find({ courseType: category });
+  
+      if (courses.length === 0) {
+        return res.status(404).json({ message: 'No courses found for this category.' });
+      }
+  
+      // Extract the feeAmount and find the minimum
+      const fees = courses.map(course => course.feeAmount);
+      const minFee = Math.min(...fees);
+  
+      res.json({ minFee });
+    } catch (error) {
+      res.status(500).json({ message: 'Error fetching lowest fee', error });
+    }
+  });
+  
 module.exports = router;

@@ -40,39 +40,31 @@ const CTypeSlider = ({ viewAll }) => {
         const response = await axios.get('https://kidgage-backend.onrender.com/api/course-category/categories');
         const fetchedCategories = response.data;
         setCategories(fetchedCategories);
-
-        // Fetch courses and calculate lowest fee for each category
+  
+        // Fetch lowest course fees for each category
         const fees = {};
         await Promise.all(fetchedCategories.map(async (category) => {
           try {
-            const providerResponse = await axios.get(`https://kidgage-backend.onrender.com/api/users/all/${category.name}`);
-            const providerIds = providerResponse.data.map(provider => provider._id);
-            const courseResponse = await axios.get('https://kidgage-backend.onrender.com/api/courses/by-providers', {
-              params: { providerIds }
-            });
-            const coursesData = courseResponse.data;
-            if (coursesData.length > 0) {
-              const categoryFees = coursesData.map(course => course.feeAmount);
-              const minFee = Math.min(...categoryFees);
-              fees[category.name] = minFee;
-            } else {
-              fees[category.name] = 'NA';
-            }
+            const feeResponse = await axios.get(`https://kidgage-backend.onrender.com/api/courses/lowest-fee/${category.name}`);
+            const minFee = feeResponse.data.minFee;
+  
+            // If minFee is available, set it; otherwise, set it to 'NA'
+            fees[category.name] = minFee || 'NA';
           } catch (error) {
-            console.error(`Error fetching courses for category ${category.name}:`, error);
+            console.error(`Error fetching lowest fee for category ${category.name}:`, error);
             fees[category.name] = 'NA';
           }
         }));
-
+  
         setCategoryFees(fees);
       } catch (error) {
         console.error('Error fetching categories:', error);
       }
     };
-
+  
     fetchCategories();
   }, []);
-
+  
   const settings = {
     dots: false,
     infinite: true,
@@ -127,9 +119,10 @@ const CTypeSlider = ({ viewAll }) => {
               <div className="slides-overlays">
                 <div className='slides-overlay-text'>
                   <h2 className="product-name">{category.name}</h2>
-                  <p className="product-price">Starting from<br /><span className="start-price">QAR 99/-</span></p>
-                  {/* <p className="product-price">Starting from<br /><span className="start-price">QAR {categoryFees[category.name] !== undefined ? categoryFees[category.name] : '99'}/-</span></p> */}
-
+                  <p className="product-price">
+          Starting from<br />
+          <span className="start-price">QAR {categoryFees[category.name] !== 'NA' ? categoryFees[category.name] : '99'} /-</span>
+        </p>
                 </div>
               </div>
             </div>
