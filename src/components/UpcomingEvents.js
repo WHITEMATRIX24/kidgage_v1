@@ -169,7 +169,9 @@ const UpcomingEvents = () => {
       </h2>
     </div>
 
-      {loading && <div className="loading">Loading events...</div>}
+      {loading && <div className="loading-dots"><span></span>
+        <span></span>
+        <span></span></div>}
       {error && <div className="error">Error: {error}</div>}
       {!loading && !error && (
         <>

@@ -44,7 +44,11 @@ const HeroBanner = () => {
   return (
     <div className="hero-banner">
       {loading ? (
-        <div className="loading-dots"></div>
+        <div className="loading-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       ) : (
         <>
           <div className="hero-slider-container">
@@ -56,7 +60,7 @@ const HeroBanner = () => {
                   style={getSlideStyle(index)}
                 >
                   {slide.imageUrl ? (
-                    <img src={slide.imageUrl} alt={slide.title} loading="lazy" />
+                    <img src={slide.imageUrl} alt={slide.title} />
                   ) : (
                     <div className="placeholder">Image not available</div>
                   )}

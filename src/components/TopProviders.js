@@ -10,6 +10,7 @@ const TopProviders = () => {
   const [imageWidth, setImageWidth] = useState(0);
   const [sliderWidth, setSliderWidth] = useState(0);
   const [mounted, setMounted] = useState(false); // Track if the component has mounted
+  const [loading, setLoading] = useState(true);
   const logoSliderRef = useRef(null);
 
   useEffect(() => {
@@ -18,8 +19,12 @@ const TopProviders = () => {
       try {
         const response = await axios.get('https://kidgage-backend.onrender.com/api/users/all'); // Adjust the endpoint if necessary
         setProviders(response.data);
+        setLoading(false);
+
       } catch (error) {
         console.error('Error fetching providers:', error);
+        setLoading(false);
+
       }
     };
 
@@ -74,7 +79,16 @@ const TopProviders = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas massa
           lacus.
         </p>
+        {loading ? (
+        <div className="loading-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      ) : (
+        <>
         <div className="logo-container">
+        
           <div
             className="logo-slider"
             style={{ transform: `translateX(${position}px)` }}
@@ -98,6 +112,8 @@ const TopProviders = () => {
             ))}
           </div>
         )}
+        </>
+      )}
       </div>
       <div className="badge-image">
       <h2>Looking to advertise an activity? We can help.</h2>
@@ -105,6 +121,7 @@ const TopProviders = () => {
         
           <button className="list-your-academy-btn">List your academy</button>
         </Link>
+        
       </div>
       
     </div>

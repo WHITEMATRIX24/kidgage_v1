@@ -10,6 +10,7 @@ import axios from 'axios';
 const CTypeSlider = ({ viewAll }) => {
   const [categories, setCategories] = useState([]);
   const [categoryFees, setCategoryFees] = useState({});
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   const NextArrow = (props) => {
@@ -55,10 +56,14 @@ const CTypeSlider = ({ viewAll }) => {
             fees[category.name] = 'NA';
           }
         }));
-  
+        
         setCategoryFees(fees);
+        setLoading(false);
+
       } catch (error) {
         console.error('Error fetching categories:', error);
+        setLoading(false);
+
       }
     };
   
@@ -111,6 +116,14 @@ const CTypeSlider = ({ viewAll }) => {
     <div className="slider-container">
       <h2 className="slider-title">Top Activities</h2>
       <p className="slider-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas massa lacus.</p>
+      {loading ? (
+        <div className="loading-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      ) : (
+        <>
       {!viewAll ? (
         <Slider {...settings}>
           {categories.map((category, index) => (
@@ -152,6 +165,7 @@ const CTypeSlider = ({ viewAll }) => {
           </div>
         </div>
       )}
+      </>)}
     </div>
   );
 };
