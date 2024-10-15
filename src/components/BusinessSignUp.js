@@ -23,6 +23,7 @@ const BusinessSignUp = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [charCount, setCharCount] = useState(0);
+  const [isLoading, setIsLoading] = useState(false); // Manage loading state
   const charLimit = 500;
   // const [captchaValue, setCaptchaValue] = useState(null); // State to hold the captcha value
 
@@ -57,6 +58,7 @@ const BusinessSignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     console.log('button clicked!')
     // if (!captchaValue) {
     //   setError('Please complete the CAPTCHA verification.');
@@ -82,6 +84,9 @@ const BusinessSignUp = () => {
     } catch (error) {
         setError(error.response ? error.response.data.message : 'An error occurred. Please try again later.');
         setSuccess('');
+    }
+    finally {
+      setIsLoading(false); // Stop loader
     }
 };
   useEffect(() => {
@@ -220,6 +225,11 @@ const BusinessSignUp = () => {
 
           </div>
       </form>
+      {isLoading && (
+        <div className="su-overlay">
+          <div className="su-loader"></div>
+        </div>
+      )}
     </div>
   );
 };
