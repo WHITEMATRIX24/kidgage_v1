@@ -25,10 +25,12 @@ const Activities = () => {
     const [initialCategory, setInitialCategory] = useState(initialCategoryFromState || decodedName);
     const [courses, setCourses] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [loadinga, setLoadinga] = useState(true);
     const [error, setError] = useState(null);
     const [ageRange, setAgeRange] = useState({});
     const [providers, setProviders] = useState({}); // Change to an object to map providerId to provider details
     const [searchParams, setSearchParams] = useState(initialCategory || null); // Initialize with location category or null
+    
     useEffect(() => {
         // Update initialCategory whenever the URL or state changes
         setInitialCategory(initialCategoryFromState || decodedName);
@@ -273,8 +275,10 @@ const handleShare = (courseName, courseId) => {
         try {
             const response = await axios.get('https://kidgage-backend.onrender.com/api/advertisement');
             setAdvertisements(response.data);
+            setLoadinga(false);
         } catch (error) {
             console.error('Error fetching advertisements:', error);
+            setLoadinga(false);
         }
     };
     const getAdsBySpace = (space) => {
@@ -480,202 +484,49 @@ const handleShare = (courseName, courseId) => {
 
             <div className='activity-bottom'>
                 {/* card 1 */}
-                <div className='card-container'>
-                    <div className='card-container-top'>
-                        
-                        {courses.length > 0 ? (
-                                [
-                                    ...courses
-                                        .filter(course => course.promoted) // Get promoted courses
-                                        .filter(course => {
-                                            // Step 2: Check if selectedDate is between course.startDate and course.endDate
-                                            if (searchInitiated && selectedDate) {
-                                                const startDate = new Date(course.startDate);
-                                                const endDate = new Date(course.endDate);
-                                                const selected = new Date(selectedDate);
-                                                return selected >= startDate && selected <= endDate;
-                                            }
-                                            return true; // If no search has been initiated, return all courses
-                                        })
-                                        .filter(course => {
-                                            // Only filter by location if a search has been initiated
-                                            if (searchInitiated && selectedLocation) {
-                                                return course.location.some(loc => loc.city === selectedLocation);
-                                            }
-                                            return true; // If no search has been initiated, return all courses
-                                        })
-                                        .filter(course => {
-                                            // Only filter by age group if a search has been initiated
-                                            if (searchInitiated) {
-                                                const ageRange = course.ageGroup && course.ageGroup.length > 0
-                                                    ? calculateAgeRange(course.ageGroup[0].ageStart, course.ageGroup[0].ageEnd)
-                                                    : "Unavailable";
-                                                return isAgeGroupMatch(ageRange, selectedDob); // Filter based on age group
-                                            }
-                                            return true; // If no search has been initiated, return all courses
-                                        }),
-                                    ...courses
-                                        .filter(course => !course.promoted) // Get non-promoted courses
-                                        .filter(course => {
-                                            if (searchInitiated && selectedDate) {
-                                                const startDate = new Date(course.startDate);
-                                                const endDate = new Date(course.endDate);
-                                                const selected = new Date(selectedDate);
-                                                return selected >= startDate && selected <= endDate;
-                                            }
-                                            return true;
-                                        })
-                                        .filter(course => {
-                                            if (searchInitiated && selectedLocation) {
-                                                return course.location.some(loc => loc.city === selectedLocation);
-                                            }
-                                            return true;
-                                        })
-                                        .filter(course => {
-                                            if (searchInitiated) {
-                                                const ageRange = course.ageGroup && course.ageGroup.length > 0
-                                                    ? calculateAgeRange(course.ageGroup[0].ageStart, course.ageGroup[0].ageEnd)
-                                                    : "Unavailable";
-                                                return isAgeGroupMatch(ageRange, selectedDob);
-                                            }
-                                            return true;
-                                        })
-                                ]
-                                .map((course) => (
-                                    <div className="activity-card cards" key={course._id} >
-                                        <div className="activity-image" onClick={() => handleClick(course._id)}>
-                                            {/* Display image if available */}
-                                            {course.images && course.images.length > 0 ? (
-                                                <img src={`data:image/png;base64,${course.images[0]}`} alt="Course Image" />
-                                            ) : (
-                                                <img src={football} alt="Placeholder" />
-                                            )}
-                                            {course.promoted && (
-                                                <div className="promoted-overlay">
-                                                    <div className="promoted-label">Promoted</div>
-                                                </div>
-                                            )}
-                                        </div>
-                                        <div className="activity-details" >
-                                            <div className='activity-card-in' onClick={() => handleClick(course._id)}>
-                                                <div className='info-with-img'>
-                                                    <div className='descp'>
-                                                        <h3>{course.name}</h3>
-                                                        
-                                                        <div className="act-location">
+                
+<div className='card-container'>
+{loading?( <div className='loader-container'><div className="loading-dots"><span></span>
+        <span></span>
+        <span></span></div></div>):(
 
-                                                                {/* <i className="fa-solid fa-location-dot"></i> */}
-                                                                <div style={{display:'flex', marginLeft: '5px' }}>
-                                                                    {/* Display location if available */}
-                                                                    {course.location && course.location.length > 0 ? (
-                                                                        course.location.map((loc, index) => (
-                                                                            <div key={index} className="activity-location">
-                                                                            <p style={{marginRight:'8px'}}>
-                                                                                <i className="fa-solid fa-location-dot" style={{marginRight: '5px'}}></i>
-                                                                                {loc.address}
-                                                                            </p>                                                                            
-                                                                            </div>
-                                                                        ))
-                                                                    ) : (
-                                                                        <p>No locations available</p>
-                                                                    )}
-                                                                    
-
-                                                                </div>
-                                                        </div>
-                                                        <span style={{ color: '#5EA858', fontWeight: 'bold' }}>QAR.  {`${course.feeAmount} (${formatFeeType(course.feeType)})`}
-                                                                    </span>
-                                                        <div className="info-row">
-                                                            {/* Display age range if applicable */}
-                                                            <img src={getGenderImage(course.preferredGender)} alt="gender" style={{ width: '5%', height: 'auto', marginTop: '-1%',marginRight:'10px'  }} />
-                                                            <div className="age-group">
-                                                                {course.ageGroup && course.ageGroup.length > 0 ? (
-                                                                    <span className="age-text">{calculateAgeRange(course.ageGroup[0].ageStart, course.ageGroup[0].ageEnd)}</span>
-                                                                ) : (
-                                                                    <span className="age-text">Unavailable</span>
-                                                                )}
-                                                            </div>
-                                                            <img src={calendar} alt='calendar' style={{ width: '5%', height: 'auto', marginTop: '-2%' }} />
-                                                            <div className="day-selector">
-                                                                {allDays.map((day) => (
-                                                                    <span
-                                                                        key={day}
-                                                                        className={`day ${course.days.includes(day) ? 'active' : ''}`}
-                                                                    >
-                                                                        {day}
-                                                                    </span>
-                                                                ))}
-                                                            </div>
-                                                        </div>
-                                                        {/* Flex container for description and logo image */}
-                                                        <div className='description-logo-container' >
-                                                        <p className="activity-description">
-                                                                {course.description || 'No description available'}
-                                                            </p>
-                                                            <div className="additional-info">
-                                                                <div className="info-image">
-                                                                    {/* Display additional info image if available */}
-                                                                    {providers[course.providerId] && providers[course.providerId].logo ? (
-                                                                        <img src={`data:image/jpeg;base64,${providers[course.providerId].logo}`} alt="Provider" />
-                                                                    ) : (
-                                                                        <img src={placeholderLogo} alt="Placeholder Provider" />
-                                                                    )}
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div className='gap-after' style={{ height: '3px' }}></div>
-                                                </div>
-                                            </div>
-
-                                            {/* Chevron dropdown for smaller screens only
-                                            <div className="chevron-dropdown" onClick={() => setIsExpanded(!isExpanded)}>
-                                                {isExpanded ? 'See Less' : 'See More'}
-                                                <i className={`fa-solid fa-chevron-${isExpanded ? 'up' : 'down'}`}></i>
-                                            </div> */}
-
-                                            {/* Activity Actions Section */}
-                                            <div className={`activity-actions ${isExpanded ? 'visible' : 'hidden'}`}>
-                                            <div className='activity-buttons'>
-                                                    <button
-                                                        className="book-now"
-                                                        style={{ backgroundColor: '#5EA858' }}
-                                                        onClick={() => {
-                                                            const provider = providers[course.providerId];
-                                                            const providerName = provider ? provider.username : 'Unknown Provider';
-                                                            sendMessage(course.name, providerName,course._id,course.feeAmount,formatFeeType(course.feeType));
-                                                        }}
-                                                    >
-                                                        <i className="fa-brands fa-whatsapp"></i>
-                                                        <span style={{ marginLeft: '5px', fontWeight: 'bold' }}>Book Now</span>
-                                                    </button>
-
-                                                    <button className="share" style={{ backgroundColor: '#3880C4' }} onClick={() => handleShare(course.name, course._id)}>
-                                                        <i className="fa-solid fa-share"></i>
-                                                        <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Share</span>
-                                                    </button>
-                                                    <button className="save" style={{ backgroundColor: '#3880C4' }} onClick={() => addToWishlist(course)}>
-                                                        <i className="fa-regular fa-bookmark"></i>
-                                                        <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Save</span>
-                                                    </button>
-                                                </div>
-                                                <div className='more-btn'>
-                                                    <button className="more" onClick={() => handleNavigate(course.providerId)}>See more from this provider</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))
-                                
-                        ) : (
-                            <p>No courses available for this category.</p>
-                        )}
-                        
-                        {searchInitiated && (
-                <>
-                    {courses
+<div className='card-container-top'>
+    
+    {courses.length > 0 ? (
+            [
+                ...courses
+                    .filter(course => course.promoted) // Get promoted courses
                     .filter(course => {
-                        if (selectedDate) {
+                        // Step 2: Check if selectedDate is between course.startDate and course.endDate
+                        if (searchInitiated && selectedDate) {
+                            const startDate = new Date(course.startDate);
+                            const endDate = new Date(course.endDate);
+                            const selected = new Date(selectedDate);
+                            return selected >= startDate && selected <= endDate;
+                        }
+                        return true; // If no search has been initiated, return all courses
+                    })
+                    .filter(course => {
+                        // Only filter by location if a search has been initiated
+                        if (searchInitiated && selectedLocation) {
+                            return course.location.some(loc => loc.city === selectedLocation);
+                        }
+                        return true; // If no search has been initiated, return all courses
+                    })
+                    .filter(course => {
+                        // Only filter by age group if a search has been initiated
+                        if (searchInitiated) {
+                            const ageRange = course.ageGroup && course.ageGroup.length > 0
+                                ? calculateAgeRange(course.ageGroup[0].ageStart, course.ageGroup[0].ageEnd)
+                                : "Unavailable";
+                            return isAgeGroupMatch(ageRange, selectedDob); // Filter based on age group
+                        }
+                        return true; // If no search has been initiated, return all courses
+                    }),
+                ...courses
+                    .filter(course => !course.promoted) // Get non-promoted courses
+                    .filter(course => {
+                        if (searchInitiated && selectedDate) {
                             const startDate = new Date(course.startDate);
                             const endDate = new Date(course.endDate);
                             const selected = new Date(selectedDate);
@@ -683,46 +534,213 @@ const handleShare = (courseName, courseId) => {
                         }
                         return true;
                     })
-                        .filter((course) => {
-                            if (selectedLocation) {
-                                return course.location.some((loc) => loc.city === selectedLocation);
-                            }
-                            return true;
-                        })
-                        .filter((course) => {
+                    .filter(course => {
+                        if (searchInitiated && selectedLocation) {
+                            return course.location.some(loc => loc.city === selectedLocation);
+                        }
+                        return true;
+                    })
+                    .filter(course => {
+                        if (searchInitiated) {
                             const ageRange = course.ageGroup && course.ageGroup.length > 0
                                 ? calculateAgeRange(course.ageGroup[0].ageStart, course.ageGroup[0].ageEnd)
                                 : "Unavailable";
-                            return isAgeGroupMatch(ageRange, selectedDob); // Filter based on age group
-                        }).length === 0 && (
-                            <p>There are no courses available under the selections made.</p>
+                            return isAgeGroupMatch(ageRange, selectedDob);
+                        }
+                        return true;
+                    })
+            ]
+            .map((course) => (
+                <div className="activity-card cards" key={course._id} >
+                    <div className="activity-image" onClick={() => handleClick(course._id)}>
+                        {/* Display image if available */}
+                        {course.images && course.images.length > 0 ? (
+                            <img src={`data:image/png;base64,${course.images[0]}`} alt="Course Image" />
+                        ) : (
+                            <img src={football} alt="Placeholder" />
                         )}
-                </>
-            )}
+                        {course.promoted && (
+                            <div className="promoted-overlay">
+                                <div className="promoted-label">Promoted</div>
+                            </div>
+                        )}
+                    </div>
+                    <div className="activity-details" >
+                        <div className='activity-card-in' onClick={() => handleClick(course._id)}>
+                            <div className='info-with-img'>
+                                <div className='descp'>
+                                    <h3>{course.name}</h3>
+                                    
+                                    <div className="act-location">
+
+                                            {/* <i className="fa-solid fa-location-dot"></i> */}
+                                            <div style={{display:'flex', marginLeft: '5px' }}>
+                                                {/* Display location if available */}
+                                                {course.location && course.location.length > 0 ? (
+                                                    course.location.map((loc, index) => (
+                                                        <div key={index} className="activity-location">
+                                                        <p style={{marginRight:'8px'}}>
+                                                            <i className="fa-solid fa-location-dot" style={{marginRight: '5px'}}></i>
+                                                            {loc.address}
+                                                        </p>                                                                            
+                                                        </div>
+                                                    ))
+                                                ) : (
+                                                    <p>No locations available</p>
+                                                )}
+                                                
+
+                                            </div>
+                                    </div>
+                                    <span style={{ color: '#5EA858', fontWeight: 'bold' }}>QAR.  {`${course.feeAmount} (${formatFeeType(course.feeType)})`}
+                                                </span>
+                                    <div className="info-row">
+                                        {/* Display age range if applicable */}
+                                        <img src={getGenderImage(course.preferredGender)} alt="gender" style={{ width: '5%', height: 'auto', marginTop: '-1%',marginRight:'10px'  }} />
+                                        <div className="age-group">
+                                            {course.ageGroup && course.ageGroup.length > 0 ? (
+                                                <span className="age-text">{calculateAgeRange(course.ageGroup[0].ageStart, course.ageGroup[0].ageEnd)}</span>
+                                            ) : (
+                                                <span className="age-text">Unavailable</span>
+                                            )}
+                                        </div>
+                                        <img src={calendar} alt='calendar' style={{ width: '5%', height: 'auto', marginTop: '-2%' }} />
+                                        <div className="day-selector">
+                                            {allDays.map((day) => (
+                                                <span
+                                                    key={day}
+                                                    className={`day ${course.days.includes(day) ? 'active' : ''}`}
+                                                >
+                                                    {day}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    {/* Flex container for description and logo image */}
+                                    <div className='description-logo-container' >
+                                    <p className="activity-description">
+                                            {course.description || 'No description available'}
+                                        </p>
+                                        <div className="additional-info">
+                                            <div className="info-image">
+                                                {/* Display additional info image if available */}
+                                                {providers[course.providerId] && providers[course.providerId].logo ? (
+                                                    <img src={`data:image/jpeg;base64,${providers[course.providerId].logo}`} alt="Provider" />
+                                                ) : (
+                                                    <img src={placeholderLogo} alt="Placeholder Provider" />
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='gap-after' style={{ height: '3px' }}></div>
+                            </div>
+                        </div>
+
+                        {/* Chevron dropdown for smaller screens only
+                        <div className="chevron-dropdown" onClick={() => setIsExpanded(!isExpanded)}>
+                            {isExpanded ? 'See Less' : 'See More'}
+                            <i className={`fa-solid fa-chevron-${isExpanded ? 'up' : 'down'}`}></i>
+                        </div> */}
+
+                        {/* Activity Actions Section */}
+                        <div className={`activity-actions ${isExpanded ? 'visible' : 'hidden'}`}>
+                        <div className='activity-buttons'>
+                                <button
+                                    className="book-now"
+                                    style={{ backgroundColor: '#5EA858' }}
+                                    onClick={() => {
+                                        const provider = providers[course.providerId];
+                                        const providerName = provider ? provider.username : 'Unknown Provider';
+                                        sendMessage(course.name, providerName,course._id,course.feeAmount,formatFeeType(course.feeType));
+                                    }}
+                                >
+                                    <i className="fa-brands fa-whatsapp"></i>
+                                    <span style={{ marginLeft: '5px', fontWeight: 'bold' }}>Book Now</span>
+                                </button>
+
+                                <button className="share" style={{ backgroundColor: '#3880C4' }} onClick={() => handleShare(course.name, course._id)}>
+                                    <i className="fa-solid fa-share"></i>
+                                    <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Share</span>
+                                </button>
+                                <button className="save" style={{ backgroundColor: '#3880C4' }} onClick={() => addToWishlist(course)}>
+                                    <i className="fa-regular fa-bookmark"></i>
+                                    <span style={{ marginLeft: '5px', fontWeight: 'bold' }}> Save</span>
+                                </button>
+                            </div>
+                            <div className='more-btn'>
+                                <button className="more" onClick={() => handleNavigate(course.providerId)}>See more from this provider</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            ))
+            
+    ) : (
+        <p>No courses available for this category.</p>
+    )}
+    
+    {searchInitiated && (
+<>
+{courses
+.filter(course => {
+    if (selectedDate) {
+        const startDate = new Date(course.startDate);
+        const endDate = new Date(course.endDate);
+        const selected = new Date(selectedDate);
+        return selected >= startDate && selected <= endDate;
+    }
+    return true;
+})
+    .filter((course) => {
+        if (selectedLocation) {
+            return course.location.some((loc) => loc.city === selectedLocation);
+        }
+        return true;
+    })
+    .filter((course) => {
+        const ageRange = course.ageGroup && course.ageGroup.length > 0
+            ? calculateAgeRange(course.ageGroup[0].ageStart, course.ageGroup[0].ageEnd)
+            : "Unavailable";
+        return isAgeGroupMatch(ageRange, selectedDob); // Filter based on age group
+    }).length === 0 && (
+        <p>There are no courses available under the selections made.</p>
+    )}
+</>
+)}
+</div>
+        ) }
+</div>
+        
                 {/* cards ends */}
 
                 {/* banner section starts*/}
 
                 <div className="banner-container">
-                {space1Ads.length > 0 && (
-                    <div className="card bcard1">
-                        <img
-                            src={isSmallScreen ? `data:image/jpeg;base64,${space1Ads[currentAdIndex.space1].mobileImage}` : `data:image/jpeg;base64,${space1Ads[currentAdIndex.space1].desktopImage}`}
-                            alt={`Banner Space 1`}
-                        />
-                    </div>
-                )}
-                {space2Ads.length > 0 && (
-                    <div className="card bcard2">
-                        <img
-                            src={isSmallScreen ? `data:image/jpeg;base64,${space2Ads[currentAdIndex.space2].mobileImage}` : `data:image/jpeg;base64,${space2Ads[currentAdIndex.space2].desktopImage}`}
-                            alt={`Banner Space 2`}
-                        />
-                    </div>
-                )}
-                {advertisements.length === 0 && <p>No advertisements found.</p>}
+                    {loadinga?(<div className="secloader-container">
+                    <div className="secloader"></div>
+                        </div>):(
+                            <>
+                        {space1Ads.length > 0 && (
+                            <div className="card bcard1">
+                                <img
+                                    src={isSmallScreen ? `data:image/jpeg;base64,${space1Ads[currentAdIndex.space1].mobileImage}` : `data:image/jpeg;base64,${space1Ads[currentAdIndex.space1].desktopImage}`}
+                                    alt={`Banner Space 1`}
+                                />
+                            </div>
+                        )}
+                        {space2Ads.length > 0 && (
+                            <div className="card bcard2">
+                                <img
+                                    src={isSmallScreen ? `data:image/jpeg;base64,${space2Ads[currentAdIndex.space2].mobileImage}` : `data:image/jpeg;base64,${space2Ads[currentAdIndex.space2].desktopImage}`}
+                                    alt={`Banner Space 2`}
+                                />
+                            </div>
+                        )}
+                        {advertisements.length === 0 && <p>No advertisements found.</p>}
+
+                        </>
+                    )}
                 </div>
                 {/* banner section ends */}
             </div>

@@ -95,7 +95,34 @@ const ActivityInfo = () => {
     };
 
     if (!course || !provider) {
-        return <div>Loading...</div>;
+        return <div className="activity-info-container">
+        <Header/>
+        <div className="activity-info-content">
+            <div className="activity-info-breadcrumb">
+                <div className='activity-info-path'>
+                    <FontAwesomeIcon icon={faHome} />
+                    <FontAwesomeIcon icon={faChevronRight} />
+                    Activity
+                </div>
+                <div className="activity-info-actions">
+                    <button className="activity-info-action-btn" onClick={handleShare}>
+                        <FontAwesomeIcon icon={faLocationArrow} /> Share
+                    </button>
+                    <button className="activity-info-action-btn" onClick={() => addToWishlist(course)}>
+                        <FontAwesomeIcon icon={faBookmark} /> Save
+                    </button>
+                </div>
+            </div>
+        <div className="info-loading-dots">
+       <div className="loading-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      </div>
+      </div>
+            <Footer />
+        </div>;
     }
     const formatFeeType = (feeType) => {
         return feeType

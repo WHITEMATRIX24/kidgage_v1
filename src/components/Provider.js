@@ -17,6 +17,7 @@ const ProviderInfo = () => {
     const location = useLocation();
     const { provider } = location.state || {}; // Get provider from state
     const [courses, setCourses] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     // Fetch courses by providerId
     useEffect(() => {
@@ -28,9 +29,13 @@ const ProviderInfo = () => {
             })
             .then((response) => {
                 setCourses(response.data); // Set the courses to state
+                setLoading(false);
+
             })
             .catch((error) => {
                 console.error('Error fetching courses:', error);
+                setLoading(false);
+
             });
         }
     }, [provider]);
@@ -339,7 +344,16 @@ const ProviderInfo = () => {
 
                 {/* Display courses */}
                 <div className="provider-courses">
+                
                     <h2>Courses Offered by {provider.username}</h2>
+                    {loading?(<div className="prov-loading-dots">
+                        <div className="loading-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                </div>):(
+                    <>
                     {courses.length > 0 ? (
                         <ul className="pr-courses-list">
                     {courses.slice(0, visibleCourses).map((course) => (
@@ -444,6 +458,8 @@ const ProviderInfo = () => {
                     )}
                     
 
+                    </>
+                )}
                 </div>
                 {visibleCourses < courses.length && (
                 <div className="see-more-cont">
