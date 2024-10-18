@@ -38,7 +38,7 @@ const CTypeSlider = ({ viewAll }) => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get('https://kidgage-backend.onrender.com/api/course-category/categories');
+        const response = await axios.get('http://localhost:5000/api/course-category/categories');
         const fetchedCategories = response.data;
         setCategories(fetchedCategories);
   
@@ -46,7 +46,7 @@ const CTypeSlider = ({ viewAll }) => {
         const fees = {};
         await Promise.all(fetchedCategories.map(async (category) => {
           try {
-            const feeResponse = await axios.get(`https://kidgage-backend.onrender.com/api/courses/lowest-fee/${category.name}`);
+            const feeResponse = await axios.get(`http://localhost:5000/api/courses/lowest-fee/${category.name}`);
             const minFee = feeResponse.data.minFee;
   
             // If minFee is available, set it; otherwise, set it to 'NA'
@@ -117,7 +117,7 @@ const CTypeSlider = ({ viewAll }) => {
       <h2 className="slider-title">Top Activities</h2>
       <p className="slider-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas massa lacus.</p>
       {loading ? (
-        <div className="loading-dots">
+        <div className="loading-dots1">
         <span></span>
         <span></span>
         <span></span>
