@@ -327,8 +327,8 @@ const ProviderInfo = () => {
                                 className="pro-logoimage" 
                             />
                         </div>
-                        <div style={{display:'flex', flexDirection:'row', marginTop:'10px'}}>
-                        <img src={verified} style={{height:'20px', width:'auto', marginRight:'5px'}}></img><p style={{fontWeight:'bold',color:'darkblue'}}>Verified by Kidgage</p>
+                        <div className='verified-div' style={{display:'flex', flexDirection:'row', marginTop:'10px'}}>
+                            <img src={verified} style={{height:'20px', width:'auto', marginRight:'5px'}}></img><p style={{fontWeight:'bold',color:'darkblue'}}>Verified by Kidgage</p>
                         </div>
                         <div>
                         </div>
